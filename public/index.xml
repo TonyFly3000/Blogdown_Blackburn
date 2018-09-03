@@ -13,6 +13,15 @@
     
     
     <item>
+      <title>Get R</title>
+      <link>/project/get-r/</link>
+      <pubDate>Tue, 04 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/project/get-r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>【數字‧你懂的】從蘋果iPhone看美中貿易逆差</title>
       <link>/post/data-you-know-iphone/</link>
       <pubDate>Tue, 04 Sep 2018 00:00:00 +0000</pubDate>
@@ -69,6 +78,15 @@ print (iris.feature_names) # metadata: names of the features## [&amp;#39;sepal 
       
       <guid>/post/how-overnight-shipping-works/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>Project</title>
+      <link>/project/</link>
+      <pubDate>Mon, 30 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/project/</guid>
+      <description> Get R: Get Python: </description>
     </item>
     
     <item>
