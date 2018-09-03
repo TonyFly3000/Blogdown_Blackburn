@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R Markdown on Tony Duan</title>
+    <link>/tags/r-markdown/</link>
+    <description>Recent content in R Markdown on Tony Duan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate>
+    
+	<atom:link href="/tags/r-markdown/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hello R Markdown</title>
+      <link>/post/2018-08-31-tokyo/</link>
+      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      
+      <guid>/post/2018-08-31-tokyo/</guid>
+      <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+You can embed an R code chunk like this:
+summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
+    </item>
+    
+    <item>
+      <title>東京 | Tokyo</title>
+      <link>/post/2015-07-23-r-rmarkdown/</link>
+      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      
+      <guid>/post/2015-07-23-r-rmarkdown/</guid>
+      <description>Location:library(leaflet)library(ggmap)location=geocode( &amp;quot;Tokyo&amp;quot; )## Warning in readLines(connect, warn = FALSE): InternetOpenUrl failed: &amp;#39;The## connection with the server was reset&amp;#39;## Warning in geocode(&amp;quot;Tokyo&amp;quot;): geocoding failed for &amp;quot;Tokyo&amp;quot;.## if accompanied by 500 Internal Server Error with using dsk, try google.m &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=location$lon, lat=location$lat, zoom = 05) %&amp;gt;%addMarkers(lng=location$lon, lat=location$lat, popup=&amp;quot;Tokyo&amp;quot;)## Warning in validateCoords(lng, lat, funcName): Data contains 1 rows with## either missing or invalid lat/lon values and will be ignoredm{&#34;</description>
+    </item>
+    
+  </channel>
+</rss>

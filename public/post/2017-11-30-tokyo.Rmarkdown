@@ -1,0 +1,29 @@
+---
+title: 東京 | Tokyo
+author: ''
+date: '2017-11-30'
+slug: tokyo
+categories: []
+tags: []
+description: 'hahaha'
+topics: []
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+
+## Location:
+```{r message=FALSE}
+library(leaflet)
+library(ggmap)
+location=geocode( "Tokyo" )
+m <- leaflet()%>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  setView(lng=location$lon, lat=location$lat, zoom = 05) %>%
+addMarkers(lng=location$lon, lat=location$lat, popup="Tokyo")
+m
+
+```

@@ -1,0 +1,53 @@
+---
+title: Decision Tree model in python
+author: ''
+date: '2018-09-01'
+slug: decision-tree-model-in-python
+categories: []
+tags: []
+description: 'Decision Tree model in python'
+topics: []
+---
+
+
+
+<p>import pacakges and load iris dataset</p>
+<pre class="python"><code>from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn import tree
+from sklearn.metrics import accuracy_score
+iris = load_iris()
+print (iris.feature_names)  # metadata: names of the features</code></pre>
+<pre><code>## [&#39;sepal length (cm)&#39;, &#39;sepal width (cm)&#39;, &#39;petal length (cm)&#39;, &#39;petal width (cm)&#39;]</code></pre>
+<pre class="python"><code>print (iris.target_names)  # metadata: names of the different types of flowers</code></pre>
+<pre><code>## [&#39;setosa&#39; &#39;versicolor&#39; &#39;virginica&#39;]</code></pre>
+<pre class="python"><code>X = iris.data  # features
+y = iris.target  # labels</code></pre>
+<p>X_train is train features and X_test is test features</p>
+<p>y_train is train label and y_test is test label</p>
+<p>with 0.3 splict, we have 70% obs(105) for training and 30% obs(45) for testing</p>
+<pre class="python"><code>X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
+print(len(X_train))</code></pre>
+<pre><code>## 105</code></pre>
+<pre class="python"><code>print(len(X_test))</code></pre>
+<pre><code>## 45</code></pre>
+<p>Traning default DecisionTree model give us overall testing accuracy：</p>
+<pre class="python"><code># define model
+my_classifier = tree.DecisionTreeClassifier()
+# train model on trainning data
+my_classifier.fit(X_train, y_train)
+# make prediction on testing data
+predictions = my_classifier.predict(X_test)
+#print (predictions)
+score=accuracy_score(y_test, predictions)
+print(score)</code></pre>
+<pre><code>## 0.9555555555555556</code></pre>
+<div id="reference" class="section level3">
+<h3>Reference</h3>
+<ul>
+<li><p><a href="https://github.com/machine-learning-projects/machine-learning-recipes" class="uri">https://github.com/machine-learning-projects/machine-learning-recipes</a></p></li>
+<li><p><a href="https://www.youtube.com/playlist?list=PLOU2XLYxmsIIuiBfYad6rFYQU_jL2ryal" class="uri">https://www.youtube.com/playlist?list=PLOU2XLYxmsIIuiBfYad6rFYQU_jL2ryal</a></p></li>
+<li><p><a href="https://developers.google.com/machine-learning/guides/rules-of-ml/" class="uri">https://developers.google.com/machine-learning/guides/rules-of-ml/</a></p></li>
+<li><p><a href="https://developers.google.com/machine-learning/glossary/" class="uri">https://developers.google.com/machine-learning/glossary/</a></p></li>
+</ul>
+</div>

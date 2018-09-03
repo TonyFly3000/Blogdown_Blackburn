@@ -1,0 +1,22 @@
+---
+title: "東京 | Tokyo"
+author: "Tony Duan"
+date: 2015-07-23T21:13:14-05:00
+categories: []
+tags: ["R", "data"]
+description: 'Its Tokyo'
+---
+
+
+## Location:
+```{r message=FALSE}
+library(leaflet)
+library(ggmap)
+location=geocode( "Tokyo" )
+m <- leaflet()%>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  setView(lng=location$lon, lat=location$lat, zoom = 05) %>%
+addMarkers(lng=location$lon, lat=location$lat, popup="Tokyo")
+m
+
+```
