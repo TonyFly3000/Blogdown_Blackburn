@@ -4,10 +4,10 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Its Tokyo">
+  <meta name="description" content="KNN model in python">
   <meta name="generator" content="Hugo 0.48" />
 
-  <title>東京 | Tokyo &middot; Tony Duan</title>
+  <title>KNN model in python &middot; Tony Duan</title>
 
   
   
@@ -207,7 +207,7 @@
 
 
 <div class="header">
-  <h1>東京 | Tokyo</h1>
+  <h1>KNN model in python</h1>
 </div>
 <div class="content">
 
@@ -215,7 +215,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>30 Nov 2017, 00:00</time>
+    <time>01 Sep 2018, 00:00</time>
   </div>
 
   
@@ -231,7 +231,9 @@
   <div>
     <i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="/tags/travel">travel</a>
+      <a class="post-taxonomy-tag" href="/tags/python">python</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="/tags/data">data</a>
     
   </div>
   
@@ -239,29 +241,48 @@
 
 </div>
 
-  <script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
-<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
-<link href="/rmarkdown-libs/leaflet/leaflet.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/leaflet/leaflet.js"></script>
-<link href="/rmarkdown-libs/leafletfix/leafletfix.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/Proj4Leaflet/proj4-compressed.js"></script>
-<script src="/rmarkdown-libs/Proj4Leaflet/proj4leaflet.js"></script>
-<link href="/rmarkdown-libs/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/leaflet-binding/leaflet.js"></script>
-
-
-<div id="location" class="section level2">
-<h2>Location:</h2>
-<pre class="r"><code>library(leaflet)
-library(ggmap)
-location=geocode( &quot;Tokyo&quot; )
-m &lt;- leaflet()%&gt;%
-  addTiles() %&gt;%  # Add default OpenStreetMap map tiles
-  setView(lng=location$lon, lat=location$lat, zoom = 05) %&gt;%
-addMarkers(lng=location$lon, lat=location$lat, popup=&quot;Tokyo&quot;)
-m</code></pre>
-<div id="htmlwidget-1" style="width:672px;height:480px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[35.6894875,139.6917064,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Tokyo",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"setView":[[35.6894875,139.6917064],5,[]],"limits":{"lat":[35.6894875,35.6894875],"lng":[139.6917064,139.6917064]}},"evals":[],"jsHooks":[]}</script>
+  <p>1.Get:import pacakges and load iris dataset</p>
+<pre class="python"><code>from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import accuracy_score
+iris = load_iris()</code></pre>
+<p>2.Clean
+X_train is train features and X_test is test features.
+y_train is train label and y_test is test label.
+with 0.3 splict, we have 70% obs(105) for training and 30% obs(45) for testing.</p>
+<pre class="python"><code>print (iris.feature_names)  # metadata: names of the features</code></pre>
+<pre><code>## [&#39;sepal length (cm)&#39;, &#39;sepal width (cm)&#39;, &#39;petal length (cm)&#39;, &#39;petal width (cm)&#39;]</code></pre>
+<pre class="python"><code>print (iris.target_names)  # metadata: names of the different types of flowers</code></pre>
+<pre><code>## [&#39;setosa&#39; &#39;versicolor&#39; &#39;virginica&#39;]</code></pre>
+<pre class="python"><code>X = iris.data  # features
+y = iris.target  # labels
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
+print(len(X_train))</code></pre>
+<pre><code>## 105</code></pre>
+<pre class="python"><code>print(len(X_test))</code></pre>
+<pre><code>## 45</code></pre>
+<p>3.Visualize</p>
+<p>4.Model
+Traning default KNN model give us overall testing accuracy：</p>
+<pre class="python"><code># define model
+my_classifier = KNeighborsClassifier()
+# train model on trainning data
+my_classifier.fit(X_train, y_train)
+# make prediction on testing data
+predictions = my_classifier.predict(X_test)
+#print (predictions)
+print (accuracy_score(y_test, predictions))</code></pre>
+<pre><code>## 1.0</code></pre>
+<div id="reference" class="section level3">
+<h3>Reference</h3>
+<ul>
+<li><p><a href="https://github.com/machine-learning-projects/machine-learning-recipes" class="uri">https://github.com/machine-learning-projects/machine-learning-recipes</a></p></li>
+<li><p><a href="https://www.youtube.com/playlist?list=PLOU2XLYxmsIIuiBfYad6rFYQU_jL2ryal" class="uri">https://www.youtube.com/playlist?list=PLOU2XLYxmsIIuiBfYad6rFYQU_jL2ryal</a></p></li>
+<li><p><a href="https://developers.google.com/machine-learning/guides/rules-of-ml/" class="uri">https://developers.google.com/machine-learning/guides/rules-of-ml/</a></p></li>
+<li><p><a href="https://developers.google.com/machine-learning/glossary/" class="uri">https://developers.google.com/machine-learning/glossary/</a></p></li>
+<li><p><a href="http://playground.tensorflow.org" class="uri">http://playground.tensorflow.org</a></p></li>
+</ul>
 </div>
 
 
@@ -269,13 +290,13 @@ m</code></pre>
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="/post/migrate-from-jekyll/"><i class="fa fa-chevron-left"></i></a>
+    <a href="/post/machine-learning-over-coffee-with-josh-gordon/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="/post/migrate-from-jekyll/">Migrate to Hugo from Jekyll</a>
+      <a href="/post/machine-learning-over-coffee-with-josh-gordon/">Machine Learning over Coffee with Josh Gordon</a>
     </nav>
     
   </div>
@@ -285,13 +306,13 @@ m</code></pre>
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="/post/how-overnight-shipping-works/">How Overnight Shipping Works</a>
+      <a href="/post/decision-tree-model-in-python/">Decision Tree model in python</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="/post/how-overnight-shipping-works/"><i class="fa fa-chevron-right"></i></a>
+    <a href="/post/decision-tree-model-in-python/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>

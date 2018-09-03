@@ -1,26 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Data on Tony Duan</title>
-    <link>/tags/data/</link>
-    <description>Recent content in Data on Tony Duan</description>
+    <title>Python on Tony Duan</title>
+    <link>/tags/python/</link>
+    <description>Recent content in Python on Tony Duan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 04 Sep 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 01 Sep 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/data/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>【數字‧你懂的】從蘋果iPhone看美中貿易逆差</title>
-      <link>/post/data-you-know-iphone/</link>
-      <pubDate>Tue, 04 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/data-you-know-iphone/</guid>
-      <description>Please advise to remove immediately if any infringement caused
-Apple become the first US company with market cap &amp;gt;1T USD after a strong 2018Q3 earning when stock price go up to $200 per sharePetroChina is the first company market cap &amp;gt;1T USD at 2007 but it decrease to 200B until todayChina export $15B iphone to US in a year which contribute 5% of total US-China trade deficit $375B$1000 iphoneX manufacture cost is $350 and 5% of it contribute by China ,mainly battery and assemblyReferencehttps://www.</description>
-    </item>
     
     <item>
       <title>Decision Tree model in python</title>
@@ -41,15 +31,6 @@ from sklearn.datasets import load_irisfrom sklearn.model_selection import train
       <description>1.Get:import pacakges and load iris dataset
 from sklearn.datasets import load_irisfrom sklearn.model_selection import train_test_splitfrom sklearn.neighbors import KNeighborsClassifierfrom sklearn.metrics import accuracy_scoreiris = load_iris()2.CleanX_train is train features and X_test is test features.y_train is train label and y_test is test label.with 0.3 splict, we have 70% obs(105) for training and 30% obs(45) for testing.
 print (iris.feature_names) # metadata: names of the features## [&amp;#39;sepal length (cm)&amp;#39;, &amp;#39;sepal width (cm)&amp;#39;, &amp;#39;petal length (cm)&amp;#39;, &amp;#39;petal width (cm)&amp;#39;]print (iris.</description>
-    </item>
-    
-    <item>
-      <title>Machine Learning over Coffee with Josh Gordon</title>
-      <link>/post/machine-learning-over-coffee-with-josh-gordon/</link>
-      <pubDate>Thu, 02 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/machine-learning-over-coffee-with-josh-gordon/</guid>
-      <description></description>
     </item>
     
   </channel>

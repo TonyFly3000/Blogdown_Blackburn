@@ -3,8 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/post/data-you-know-iphone/</loc>
+    <lastmod>2018-09-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/how-ai-can-save-our-humanity-by-kai-fu-lee/</loc>
+    <lastmod>2018-09-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/decision-tree-model-in-python/</loc>
     <lastmod>2018-09-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/knn-model-in-python/</loc>
+    <lastmod>2018-09-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/machine-learning-over-coffee-with-josh-gordon/</loc>
+    <lastmod>2018-08-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -13,18 +33,8 @@
   </url>
   
   <url>
-    <loc>/post/seoul/</loc>
-    <lastmod>2018-05-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/2017-10-01-hanoi/</loc>
-    <lastmod>2017-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/2015-07-23-r-rmarkdown/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <loc>/post/tokyo/</loc>
+    <lastmod>2017-11-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -49,31 +59,43 @@
   
   <url>
     <loc>/tags/data/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <lastmod>2018-09-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/machine-learning/</loc>
+    <lastmod>2018-08-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/post/</loc>
+    <lastmod>2018-09-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/python/</loc>
     <lastmod>2018-09-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/r/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <loc>/tags/shipping/</loc>
+    <lastmod>2018-08-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <lastmod>2018-09-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/</loc>
-    <lastmod>2018-09-01T00:00:00+00:00</lastmod>
+    <lastmod>2018-09-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -84,7 +106,13 @@
   
   <url>
     <loc>/tags/travel/</loc>
-    <lastmod>2018-05-03T00:00:00+00:00</lastmod>
+    <lastmod>2017-11-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/video/</loc>
+    <lastmod>2018-09-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

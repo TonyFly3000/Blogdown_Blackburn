@@ -1,50 +1,56 @@
 ---
-title: Decision Tree model in python
+title: KNN model in python
 author: ''
 date: '2018-09-01'
-slug: decision-tree-model-in-python
+slug: knn-model-in-python
 categories: []
 tags: [python,data]
-description: 'Decision Tree model in python'
+description: 'KNN model in python'
 topics: []
 ---
 
-import pacakges and load iris dataset
+
+1.Get:import pacakges and load iris dataset
 ```{python message=FALSE}
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
-from sklearn import tree
+from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
 
 iris = load_iris()
+
+```
+
+2.Clean
+X_train is train features and X_test is test features.
+y_train is train label and y_test is test label.
+with 0.3 splict, we have 70% obs(105) for training and 30% obs(45) for testing.
+```{python message=FALSE}
+
 print (iris.feature_names)  # metadata: names of the features
 print (iris.target_names)  # metadata: names of the different types of flowers
 X = iris.data  # features
 y = iris.target  # labels
-```
 
-
-X_train is train features and X_test is test features
-
-y_train is train label and y_test is test label
-
-with 0.3 splict, we have 70% obs(105) for training and 30% obs(45) for testing
-```{python message=FALSE}
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
 print(len(X_train))
 print(len(X_test))
 ```
-Traning default DecisionTree model give us overall testing accuracy：
+
+3.Visualize 
+
+
+4.Model
+Traning default KNN model give us overall testing accuracy：
 ```{python message=FALSE}
 # define model
-my_classifier = tree.DecisionTreeClassifier()
+my_classifier = KNeighborsClassifier()
 # train model on trainning data
 my_classifier.fit(X_train, y_train)
 # make prediction on testing data
 predictions = my_classifier.predict(X_test)
 #print (predictions)
-score=accuracy_score(y_test, predictions)
-print(score)
+print (accuracy_score(y_test, predictions))
 
 ```
 
@@ -61,3 +67,5 @@ print(score)
 - https://developers.google.com/machine-learning/guides/rules-of-ml/
 
 - https://developers.google.com/machine-learning/glossary/
+
+- http://playground.tensorflow.org

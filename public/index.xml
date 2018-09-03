@@ -7,10 +7,30 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 01 Sep 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 04 Sep 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【數字‧你懂的】從蘋果iPhone看美中貿易逆差</title>
+      <link>/post/data-you-know-iphone/</link>
+      <pubDate>Tue, 04 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-you-know-iphone/</guid>
+      <description>Please advise to remove immediately if any infringement caused
+Apple become the first US company with market cap &amp;gt;1T USD after a strong 2018Q3 earning when stock price go up to $200 per sharePetroChina is the first company market cap &amp;gt;1T USD at 2007 but it decrease to 200B until todayChina export $15B iphone to US in a year which contribute 5% of total US-China trade deficit $375B$1000 iphoneX manufacture cost is $350 and 5% of it contribute by China ,mainly battery and assemblyReferencehttps://www.</description>
+    </item>
+    
+    <item>
+      <title>How AI can save our humanity by Kai-Fu Lee | 李开复：人工智能将拯救人类</title>
+      <link>/post/how-ai-can-save-our-humanity-by-kai-fu-lee/</link>
+      <pubDate>Sun, 02 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/how-ai-can-save-our-humanity-by-kai-fu-lee/</guid>
+      <description>Kai-Fu Lee presented TED talk at Aug13 2018.
+US invent and China applyChina 2017 18 Trillon USD transaction was made by mobile payment bigger than total China 2017 GDP ,13 Trillon.</description>
+    </item>
     
     <item>
       <title>Decision Tree model in python</title>
@@ -23,40 +43,40 @@ from sklearn.datasets import load_irisfrom sklearn.model_selection import train
     </item>
     
     <item>
+      <title>KNN model in python</title>
+      <link>/post/knn-model-in-python/</link>
+      <pubDate>Sat, 01 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/knn-model-in-python/</guid>
+      <description>1.Get:import pacakges and load iris dataset
+from sklearn.datasets import load_irisfrom sklearn.model_selection import train_test_splitfrom sklearn.neighbors import KNeighborsClassifierfrom sklearn.metrics import accuracy_scoreiris = load_iris()2.CleanX_train is train features and X_test is test features.y_train is train label and y_test is test label.with 0.3 splict, we have 70% obs(105) for training and 30% obs(45) for testing.
+print (iris.feature_names) # metadata: names of the features## [&amp;#39;sepal length (cm)&amp;#39;, &amp;#39;sepal width (cm)&amp;#39;, &amp;#39;petal length (cm)&amp;#39;, &amp;#39;petal width (cm)&amp;#39;]print (iris.</description>
+    </item>
+    
+    <item>
+      <title>Machine Learning over Coffee with Josh Gordon</title>
+      <link>/post/machine-learning-over-coffee-with-josh-gordon/</link>
+      <pubDate>Thu, 02 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/machine-learning-over-coffee-with-josh-gordon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>How Overnight Shipping Works</title>
       <link>/post/how-overnight-shipping-works/</link>
       <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/how-overnight-shipping-works/</guid>
-      <description>&lt;p&gt;How Overnight Shipping Works&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>서울 | Seoul</title>
-      <link>/post/seoul/</link>
-      <pubDate>Thu, 03 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/seoul/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Insert Lead paragraph here.&lt;/strong&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Hà Nội | Hanoi</title>
-      <link>/post/2017-10-01-hanoi/</link>
-      <pubDate>Sun, 01 Oct 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2017-10-01-hanoi/</guid>
-      <description>Insert Lead paragraph here.
-A augue nunc lacus auctor efficitur tempor placerat, dictum volutpat mi vitae viverra porta non sem, himenaeos senectus vivamus potenti cubilia sollicitudin. Curae cursus inceptos tincidunt magna mi nibh ad enim etiam, molestie eu quis primis hendrerit taciti phasellus. Feugiat ultricies dictumst iaculis potenti odio laoreet urna at, ultrices curae leo accumsan proin sem lobortis.
-Heading 2 Sollicitudin ornare odio blandit aenean enim lacus accumsan elementum vestibulum porta mauris lorem, ullamcorper class fermentum sem hendrerit ante augue penatibus scelerisque felis leo proin,ad nascetur venenatis sodales dignissim viverra suspendisse turpis convallis condimentum sapien.</description>
+      <description></description>
     </item>
     
     <item>
       <title>東京 | Tokyo</title>
-      <link>/post/2015-07-23-r-rmarkdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      <link>/post/tokyo/</link>
+      <pubDate>Thu, 30 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>/post/2015-07-23-r-rmarkdown/</guid>
+      <guid>/post/tokyo/</guid>
       <description>Location:library(leaflet)library(ggmap)location=geocode( &amp;quot;Tokyo&amp;quot; )m &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=location$lon, lat=location$lat, zoom = 05) %&amp;gt;%addMarkers(lng=location$lon, lat=location$lat, popup=&amp;quot;Tokyo&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[35.6894875,139.6917064,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;Tokyo&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[35.6894875,139.6917064],5,[]],&#34;limits&#34;:{&#34;lat&#34;:[35.6894875,35.6894875],&#34;lng&#34;:[139.6917064,139.6917064]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}</description>
     </item>
     

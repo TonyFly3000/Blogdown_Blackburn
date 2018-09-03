@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Video on Tony Duan</title>
+    <link>/tags/video/</link>
+    <description>Recent content in Video on Tony Duan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 04 Sep 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/video/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>【數字‧你懂的】從蘋果iPhone看美中貿易逆差</title>
+      <link>/post/data-you-know-iphone/</link>
+      <pubDate>Tue, 04 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-you-know-iphone/</guid>
+      <description>Please advise to remove immediately if any infringement caused
+Apple become the first US company with market cap &amp;gt;1T USD after a strong 2018Q3 earning when stock price go up to $200 per sharePetroChina is the first company market cap &amp;gt;1T USD at 2007 but it decrease to 200B until todayChina export $15B iphone to US in a year which contribute 5% of total US-China trade deficit $375B$1000 iphoneX manufacture cost is $350 and 5% of it contribute by China ,mainly battery and assemblyReferencehttps://www.</description>
+    </item>
+    
+    <item>
+      <title>Machine Learning over Coffee with Josh Gordon</title>
+      <link>/post/machine-learning-over-coffee-with-josh-gordon/</link>
+      <pubDate>Thu, 02 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/machine-learning-over-coffee-with-josh-gordon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>How Overnight Shipping Works</title>
+      <link>/post/how-overnight-shipping-works/</link>
+      <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/how-overnight-shipping-works/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
