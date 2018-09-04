@@ -60,7 +60,7 @@ paginate = 10
   # Link your social networking accouns to the side menu
   # by entering your username or ID.
   #twitter = "*"
-  #facebook = "*"
+  facebook = "tony.j.fly"
   #instagram = "*"
   github = "*"
   #stackoverflow = "*"
