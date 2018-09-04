@@ -1,18 +1,19 @@
 ---
-title: 서울 | Seoul
+title: 臺北 | Taipei
 author: ''
-date: '2018-05-03'
-slug: seoul
+date: '2018-05-01'
+slug: taipei
 categories: []
 tags: [travel]
-description: 'Seoul city...' 
+description: 'Taipei'
 topics: []
 ---
+
 ## Location:
 ```{r message=FALSE}
 library(leaflet)
 library(ggmap)
-location=geocode( "Seoul" )
+location=geocode( "Taipei" )
 m <- leaflet()%>%
   addTiles() %>%  # Add default OpenStreetMap map tiles
   setView(lng=location$lon, lat=location$lat, zoom = 05) %>%

@@ -1,18 +1,19 @@
 ---
-title: 서울 | Seoul
+title: Singapore
 author: ''
-date: '2018-05-03'
-slug: seoul
+date: '2018-01-12'
+slug: singapore
 categories: []
-tags: [travel]
-description: 'Seoul city...' 
+tags: []
+description: 'Singapore city...' 
 topics: []
 ---
+
 ## Location:
 ```{r message=FALSE}
 library(leaflet)
 library(ggmap)
-location=geocode( "Seoul" )
+location=geocode( "Singapore" )
 m <- leaflet()%>%
   addTiles() %>%  # Add default OpenStreetMap map tiles
   setView(lng=location$lon, lat=location$lat, zoom = 05) %>%
