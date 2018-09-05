@@ -1,4 +1,4 @@
-baseurl = "https://www.example.com/"
+baseurl = "https://tduan.netlify.com/"
 languageCode = "en-us"
 title = "Tony Duan"
 theme = "blackburn"
