@@ -58,6 +58,11 @@
   </url>
   
   <url>
+    <loc>/contact/</loc>
+    <lastmod>2018-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/tokyo/</loc>
     <lastmod>2017-11-30T00:00:00+00:00</lastmod>
   </url>
@@ -65,11 +70,6 @@
   <url>
     <loc>/post/hanoi/</loc>
     <lastmod>2017-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/contact/</loc>
-    <lastmod>2014-04-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>

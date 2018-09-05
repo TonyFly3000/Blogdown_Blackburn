@@ -1,8 +1,8 @@
 +++
 title = "Contact"
-date = "2014-04-09"
+date = "2018-01-01"
 sidemenu = "true"
 description = "How to contact me"
 +++
 
-Email:verykoala@gmail.com
+Email:jcflyingco@outlook.com
