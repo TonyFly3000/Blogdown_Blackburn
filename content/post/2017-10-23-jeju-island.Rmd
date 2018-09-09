@@ -1,0 +1,28 @@
+---
+title: 濟州島 | Jeju Island
+author: ''
+date: '2016-09-25'
+slug: jeju-island
+categories: []
+tags: [travel]
+description: 'Jeju Island island...' 
+topics: []
+---
+
+## Location:
+```{r message=FALSE}
+library(leaflet)
+library(ggmap)
+location=geocode( "Jeju Island" )
+m <- leaflet()%>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  setView(lng=location$lon, lat=location$lat, zoom = 05) %>%
+addMarkers(lng=location$lon, lat=location$lat, popup="Jeju Island")
+m
+```
+
+
+## My first group photo in ebay family:
+
+![](/post/2017-10-23-jeju-island_files/JIJU001.JPG){width=730px height=500px}
+

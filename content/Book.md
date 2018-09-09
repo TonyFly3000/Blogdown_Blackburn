@@ -6,7 +6,7 @@ description = "Tony Project"
 +++
 
 
-###  Get R: [English version](./Get_R/index.html) | 中文版 (Coming soon)
+###  Get R: [English version (PREVIEW)](./Get_R/index.html) | 中文版 (Coming soon)
 
 <img src="/img/Get_R_Cover.png" alt="Smiley face" height="400" width="300">
 
