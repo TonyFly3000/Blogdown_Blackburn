@@ -25,7 +25,7 @@
 <meta name="author" content="Tony JC Duan">
 
 
-<meta name="date" content="2018-09-09">
+<meta name="date" content="2018-09-10">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -133,12 +133,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.10" data-path="get.html"><a href="get.html#connect-with-other-eg-soundpicturevideo"><i class="fa fa-check"></i><b>2.10</b> Connect with Other eg sound,picture,video</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="clean.html"><a href="clean.html"><i class="fa fa-check"></i><b>3</b> Clean</a><ul>
-<li class="chapter" data-level="3.1" data-path="clean.html"><a href="clean.html#working-with-date-and-time"><i class="fa fa-check"></i><b>3.1</b> Working with date and time</a></li>
-<li class="chapter" data-level="3.2" data-path="clean.html"><a href="clean.html#working-with-missing-data"><i class="fa fa-check"></i><b>3.2</b> working with missing data</a></li>
-<li class="chapter" data-level="3.3" data-path="clean.html"><a href="clean.html#working-with-string"><i class="fa fa-check"></i><b>3.3</b> working with string</a></li>
-<li class="chapter" data-level="3.4" data-path="clean.html"><a href="clean.html#fifty-shape-of-data"><i class="fa fa-check"></i><b>3.4</b> Fifty shape of data</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="clean.html"><a href="clean.html#dplyr"><i class="fa fa-check"></i><b>3.4.1</b> dplyr</a></li>
-<li class="chapter" data-level="3.4.2" data-path="clean.html"><a href="clean.html#sqldf"><i class="fa fa-check"></i><b>3.4.2</b> sqldf</a></li>
+<li class="chapter" data-level="3.1" data-path="clean.html"><a href="clean.html#r-data-structures"><i class="fa fa-check"></i><b>3.1</b> R Data structures</a></li>
+<li class="chapter" data-level="3.2" data-path="clean.html"><a href="clean.html#r-data-types"><i class="fa fa-check"></i><b>3.2</b> R Data Types</a></li>
+<li class="chapter" data-level="3.3" data-path="clean.html"><a href="clean.html#working-with-date-and-time"><i class="fa fa-check"></i><b>3.3</b> Working with date and time</a></li>
+<li class="chapter" data-level="3.4" data-path="clean.html"><a href="clean.html#working-with-missing-data"><i class="fa fa-check"></i><b>3.4</b> working with missing data</a></li>
+<li class="chapter" data-level="3.5" data-path="clean.html"><a href="clean.html#working-with-string"><i class="fa fa-check"></i><b>3.5</b> working with string</a></li>
+<li class="chapter" data-level="3.6" data-path="clean.html"><a href="clean.html#fifty-shape-of-data"><i class="fa fa-check"></i><b>3.6</b> Fifty shape of data</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="clean.html"><a href="clean.html#dplyr"><i class="fa fa-check"></i><b>3.6.1</b> dplyr</a></li>
+<li class="chapter" data-level="3.6.2" data-path="clean.html"><a href="clean.html#sqldf"><i class="fa fa-check"></i><b>3.6.2</b> sqldf</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="visualize.html"><a href="visualize.html"><i class="fa fa-check"></i><b>4</b> Visualize</a><ul>
@@ -174,7 +176,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.1" data-path="references.html"><a href="references.html#the-giants"><i class="fa fa-check"></i><b>7.1</b> The Giants</a></li>
 <li class="chapter" data-level="7.2" data-path="references.html"><a href="references.html#book"><i class="fa fa-check"></i><b>7.2</b> Book</a></li>
 <li class="chapter" data-level="7.3" data-path="references.html"><a href="references.html#link"><i class="fa fa-check"></i><b>7.3</b> Link</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="references.html"><a href="references.html#csv-vs-_csv-r-markdown-r-bookdown-r-blogdown-feather-data-format-database-connection-rmarkdown-cheatsheet"><i class="fa fa-check"></i><b>7.3.1</b> .csv vs _csv ### R markdown ### R bookdown ### R blogdown ### feather data format ### database connection ### rmarkdown cheatsheet</a></li>
+<li class="chapter" data-level="7.3.1" data-path="references.html"><a href="references.html#csv-vs-_csv-r-markdown-r-bookdown-r-blogdown-feather-data-format-database-connection-rmarkdown-cheatsheet-working-with-string"><i class="fa fa-check"></i><b>7.3.1</b> .csv vs _csv ### R markdown ### R bookdown ### R blogdown ### feather data format ### database connection ### rmarkdown cheatsheet ### working with string</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>8</b> Appendix</a><ul>
@@ -222,7 +224,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 csv_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;zipcode.csv&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>)</code></pre></div>
 <p>Output csv: write a csv using [readr::write_csv].Its twice as fast as write.csv</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
-<span class="kw">write_csv</span>(x, path, <span class="dt">append =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<span class="kw">write_csv</span>(csv_data, <span class="st">&quot;zipcode.csv&quot;</span>, <span class="dt">append =</span> <span class="ot">FALSE</span>)</code></pre></div>
 <p>Input txt:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">txt_data &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;txt_data.txt&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <p>Output txt:</p>
@@ -230,17 +232,17 @@ csv_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 </div>
 <div id="connect-with-xlsx" class="section level2">
 <h2><span class="header-section-number">2.2</span> Connect with xlsx</h2>
-<p>3 mays to Connect with xlsx:</p>
-<p>1.readxl Package(without Java): 2.xlsx Package(use Java): 3.tidyxl Package(imports non-tabular data from Excel)</p>
+<p>Three mays to Connect with xlsx:</p>
+<p>1.readxl Package(without Java):</p>
+<p>2.xlsx Package(use Java):</p>
+<p>3.tidyxl Package(imports non-tabular data from Excel)</p>
 <p>1.readxl Package(without Java) [recommended] :</p>
 <p>Input excel:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readxl)
-<span class="co">#read first sheet</span>
+<span class="co">#read default first sheet</span>
 excel_data=<span class="kw">read_excel</span>(<span class="st">&#39;example.xlsx&#39;</span>)
-
 <span class="co"># list sheet name in excel file</span>
 <span class="kw">excel_sheets</span>(<span class="st">&#39;example.xlsx&#39;</span>)
-
 <span class="co">#read sheet2 </span>
 sheet2_data=<span class="kw">read_excel</span>(<span class="st">&#39;example.xlsx&#39;</span>,<span class="dt">sheet=</span><span class="st">&#39;sheet2&#39;</span>)</code></pre></div>
 <p>output excel:</p>
@@ -252,80 +254,58 @@ sheet2_data=<span class="kw">read_excel</span>(<span class="st">&#39;example.xls
 <p>rds:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># input a dataframe</span>
 rdsdata=<span class="kw">readRDS</span>(<span class="dt">file =</span> <span class="st">&quot;my_data.rds&quot;</span>)
-
 <span class="co"># output a dataframe</span>
 <span class="kw">saveRDS</span>(rdsdata, <span class="dt">file =</span> <span class="st">&quot;my_data.rds&quot;</span>)</code></pre></div>
 <p>RData:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#input RData:</span>
-<span class="kw">load</span>(<span class="st">&quot;my_work_space.RData&quot;</span>)
-
-<span class="co">#output a dataframe into RData:</span></code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">save</span>(data1, <span class="dt">file =</span> <span class="st">&quot;data.RData&quot;</span>)
-
+<span class="kw">load</span>(<span class="st">&quot;my_work_space.RData&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#output a dataframe into RData:</span>
+<span class="kw">save</span>(data1, <span class="dt">file =</span> <span class="st">&quot;data.RData&quot;</span>)
 <span class="co"># output multiple dataframe into RData</span>
 <span class="kw">save</span>(data1, data2, <span class="dt">file =</span> <span class="st">&quot;data.RData&quot;</span>)
-
 <span class="co"># output all dataframe into RData</span>
 <span class="kw">save.image</span>(<span class="dt">file =</span> <span class="st">&quot;my_work_space.RData&quot;</span>)</code></pre></div>
-<p>feather(by Wes Mckinney and Hadley Wickham):</p>
+<p>feather (by Wes Mckinney and Hadley Wickham):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># input feather</span>
 data=<span class="kw">read_feather</span>(<span class="st">&#39;data.feather&#39;</span>)
-
 <span class="co"># output feather</span>
 <span class="kw">write_feather</span>(data,<span class="st">&#39;data.feather&#39;</span>)</code></pre></div>
 </div>
 <div id="connect-with-sasstatmatlab-ect" class="section level2">
 <h2><span class="header-section-number">2.4</span> Connect with sas/stat/matlab ect</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;haven&quot;</span>)
-<span class="kw">library</span>(haven)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(haven)
 <span class="co"># SAS</span>
-<span class="kw">read_sas</span>(<span class="st">&quot;mtcars.sas7bdat&quot;</span>)
+sas_data=<span class="kw">read_sas</span>(<span class="st">&quot;mtcars.sas7bdat&quot;</span>)
 <span class="kw">write_sas</span>(mtcars, <span class="st">&quot;mtcars.sas7bdat&quot;</span>)
 
 <span class="co"># SPSS</span>
-<span class="kw">read_sav</span>(<span class="st">&quot;mtcars.sav&quot;</span>)
+spss_data=<span class="kw">read_sav</span>(<span class="st">&quot;mtcars.sav&quot;</span>)
 <span class="kw">write_sav</span>(mtcars, <span class="st">&quot;mtcars.sav&quot;</span>)
 
 <span class="co"># Stata</span>
-<span class="kw">read_dta</span>(<span class="st">&quot;mtcars.dta&quot;</span>)
+stata_data=<span class="kw">read_dta</span>(<span class="st">&quot;mtcars.dta&quot;</span>)
 <span class="kw">write_dta</span>(mtcars, <span class="st">&quot;mtcars.dta&quot;</span>)
 
 <span class="co"># matlab</span>
-<span class="kw">install.packages</span>(<span class="st">&quot;R.matlab&quot;</span>)
 <span class="kw">library</span>(R.matlab)
-<span class="kw">readMat</span>(<span class="st">&#39;file.mat&#39;</span>)<span class="er">)</span></code></pre></div>
+matlab_data=<span class="kw">readMat</span>(<span class="st">&#39;file.mat&#39;</span>)<span class="er">)</span></code></pre></div>
 </div>
 <div id="connect-with-database-mysqlsqliteteradatapostgresql" class="section level2">
 <h2><span class="header-section-number">2.5</span> Connect with database (Mysql;sqlite;teradata;postgresql)</h2>
 <div id="mysql" class="section level3">
 <h3><span class="header-section-number">2.5.1</span> Mysql</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(DBI)
-<span class="co"># Connect to my-db as defined in ~/.my.cnf</span>
-con &lt;-<span class="st"> </span><span class="kw">dbConnect</span>(RMySQL<span class="op">::</span><span class="kw">MySQL</span>(), <span class="dt">group =</span> <span class="st">&quot;my-db&quot;</span>)
-
-<span class="kw">dbListTables</span>(con)
-<span class="kw">dbWriteTable</span>(con, <span class="st">&quot;mtcars&quot;</span>, mtcars)
-<span class="kw">dbListTables</span>(con)
-
-<span class="kw">dbListFields</span>(con, <span class="st">&quot;mtcars&quot;</span>)
-<span class="kw">dbReadTable</span>(con, <span class="st">&quot;mtcars&quot;</span>)
-
-<span class="co"># You can fetch all results:</span>
-res &lt;-<span class="st"> </span><span class="kw">dbSendQuery</span>(con, <span class="st">&quot;SELECT * FROM mtcars WHERE cyl = 4&quot;</span>)
-<span class="kw">dbFetch</span>(res)
-<span class="kw">dbClearResult</span>(res)
-
-<span class="co"># Or a chunk at a time</span>
-res &lt;-<span class="st"> </span><span class="kw">dbSendQuery</span>(con, <span class="st">&quot;SELECT * FROM mtcars WHERE cyl = 4&quot;</span>)
-<span class="cf">while</span>(<span class="op">!</span><span class="kw">dbHasCompleted</span>(res)){
-  chunk &lt;-<span class="st"> </span><span class="kw">dbFetch</span>(res, <span class="dt">n =</span> <span class="dv">5</span>)
-  <span class="kw">print</span>(<span class="kw">nrow</span>(chunk))
-}
-<span class="co"># Clear the result</span>
-<span class="kw">dbClearResult</span>(res)
-
-<span class="co"># Disconnect from the database</span>
-<span class="kw">dbDisconnect</span>(con)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(RMySQL)
+mydb =<span class="st"> </span><span class="kw">dbConnect</span>(<span class="kw">MySQL</span>(), <span class="dt">user=</span><span class="st">&#39;user&#39;</span>, <span class="dt">password=</span><span class="st">&#39;password&#39;</span>, <span class="dt">dbname=</span><span class="st">&#39;database_name&#39;</span>, <span class="dt">host=</span><span class="st">&#39;host&#39;</span>)
+<span class="co">#Listing all Tables in VDM</span>
+<span class="kw">dbListTables</span>(mydb)
+<span class="co">#Listing all column name in  a table </span>
+<span class="kw">dbListFields</span>(mydb, <span class="st">&#39;some_table&#39;</span>)
+<span class="co">#create table from database:  </span>
+<span class="kw">dbSendQuery</span>(conn, <span class="st">&quot;create  table P_xxxx_t.DW_COUNTRIES AS SELECT  * from DW_COUNTRIES&quot;</span>)
+<span class="co">#Download table from database:  </span>
+data001=<span class="kw">dbGetQuery</span>(conn, <span class="st">&quot; select * from P_xxxx_t.DW_COUNTRIES&quot;</span>)
+<span class="co"># update table to database</span>
+<span class="kw">dbWriteTable</span>(mydb, <span class="dt">name=</span><span class="st">&#39;table_name&#39;</span>, <span class="dt">value=</span>data.frame.name)</code></pre></div>
 </div>
 <div id="sqlite" class="section level3">
 <h3><span class="header-section-number">2.5.2</span> sqlite</h3>
@@ -357,27 +337,20 @@ countries001=<span class="kw">dbGetQuery</span>(con, <span class="st">&quot; sel
 <h3><span class="header-section-number">2.5.4</span> Teradata with ebaytd package</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ebaytd)
 <span class="kw">teradataInit</span>(<span class="st">&quot;YOUR_USER_NAME&quot;</span>, <span class="st">&quot;YOUR_TERADATA_PASSWORD&quot;</span>)
-
 <span class="co"># local </span>
 conn &lt;-<span class="st"> </span><span class="kw">teradataConnect</span>(<span class="dt">database=</span> <span class="st">&#39;P_xxxx_t&#39;</span>, <span class="dt">system=</span><span class="st">&quot;mozart&quot;</span>) 
 connf &lt;-<span class="st"> </span><span class="kw">teradataConnect</span>(<span class="dt">database=</span><span class="st">&#39;P_xxxx_t&#39;</span>, <span class="dt">fastload =</span> <span class="ot">TRUE</span>,<span class="dt">csv=</span><span class="ot">TRUE</span>,<span class="dt">system=</span><span class="st">&quot;mozart&quot;</span>)
-
 <span class="co"># server </span>
 conn &lt;-<span class="st"> </span><span class="kw">teradataConnect</span>(<span class="dt">database=</span> <span class="st">&#39;P_xxxx_t&#39;</span>, <span class="dt">system=</span><span class="st">&quot;mozarbe&quot;</span>) 
 connf &lt;-<span class="st"> </span><span class="kw">teradataConnect</span>(<span class="dt">database=</span><span class="st">&#39;P_xxxx_t&#39;</span>, <span class="dt">fastload =</span> <span class="ot">TRUE</span>,<span class="dt">csv=</span><span class="ot">TRUE</span>,<span class="dt">system=</span><span class="st">&quot;mozarbe&quot;</span>)
-
 <span class="co">#Create table at Teradata:</span>
 <span class="kw">dbSendQuery</span>(conn, <span class="st">&quot;create multiset table P_xxxx_t.DW_COUNTRIES AS (SELECT  * from DW_COUNTRIES) WITH    DATA &quot;</span>)
-
 <span class="co">#Download table from Teradata:  </span>
 data001=<span class="kw">dbGetQuery</span>(conn, <span class="st">&quot; select * from P_xxxx_t.DW_COUNTRIES&quot;</span>)
-
 <span class="co">#Upload table to Teradata:</span>
 <span class="kw">teradataFastloadCSV</span>(data001, conn, connf, <span class="st">&quot;P_xxxx_t&quot;</span>, <span class="st">&quot;tera_data001&quot;</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>, <span class="dt">primary_index =</span> <span class="kw">c</span>(<span class="dv">1</span>))
-
 <span class="co">#Check whether a table is exist on Teradata:</span>
 <span class="kw">dbExistsTable</span>(conn,<span class="st">&quot;P_xxxx_t&quot;</span>,<span class="st">&quot;test&quot;</span>)
-
 <span class="co">#Delete table on Teradata</span>
 <span class="kw">dbExistsRemove</span>(conn,<span class="st">&quot;P_xxxx_t&quot;</span>,<span class="st">&quot;tera_data001&quot;</span>)</code></pre></div>
 </div>
@@ -389,33 +362,28 @@ username &lt;-<span class="st"> &quot;xxx@ebay.com&quot;</span>
 password &lt;-<span class="st"> &quot;xxxxxxx&quot;</span>
 instanceURL &lt;-<span class="st"> &quot;https://AP4.salesforce.com/&quot;</span>
 apiVersion &lt;-<span class="st"> &quot;41.0&quot;</span>
-
-(session &lt;-<span class="st"> </span><span class="kw">rforcecom.login</span>(username, password, instanceURL, apiVersion))
+session &lt;-<span class="st"> </span><span class="kw">rforcecom.login</span>(username, password, instanceURL, apiVersion)
 <span class="co"># list all table in saleforces</span>
 all_object=<span class="kw">rforcecom.getObjectList</span>(session)
 <span class="co"># get table column name</span>
 ILM_table_info=<span class="kw">rforcecom.getObjectDescription</span>(session, <span class="st">&#39;Item_Location_c&#39;</span>)
-<span class="co"># get table with column :Id and Recommended_Action_c</span>
+<span class="co"># get table with column :&#39;Id&#39; and &#39;Recommended_Action_c&#39; from table Item_Location_c</span>
 ILM=<span class="kw">rforcecom.retrieve</span>(session,<span class="st">&#39;Item_Location_c&#39;</span>, <span class="kw">c</span>(<span class="st">&quot;Id&quot;</span>,<span class="st">&quot;Recommended_Action_c&quot;</span>))
-
-<span class="co"># get table with column :Id and Recommended_Action_c using soqlQuery</span>
-soqlQuery &lt;-<span class="st"> &quot;SELECT Id,Recommended_Action FROM Item_Location_Mispresentation__c&quot;</span>
+<span class="co"># get table with column :&#39;Id&#39; and &#39;Recommended_Action_c&#39; from table Item_Location_c using soqlQuery</span>
+soqlQuery &lt;-<span class="st"> &quot;SELECT Id,Recommended_Action FROM Item_Location_c&quot;</span>
 ILM=<span class="kw">rforcecom.query</span>(session, soqlQuery)</code></pre></div>
 </div>
 <div id="connect-with-web-crawler" class="section level2">
 <h2><span class="header-section-number">2.7</span> Connect with Web crawler</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&#39;rvest&#39;</span>)
-
 <span class="co">#Specifying the url for desired website to be scrapped</span>
 url &lt;-<span class="st"> </span><span class="kw">url</span>(<span class="st">&#39;https://www.ebay.com/sch/i.html?_from=R40&amp;_sacat=0&amp;_nkw=iphone&amp;_pgn=3&amp;_skc=400&amp;rt=nc&#39;</span>)
-
 <span class="co">#Reading the HTML code from the website</span>
 webpage &lt;-<span class="st"> </span><span class="kw">read_html</span>(url)
 <span class="co">#get title html</span>
 listing_data_html &lt;-<span class="st"> </span><span class="kw">html_nodes</span>(webpage,<span class="st">&#39;.vip&#39;</span>)
 <span class="co">#get titel data</span>
 listing_data &lt;-<span class="st"> </span><span class="kw">html_text</span>(listing_data_html)
-
 <span class="kw">head</span>(listing_data)</code></pre></div>
 </div>
 <div id="connect-with-api" class="section level2">
@@ -424,7 +392,6 @@ listing_data &lt;-<span class="st"> </span><span class="kw">html_text</span>(lis
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Create your own appication key at https://dev.twitter.com/apps</span>
 consumer_key =<span class="st"> &quot;EZRy5JzOH2QQmVAe9B4j2w&quot;</span>;
 consumer_secret =<span class="st"> &quot;OIDC4MdfZJ82nbwpZfoUO4WOLTYjoRhpHRAWj6JMec&quot;</span>;
-
 <span class="co">#Use basic auth</span>
 secret &lt;-<span class="st"> </span>jsonlite<span class="op">::</span><span class="kw">base64_enc</span>(<span class="kw">paste</span>(consumer_key, consumer_secret, <span class="dt">sep =</span> <span class="st">&quot;:&quot;</span>))
 req &lt;-<span class="st"> </span>httr<span class="op">::</span><span class="kw">POST</span>(<span class="st">&quot;https://api.twitter.com/oauth2/token&quot;</span>,
@@ -434,11 +401,9 @@ req &lt;-<span class="st"> </span>httr<span class="op">::</span><span class="kw"
   ),
   <span class="dt">body =</span> <span class="st">&quot;grant_type=client_credentials&quot;</span>
 );
-
 <span class="co">#Extract the access token</span>
 httr<span class="op">::</span><span class="kw">stop_for_status</span>(req, <span class="st">&quot;authenticate with twitter&quot;</span>)
 token &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;Bearer&quot;</span>, httr<span class="op">::</span><span class="kw">content</span>(req)<span class="op">$</span>access_token)
-
 <span class="co">#Actual API call</span>
 url &lt;-<span class="st"> &quot;https://api.twitter.com/1.1/statuses/user_timeline.json?count=10&amp;screen_name=Rbloggers&quot;</span>
 req &lt;-<span class="st"> </span>httr<span class="op">::</span><span class="kw">GET</span>(url, httr<span class="op">::</span><span class="kw">add_headers</span>(<span class="dt">Authorization =</span> token))

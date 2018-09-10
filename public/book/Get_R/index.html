@@ -25,7 +25,7 @@
 <meta name="author" content="Tony JC Duan">
 
 
-<meta name="date" content="2018-09-09">
+<meta name="date" content="2018-09-11">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -96,12 +96,14 @@
 <li class="chapter" data-level="2.10" data-path="get.html"><a href="get.html#connect-with-other-eg-soundpicturevideo"><i class="fa fa-check"></i><b>2.10</b> Connect with Other eg sound,picture,video</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="clean.html"><a href="clean.html"><i class="fa fa-check"></i><b>3</b> Clean</a><ul>
-<li class="chapter" data-level="3.1" data-path="clean.html"><a href="clean.html#working-with-date-and-time"><i class="fa fa-check"></i><b>3.1</b> Working with date and time</a></li>
-<li class="chapter" data-level="3.2" data-path="clean.html"><a href="clean.html#working-with-missing-data"><i class="fa fa-check"></i><b>3.2</b> working with missing data</a></li>
-<li class="chapter" data-level="3.3" data-path="clean.html"><a href="clean.html#working-with-string"><i class="fa fa-check"></i><b>3.3</b> working with string</a></li>
-<li class="chapter" data-level="3.4" data-path="clean.html"><a href="clean.html#fifty-shape-of-data"><i class="fa fa-check"></i><b>3.4</b> Fifty shape of data</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="clean.html"><a href="clean.html#dplyr"><i class="fa fa-check"></i><b>3.4.1</b> dplyr</a></li>
-<li class="chapter" data-level="3.4.2" data-path="clean.html"><a href="clean.html#sqldf"><i class="fa fa-check"></i><b>3.4.2</b> sqldf</a></li>
+<li class="chapter" data-level="3.1" data-path="clean.html"><a href="clean.html#r-data-structures"><i class="fa fa-check"></i><b>3.1</b> R Data structures</a></li>
+<li class="chapter" data-level="3.2" data-path="clean.html"><a href="clean.html#r-data-types"><i class="fa fa-check"></i><b>3.2</b> R Data Types</a></li>
+<li class="chapter" data-level="3.3" data-path="clean.html"><a href="clean.html#working-with-date-and-time"><i class="fa fa-check"></i><b>3.3</b> Working with date and time</a></li>
+<li class="chapter" data-level="3.4" data-path="clean.html"><a href="clean.html#working-with-missing-data"><i class="fa fa-check"></i><b>3.4</b> Working with missing data</a></li>
+<li class="chapter" data-level="3.5" data-path="clean.html"><a href="clean.html#working-with-string"><i class="fa fa-check"></i><b>3.5</b> Working with string</a></li>
+<li class="chapter" data-level="3.6" data-path="clean.html"><a href="clean.html#fifty-shape-of-data"><i class="fa fa-check"></i><b>3.6</b> Fifty shape of data</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="clean.html"><a href="clean.html#dplyr-package"><i class="fa fa-check"></i><b>3.6.1</b> dplyr package</a></li>
+<li class="chapter" data-level="3.6.2" data-path="clean.html"><a href="clean.html#sqldf-package"><i class="fa fa-check"></i><b>3.6.2</b> sqldf package</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="visualize.html"><a href="visualize.html"><i class="fa fa-check"></i><b>4</b> Visualize</a><ul>
@@ -137,7 +139,7 @@
 <li class="chapter" data-level="7.1" data-path="references.html"><a href="references.html#the-giants"><i class="fa fa-check"></i><b>7.1</b> The Giants</a></li>
 <li class="chapter" data-level="7.2" data-path="references.html"><a href="references.html#book"><i class="fa fa-check"></i><b>7.2</b> Book</a></li>
 <li class="chapter" data-level="7.3" data-path="references.html"><a href="references.html#link"><i class="fa fa-check"></i><b>7.3</b> Link</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="references.html"><a href="references.html#csv-vs-_csv-r-markdown-r-bookdown-r-blogdown-feather-data-format-database-connection-rmarkdown-cheatsheet"><i class="fa fa-check"></i><b>7.3.1</b> .csv vs _csv ### R markdown ### R bookdown ### R blogdown ### feather data format ### database connection ### rmarkdown cheatsheet</a></li>
+<li class="chapter" data-level="7.3.1" data-path="references.html"><a href="references.html#csv-vs-_csv-r-markdown-r-bookdown-r-blogdown-feather-data-format-database-connection-rmarkdown-cheatsheet-working-with-string"><i class="fa fa-check"></i><b>7.3.1</b> .csv vs _csv ### R markdown ### R bookdown ### R blogdown ### feather data format ### database connection ### rmarkdown cheatsheet ### working with string</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>8</b> Appendix</a><ul>
@@ -178,13 +180,13 @@
 <div id="header">
 <h1 class="title">Get R</h1>
 <h4 class="author"><em>Tony JC Duan</em></h4>
-<h4 class="date"><em>2018-09-09</em></h4>
+<h4 class="date"><em>2018-09-11</em></h4>
 </div>
 <div id="welcome" class="section level1 unnumbered">
 <h1>Welcome</h1>
 <p><img src="Pic/Cover.png" width="350" height="480" alt="Cover image"/></p>
 <p><strong>Version 0.1</strong> preview <br></p>
-<p>Disclaimer:all content are collected and summarized from other with zero invention.<br> Please advise to remove immediately if any infringement caused.<br></p>
+<p>Disclaimer:all content are collected and summarized from others.<br> Please advise to remove immediately if any infringement caused.<br></p>
 <p>This book is worten on bookdown.</p>
 <p><strong>Contents</strong></p>
 <ol style="list-style-type: decimal">

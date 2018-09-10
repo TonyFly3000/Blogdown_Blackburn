@@ -25,7 +25,7 @@
 <meta name="author" content="Tony JC Duan">
 
 
-<meta name="date" content="2018-09-09">
+<meta name="date" content="2018-09-10">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -133,12 +133,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.10" data-path="get.html"><a href="get.html#connect-with-other-eg-soundpicturevideo"><i class="fa fa-check"></i><b>2.10</b> Connect with Other eg sound,picture,video</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="clean.html"><a href="clean.html"><i class="fa fa-check"></i><b>3</b> Clean</a><ul>
-<li class="chapter" data-level="3.1" data-path="clean.html"><a href="clean.html#working-with-date-and-time"><i class="fa fa-check"></i><b>3.1</b> Working with date and time</a></li>
-<li class="chapter" data-level="3.2" data-path="clean.html"><a href="clean.html#working-with-missing-data"><i class="fa fa-check"></i><b>3.2</b> working with missing data</a></li>
-<li class="chapter" data-level="3.3" data-path="clean.html"><a href="clean.html#working-with-string"><i class="fa fa-check"></i><b>3.3</b> working with string</a></li>
-<li class="chapter" data-level="3.4" data-path="clean.html"><a href="clean.html#fifty-shape-of-data"><i class="fa fa-check"></i><b>3.4</b> Fifty shape of data</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="clean.html"><a href="clean.html#dplyr"><i class="fa fa-check"></i><b>3.4.1</b> dplyr</a></li>
-<li class="chapter" data-level="3.4.2" data-path="clean.html"><a href="clean.html#sqldf"><i class="fa fa-check"></i><b>3.4.2</b> sqldf</a></li>
+<li class="chapter" data-level="3.1" data-path="clean.html"><a href="clean.html#r-data-structures"><i class="fa fa-check"></i><b>3.1</b> R Data structures</a></li>
+<li class="chapter" data-level="3.2" data-path="clean.html"><a href="clean.html#r-data-types"><i class="fa fa-check"></i><b>3.2</b> R Data Types</a></li>
+<li class="chapter" data-level="3.3" data-path="clean.html"><a href="clean.html#working-with-date-and-time"><i class="fa fa-check"></i><b>3.3</b> Working with date and time</a></li>
+<li class="chapter" data-level="3.4" data-path="clean.html"><a href="clean.html#working-with-missing-data"><i class="fa fa-check"></i><b>3.4</b> Working with missing data</a></li>
+<li class="chapter" data-level="3.5" data-path="clean.html"><a href="clean.html#working-with-string"><i class="fa fa-check"></i><b>3.5</b> Working with string</a></li>
+<li class="chapter" data-level="3.6" data-path="clean.html"><a href="clean.html#fifty-shape-of-data"><i class="fa fa-check"></i><b>3.6</b> Fifty shape of data</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="clean.html"><a href="clean.html#dplyr-package"><i class="fa fa-check"></i><b>3.6.1</b> dplyr package</a></li>
+<li class="chapter" data-level="3.6.2" data-path="clean.html"><a href="clean.html#sqldf-package"><i class="fa fa-check"></i><b>3.6.2</b> sqldf package</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="visualize.html"><a href="visualize.html"><i class="fa fa-check"></i><b>4</b> Visualize</a><ul>
@@ -174,7 +176,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.1" data-path="references.html"><a href="references.html#the-giants"><i class="fa fa-check"></i><b>7.1</b> The Giants</a></li>
 <li class="chapter" data-level="7.2" data-path="references.html"><a href="references.html#book"><i class="fa fa-check"></i><b>7.2</b> Book</a></li>
 <li class="chapter" data-level="7.3" data-path="references.html"><a href="references.html#link"><i class="fa fa-check"></i><b>7.3</b> Link</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="references.html"><a href="references.html#csv-vs-_csv-r-markdown-r-bookdown-r-blogdown-feather-data-format-database-connection-rmarkdown-cheatsheet"><i class="fa fa-check"></i><b>7.3.1</b> .csv vs _csv ### R markdown ### R bookdown ### R blogdown ### feather data format ### database connection ### rmarkdown cheatsheet</a></li>
+<li class="chapter" data-level="7.3.1" data-path="references.html"><a href="references.html#csv-vs-_csv-r-markdown-r-bookdown-r-blogdown-feather-data-format-database-connection-rmarkdown-cheatsheet-working-with-string"><i class="fa fa-check"></i><b>7.3.1</b> .csv vs _csv ### R markdown ### R bookdown ### R blogdown ### feather data format ### database connection ### rmarkdown cheatsheet ### working with string</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>8</b> Appendix</a><ul>
@@ -215,28 +217,237 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="clean" class="section level1">
 <h1><span class="header-section-number">Chapter 3</span> Clean</h1>
 <p>Data cleaning seems to be a dirty job at first ,but its truely the art of data analysis and data usually come in differenct shapes and sizes. So how do you reverse ,how do you filp,split and merge back ,group by and then devide effectively. In this chapter,will share how to work throught the data like a Ninja</p>
-<p>show all variable and clear all variable:</p>
+<p>Show all variable and clear all variable:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a=<span class="dv">1</span>
 <span class="kw">ls</span>()</code></pre></div>
 <pre><code>## [1] &quot;a&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#clear all variable</span>
-<span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</code></pre></div>
+<p>Clear all variable:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</code></pre></div>
+<div id="r-data-structures" class="section level2">
+<h2><span class="header-section-number">3.1</span> R Data structures</h2>
+<p>1.Vector:v1 is numeric vector,v2 is character vector</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">v1=<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)
+v2=<span class="kw">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>)
+<span class="kw">class</span>(v1)</code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(v2)</code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>2.List:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">v1=<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)
+
+v2=<span class="kw">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>)
+list1=<span class="kw">list</span>(v1,v2)
+list1</code></pre></div>
+<pre><code>## [[1]]
+## [1] 1 2 3
+## 
+## [[2]]
+## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(list1)</code></pre></div>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<p>3.Matrix:all cell are numeric</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">v1=<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)
+matrix1=<span class="kw">matrix</span>(v1,<span class="dt">nrow=</span><span class="dv">2</span>, <span class="dt">ncol=</span><span class="dv">2</span>,<span class="dt">byrow=</span><span class="ot">TRUE</span>)
+matrix1</code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    2
+## [2,]    3    4</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(matrix1)</code></pre></div>
+<pre><code>## [1] &quot;matrix&quot;</code></pre>
+<p>4.Data frame(most common used )</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">d &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)
+e &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="ot">NA</span>)
+f &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>,<span class="ot">TRUE</span>,<span class="ot">TRUE</span>,<span class="ot">FALSE</span>)
+df1=<span class="kw">data.frame</span>(d,e,f)
+df1</code></pre></div>
+<pre><code>##    d     e     f
+## 1 10   red  TRUE
+## 2 20 white  TRUE
+## 3 30   red  TRUE
+## 4 40  &lt;NA&gt; FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(df1)</code></pre></div>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<p>5.Array:all cell are numeric</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">array1 &lt;-<span class="st"> </span><span class="kw">array</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">24</span>, <span class="dt">dim=</span><span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">2</span>))
+array1</code></pre></div>
+<pre><code>## , , 1
+## 
+##      [,1] [,2] [,3]
+## [1,]    1    5    9
+## [2,]    2    6   10
+## [3,]    3    7   11
+## [4,]    4    8   12
+## 
+## , , 2
+## 
+##      [,1] [,2] [,3]
+## [1,]   13   17   21
+## [2,]   14   18   22
+## [3,]   15   19   23
+## [4,]   16   20   24</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(array1)</code></pre></div>
+<pre><code>## [1] &quot;array&quot;</code></pre>
+</div>
+<div id="r-data-types" class="section level2">
+<h2><span class="header-section-number">3.2</span> R Data Types</h2>
+<p>1.Character:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">typeof</span>(<span class="st">&#39;abc&#39;</span>)</code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>2.Numeric:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">typeof</span>(<span class="dv">123</span>)</code></pre></div>
+<pre><code>## [1] &quot;double&quot;</code></pre>
+<p>3.Logical:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">typeof</span>(<span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+</div>
 <div id="working-with-date-and-time" class="section level2">
-<h2><span class="header-section-number">3.1</span> Working with date and time</h2>
-<p><a href="https://www.datacamp.com/courses/working-with-dates-and-times-in-r" class="uri">https://www.datacamp.com/courses/working-with-dates-and-times-in-r</a> ISO 8601 standard :YYYY-MM-DD</p>
+<h2><span class="header-section-number">3.3</span> Working with date and time</h2>
+<p>Input date into R and find days between two date:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># use as.Date( ) to convert strings to dates with ISO 8601 standard :YYYY-MM-DD</span>
+mydates &lt;-<span class="st"> </span><span class="kw">as.Date</span>(<span class="kw">c</span>(<span class="st">&quot;2007-06-22&quot;</span>, <span class="st">&quot;2004-02-13&quot;</span>))
+mydates</code></pre></div>
+<pre><code>## [1] &quot;2007-06-22&quot; &quot;2004-02-13&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># number of days between 6/22/07 and 2/13/04 </span>
+days &lt;-<span class="st"> </span>mydates[<span class="dv">1</span>] <span class="op">-</span><span class="st"> </span>mydates[<span class="dv">2</span>]
+days</code></pre></div>
+<pre><code>## Time difference of 1225 days</code></pre>
+<p>Input differenct date formant into ISO 8601 format:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.Date</span>(<span class="st">&#39;1/15/2001&#39;</span>,<span class="dt">format=</span><span class="st">&#39;%m/%d/%Y&#39;</span>)</code></pre></div>
+<pre><code>## [1] &quot;2001-01-15&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.Date</span>(<span class="st">&#39;April 26, 2001&#39;</span>,<span class="dt">format=</span><span class="st">&#39;%B %d, %Y&#39;</span>)</code></pre></div>
+<pre><code>## [1] &quot;2001-04-26&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.Date</span>(<span class="st">&#39;22JUN01&#39;</span>,<span class="dt">format=</span><span class="st">&#39;%d%b%y&#39;</span>)  </code></pre></div>
+<pre><code>## [1] &quot;2001-06-22&quot;</code></pre>
+<p>Output ISO 8601 format into differenct date formant</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">format</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2001-01-15&quot;</span>), <span class="dt">format=</span><span class="st">&#39;%m/%d/%Y&#39;</span>)</code></pre></div>
+<pre><code>## [1] &quot;01/15/2001&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">format</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2001-01-15&quot;</span>), <span class="dt">format=</span><span class="st">&#39;%B %d, %Y&#39;</span>)</code></pre></div>
+<pre><code>## [1] &quot;January 15, 2001&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">format</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2001-01-15&quot;</span>), <span class="dt">format=</span><span class="st">&#39;%d%b%y&#39;</span>)</code></pre></div>
+<pre><code>## [1] &quot;15Jan01&quot;</code></pre>
+<p>more date format go to <a href="https://www.stat.berkeley.edu/~s133/dates.html" class="uri">https://www.stat.berkeley.edu/~s133/dates.html</a></p>
+<p>Find working day between two date(210 days and 150 working days):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(timeDate)
+<span class="co"># A ’timeDate’ Sequence</span>
+tS &lt;-<span class="st"> </span><span class="kw">timeSequence</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2018/1/4&quot;</span>), <span class="kw">as.Date</span>(<span class="st">&quot;2018/8/1&quot;</span>))
+<span class="kw">length</span>(tS)</code></pre></div>
+<pre><code>## [1] 210</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Subset weekdays</span>
+tW &lt;-<span class="st"> </span>tS[<span class="kw">isWeekday</span>(tS)]
+<span class="kw">length</span>(tW)</code></pre></div>
+<pre><code>## [1] 150</code></pre>
 </div>
 <div id="working-with-missing-data" class="section level2">
-<h2><span class="header-section-number">3.2</span> working with missing data</h2>
+<h2><span class="header-section-number">3.4</span> Working with missing data</h2>
+<p>Find missing value in vector:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="ot">NA</span>)
+<span class="kw">is.na</span>(y) <span class="co"># returns a vector (F F F T)</span></code></pre></div>
+<pre><code>## [1] FALSE FALSE FALSE  TRUE</code></pre>
+<p>Find missing value in dataframe:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="ot">NA</span>)
+z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="ot">NA</span>)
+x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="ot">NA</span>)
+data001=<span class="kw">data.frame</span>(<span class="dt">v1=</span>y,<span class="dt">v2=</span>z,<span class="dt">v3=</span>x)
+data001</code></pre></div>
+<pre><code>##   v1 v2   v3
+## 1  1  1    a
+## 2  2  2    b
+## 3  3  3    c
+## 4 NA NA &lt;NA&gt;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(data001)</code></pre></div>
+<pre><code>##        v1            v2         v3   
+##  Min.   :1.0   Min.   :1.0   a   :1  
+##  1st Qu.:1.5   1st Qu.:1.5   b   :1  
+##  Median :2.0   Median :2.0   c   :1  
+##  Mean   :2.0   Mean   :2.0   NA&#39;s:1  
+##  3rd Qu.:2.5   3rd Qu.:2.5           
+##  Max.   :3.0   Max.   :3.0           
+##  NA&#39;s   :1     NA&#39;s   :1</code></pre>
+<p>Exclude missing value observations:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)
+z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>)
+x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="ot">NA</span>)
+data001=<span class="kw">data.frame</span>(<span class="dt">v1=</span>y,<span class="dt">v2=</span>z,<span class="dt">v3=</span>x)
+data001</code></pre></div>
+<pre><code>##   v1 v2   v3
+## 1  1  1    a
+## 2  2  2    b
+## 3  3  3    c
+## 4  4  5 &lt;NA&gt;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data002 &lt;-<span class="st"> </span><span class="kw">na.omit</span>(data001)
+data002</code></pre></div>
+<pre><code>##   v1 v2 v3
+## 1  1  1  a
+## 2  2  2  b
+## 3  3  3  c</code></pre>
+<p>Exclude missing value variable:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)
+z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">6</span>)
+x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="ot">NA</span>)
+data001=<span class="kw">data.frame</span>(<span class="dt">v1=</span>y,<span class="dt">v2=</span>z,<span class="dt">v3=</span>x)
+data001</code></pre></div>
+<pre><code>##   v1 v2   v3
+## 1  1  1    a
+## 2  2  2    b
+## 3  3  3    c
+## 4  4  6 &lt;NA&gt;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data002 &lt;-<span class="st"> </span>data001<span class="op">%&gt;%</span><span class="kw">select</span>(<span class="op">-</span>v3)
+data002</code></pre></div>
+<pre><code>##   v1 v2
+## 1  1  1
+## 2  2  2
+## 3  3  3
+## 4  4  6</code></pre>
+<p>Replace missing value in one variable by mean:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)
+z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>)
+x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="ot">NA</span>)
+data001=<span class="kw">data.frame</span>(<span class="dt">v1=</span>y,<span class="dt">v2=</span>z,<span class="dt">v3=</span>x)
+data001</code></pre></div>
+<pre><code>##   v1 v2 v3
+## 1  1  a  1
+## 2  2  b  2
+## 3  3  c  3
+## 4  4  d NA</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data002=data001<span class="op">%&gt;%</span><span class="kw">mutate</span>(<span class="dt">v3=</span><span class="kw">ifelse</span>(<span class="kw">is.na</span>(v3)<span class="op">==</span><span class="ot">TRUE</span>,<span class="kw">mean</span>(data001<span class="op">$</span>v3,<span class="dt">na.rm =</span> <span class="ot">TRUE</span>),v3))
+data002</code></pre></div>
+<pre><code>##   v1 v2 v3
+## 1  1  a  1
+## 2  2  b  2
+## 3  3  c  3
+## 4  4  d  2</code></pre>
 </div>
 <div id="working-with-string" class="section level2">
-<h2><span class="header-section-number">3.3</span> working with string</h2>
-<p><a href="https://www.datacamp.com/courses/string-manipulation-in-r-with-stringr" class="uri">https://www.datacamp.com/courses/string-manipulation-in-r-with-stringr</a></p>
+<h2><span class="header-section-number">3.5</span> Working with string</h2>
+<p>Add two string together:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(stringr)
+x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;a123&#39;</span>,<span class="st">&#39;b123&#39;</span>,<span class="st">&#39;c123&#39;</span>,<span class="st">&#39;d123&#39;</span>)
+y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>)
+z=<span class="kw">paste</span>(x,y,<span class="dt">sep=</span><span class="st">&#39;_&#39;</span>)
+z</code></pre></div>
+<pre><code>## [1] &quot;a123_a&quot; &quot;b123_b&quot; &quot;c123_c&quot; &quot;d123_d&quot;</code></pre>
+<p>Slice string,get 2 characters start from the first character:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(stringr)
+x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;a123&#39;</span>,<span class="st">&#39;b123&#39;</span>,<span class="st">&#39;c123&#39;</span>,<span class="st">&#39;d123&#39;</span>)
+
+z=<span class="kw">str_sub</span>(x,<span class="dv">1</span>,<span class="dv">2</span>)
+z</code></pre></div>
+<pre><code>## [1] &quot;a1&quot; &quot;b1&quot; &quot;c1&quot; &quot;d1&quot;</code></pre>
+<p>replace character by match:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;a123&#39;</span>,<span class="st">&#39;b123&#39;</span>,<span class="st">&#39;c123&#39;</span>,<span class="st">&#39;d123&#39;</span>)
+z &lt;-<span class="st"> </span><span class="kw">str_replace</span>(x, <span class="kw">fixed</span>(<span class="st">&quot;123&quot;</span>), <span class="st">&quot;&quot;</span>)
+z</code></pre></div>
+<pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot;</code></pre>
 </div>
 <div id="fifty-shape-of-data" class="section level2">
-<h2><span class="header-section-number">3.4</span> Fifty shape of data</h2>
-<p>data wrangler with dplyr package</p>
-<div id="dplyr" class="section level3">
-<h3><span class="header-section-number">3.4.1</span> dplyr</h3>
+<h2><span class="header-section-number">3.6</span> Fifty shape of data</h2>
+<p>Data wrangler with dplyr and sqldf package</p>
+<div id="dplyr-package" class="section level3">
+<h3><span class="header-section-number">3.6.1</span> dplyr package</h3>
 <p>dplyr is a grammar of data manipulation create by Hadley Wickham, providing a consistent set of verbs that help you solve the most common data manipulation challenges:</p>
 <p>Filter row by condidtion[key word:filter]:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars<span class="op">%&gt;%</span><span class="kw">filter</span>(cyl<span class="op">==</span><span class="dv">6</span>)                    <span class="co"># filter cly==6</span>
@@ -244,22 +455,22 @@ mtcars<span class="op">%&gt;%</span><span class="kw">filter</span>(cyl<span clas
 <p>Filter row by row number:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get 3,4,5 rows</span>
 mtcars[<span class="dv">3</span><span class="op">:</span><span class="dv">5</span>,]</code></pre></div>
-<p>select column[key word:select]:</p>
+<p>Select column[key word:select]:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars<span class="op">%&gt;%</span><span class="kw">select</span>(mpg,cyl)                    <span class="co"># select mpg and cyl column</span>
 mtcars<span class="op">%&gt;%</span><span class="kw">select</span>(<span class="op">-</span>mpg)                       <span class="co"># select all but exclude mpg</span></code></pre></div>
-<p>select column by column number:</p>
+<p>Select column by column number:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get 3,4,5 columns</span>
 mtcars[,<span class="dv">3</span><span class="op">:</span><span class="dv">5</span>]</code></pre></div>
-<p>group by,create variable[key word:group_by,summarise]:</p>
+<p>Group by,create variable[key word:group_by,summarise]:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#number and distinct cyl number</span>
 mtcars<span class="op">%&gt;%</span><span class="kw">group_by</span>()<span class="op">%&gt;%</span><span class="kw">summarise</span>(<span class="dt">row_number=</span><span class="kw">n</span>(),<span class="dt">cyl_number=</span><span class="kw">n_distinct</span>(cyl))   <span class="co"># sum row</span></code></pre></div>
-<p>group by,create variable and then base on the resutle to create a new variable[key word:group_by,summarise,mutate]:</p>
+<p>Group by,create variable and then base on the resutle to create a new variable[key word:group_by,summarise,mutate]:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># sum mpg and mean mpg for each cyl and create a new variable mpg_sum_k</span>
 mtcars<span class="op">%&gt;%</span><span class="kw">group_by</span>(cyl)<span class="op">%&gt;%</span><span class="kw">summarise</span>(<span class="dt">mpg_sum=</span><span class="kw">sum</span>(mpg),<span class="dt">mpg_mean=</span><span class="kw">mean</span>(mpg)<span class="op">%&gt;%</span><span class="kw">mutate</span>(<span class="dt">mpg_sum_k=</span>mpg_sum<span class="op">/</span><span class="dv">1000</span>)  </code></pre></div>
-<p>order and transpose[key word:arrange,t]:</p>
+<p>Order and transpose[key word:arrange,t]:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars<span class="op">%&gt;%</span><span class="kw">arrange</span>(<span class="kw">desc</span>(cyl))   <span class="co"># order by cyl decreasing</span>
 <span class="kw">t</span>(mtcars)                     <span class="co"># transpose</span></code></pre></div>
-<p>join[key word:left_join,full_join,inner_join]:</p>
+<p>Join [key word:left_join,full_join,inner_join]:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">left_join</span>(mtcars[<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>),],mtcars[<span class="kw">c</span>(<span class="dv">3</span><span class="op">:</span><span class="dv">5</span>),],<span class="dt">by=</span><span class="kw">c</span>(<span class="st">&#39;mpg&#39;</span>=<span class="st">&#39;mpg&#39;</span>))   <span class="co"># left join </span>
 
 <span class="kw">full_join</span>(mtcars[<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>),],mtcars[<span class="kw">c</span>(<span class="dv">3</span><span class="op">:</span><span class="dv">5</span>),],<span class="dt">by=</span><span class="kw">c</span>(<span class="st">&#39;mpg&#39;</span>=<span class="st">&#39;mpg&#39;</span>))   <span class="co"># full join </span>
@@ -269,8 +480,8 @@ mtcars<span class="op">%&gt;%</span><span class="kw">group_by</span>(cyl)<span c
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># first select and then filter and then summarize</span>
 new_mtcars =mtcars<span class="op">%&gt;%</span><span class="kw">filter</span>(cyl<span class="op">==</span><span class="dv">6</span>)<span class="op">%&gt;%</span><span class="kw">select</span>(mpg,cyl)<span class="op">%&gt;%</span><span class="kw">group_by</span>(cyl)<span class="op">%&gt;%</span><span class="kw">summarise</span>(<span class="dt">total_mpg=</span><span class="kw">sum</span>(mpg))</code></pre></div>
 </div>
-<div id="sqldf" class="section level3">
-<h3><span class="header-section-number">3.4.2</span> sqldf</h3>
+<div id="sqldf-package" class="section level3">
+<h3><span class="header-section-number">3.6.2</span> sqldf package</h3>
 <p>data wrangler with sqldf package.It will allow you to manipulate data with sql. <a href="https://github.com/ggrothendieck/sqldf/issues/22">no full join available yet:</a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(sqldf)
 data=<span class="kw">sqldf</span>(<span class="st">&quot;select * from iris&quot;</span>)</code></pre></div>
