@@ -1,0 +1,36 @@
+---
+title: 重庆 | ChongQing
+author: ''
+date: '2017-10-26'
+slug: chongqing
+categories: []
+tags: [travel]
+description: 'ChongQing HOT HOT HOT' 
+topics: []
+---
+
+## Location:
+```{r eval=FALSE}
+library(leaflet)
+library(ggmap)
+location=geocode( "ChongQing" )
+m <- leaflet()%>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  setView(lng=location$lon, lat=location$lat, zoom = 05) %>%
+addMarkers(lng=location$lon, lat=location$lat, popup="2017 ebay outing ChongQing")
+m
+```
+
+
+## My Second group photo in ebay family:
+
+![](/post/chongqing/chongqing_1.jpg){width=730px height=500px}
+
+![](/post/chongqing/chongqing_2.jpg){width=730px height=500px}
+
+![](/post/chongqing/chongqing_3.jpg){width=730px height=500px}
+
+![](/post/chongqing/chongqing_4.jpg){width=730px height=500px}
+
+
+

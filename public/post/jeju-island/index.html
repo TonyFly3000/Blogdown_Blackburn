@@ -249,18 +249,7 @@
 
 </div>
 
-  <script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
-<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
-<link href="/rmarkdown-libs/leaflet/leaflet.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/leaflet/leaflet.js"></script>
-<link href="/rmarkdown-libs/leafletfix/leafletfix.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/Proj4Leaflet/proj4-compressed.js"></script>
-<script src="/rmarkdown-libs/Proj4Leaflet/proj4leaflet.js"></script>
-<link href="/rmarkdown-libs/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/leaflet-binding/leaflet.js"></script>
-
-
-<div id="location" class="section level2">
+  <div id="location" class="section level2">
 <h2>Location:</h2>
 <pre class="r"><code>library(leaflet)
 library(ggmap)
@@ -270,15 +259,10 @@ m &lt;- leaflet()%&gt;%
   setView(lng=location$lon, lat=location$lat, zoom = 05) %&gt;%
 addMarkers(lng=location$lon, lat=location$lat, popup=&quot;2016 ebay outing Jeju Island&quot;)
 m</code></pre>
-<div id="htmlwidget-1" style="width:672px;height:480px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[33.4890113,126.4983023,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"2016 ebay outing Jeju Island",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"setView":[[33.4890113,126.4983023],5,[]],"limits":{"lat":[33.4890113,33.4890113],"lng":[126.4983023,126.4983023]}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="my-first-group-photo-in-ebay-family" class="section level2">
 <h2>My first group photo in ebay family:</h2>
-<div class="figure">
-<img src="/post/2017-10-23-jeju-island_files/JIJU001.JPG" width="730" height="500" />
-
-</div>
+<p><img src="/post/2017-10-23-jeju-island_files/JIJU001.JPG" width="730" height="500" /></p>
 </div>
 
 

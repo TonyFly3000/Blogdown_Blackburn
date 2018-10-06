@@ -1,0 +1,22 @@
+---
+title: Pydata HK meetup
+author: ''
+date: '2018-09-20'
+slug: pydata-hk-meetup
+categories: []
+tags: [data]
+description: 'My first Pydata meetup @The Hong Kong Polytechnic University'
+topics: []
+---
+
+
+## My first Pydata meetup @The Hong Kong Polytechnic University:
+
+Event:https://www.meetup.com/PyData-Hong-Kong/events/254406736/
+
+1. Discovering Frequent Patterns in Time Series through Unsupervised Data Mining Techniques
+
+2. Write Better Python Code
+
+![](/post/pydata-hk-meetup/pydata-hk-meetup_1809_01.jpg){width=730px height=500px}
+

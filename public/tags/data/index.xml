@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 04 Sep 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 20 Sep 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/data/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Pydata HK meetup</title>
+      <link>/post/pydata-hk-meetup/</link>
+      <pubDate>Thu, 20 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/pydata-hk-meetup/</guid>
+      <description>My first Pydata meetup @The Hong Kong Polytechnic University:Event:https://www.meetup.com/PyData-Hong-Kong/events/254406736/
+Discovering Frequent Patterns in Time Series through Unsupervised Data Mining Techniques
+Write Better Python Code
+</description>
+    </item>
     
     <item>
       <title>【數字‧你懂的】從蘋果iPhone看美中貿易逆差</title>

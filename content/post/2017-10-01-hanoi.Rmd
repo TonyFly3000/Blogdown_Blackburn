@@ -10,7 +10,7 @@ topics: []
 ---
 
 ## Location:
-```{r message=FALSE}
+```{r eval=FALSE}
 library(leaflet)
 library(ggmap)
 location=geocode( "Hanoi" )

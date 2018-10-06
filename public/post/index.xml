@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 04 Sep 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 20 Sep 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Pydata HK meetup</title>
+      <link>/post/pydata-hk-meetup/</link>
+      <pubDate>Thu, 20 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/pydata-hk-meetup/</guid>
+      <description>My first Pydata meetup @The Hong Kong Polytechnic University:Event:https://www.meetup.com/PyData-Hong-Kong/events/254406736/
+Discovering Frequent Patterns in Time Series through Unsupervised Data Mining Techniques
+Write Better Python Code
+</description>
+    </item>
     
     <item>
       <title>【數字‧你懂的】從蘋果iPhone看美中貿易逆差</title>
@@ -77,7 +89,8 @@ print (iris.feature_names) # metadata: names of the features## [&amp;#39;sepal 
       <pubDate>Thu, 03 May 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/seoul/</guid>
-      <description>Location:library(leaflet)library(ggmap)location=geocode( &amp;quot;Seoul&amp;quot; )m &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=location$lon, lat=location$lat, zoom = 05) %&amp;gt;%addMarkers(lng=location$lon, lat=location$lat, popup=&amp;quot;Seoul&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[37.566535,126.9779692,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;Seoul&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[37.566535,126.9779692],5,[]],&#34;limits&#34;:{&#34;lat&#34;:[37.566535,37.566535],&#34;lng&#34;:[126.9779692,126.9779692]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}</description>
+      <description>Location:library(leaflet)library(ggmap)location=geocode( &amp;quot;Seoul&amp;quot; )m &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=location$lon, lat=location$lat, zoom = 05) %&amp;gt;%addMarkers(lng=location$lon, lat=location$lat, popup=&amp;quot;Seoul&amp;quot;)mK POP at the AirportGinseng Chicken SoupA TWOSOME PLACEvery nice coffee shop.
+Korean BBQ beef</description>
     </item>
     
     <item>
@@ -86,7 +99,7 @@ print (iris.feature_names) # metadata: names of the features## [&amp;#39;sepal 
       <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/taipei/</guid>
-      <description>Location:library(leaflet)library(ggmap)location=geocode( &amp;quot;Taipei&amp;quot; )m &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=location$lon, lat=location$lat, zoom = 05) %&amp;gt;%addMarkers(lng=location$lon, lat=location$lat, popup=&amp;quot;Tokyo&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[25.0329694,121.5654177,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;Tokyo&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[25.0329694,121.5654177],5,[]],&#34;limits&#34;:{&#34;lat&#34;:[25.0329694,25.0329694],&#34;lng&#34;:[121.5654177,121.5654177]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}</description>
+      <description>Location:library(leaflet)library(ggmap)location=geocode( &amp;quot;Taipei&amp;quot; )m &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=location$lon, lat=location$lat, zoom = 05) %&amp;gt;%addMarkers(lng=location$lon, lat=location$lat, popup=&amp;quot;Tokyo&amp;quot;)m</description>
     </item>
     
     <item>
@@ -95,7 +108,7 @@ print (iris.feature_names) # metadata: names of the features## [&amp;#39;sepal 
       <pubDate>Fri, 12 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/singapore/</guid>
-      <description>Location:library(leaflet)library(ggmap)location=geocode( &amp;quot;Singapore&amp;quot; )m &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=location$lon, lat=location$lat, zoom = 05) %&amp;gt;%addMarkers(lng=location$lon, lat=location$lat, popup=&amp;quot;Tokyo&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[1.352083,103.819836,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;Tokyo&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[1.352083,103.819836],5,[]],&#34;limits&#34;:{&#34;lat&#34;:[1.352083,1.352083],&#34;lng&#34;:[103.819836,103.819836]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}</description>
+      <description>Location:library(leaflet)library(ggmap)location=geocode( &amp;quot;Singapore&amp;quot; )m &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=location$lon, lat=location$lat, zoom = 05) %&amp;gt;%addMarkers(lng=location$lon, lat=location$lat, popup=&amp;quot;Tokyo&amp;quot;)mAndrews Wedding:</description>
     </item>
     
     <item>
@@ -104,7 +117,16 @@ print (iris.feature_names) # metadata: names of the features## [&amp;#39;sepal 
       <pubDate>Thu, 30 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/tokyo/</guid>
-      <description>Location:library(leaflet)library(ggmap)location=geocode( &amp;quot;Tokyo&amp;quot; )m &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=location$lon, lat=location$lat, zoom = 05) %&amp;gt;%addMarkers(lng=location$lon, lat=location$lat, popup=&amp;quot;Tokyo&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[35.6894875,139.6917064,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;Tokyo&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[35.6894875,139.6917064],5,[]],&#34;limits&#34;:{&#34;lat&#34;:[35.6894875,35.6894875],&#34;lng&#34;:[139.6917064,139.6917064]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}</description>
+      <description>Location:library(leaflet)library(ggmap)location=geocode( &amp;quot;Tokyo&amp;quot; )m &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=location$lon, lat=location$lat, zoom = 05) %&amp;gt;%addMarkers(lng=location$lon, lat=location$lat, popup=&amp;quot;Tokyo&amp;quot;)m</description>
+    </item>
+    
+    <item>
+      <title>重庆 | ChongQing</title>
+      <link>/post/chongqing/</link>
+      <pubDate>Thu, 26 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/chongqing/</guid>
+      <description>Location:library(leaflet)library(ggmap)location=geocode( &amp;quot;ChongQing&amp;quot; )m &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=location$lon, lat=location$lat, zoom = 05) %&amp;gt;%addMarkers(lng=location$lon, lat=location$lat, popup=&amp;quot;2017 ebay outing ChongQing&amp;quot;)mMy Second group photo in ebay family:</description>
     </item>
     
     <item>
@@ -113,8 +135,10 @@ print (iris.feature_names) # metadata: names of the features## [&amp;#39;sepal 
       <pubDate>Sun, 01 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/hanoi/</guid>
-      <description>Location:library(leaflet)library(ggmap)location=geocode( &amp;quot;Hanoi&amp;quot; )m &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=location$lon, lat=location$lat, zoom = 05) %&amp;gt;%addMarkers(lng=location$lon, lat=location$lat, popup=&amp;quot;Hanoi&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[21.0277644,105.8341598,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;Hanoi&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[21.0277644,105.8341598],5,[]],&#34;limits&#34;:{&#34;lat&#34;:[21.0277644,21.0277644],&#34;lng&#34;:[105.8341598,105.8341598]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}coffeeEgg coffee @ The Giang Café and Coconut coffee @ Cong Caphe .Two are in my top 10 coffee list.
-FoodStreet food is health and crazy good.</description>
+      <description>Location:library(leaflet)library(ggmap)location=geocode( &amp;quot;Hanoi&amp;quot; )m &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=location$lon, lat=location$lat, zoom = 05) %&amp;gt;%addMarkers(lng=location$lon, lat=location$lat, popup=&amp;quot;Hanoi&amp;quot;)mcoffeeEgg coffee @ The Giang Café and Coconut coffee @ Cong Caphe .Two are in my top 10 coffee list.
+FoodStreet food is health and crazy good.
+OtherFull of motorbike and Traffic jam
+</description>
     </item>
     
     <item>
@@ -123,7 +147,7 @@ print (iris.feature_names) # metadata: names of the features## [&amp;#39;sepal 
       <pubDate>Sun, 25 Sep 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/jeju-island/</guid>
-      <description>Location:library(leaflet)library(ggmap)location=geocode( &amp;quot;Jeju Island&amp;quot; )m &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=location$lon, lat=location$lat, zoom = 05) %&amp;gt;%addMarkers(lng=location$lon, lat=location$lat, popup=&amp;quot;2016 ebay outing Jeju Island&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[33.4890113,126.4983023,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;2016 ebay outing Jeju Island&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[33.4890113,126.4983023],5,[]],&#34;limits&#34;:{&#34;lat&#34;:[33.4890113,33.4890113],&#34;lng&#34;:[126.4983023,126.4983023]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}My first group photo in ebay family:</description>
+      <description>Location:library(leaflet)library(ggmap)location=geocode( &amp;quot;Jeju Island&amp;quot; )m &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=location$lon, lat=location$lat, zoom = 05) %&amp;gt;%addMarkers(lng=location$lon, lat=location$lat, popup=&amp;quot;2016 ebay outing Jeju Island&amp;quot;)mMy first group photo in ebay family:</description>
     </item>
     
     <item>

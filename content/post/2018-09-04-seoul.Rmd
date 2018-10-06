@@ -9,7 +9,7 @@ description: 'Seoul city...'
 topics: []
 ---
 ## Location:
-```{r message=FALSE}
+```{r eval=FALSE}
 library(leaflet)
 library(ggmap)
 location=geocode( "Seoul" )
@@ -20,4 +20,33 @@ addMarkers(lng=location$lon, lat=location$lat, popup="Seoul")
 m
 
 ```
+
+## K POP at the Airport
+<video width="760" height="465" controls>
+  <source src="/post/2018-09-04-seoul_files/seoul_7.mp4" type="video/mp4">
+</video>
+
+
+## Ginseng Chicken Soup
+![](/post/2018-09-04-seoul_files/seoul_6.jpeg){width=700px height=500px}
+
+![](/post/2018-09-04-seoul_files/seoul_2.jpeg){width=700px height=500px}
+
+
+## A TWOSOME PLACE 
+
+very nice coffee shop.
+
+![](/post/2018-09-04-seoul_files/seoul_4.jpeg){width=700px height=500px}
+
+![](/post/2018-09-04-seoul_files/seoul_3.jpeg){width=700px height=500px}
+
+
+
+## Korean BBQ beef 
+
+![](/post/2018-09-04-seoul_files/seoul_1.jpeg){width=700px height=500px}
+
+
+
 

@@ -10,7 +10,7 @@ topics: []
 ---
 
 ## Location:
-```{r message=FALSE}
+```{r eval=FALSE}
 library(leaflet)
 library(ggmap)
 location=geocode( "Singapore" )
@@ -21,3 +21,15 @@ addMarkers(lng=location$lon, lat=location$lat, popup="Tokyo")
 m
 
 ```
+
+## Andrews Wedding:
+
+
+![](/post/2018-01-12-singapore_files/singapore2018_02.jpg){width=730px height=500px}
+
+![](/post/2018-01-12-singapore_files/singapore2018_03.jpg){width=730px height=500px}
+
+![](/post/2018-01-12-singapore_files/singapore2018_01.jpg){width=730px height=500px}
+
+
+
