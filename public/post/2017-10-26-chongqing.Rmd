@@ -10,14 +10,16 @@ topics: []
 ---
 
 ## Location:
-```{r eval=FALSE}
+```{r warning=FALSE}
 library(leaflet)
 library(ggmap)
-location=geocode( "ChongQing" )
+#location=geocode( "ChongQing" )
+lon=106.54793
+lat=29.55513
 m <- leaflet()%>%
   addTiles() %>%  # Add default OpenStreetMap map tiles
-  setView(lng=location$lon, lat=location$lat, zoom = 05) %>%
-addMarkers(lng=location$lon, lat=location$lat, popup="2017 ebay outing ChongQing")
+  setView(lng=lon, lat=lat, zoom = 05) %>%
+addMarkers(lng=lon, lat=lat, popup="2017 ebay outing ChongQing")
 m
 ```
 

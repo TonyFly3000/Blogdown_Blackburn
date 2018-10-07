@@ -11,14 +11,16 @@ topics: []
 
 
 ## Location:
-```{r eval=FALSE}
+```{r warning=FALSE}
 library(leaflet)
 library(ggmap)
-location=geocode( "Tokyo" )
+#location=geocode( "Tokyo" )
+lon=139.29477
+lat=34.22558
 m <- leaflet()%>%
   addTiles() %>%  # Add default OpenStreetMap map tiles
-  setView(lng=location$lon, lat=location$lat, zoom = 05) %>%
-addMarkers(lng=location$lon, lat=location$lat, popup="Tokyo")
+  setView(lng=lon, lat=lat, zoom = 05) %>%
+addMarkers(lng=lon, lat=lat, popup="Tokyo")
 m
 
 ```

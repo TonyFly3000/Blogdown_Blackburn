@@ -10,14 +10,16 @@ topics: []
 ---
 
 ## Location:
-```{r eval=FALSE}
+```{r warning=FALSE}
 library(leaflet)
 library(ggmap)
-location=geocode( "Jeju Island" )
+#location=geocode( "Jeju Island" )
+lon=126.52431 
+lat=33.49478
 m <- leaflet()%>%
   addTiles() %>%  # Add default OpenStreetMap map tiles
-  setView(lng=location$lon, lat=location$lat, zoom = 05) %>%
-addMarkers(lng=location$lon, lat=location$lat, popup="2016 ebay outing Jeju Island")
+  setView(lng=lon, lat=lat, zoom = 05) %>%
+addMarkers(lng=lon, lat=lat, popup="2016 ebay outing Jeju Island")
 m
 ```
 

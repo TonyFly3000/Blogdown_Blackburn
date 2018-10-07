@@ -9,14 +9,16 @@ description: 'Seoul city...'
 topics: []
 ---
 ## Location:
-```{r eval=FALSE}
+```{r warning=FALSE}
 library(leaflet)
 library(ggmap)
-location=geocode( "Seoul" )
+#location=geocode( "Seoul" )
+lon=127.00175
+lat=37.53555
 m <- leaflet()%>%
   addTiles() %>%  # Add default OpenStreetMap map tiles
-  setView(lng=location$lon, lat=location$lat, zoom = 05) %>%
-addMarkers(lng=location$lon, lat=location$lat, popup="Seoul")
+  setView(lng=lon, lat=lat, zoom = 05) %>%
+addMarkers(lng=lon, lat=lat, popup="Seoul")
 m
 
 ```
