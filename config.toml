@@ -36,24 +36,31 @@ paginate = 10
     identifier = "post"
     url = "/post/"
     
-      [[menu.main]]
+    [[menu.main]]
     name = "Book"
     pre = "<i class='fa fa-tasks fa-fw'></i>"
     weight = 2
     identifier = "book"
     url = "/book/"
     
+    [[menu.main]]
+    name = "Project"
+    pre = "<i class='fa fa-tasks fa-fw'></i>"
+    weight = 3
+    identifier = "project"
+    url = "/project/"
     
   [[menu.main]]
     name = "About"
     pre = "<i class='fa fa-user fa-fw'></i>"
-    weight = 3
+    weight = 4
     identifier = "about"
     url = "/about/"
+
   [[menu.main]]
     name = "Contact"
     pre = "<i class='fa fa-at fa-fw'></i>"
-    weight = 4
+    weight = 5
     url = "/contact/"
 
 [social]

@@ -25,15 +25,6 @@ Discovering Frequent Patterns in Time Series through Unsupervised Data Mining Te
     </item>
     
     <item>
-      <title>Get R</title>
-      <link>/project/get-r/</link>
-      <pubDate>Tue, 04 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/project/get-r/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>【數字‧你懂的】從蘋果iPhone看美中貿易逆差</title>
       <link>/post/data-you-know-iphone/</link>
       <pubDate>Tue, 04 Sep 2018 00:00:00 +0000</pubDate>
@@ -139,6 +130,16 @@ print (iris.feature_names) # metadata: names of the features## [&amp;#39;sepal 
     </item>
     
     <item>
+      <title>Project</title>
+      <link>/project/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/project/</guid>
+      <description> ShinyApp exmaple: World index@Shinyapps.io Data from https://www.gapminder.org and inspired by Hans Rosling
+ </description>
+    </item>
+    
+    <item>
       <title>東京 | Tokyo</title>
       <link>/post/tokyo/</link>
       <pubDate>Thu, 30 Nov 2017 00:00:00 +0000</pubDate>
@@ -178,15 +179,6 @@ print (iris.feature_names) # metadata: names of the features## [&amp;#39;sepal 
     </item>
     
     <item>
-      <title>Contact</title>
-      <link>/contact_backup/</link>
-      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>/contact_backup/</guid>
-      <description> First Name  Last Name  E-Mail  City  State AL CA IL      Send   </description>
-    </item>
-    
-    <item>
       <title>Migrate to Hugo from Jekyll</title>
       <link>/post/migrate-from-jekyll/</link>
       <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
@@ -203,7 +195,10 @@ print (iris.feature_names) # metadata: names of the features## [&amp;#39;sepal 
       <pubDate>Sat, 30 Apr 1988 00:00:00 +0000</pubDate>
       
       <guid>/about/</guid>
-      <description>Employment: Senior Analytic Consultant, Ernst&amp;amp;Young, Performance Improvement  Improve and standardize dashboard report for a leading Chinese commercial bank .Design and develop Analytic model for improving customer relationship ,such as Customer value forecast model, Segmentation model which lead to better customer relationship management strategy. Churn Predictive Modelling and event triggers design. Design customer product mix recommendation model for one of the biggest insurance company in Beijing. Working on Anti-fraud modelling for one of the biggest life insurance company in China.</description>
+      <description>Employment: Risk Specialist, eBay, Busniness management  Managed and improve seller shipping perfromance in term of timing and accuracy by design, implement and monitor Busniness management policy.
+ Developed interactive cloud based dashboard for external and internal user
+ leveraging up to day and open source analytic skill to tackle daily business problem (R server/R shiny/Alaction/Tableau/Git)
+  Senior Analytic Consultant, Ernst&amp;amp;Young, Performance Improvement  Improve and standardize dashboard report for a leading Chinese commercial bank .</description>
     </item>
     
   </channel>
