@@ -1,0 +1,42 @@
+---
+title: 北京 | Beijing
+author: ''
+date: '2016-08-20'
+slug: beijing
+categories: []
+tags: []
+description: 'The Capital city of China'
+topics: []
+---
+
+## Location:
+```{r warning=FALSE}
+library(leaflet)
+library(ggmap)
+location=geocode("Beijing", source = "dsk")
+lon=location$lon
+lat=location$lat
+m <- leaflet()%>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  setView(lng=lon, lat=lat, zoom = 05) %>%
+addMarkers(lng=lon, lat=lat, popup="Beijing")
+m
+
+```
+
+
+## Beijng in winter:
+
+![](/post/2016-08-20-beijing_files/beijing16_001.jpg){width=730px height=500px}
+
+![](/post/2016-08-20-beijing_files/beijing16_002.jpg){width=730px height=500px}
+
+
+## Sunshine Insurance Product recommedation Project:
+![](/post/2016-08-20-beijing_files/beijing16_003.jpg){width=700px height=500px}
+
+
+## Sebastian
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" autoplay="true" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=1041728&autoplay=true&auto=1&height=32"></iframe>
+
