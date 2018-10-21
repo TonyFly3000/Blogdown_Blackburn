@@ -1,0 +1,25 @@
+---
+title: 三亚 | Sanya
+author: ''
+date: '2018-10-10'
+slug: sanya
+categories: []
+tags: []
+description: 'South island'
+topics: []
+---
+
+## Location:
+```{r warning=FALSE}
+library(leaflet)
+library(ggmap)
+location=geocode("Sanya", source = "dsk")
+lon=location$lon
+lat=location$lat
+m <- leaflet()%>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  setView(lng=lon, lat=lat, zoom = 05) %>%
+addMarkers(lng=lon, lat=lat, popup="Sanya")
+m
+
+```

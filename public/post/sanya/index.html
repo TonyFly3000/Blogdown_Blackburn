@@ -4,10 +4,10 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
+  <meta name="description" content="South island">
   <meta name="generator" content="Hugo 0.48" />
 
-  <title>Posts &middot; Tony Duan</title>
+  <title>三亚 | Sanya &middot; Tony Duan</title>
 
   
   
@@ -39,8 +39,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
  
-  
-  <link rel="alternate" type="application/rss+xml" title="Tony Duan" href="/post/index.xml" />
   
 
   
@@ -225,81 +223,108 @@
 
 
 <div class="header">
-  <h1>Posts</h1>
+  <h1>三亚 | Sanya</h1>
 </div>
 <div class="content">
-  
-  <h2>2018</h2>
-  <ul>
-  
-    <li><time>10 Oct 2018, 00:00</time> - <a href="/post/sanya/">三亚 | Sanya</a></li>
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>10 Oct 2018, 00:00</time>
+  </div>
 
   
-    <li><time>20 Sep 2018, 00:00</time> - <a href="/post/pydata-hk-meetup/">Pydata HK meetup</a></li>
 
   
-    <li><time>04 Sep 2018, 00:00</time> - <a href="/post/data-you-know-iphone/">【數字‧你懂的】從蘋果iPhone看美中貿易逆差</a></li>
+  
+  
+  
 
   
-    <li><time>02 Sep 2018, 00:00</time> - <a href="/post/how-ai-can-save-our-humanity-by-kai-fu-lee/">How AI can save our humanity by Kai-Fu Lee | 李开复：人工智能将拯救人类</a></li>
+  
+  
+  
+
+</div>
+
+  <script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="/rmarkdown-libs/leaflet/leaflet.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/leaflet/leaflet.js"></script>
+<link href="/rmarkdown-libs/leafletfix/leafletfix.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/Proj4Leaflet/proj4-compressed.js"></script>
+<script src="/rmarkdown-libs/Proj4Leaflet/proj4leaflet.js"></script>
+<link href="/rmarkdown-libs/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/leaflet-binding/leaflet.js"></script>
+
+
+<div id="location" class="section level2">
+<h2>Location:</h2>
+<pre class="r"><code>library(leaflet)
+library(ggmap)</code></pre>
+<pre><code>## Loading required package: ggplot2</code></pre>
+<pre class="r"><code>location=geocode(&quot;Sanya&quot;, source = &quot;dsk&quot;)</code></pre>
+<pre><code>## Information from URL : http://www.datasciencetoolkit.org/maps/api/geocode/json?address=Sanya&amp;sensor=false</code></pre>
+<pre class="r"><code>lon=location$lon
+lat=location$lat
+m &lt;- leaflet()%&gt;%
+  addTiles() %&gt;%  # Add default OpenStreetMap map tiles
+  setView(lng=lon, lat=lat, zoom = 05) %&gt;%
+addMarkers(lng=lon, lat=lat, popup=&quot;Sanya&quot;)
+m</code></pre>
+<div id="htmlwidget-1" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[18.24306,109.505,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Sanya",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"setView":[[18.24306,109.505],5,[]],"limits":{"lat":[18.24306,18.24306],"lng":[109.505,109.505]}},"evals":[],"jsHooks":[]}</script>
+</div>
+
 
   
-    <li><time>01 Sep 2018, 00:00</time> - <a href="/post/knn-model-in-python/">KNN model in python</a></li>
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="/post/pydata-hk-meetup/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="/post/pydata-hk-meetup/">Pydata HK meetup</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
 
   
-    <li><time>01 Sep 2018, 00:00</time> - <a href="/post/decision-tree-model-in-python/">Decision Tree model in python</a></li>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
 
-  
-    <li><time>02 Aug 2018, 00:00</time> - <a href="/post/machine-learning-over-coffee-with-josh-gordon/">Machine Learning over Coffee with Josh Gordon</a></li>
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
 
-  
-    <li><time>01 Aug 2018, 00:00</time> - <a href="/post/how-overnight-shipping-works/">How Overnight Shipping Works</a></li>
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-  
-    <li><time>03 May 2018, 00:00</time> - <a href="/post/seoul/">서울 | Seoul</a></li>
 
-  
-    <li><time>01 May 2018, 00:00</time> - <a href="/post/taipei/">臺北 | Taipei</a></li>
-
-  
-    <li><time>12 Jan 2018, 00:00</time> - <a href="/post/singapore/">Singapore</a></li>
-
-  
-  </ul>
-  
-  <h2>2017</h2>
-  <ul>
-  
-    <li><time>30 Nov 2017, 00:00</time> - <a href="/post/tokyo/">東京 | Tokyo</a></li>
-
-  
-    <li><time>26 Oct 2017, 00:00</time> - <a href="/post/chongqing/">重庆 | ChongQing</a></li>
-
-  
-    <li><time>01 Oct 2017, 00:00</time> - <a href="/post/hanoi/">Hà Nội | Hanoi</a></li>
-
-  
-  </ul>
-  
-  <h2>2016</h2>
-  <ul>
-  
-    <li><time>25 Sep 2016, 00:00</time> - <a href="/post/jeju-island/">濟州島 | Jeju Island</a></li>
-
-  
-    <li><time>20 Aug 2016, 00:00</time> - <a href="/post/beijing/">北京 | Beijing</a></li>
-
-  
-  </ul>
-  
-  <h2>2014</h2>
-  <ul>
-  
-    <li><time>10 Mar 2014, 00:00</time> - <a href="/post/migrate-from-jekyll/">Migrate to Hugo from Jekyll</a></li>
-
-  
-  </ul>
-  
 </div>
 
 </div>
