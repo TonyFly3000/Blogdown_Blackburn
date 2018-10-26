@@ -1,0 +1,23 @@
+---
+title: Pydata HK meetup Oct
+author: ''
+date: '2018-10-25'
+slug: pydata-hk-meetup-oct
+categories: []
+tags: []
+description: 'My second Pydata meetup @The Hong Kong Polytechnic University'
+topics: []
+---
+
+## Second Pydata meetup @The Hong Kong Polytechnic University Z409:
+
+1. Hands-on with Data Visuzliation by Mr. Darren Chiu (https://www.linkedin.com/in/darrenchiu/)
+
+2. How can we know that a machine learning algorithm classifies and detects faults well? by Dr. Howard Cheung (https://www.linkedin.com/in/howard-cheung-energy-research/)
+
+
+
+![](/post\pydata-hk-meetup-oct/IMG_1239.jpg){width=730px height=500px}
+
+https://www.meetup.com/PyData-Hong-Kong/events/255545312/
+
