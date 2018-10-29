@@ -8,3 +8,5 @@ description = "How to contact me"
 Email:jcflyingco@outlook.com
 
 WeChat ID:veryfly888
+
+Telegram ID:verytony
