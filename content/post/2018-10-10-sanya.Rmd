@@ -37,7 +37,7 @@ m
 
 ![](/post\2018-10-10-sanya_files/IMG_004.JPG){width=730px height=500px}
 
-![](/post\2018-10-10-sanya_files/IMG_005.jpeg){width=680px height=500px}
+![](/post\2018-10-10-sanya_files/IMG_005.jpeg){width=650px height=500px}
 
 ![](/post\2018-10-10-sanya_files/IMG_006.jpeg){width=730px height=500px}
 
@@ -47,6 +47,8 @@ m
 ![](/post\2018-10-10-sanya_files/IMG_008.jpeg){width=730px height=500px}
 ![](/post\2018-10-10-sanya_files/IMG_009.jpeg){width=730px height=500px}
 ![](/post\2018-10-10-sanya_files/IMG_010.JPG){width=680px height=500px}
+
+![](/post\2018-10-10-sanya_files/IMG_011.JPG){width=500px height=500px}
 
 ## music
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0"  width=700 height=300 src="https://www.xiami.com/play?ids=/song/playlist/id/2104114316/type/1#loaded&auto=1"></iframe>

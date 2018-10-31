@@ -4,10 +4,10 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="South island">
+  <meta name="description" content="my first Pycon">
   <meta name="generator" content="Hugo 0.48" />
 
-  <title>三亚 | Sanya &middot; Tony Duan</title>
+  <title>Pycon China Shenzhen 2018 &middot; Tony Duan</title>
 
   
   
@@ -223,7 +223,7 @@
 
 
 <div class="header">
-  <h1>三亚 | Sanya</h1>
+  <h1>Pycon China Shenzhen 2018</h1>
 </div>
 <div class="content">
 
@@ -231,7 +231,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>10 Oct 2018, 00:00</time>
+    <time>27 Oct 2018, 00:00</time>
   </div>
 
   
@@ -264,38 +264,25 @@
 <pre class="r"><code>library(leaflet)
 library(ggmap)</code></pre>
 <pre><code>## Loading required package: ggplot2</code></pre>
-<pre class="r"><code>location=geocode(&quot;Sanya&quot;, source = &quot;dsk&quot;)</code></pre>
-<pre><code>## Information from URL : http://www.datasciencetoolkit.org/maps/api/geocode/json?address=Sanya&amp;sensor=false</code></pre>
+<pre class="r"><code>location=geocode(&quot;Kexing Science Park shenzhen china&quot;, source = &quot;dsk&quot;)</code></pre>
+<pre><code>## Information from URL : http://www.datasciencetoolkit.org/maps/api/geocode/json?address=Kexing%20Science%20Park%20shenzhen%20china&amp;sensor=false</code></pre>
 <pre class="r"><code>lon=location$lon
 lat=location$lat
 m &lt;- leaflet()%&gt;%
   addTiles() %&gt;%  # Add default OpenStreetMap map tiles
-  setView(lng=lon, lat=lat, zoom = 05) %&gt;%
-addMarkers(lng=lon, lat=lat, popup=&quot;Sanya&quot;)
+  setView(lng=lon, lat=lat, zoom = 15) %&gt;%
+addMarkers(lng=lon, lat=lat, popup=&quot;@Kexing Science Park&quot;)
 m</code></pre>
 <div id="htmlwidget-1" style="width:672px;height:480px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[18.24306,109.505,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Sanya",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"setView":[[18.24306,109.505],5,[]],"limits":{"lat":[18.24306,18.24306],"lng":[109.505,109.505]}},"evals":[],"jsHooks":[]}</script>
-</div>
-<div id="ebay-3rd-outing" class="section level2">
-<h2>ebay 3rd outing</h2>
-<p><img src="/post\2018-10-10-sanya_files/IMG_0000.jpeg" width="680" height="500" />
-<img src="/post\2018-10-10-sanya_files/IMG_000.JPG" width="680" height="500" />
-<img src="/post\2018-10-10-sanya_files/IMG_001.JPG" width="730" height="500" /></p>
-<p><img src="/post\2018-10-10-sanya_files/IMG_002.jpeg" width="730" height="500" /></p>
-<p><img src="/post\2018-10-10-sanya_files/IMG_003.jpeg" width="730" height="500" /></p>
-<p><img src="/post\2018-10-10-sanya_files/IMG_004.JPG" width="730" height="500" /></p>
-<p><img src="/post\2018-10-10-sanya_files/IMG_005.jpeg" width="650" height="500" /></p>
-<p><img src="/post\2018-10-10-sanya_files/IMG_006.jpeg" width="730" height="500" /></p>
-<p><img src="/post\2018-10-10-sanya_files/IMG_007.jpeg" width="680" height="500" /></p>
-<p><img src="/post\2018-10-10-sanya_files/IMG_008.jpeg" width="730" height="500" />
-<img src="/post\2018-10-10-sanya_files/IMG_009.jpeg" width="730" height="500" />
-<img src="/post\2018-10-10-sanya_files/IMG_010.JPG" width="680" height="500" /></p>
-<p><img src="/post\2018-10-10-sanya_files/IMG_011.JPG" width="500" height="500" /></p>
-</div>
-<div id="music" class="section level2">
-<h2>music</h2>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="700" height="300" src="https://www.xiami.com/play?ids=/song/playlist/id/2104114316/type/1#loaded&amp;auto=1">
-</iframe>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[22.54554,114.0683,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"@Kexing Science Park",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"setView":[[22.54554,114.0683],15,[]],"limits":{"lat":[22.54554,22.54554],"lng":[114.0683,114.0683]}},"evals":[],"jsHooks":[]}</script>
+<p><img src="/post/2018-10-27-pycon-china-shenzhen-2018_files/IMG_001.jpeg" width="780" height="600" /></p>
+<p><img src="/post/2018-10-27-pycon-china-shenzhen-2018_files/IMG_002.jpeg" width="550" height="800" /></p>
+<p><img src="/post/2018-10-27-pycon-china-shenzhen-2018_files/IMG_003.jpeg" width="780" height="600" /></p>
+<p><img src="/post/2018-10-27-pycon-china-shenzhen-2018_files/IMG_004.jpeg" width="780" height="600" /></p>
+<p><img src="/post/2018-10-27-pycon-china-shenzhen-2018_files/IMG_005.jpeg" width="780" height="600" /></p>
+<p><img src="/post/2018-10-27-pycon-china-shenzhen-2018_files/IMG_006.jpeg" width="390" height="500" />
+<img src="/post/2018-10-27-pycon-china-shenzhen-2018_files/IMG_007.jpeg" width="390" height="500" /></p>
+<p><a href="http://cn.pycon.org/2018/en/city_shenzhen.html" class="uri">http://cn.pycon.org/2018/en/city_shenzhen.html</a></p>
 </div>
 
 
@@ -303,13 +290,13 @@ m</code></pre>
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="/post/pydata-hk-meetup/"><i class="fa fa-chevron-left"></i></a>
+    <a href="/post/pydata-hk-meetup-oct/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="/post/pydata-hk-meetup/">Pydata HK meetup</a>
+      <a href="/post/pydata-hk-meetup-oct/">Pydata HK meetup Oct</a>
     </nav>
     
   </div>
@@ -318,14 +305,8 @@ m</code></pre>
   </div>
   <div class="pure-u-10-24">
     
-    <nav class="next">
-      <a href="/post/pydata-hk-meetup-oct/">Pydata HK meetup Oct</a>
-    </nav>
-    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="/post/pydata-hk-meetup-oct/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>

@@ -1,0 +1,47 @@
+---
+title: Pycon China Shenzhen 2018
+author: ''
+date: '2018-10-27'
+slug: pycon-china-shenzhen-2018
+categories: []
+tags: []
+description: 'my first Pycon'
+topics: []
+---
+
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="/rmarkdown-libs/leaflet/leaflet.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/leaflet/leaflet.js"></script>
+<link href="/rmarkdown-libs/leafletfix/leafletfix.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/Proj4Leaflet/proj4-compressed.js"></script>
+<script src="/rmarkdown-libs/Proj4Leaflet/proj4leaflet.js"></script>
+<link href="/rmarkdown-libs/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/leaflet-binding/leaflet.js"></script>
+
+
+<div id="location" class="section level2">
+<h2>Location:</h2>
+<pre class="r"><code>library(leaflet)
+library(ggmap)</code></pre>
+<pre><code>## Loading required package: ggplot2</code></pre>
+<pre class="r"><code>location=geocode(&quot;Kexing Science Park shenzhen china&quot;, source = &quot;dsk&quot;)</code></pre>
+<pre><code>## Information from URL : http://www.datasciencetoolkit.org/maps/api/geocode/json?address=Kexing%20Science%20Park%20shenzhen%20china&amp;sensor=false</code></pre>
+<pre class="r"><code>lon=location$lon
+lat=location$lat
+m &lt;- leaflet()%&gt;%
+  addTiles() %&gt;%  # Add default OpenStreetMap map tiles
+  setView(lng=lon, lat=lat, zoom = 15) %&gt;%
+addMarkers(lng=lon, lat=lat, popup=&quot;@Kexing Science Park&quot;)
+m</code></pre>
+<div id="htmlwidget-1" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[22.54554,114.0683,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"@Kexing Science Park",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"setView":[[22.54554,114.0683],15,[]],"limits":{"lat":[22.54554,22.54554],"lng":[114.0683,114.0683]}},"evals":[],"jsHooks":[]}</script>
+<p><img src="/post/2018-10-27-pycon-china-shenzhen-2018_files/IMG_001.jpeg" width="780" height="600" /></p>
+<p><img src="/post/2018-10-27-pycon-china-shenzhen-2018_files/IMG_002.jpeg" width="550" height="800" /></p>
+<p><img src="/post/2018-10-27-pycon-china-shenzhen-2018_files/IMG_003.jpeg" width="780" height="600" /></p>
+<p><img src="/post/2018-10-27-pycon-china-shenzhen-2018_files/IMG_004.jpeg" width="780" height="600" /></p>
+<p><img src="/post/2018-10-27-pycon-china-shenzhen-2018_files/IMG_005.jpeg" width="780" height="600" /></p>
+<p><img src="/post/2018-10-27-pycon-china-shenzhen-2018_files/IMG_006.jpeg" width="390" height="500" />
+<img src="/post/2018-10-27-pycon-china-shenzhen-2018_files/IMG_007.jpeg" width="390" height="500" /></p>
+<p><a href="http://cn.pycon.org/2018/en/city_shenzhen.html" class="uri">http://cn.pycon.org/2018/en/city_shenzhen.html</a></p>
+</div>
