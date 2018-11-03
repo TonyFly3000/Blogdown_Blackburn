@@ -9,20 +9,8 @@ description: 'my first Pycon'
 topics: []
 ---
 
-## Location:
-```{r warning=FALSE}
-library(leaflet)
-library(ggmap)
-location=geocode("Kexing Science Park shenzhen china", source = "dsk")
-lon=location$lon
-lat=location$lat
-m <- leaflet()%>%
-  addTiles() %>%  # Add default OpenStreetMap map tiles
-  setView(lng=lon, lat=lat, zoom = 15) %>%
-addMarkers(lng=lon, lat=lat, popup="@Kexing Science Park")
-m
+我的第一次 Pycon 。果然大开眼界。程序员们都养起了茂密的发根，脱下了格子战衣。五湖四海而来，共聚一堂。说起了相声，打起了太极，聊起了梦想。
 
-```
 
 
 ![](/post/2018-10-27-pycon-china-shenzhen-2018_files/IMG_001.jpeg){width=780px height=600px}
