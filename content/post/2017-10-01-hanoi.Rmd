@@ -8,7 +8,6 @@ tags: [travel]
 description: 'Hanoi city...' 
 topics: []
 ---
-
 ## Location:
 ```{r warning=FALSE ,message=FALSE}
 library(leaflet)

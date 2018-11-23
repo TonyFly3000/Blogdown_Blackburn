@@ -1,5 +1,5 @@
 ---
-title: JiGuang Dev day 2018
+title: 'JiGuang Dev day 2018'
 author: ''
 date: '2018-11-17'
 slug: jiguang-dev-day
@@ -9,31 +9,29 @@ description: 'Jiguang Dev day'
 topics: []
 ---
 
-## Selfie and free food
-
+## Selfie and free food:
 ![](/post\jiguang-dev-day/JG001.jpeg){width=700px height=500px}
-
 ![](/post\jiguang-dev-day/JG002.jpeg){width=700px height=500px}
 
-## Text mining
+
+## Text mining:
 ![](/post\jiguang-dev-day/JG003.jpeg){width=700px height=500px}
-
-
 ![](/post\jiguang-dev-day/JG004.jpeg){width=700px height=500px}
 
-## Picture recognition
+
+## Picture recognition:
 ![](/post\jiguang-dev-day/JG005.jpeg){width=700px height=500px}
 ![](/post\jiguang-dev-day/JG006.jpeg){width=700px height=500px}
 ![](/post\jiguang-dev-day/JG007.jpeg){width=700px height=500px}
 
 
-## Data team Org
-
+## Data team Org:
 ![](/post\jiguang-dev-day/JG008.jpeg){width=700px height=500px}
 ![](/post\jiguang-dev-day/JG009.jpeg){width=700px height=500px}
 
 
-## JiGuang website:https://www.jiguang.cn
+## JiGuang website:https://www.jiguang.cn:
+
 ```{r warning=FALSE , message=FALSE}
 library(quantmod)
 library(plotly)
