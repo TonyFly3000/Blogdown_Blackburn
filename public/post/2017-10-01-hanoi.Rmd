@@ -23,15 +23,12 @@ m
 
 ```
 
-
 ## coffee
-
 Egg coffee @ The Giang Café and Coconut coffee @ Cong Caphe .Two are in my top 10 coffee list.
 
 ![](/post/2017-10-01-hanoi_files/Hanoi001.png)
 
 ## Food
-
 Street food is health and crazy good.
 
 ![](/post/2017-10-01-hanoi_files/IMG_20171005_124316.jpg){width=700px height=500px}
@@ -41,9 +38,3 @@ Street food is health and crazy good.
 Full of motorbike and Traffic jam
 
 ![](/post/2017-10-01-hanoi_files/IMG_20171002_172412.jpg){width=700px height=500px}
-
-
-
-
-
-
