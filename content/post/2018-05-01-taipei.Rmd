@@ -10,7 +10,7 @@ topics: []
 ---
 
 ## Location:
-```{r warning=FALSE}
+```{r warning=FALSE ,message=FALSE}
 library(leaflet)
 library(ggmap)
 #location=geocode( "Taipei" )
@@ -23,3 +23,25 @@ addMarkers(lng=lon, lat=lat, popup="Taipei")
 m
 
 ```
+
+
+## Arrival 
+![](/post/2018-05-01-taipei_files/TW001.JPG){width=700px height=500px}
+
+![](/post/2018-05-01-taipei_files/TW002.JPG){width=700px height=500px}
+
+## The Best beef noodle
+![](/post/2018-05-01-taipei_files/TW003.JPG){width=700px height=500px}
+
+![](/post/2018-05-01-taipei_files/TW004.JPG){width=700px height=500px}
+
+
+## Nationalist Party of China
+
+![](/post/2018-05-01-taipei_files/TW005.JPG){width=700px height=500px}
+
+
+![](/post/2018-05-01-taipei_files/TW006.JPG){width=700px height=500px}
+
+
+

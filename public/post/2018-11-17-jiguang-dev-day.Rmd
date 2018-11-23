@@ -1,0 +1,48 @@
+---
+title: JiGuang Dev day 2018
+author: ''
+date: '2018-11-17'
+slug: jiguang-dev-day
+categories: []
+tags: []
+description: 'Jiguang Dev day'
+topics: []
+---
+
+## Selfie and free food
+
+![](/post\jiguang-dev-day/JG001.jpeg){width=700px height=500px}
+
+![](/post\jiguang-dev-day/JG002.jpeg){width=700px height=500px}
+
+## Text mining
+![](/post\jiguang-dev-day/JG003.jpeg){width=700px height=500px}
+
+
+![](/post\jiguang-dev-day/JG004.jpeg){width=700px height=500px}
+
+## Picture recognition
+![](/post\jiguang-dev-day/JG005.jpeg){width=700px height=500px}
+![](/post\jiguang-dev-day/JG006.jpeg){width=700px height=500px}
+![](/post\jiguang-dev-day/JG007.jpeg){width=700px height=500px}
+
+
+## Data team Org
+
+![](/post\jiguang-dev-day/JG008.jpeg){width=700px height=500px}
+![](/post\jiguang-dev-day/JG009.jpeg){width=700px height=500px}
+
+
+## JiGuang website:https://www.jiguang.cn
+```{r warning=FALSE , message=FALSE}
+library(quantmod)
+library(plotly)
+
+getSymbols("JG")
+JG_data=as.data.frame(JG)
+JG_data$time <- rownames(JG_data)
+JG_data=JG_data%>%filter(time>='2018-06-01')
+p <- plot_ly(JG_data, x = ~time, y = ~JG.Close, type = 'scatter', mode = 'lines+markers')
+p
+```
+
