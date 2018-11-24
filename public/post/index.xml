@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 17 Nov 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 24 Nov 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Talk Data to your Organization[video]</title>
+      <link>/post/talk-data-to-your-organization/</link>
+      <pubDate>Sat, 24 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/talk-data-to-your-organization/</guid>
+      <description>Talk Data to your Organization by Ben Shields at MIT Sloan Sports Analytics Conference
+Part 1Part 2</description>
+    </item>
     
     <item>
       <title>JiGuang Dev day 2018</title>
@@ -75,7 +85,7 @@ Discovering Frequent Patterns in Time Series through Unsupervised Data Mining Te
     </item>
     
     <item>
-      <title>How AI can save our humanity by Kai-Fu Lee | 李开复：人工智能将拯救人类</title>
+      <title>How AI can save our humanity by Kai-Fu Lee | 李开复：人工智能将拯救人类[video]</title>
       <link>/post/how-ai-can-save-our-humanity-by-kai-fu-lee/</link>
       <pubDate>Sun, 02 Sep 2018 00:00:00 +0000</pubDate>
       
@@ -115,7 +125,7 @@ print (iris.feature_names) # metadata: names of the features## [&amp;#39;sepal 
     </item>
     
     <item>
-      <title>How Overnight Shipping Works</title>
+      <title>How Overnight Shipping Works[video]</title>
       <link>/post/how-overnight-shipping-works/</link>
       <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
       
