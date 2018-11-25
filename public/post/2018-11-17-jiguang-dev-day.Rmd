@@ -1,5 +1,5 @@
 ---
-title: 'JiGuang Dev day 2018'
+title: JiGuang Dev day 2018[Conference]
 author: ''
 date: '2018-11-17'
 slug: jiguang-dev-day

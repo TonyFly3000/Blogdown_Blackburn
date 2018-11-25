@@ -26,13 +26,13 @@ m
 
 ## My Second group photo in ebay family:
 
-![](/post/chongqing/chongqing_1.jpg){width=730px height=500px}
+![](/post/chongqing/chongqing_1.jpg){width=700px height=500px}
 
-![](/post/chongqing/chongqing_2.jpg){width=730px height=500px}
+![](/post/chongqing/chongqing_2.jpg){width=700px height=500px}
 
-![](/post/chongqing/chongqing_3.jpg){width=730px height=500px}
+![](/post/chongqing/chongqing_3.jpg){width=700px height=500px}
 
-![](/post/chongqing/chongqing_4.jpg){width=730px height=500px}
+![](/post/chongqing/chongqing_4.jpg){width=700px height=500px}
 
 
 

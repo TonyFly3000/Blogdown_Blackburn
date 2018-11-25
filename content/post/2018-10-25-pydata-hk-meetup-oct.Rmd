@@ -1,5 +1,5 @@
 ---
-title: Pydata HK meetup Oct
+title: Pydata HK meetup Oct[Conference]
 author: ''
 date: '2018-10-25'
 slug: pydata-hk-meetup-oct
@@ -17,7 +17,9 @@ topics: []
 
 
 
-![](/post\pydata-hk-meetup-oct/IMG_1239.jpg){width=730px height=500px}
+![](/post\pydata-hk-meetup-oct/IMG_1239.jpg){width=700px height=500px}
+
+![](/post\pydata-hk-meetup-oct/IMG_0972.jpeg){width=700px height=500px}
 
 https://www.meetup.com/PyData-Hong-Kong/events/255545312/
 

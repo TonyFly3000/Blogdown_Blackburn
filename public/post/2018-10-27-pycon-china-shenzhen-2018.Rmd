@@ -1,5 +1,5 @@
 ---
-title: Pycon China Shenzhen 2018
+title: Pycon China Shenzhen 2018[Conference]
 author: ''
 date: '2018-10-27'
 slug: pycon-china-shenzhen-2018
