@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 24 Nov 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 25 Nov 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>R Conference GZ</title>
+      <link>/post/r-conference-gz/</link>
+      <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/r-conference-gz/</guid>
+      <description>R conference Guangzhou @ SUN YAT-SEN UNIVERSITYGuangzhou Food</description>
+    </item>
     
     <item>
       <title>MIT:Talk Data to your Organization[video]</title>

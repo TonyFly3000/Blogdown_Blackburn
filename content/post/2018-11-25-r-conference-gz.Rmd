@@ -1,0 +1,22 @@
+---
+title: R Conference GZ
+author: ''
+date: '2018-11-25'
+slug: r-conference-gz
+categories: []
+tags: []
+description: 'R Conference GZ'
+topics: []
+---
+
+## R conference Guangzhou @ SUN YAT-SEN UNIVERSITY
+
+![](/post/r-conference-gz/GZ_R001.jpg){width=730px height=500px}
+![](/post/r-conference-gz/GZ_R002.jpg){width=730px height=500px}
+![](/post/r-conference-gz/GZ_R004.jpg){width=730px height=500px}
+
+## Guangzhou Food
+
+![](/post/r-conference-gz/GZ_food001.jpg){width=730px height=500px}
+
+![](/post/r-conference-gz/GZ_food002.jpg){width=730px height=500px}
