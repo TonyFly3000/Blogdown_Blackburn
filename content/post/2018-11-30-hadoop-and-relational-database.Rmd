@@ -1,0 +1,25 @@
+---
+title: Hadoop and Relational database[Video]
+author: ''
+date: '2018-11-30'
+slug: hadoop-and-relational-database
+categories: []
+tags: []
+description: 'Hadoop vs Relational database'
+topics: []
+---
+
+
+## SQL vs NO SQL
+
+<iframe width="760" height="520" src="https://www.youtube.com/embed/ZS_kXvOeQ5Y" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+
+
+
+## RDBMS vs Hadoop
+
+<iframe width="760" height="520" src="https://www.youtube.com/embed/MfF750YVDxM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+
+

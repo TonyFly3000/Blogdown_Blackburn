@@ -7,10 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 25 Nov 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 30 Nov 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hadoop and Relational database[Video]</title>
+      <link>/post/hadoop-and-relational-database/</link>
+      <pubDate>Fri, 30 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/hadoop-and-relational-database/</guid>
+      <description>SQL vs NO SQLRDBMS vs Hadoop</description>
+    </item>
+    
+    <item>
+      <title>蔡瀾画</title>
+      <link>/post/2018-11-30-/</link>
+      <pubDate>Fri, 30 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018-11-30-/</guid>
+      <description>雙鬢斑斑不悔今生狂妄欲上青天攬明月From 蔡瀾Blog：https://bobostory.wordpress.com/
+</description>
+    </item>
     
     <item>
       <title>R Conference GuangZhou[Conference]</title>
