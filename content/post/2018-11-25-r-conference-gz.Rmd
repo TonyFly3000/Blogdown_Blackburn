@@ -11,7 +11,7 @@ topics: []
 
 ## R conference Guangzhou @ SUN YAT-SEN UNIVERSITY
 
-Back to school:
+Back to school::
 
 ![](/post/r-conference-gz/IMG_1413.jpeg){width=700px height=500px}
 
