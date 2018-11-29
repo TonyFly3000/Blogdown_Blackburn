@@ -1,11 +1,11 @@
 ---
-title: 蔡瀾画
+title: 蔡澜画
 author: ''
 date: '2018-11-30'
-slug: ''
+slug: cailan-paint
 categories: []
 tags: []
-description: '蔡瀾画'
+description: ''
 topics: []
 ---
 
@@ -20,7 +20,6 @@ topics: []
 
 
 ![](/post/2018-11-30-/cailan001.jpg){width=550px height=700px}
-
 
 
 
