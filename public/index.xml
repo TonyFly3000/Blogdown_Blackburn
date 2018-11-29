@@ -32,6 +32,15 @@
     </item>
     
     <item>
+      <title>testing</title>
+      <link>/post/testing/</link>
+      <pubDate>Thu, 29 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/testing/</guid>
+      <description>testing</description>
+    </item>
+    
+    <item>
       <title>R Conference GuangZhou[Conference]</title>
       <link>/post/r-conference-gz/</link>
       <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
