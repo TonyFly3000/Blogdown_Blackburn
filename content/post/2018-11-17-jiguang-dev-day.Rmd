@@ -30,7 +30,7 @@ topics: []
 ![](/post\jiguang-dev-day/JG009.jpeg){width=700px height=500px}
 
 
-## JiGuang website:https://www.jiguang.cn:
+## JiGuang website:https://www.jiguang.cn
 
 ```{r warning=FALSE , message=FALSE}
 library(quantmod)
