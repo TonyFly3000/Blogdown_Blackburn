@@ -7,10 +7,35 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 04 Sep 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 29 Nov 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/video/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hadoop and Relational database</title>
+      <link>/post/hadoop-and-relational-database-video/</link>
+      <pubDate>Thu, 29 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/hadoop-and-relational-database-video/</guid>
+      <description>SQL vs NO SQLRDBMS vs Hadoop</description>
+    </item>
+    
+    <item>
+      <title>MIT:Talk Data to your Organization</title>
+      <link>/post/talk-data-to-your-organization/</link>
+      <pubDate>Sat, 24 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/talk-data-to-your-organization/</guid>
+      <description>Talk Data to your Organization by Ben Shields at MIT Sloan Sports Analytics Conference
+Part 1Part 21.Define your objectiveWhat action do you want your audiences to talk?
+2.Analyze your audiencesCredibiltyFamiliarityBiaswhat in it for them
+3.Strucure your messageBottom linerationalecall to action
+4.Connect through contentword/number/table/chart
+5.Choose your channelpresentation/slideument/document
+6.Adpt your visual
+</description>
+    </item>
     
     <item>
       <title>【數字‧你懂的】從蘋果iPhone看美中貿易逆差</title>
@@ -23,6 +48,16 @@
     </item>
     
     <item>
+      <title>How AI can save our humanity by Kai-Fu Lee | 李开复：人工智能将拯救人类</title>
+      <link>/post/how-ai-can-save-our-humanity-by-kai-fu-lee/</link>
+      <pubDate>Sun, 02 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/how-ai-can-save-our-humanity-by-kai-fu-lee/</guid>
+      <description>Kai-Fu Lee presented TED talk at Aug13 2018.
+US invent and China applyChina 2017 18 Trillon USD transaction was made by mobile payment bigger than total China 2017 GDP ,13 Trillon.</description>
+    </item>
+    
+    <item>
       <title>Machine Learning over Coffee with Josh Gordon</title>
       <link>/post/machine-learning-over-coffee-with-josh-gordon/</link>
       <pubDate>Thu, 02 Aug 2018 00:00:00 +0000</pubDate>
@@ -32,7 +67,7 @@
     </item>
     
     <item>
-      <title>How Overnight Shipping Works[video]</title>
+      <title>How Overnight Shipping Works</title>
       <link>/post/how-overnight-shipping-works/</link>
       <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
       

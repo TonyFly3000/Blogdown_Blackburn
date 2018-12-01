@@ -1,10 +1,10 @@
 ---
-title: How AI can save our humanity by Kai-Fu Lee | 李开复：人工智能将拯救人类[video]
+title: How AI can save our humanity by Kai-Fu Lee | 李开复：人工智能将拯救人类
 author: ''
 date: '2018-09-02'
 slug: how-ai-can-save-our-humanity-by-kai-fu-lee
 categories: []
-tags: []
+tags: [video]
 description: 'How AI can save our humanity by Kai-Fu Lee | 李开复：人工智能将拯救人类'
 topics: []
 ---

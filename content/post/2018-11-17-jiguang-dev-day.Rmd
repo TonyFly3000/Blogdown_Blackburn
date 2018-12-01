@@ -1,10 +1,10 @@
 ---
-title: JiGuang Dev day 2018[Conference]
+title: JiGuang Dev day 2018
 author: ''
 date: '2018-11-17'
 slug: jiguang-dev-day
 categories: []
-tags: []
+tags: [conference]
 description: 'Jiguang Dev day'
 topics: []
 ---

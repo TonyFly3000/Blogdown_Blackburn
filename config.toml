@@ -49,7 +49,8 @@ paginate = 10
     weight = 3
     identifier = "project"
     url = "/project/"
-    
+
+
   [[menu.main]]
     name = "About me"
     pre = "<i class='fa fa-user fa-fw'></i>"

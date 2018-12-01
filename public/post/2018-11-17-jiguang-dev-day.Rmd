@@ -1,10 +1,10 @@
 ---
-title: JiGuang Dev day 2018[Conference]
+title: JiGuang Dev day 2018
 author: ''
 date: '2018-11-17'
 slug: jiguang-dev-day
 categories: []
-tags: []
+tags: [conference]
 description: 'Jiguang Dev day'
 topics: []
 ---
@@ -30,7 +30,7 @@ topics: []
 ![](/post\jiguang-dev-day/JG009.jpeg){width=700px height=500px}
 
 
-## JiGuang website:https://www.jiguang.cn:
+## JiGuang website:https://www.jiguang.cn
 
 ```{r warning=FALSE , message=FALSE}
 library(quantmod)

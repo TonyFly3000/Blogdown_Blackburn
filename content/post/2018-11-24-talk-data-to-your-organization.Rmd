@@ -1,10 +1,10 @@
 ---
-title: MIT:Talk Data to your Organization[video]
+title: MIT:Talk Data to your Organization
 author: ''
 date: '2018-11-24'
 slug: talk-data-to-your-organization
 categories: []
-tags: []
+tags: [video]
 description: 'Talk Data to your Organization by Ben Shields at MIT'
 topics: []
 ---
