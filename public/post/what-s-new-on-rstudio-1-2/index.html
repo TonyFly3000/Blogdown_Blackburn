@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Whats new on Rstudio 1.2">
+  <meta name="generator" content="Hugo 0.48" />
+
+  <title>What&#39;s new on Rstudio 1.2 &middot; Tony Duan</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="/">Tony Duan</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/post/"><i class='fa fa-list fa-fw'></i>Blog</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/book/"><i class='fa fa-tasks fa-fw'></i>Book</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/project/"><i class='fa fa-tasks fa-fw'></i>Project</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/about/"><i class='fa fa-user fa-fw'></i>About me</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/contact/"><i class='fa fa-at fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://facebook.com/tony.j.fly" target="_blank"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/tony-jc-duan-005b601a" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/*" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2018. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://github.com/rstudio/rmarkdown" target="_blank">Blogdown</a></small><br>
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>What&#39;s new on Rstudio 1.2</h1>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>05 Dec 2018, 00:00</time>
+  </div>
+
+  
+
+  
+  
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="/tags/r">R</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  <div id="rstudio-1.2" class="section level3">
+<h3>Rstudio 1.2</h3>
+<p><a href="https://www.rstudio.com/products/rstudio/download/preview/">The RStudio 1.2 Preview Release</a>,available at 2018-10-02.</p>
+</div>
+<div id="new-rstudio-logo" class="section level3">
+<h3>1.New Rstudio logo</h3>
+<div class="figure">
+<img src="https://www.rstudio.com/wp-content/uploads/2018/09/cropped-rstudio.png" alt="(Rstudio 1.2)" width="250" />
+<p class="caption">(Rstudio 1.2)</p>
+</div>
+<div class="figure">
+<img src="https://i0.wp.com/static1.squarespace.com/static/51156277e4b0b8b2ffe11c00/t/583ccafcbebafbc5c11fa6ec/1480379239088/RStudio-Ball.png" alt="(Rstudio 1.1)" width="250" />
+<p class="caption">(Rstudio 1.1)</p>
+</div>
+</div>
+<div id="not-longer-support-32-bit-base-r" class="section level3">
+<h3>2.Not longer support 32-bit base R</h3>
+<div class="figure">
+<img src="/post\what-s-new-on-rstudio-1-2/R1.2_01.png" alt="(Rstudio 1.2 only support 64-bit base R)" width="350" />
+<p class="caption">(Rstudio 1.2 only support 64-bit base R)</p>
+</div>
+<div class="figure">
+<img src="/post\what-s-new-on-rstudio-1-2/R1.1_01.png" alt="(Rstudio 1.1 can choose 32-bit or 64 bit base R)" width="350" />
+<p class="caption">(Rstudio 1.1 can choose 32-bit or 64 bit base R)</p>
+</div>
+</div>
+<div id="python-support" class="section level3">
+<h3>3.Python support</h3>
+<div class="figure">
+<img src="/post\what-s-new-on-rstudio-1-2/Rstudio1.2_03.png" alt="(Rstudio 1.2 support python )" width="600" />
+<p class="caption">(Rstudio 1.2 support python )</p>
+</div>
+</div>
+<div id="detect-missing-r-packages" class="section level3">
+<h3>4.Detect missing R packages</h3>
+<p>If you open an R script that references packages that you don’t have installed, RStudio will now offer to install all the needed packages in a single click. No more typing install.packages() repeatedly until the errors go away!</p>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/3c6c62138e62401e9bd7f29b3f7eaf10c1f2b1cf/63920/images/2018-11-19-missing-packages.png" width="350" /></p>
+</div>
+<div id="create-powerpoint-presentations" class="section level3">
+<h3>5.Create PowerPoint presentations</h3>
+<p>Rstudio 1.2 have Pandoc built in ,so it could easily create PPT by rmarkdown.</p>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/9e1595d529d4880e503799a573b74e2099ca8865/f8b38/images/2018-11-19-r-markdown-powerpoint.png" width="350" /></p>
+</div>
+<div id="filter-data-with-histograms" class="section level3">
+<h3>6.Filter data with histograms</h3>
+<p>The data viewer in RStudio 1.1 lets you filter numeric columns by dragging a pair of endpoints to select the range of interest.</p>
+<div class="figure">
+<img src="https://d33wubrfki0l68.cloudfront.net/c6e5789929c8e6f7f9d1cdc5683d2a6c0e698f64/5bac9/images/2018-11-19-filter-sliders.png" alt="(Rstudio 1.1)" width="350" />
+<p class="caption">(Rstudio 1.1)</p>
+</div>
+<p>Rstudio 1.2 added a histogram to make it easy to see the distribution of the data in the column at a glance.</p>
+<div class="figure">
+<img src="https://d33wubrfki0l68.cloudfront.net/1676d9b98df55ca516af2d15ecc75632955d03d2/2e318/images/2018-11-19-filter-histogram.png" alt="(Rstudio 1.2)" width="350" />
+<p class="caption">(Rstudio 1.2)</p>
+</div>
+</div>
+<div id="improved-package-and-repo-management" class="section level3">
+<h3>7.Improved package and repo management</h3>
+<p>1.2 can manage primary and secondary repositories from inside RStudio.</p>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/231c39ad51059a5d2a07e4b788e36bb060958a5d/d803f/images/2018-11-19-packages-pane.png" width="350" /></p>
+<p>1.2 added web links to every package in the Packages pane. These will take you the package’s homepage – even if it’s on Github rather than CRAN.</p>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/c7bd85da8953ec672af0dc6b223068f228f67ce9/fcbdf/images/2018-11-19-browse-package.png" width="350" /></p>
+</div>
+<div id="sql-support" class="section level3">
+<h3>8.SQL support</h3>
+<div id="keyring-integration" class="section level4">
+<h4>Keyring Integration</h4>
+<p>RStudio now integrates with the keyring package. Your password is stored, secure and encrypted, on your system’s credential store (such as the MacOS Keychain or Windows Credential Store), so you can share your R code without leaking your password.</p>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/354452dd4fc8ea3d9ac7a8fdf977e7a167fc4537/ba423/images/2018-10-02-rstudio-preview-sql-keyring.png" width="600" /></p>
+</div>
+<div id="instant-query" class="section level4">
+<h4>Instant Query</h4>
+<p>It’s now a lot easier to build and execute SQL queries in RStudio. First, use the SQL button to generate a new SQL file with the open connection:</p>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/d2b4b5969ea61f3cefe688b7b524ad0724be7ba0/6e456/images/2018-10-02-rstudio-preview-sql-template.png" width="600" /></p>
+</div>
+<div id="instant-preview" class="section level4">
+<h4>Instant Preview</h4>
+<p>This comment tells RStudio to execute the query against the open connection named con. We can now click Preview or press Ctrl + Shift + Enter to run the query. Results appear in a new tab:</p>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/b05b13e13482fbcc78165794dba45958768a16da/3875a/images/2018-10-02-rstudio-preview-sql-preview.png" width="600" /></p>
+</div>
+</div>
+<div id="reference" class="section level2">
+<h2>Reference</h2>
+<p><a href="https://blog.rstudio.com/2018/10/09/rstudio-1-2-preview-reticulated-python/" class="uri">https://blog.rstudio.com/2018/10/09/rstudio-1-2-preview-reticulated-python/</a></p>
+<p><a href="https://blog.rstudio.com/2018/11/19/rstudio-1-2-preview-the-little-things/" class="uri">https://blog.rstudio.com/2018/11/19/rstudio-1-2-preview-the-little-things/</a></p>
+<p><a href="https://blog.rstudio.com/2018/10/02/rstudio-1-2-preview-sql/" class="uri">https://blog.rstudio.com/2018/10/02/rstudio-1-2-preview-sql/</a></p>
+</div>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="/post/different-between-male-and-female/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="/post/different-between-male-and-female/">TED talk:Different between male and female</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+
+
+</body>
+</html>
+

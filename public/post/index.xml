@@ -7,10 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 04 Dec 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 05 Dec 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>What&#39;s new on Rstudio 1.2</title>
+      <link>/post/what-s-new-on-rstudio-1-2/</link>
+      <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/what-s-new-on-rstudio-1-2/</guid>
+      <description>Rstudio 1.2The RStudio 1.2 Preview Release,available at 2018-10-02.
+1.New Rstudio logo(Rstudio 1.2)
+(Rstudio 1.1)
+2.Not longer support 32-bit base R(Rstudio 1.2 only support 64-bit base R)
+(Rstudio 1.1 can choose 32-bit or 64 bit base R)
+3.Python support(Rstudio 1.2 support python )
+4.Detect missing R packagesIf you open an R script that references packages that you don’t have installed, RStudio will now offer to install all the needed packages in a single click.</description>
+    </item>
     
     <item>
       <title>TED talk:Different between male and female</title>
@@ -19,7 +34,7 @@
       
       <guid>/post/different-between-male-and-female/</guid>
       <description>TED talk:
-male create Seotonin(血清素) 52% faster then female which relate to emotion,motivation ,memory and sleep. That why male are easier to forget unhappy thing.
+male create serotonin(血清素) 52% faster then female which relate to emotion,motivation ,memory and sleep. That why male are easier to forget unhappy thing.
 on average , each day female speak 20K words and male speak 7k words. Along with the growth of the age, female even speak more and male even speak less.
 </description>
     </item>

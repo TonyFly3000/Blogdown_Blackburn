@@ -1,0 +1,92 @@
+---
+title: What's new on Rstudio 1.2
+author: ''
+date: '2018-12-05'
+slug: what-s-new-on-rstudio-1-2
+categories: []
+tags: [R]
+description: "Whats new on Rstudio 1.2"
+topics: []
+---
+
+### Rstudio 1.2
+
+[The RStudio 1.2 Preview Release](https://www.rstudio.com/products/rstudio/download/preview/),available  at 2018-10-02.
+
+### 1.New Rstudio logo
+
+![(Rstudio 1.2)](https://www.rstudio.com/wp-content/uploads/2018/09/cropped-rstudio.png){width=250px}
+
+![(Rstudio 1.1)](https://i0.wp.com/static1.squarespace.com/static/51156277e4b0b8b2ffe11c00/t/583ccafcbebafbc5c11fa6ec/1480379239088/RStudio-Ball.png){width=250px}
+
+### 2.Not longer support  32-bit base R
+
+![(Rstudio 1.2 only support 64-bit base R)](/post\what-s-new-on-rstudio-1-2/R1.2_01.png){width=350px}
+
+![(Rstudio 1.1 can choose 32-bit or 64 bit base R)](/post\what-s-new-on-rstudio-1-2/R1.1_01.png){width=350px}
+
+### 3.Python support
+
+
+![(Rstudio 1.2 support python )](/post\what-s-new-on-rstudio-1-2/Rstudio1.2_03.png){width=600px}
+
+
+
+### 4.Detect missing R packages
+If you open an R script that references packages that you don’t have installed, RStudio will now offer to install all the needed packages in a single click. No more typing install.packages() repeatedly until the errors go away!
+
+![](https://d33wubrfki0l68.cloudfront.net/3c6c62138e62401e9bd7f29b3f7eaf10c1f2b1cf/63920/images/2018-11-19-missing-packages.png){width=350px}
+
+
+### 5.Create PowerPoint presentations
+
+Rstudio 1.2 have Pandoc built in ,so it could easily create PPT by rmarkdown.
+
+![](https://d33wubrfki0l68.cloudfront.net/9e1595d529d4880e503799a573b74e2099ca8865/f8b38/images/2018-11-19-r-markdown-powerpoint.png){width=350px}
+
+### 6.Filter data with histograms
+
+The data viewer in RStudio 1.1 lets you filter numeric columns by dragging a pair of endpoints to select the range of interest.
+
+![(Rstudio 1.1)](https://d33wubrfki0l68.cloudfront.net/c6e5789929c8e6f7f9d1cdc5683d2a6c0e698f64/5bac9/images/2018-11-19-filter-sliders.png){width=350px}
+
+Rstudio 1.2 added a histogram to make it easy to see the distribution of the data in the column at a glance.
+
+![(Rstudio 1.2)](https://d33wubrfki0l68.cloudfront.net/1676d9b98df55ca516af2d15ecc75632955d03d2/2e318/images/2018-11-19-filter-histogram.png){width=350px}
+
+
+### 7.Improved package and repo management
+
+1.2  can manage primary and secondary repositories from inside RStudio.
+
+![](https://d33wubrfki0l68.cloudfront.net/231c39ad51059a5d2a07e4b788e36bb060958a5d/d803f/images/2018-11-19-packages-pane.png){width=350px}
+
+1.2 added web links to every package in the Packages pane. These will take you the package’s homepage – even if it’s on Github rather than CRAN.
+
+![](https://d33wubrfki0l68.cloudfront.net/c7bd85da8953ec672af0dc6b223068f228f67ce9/fcbdf/images/2018-11-19-browse-package.png){width=350px}
+
+### 8.SQL support 
+
+#### Keyring Integration
+RStudio now integrates with the keyring package. Your password is stored, secure and encrypted, on your system’s credential store (such as the MacOS Keychain or Windows Credential Store), so you can share your R code without leaking your password.
+
+![](https://d33wubrfki0l68.cloudfront.net/354452dd4fc8ea3d9ac7a8fdf977e7a167fc4537/ba423/images/2018-10-02-rstudio-preview-sql-keyring.png){width=600px}
+
+#### Instant Query
+It’s now a lot easier to build and execute SQL queries in RStudio. First, use the SQL button to generate a new SQL file with the open connection:
+
+![](https://d33wubrfki0l68.cloudfront.net/d2b4b5969ea61f3cefe688b7b524ad0724be7ba0/6e456/images/2018-10-02-rstudio-preview-sql-template.png){width=600px}
+
+
+#### Instant Preview
+This comment tells RStudio to execute the query against the open connection named con. We can now click Preview or press Ctrl + Shift + Enter to run the query. Results appear in a new tab:
+
+![](https://d33wubrfki0l68.cloudfront.net/b05b13e13482fbcc78165794dba45958768a16da/3875a/images/2018-10-02-rstudio-preview-sql-preview.png){width=600px}
+
+## Reference
+
+https://blog.rstudio.com/2018/10/09/rstudio-1-2-preview-reticulated-python/
+
+https://blog.rstudio.com/2018/11/19/rstudio-1-2-preview-the-little-things/
+
+https://blog.rstudio.com/2018/10/02/rstudio-1-2-preview-sql/
