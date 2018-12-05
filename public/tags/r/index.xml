@@ -23,8 +23,8 @@
 (Rstudio 1.1)
 2.Not longer support 32-bit base R(Rstudio 1.2 only support 64-bit base R)
 (Rstudio 1.1 can choose 32-bit or 64 bit base R)
-3.Python support(Rstudio 1.2 support python )
-4.Detect missing R packagesIf you open an R script that references packages that you don’t have installed, RStudio will now offer to install all the needed packages in a single click.</description>
+3.Python support1.Support line-by-line execution of Python code
+2.When working on Rmarkdwon ,1.2 now able to call python variable on R environment or call R variable on python environment</description>
     </item>
     
   </channel>
