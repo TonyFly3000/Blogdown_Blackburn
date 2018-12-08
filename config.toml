@@ -14,7 +14,7 @@ paginate = 10
 [params]
   # Shown in the home page
   subtitle = "Data artist | Coffee lover"
-  brand = "Tony Duan"
+  brand = "Tony Duan.R"
   googleAnalytics = "Your Google Analytics tracking ID"
   disqus = "Your Disqus shortname"
   # CSS name for highlight.js
