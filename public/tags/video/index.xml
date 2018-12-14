@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 04 Dec 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 14 Dec 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/video/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Understanding Colors</title>
+      <link>/post/understanding-colors/</link>
+      <pubDate>Fri, 14 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/understanding-colors/</guid>
+      <description>Understanding Colors by blenderguru.comcolor brewerggplot# color brewer:Qualitative (qual)library(ggplot2)library(dplyr)data002=sample_n(diamonds,1000)ggplot(data002,aes(x=carat, y=price, color=clarity)) +geom_point() +scale_color_brewer(type=&amp;#39;qual&amp;#39;)# color brewer:Sequential (seq) library(ggplot2)library(dplyr)data002=sample_n(diamonds,1000)ggplot(data002,aes(x=carat, y=price, color=clarity)) +geom_point() +scale_color_brewer(type=&amp;#39;seq&amp;#39;)# color brewer:Diverging (div)library(ggplot2)library(dplyr)data002=sample_n(diamonds,1000)ggplot(data002,aes(x=carat, y=price, color=clarity)) +geom_point() +scale_color_brewer(type=&amp;#39;div&amp;#39;)plotly# color brewer:RdBulibrary(plotly)library(RColorBrewer)library(dplyr)data002=sample_n(diamonds,1000)plot_ly(data=data002,x=~carat, y=~price, color=~clarity,colors = brewer.</description>
+    </item>
     
     <item>
       <title>TED talk:Different between male and female</title>

@@ -1,0 +1,131 @@
+---
+title: Understanding Colors
+author: ''
+date: '2018-12-14'
+slug: understanding-colors
+categories: []
+tags: [R,video]
+description: 'Understanding Colors...'
+topics: []
+---
+
+## Understanding Colors by blenderguru.com
+
+<iframe width="800" height="500" src="https://www.youtube.com/embed/Qj1FK8n7WgY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+
+## color brewer
+### ggplot 
+
+```{r warning=FALSE ,message=FALSE}
+# color brewer:Qualitative (qual)
+library(ggplot2)
+library(dplyr)
+data002=sample_n(diamonds,1000)
+ggplot(data002,aes(x=carat, y=price, color=clarity)) +
+  geom_point() +
+  scale_color_brewer(type='qual')
+
+```
+
+
+
+
+```{r warning=FALSE ,message=FALSE}
+# color brewer:Sequential (seq) 
+library(ggplot2)
+library(dplyr)
+data002=sample_n(diamonds,1000)
+ggplot(data002,aes(x=carat, y=price, color=clarity)) +
+  geom_point() +
+  scale_color_brewer(type='seq')
+
+```
+
+
+```{r warning=FALSE ,message=FALSE}
+# color brewer:Diverging (div)
+library(ggplot2)
+library(dplyr)
+data002=sample_n(diamonds,1000)
+ggplot(data002,aes(x=carat, y=price, color=clarity)) +
+  geom_point() +
+  scale_color_brewer(type='div')
+```
+
+
+
+
+### plotly
+
+
+```{r warning=FALSE ,message=FALSE}
+# color brewer:RdBu
+library(plotly)
+library(RColorBrewer)
+library(dplyr)
+data002=sample_n(diamonds,1000)
+plot_ly(data=data002,x=~carat, y=~price, color=~clarity,colors = brewer.pal(8, "RdBu"))
+
+```
+
+
+http://colorbrewer2.org
+
+http://ggplot.yhathq.com/docs/scale_color_brewer.html
+
+https://bconnelly.net/2013/10/creating-colorblind-friendly-figures/
+
+http://www.sthda.com/english/wiki/print.php?id=85
+
+
+
+## viridis 
+
+### ggplot 
+
+```{r warning=FALSE ,message=FALSE}
+library(ggplot2)
+library(dplyr)
+library(viridis)
+data001=diamonds
+data002=sample_n(data001,1000)
+gg=ggplot(data002,aes(x=carat, y=price, color=clarity)) +
+  geom_point() +
+  scale_fill_viridis(discrete = TRUE)
+
+gg
+```
+
+### plotly
+
+
+```{r warning=FALSE ,message=FALSE}
+# default option
+library(plotly)
+library(viridis)
+library(dplyr)
+data002=sample_n(diamonds,1000)
+plot_ly(data=data002,x=~carat, y=~price, color=~clarity)
+
+```
+
+
+```{r warning=FALSE ,message=FALSE}
+# viridis option A
+library(plotly)
+library(viridis)
+library(dplyr)
+data002=sample_n(diamonds,1000)
+p=plot_ly(data=data002,x=~carat, y=~price, color=~clarity,colors = viridis_pal(option = "A")(3))
+p
+```
+
+
+
+
+
+
+
+
+
