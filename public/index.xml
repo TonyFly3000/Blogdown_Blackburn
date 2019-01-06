@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 14 Dec 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 06 Jan 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Who use R</title>
+      <link>/post/who-use-r/</link>
+      <pubDate>Sun, 06 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/who-use-r/</guid>
+      <description>PurposeUsing R download volume to estimate how many people are using R in the world.
+There are two data sources:
+JSON API data from https://cranlogs.r-pkg.org/
+data from package cranlogs which wrap data from https://cranlogs.r-pkg.org/CSV data from http://cran-logs.rstudio.com/
+R base download volume by yearThere is a tremendous growth in 2018Q4, reaching 140K monthly download at Oct nearly double year of year.</description>
+    </item>
     
     <item>
       <title>Understanding Colors</title>
