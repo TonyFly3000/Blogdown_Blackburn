@@ -10,7 +10,7 @@ topics: []
 ---
 ## Purpose
 
-Using R download volume to estimate how many people are using R in the world.
+Using R and R package download volume to estimate how many people are using R in the world.
 
 There are two data sources:
 
@@ -59,6 +59,7 @@ p%>%layout(title = 'R software download')
 code:http://rpubs.com/estimate/whousingR
 
 -------------------------------------------------------------------------------
+
 ## Top 10 R pakcage download at past week
 Top R pakcage weekly download around 100K
 
@@ -93,6 +94,7 @@ p=plot_ly(data=R_download002,y=~downloads,x=~month
 p%>%layout(title = 'ggplot2 download')
 ```
 
+-------------------------------------------------------------------------------
 
 ## 2018 R base download volume by version
 
