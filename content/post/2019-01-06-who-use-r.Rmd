@@ -115,7 +115,7 @@ code:http://rpubs.com/estimate/whousingR
 
 ## 2018 R base download volume by Top 10 country
 
-US have the mostmonthly downloadat Oct 2018 around 50K follow by UK/DE/CN each around 5K monthly download
+US have the mostmonthly downloadat Oct 2018 around 50K follow by UK/DE/CN each have around 5K monthly download
 ```{r,warning=FALSE ,message=FALSE}
 # load data 
 country002=read.csv('country002.csv')
