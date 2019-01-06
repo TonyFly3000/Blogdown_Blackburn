@@ -21,8 +21,9 @@
       <description>PurposeUsing R download volume to estimate how many people are using R in the world.
 There are two data sources:
 JSON API data from https://cranlogs.r-pkg.org/
-data from package cranlogs which wrap data from https://cranlogs.r-pkg.org/CSV data from http://cran-logs.rstudio.com/
-R base download volume by yearThere is a tremendous growth in 2018Q4, reaching 140K monthly download at Oct nearly double year of year.</description>
+data from package cranlogs which wrap data from https://cranlogs.r-pkg.org/
+CSV data from http://cran-logs.rstudio.com/
+R base download volume by yearThere is a tremendous growth in 2018Q4, reaching 140K monthly download at Oct nearly double year over year.</description>
     </item>
     
     <item>
