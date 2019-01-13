@@ -5,11 +5,14 @@ sidemenu = "true"
 description = "Welcome.It is Tony Duan | a data analyst | R fans | coffee lover"
 +++
 
-<center><img src="/img/home_pic.jpg" alt="Smiley face" height="324" width="432"></center>
+<center><img src="/img/home_pic.jpg" alt="Smiley face" height="380" width="500"></center>
 
-### Employment:
 
-#### Risk Specialist, eBay, Busniness management 
+## <center>[CV( in PDF)](./CV.pdf)</center>
+
+## Employment:
+
+### Risk Specialist, eBay, Busniness management 
 
 - Managed and improve seller shipping perfromance in term of timing and accuracy by design, implement and monitor Busniness management policy.
 
@@ -17,13 +20,13 @@ description = "Welcome.It is Tony Duan | a data analyst | R fans | coffee lover"
 
 - leveraging up to day and open source analytic skill to tackle daily business problem (R server/R shiny/Alaction/Tableau/Git)
 
-#### Senior Analytic Consultant, Ernst&Young, Performance Improvement 
+### Senior Analytic Consultant, Ernst&Young, Performance Improvement 
 
 - Improve and standardize dashboard report for a leading Chinese commercial bank .Design and develop Analytic model for improving customer relationship ,such as Customer value forecast model, Segmentation model which lead to better customer relationship management strategy. Churn Predictive Modelling and event triggers design. 
 - Design customer product mix recommendation model for one of the biggest insurance company in Beijing. 
 - Working on Anti-fraud modelling for one of the biggest life insurance company in China. 
 
-#### Decision Analytic Officer, HSBC, Consumer Credit Risk
+### Decision Analytic Officer, HSBC, Consumer Credit Risk
 - Developed analytical solution to bank in managing credit risk for Asia Pacific region.
 - Including develop scorecard , Credit report for different type of banking product like credit card ,home loan for one of the best international bank in Asia Pacific area. 
 
