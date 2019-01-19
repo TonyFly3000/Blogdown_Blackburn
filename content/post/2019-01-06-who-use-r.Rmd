@@ -97,10 +97,10 @@ p%>%layout(title = 'ggplot2 download')
 
 ## 2018 R base download volume by version
 
-version  have the most  monthly download
+version 3.5.1 have the most  monthly download
 
 ```{r,warning=FALSE ,message=FALSE}
-library(dplyr)
+library(tidyverse)
 library(plotly)
 library(lubridate)
 # load data 
@@ -110,20 +110,32 @@ p=plot_ly(data=version002,y=~downloads,x=~month
           ,type = 'scatter', mode = 'lines+markers')
 p%>%layout(title = '2018 R base download volume by version')
 ```
-code:http://rpubs.com/estimate/whousingR
+
 
 -------------------------------------------------------------------------------
 
-## 2018 R base download volume by Top 10 country
+## 2017,2018 R base total download volume by Top 10 country 
 
-US have the mostmonthly downloadat Oct 2018 around 50K follow by UK/DE/CN each have around 5K monthly download
+US have the most download 276K in 2017 and 378K in 2018.China 48K in 2017 and 50K in 2018
+
 ```{r,warning=FALSE ,message=FALSE}
 # load data 
-country002=read.csv('country002.csv')
-p=plot_ly(data=country002,y=~downloads,x=~month    
-          ,color = ~country
-          ,type = 'scatter', mode = 'lines+markers')
-p%>%layout(title = '2018 R base download volume by Top 10 country')
+library(tidyverse)
+country003=read.csv('country003.csv')
+
+country004=country003%>%group_by(Country)%>%summarise(downloads=sum(downloads))%>%
+  top_n(10, wt = downloads)
+
+p=country003%>%filter(Country %in% country004$Country)%>%
+  plot_ly(x = ~downloads, y = ~fct_reorder(Country, downloads)
+          ,color = ~as.factor(year)) %>%
+  add_markers() %>%
+  layout(xaxis = list(title = "downloads"),
+         yaxis = list(title = "Country", type = "category"))
+
+p%>%layout(title = '2017,2018 R base total download volume by Top 10 country')
 ```
+
+
 code:http://rpubs.com/estimate/whousingR
 
