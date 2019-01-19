@@ -9,7 +9,6 @@ description: 'who use R'
 topics: []
 ---
 ## Purpose
-
 Using R and R package download volume to estimate how many people are using R in the world.
 
 There are two data sources:

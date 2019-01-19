@@ -1,0 +1,21 @@
+---
+title: 'Mr Basketball team'
+author: ''
+date: '2019-01-18'
+slug: mr-basketball-team
+categories: []
+tags: []
+description: 'Mr Basketball team '
+topics: []
+---
+
+## Mr Basketball team first game first win
+
+2019 target: Speed & Skill & Strength
+
+![](/post\mr-basketball-team/b001.JPG){width=700px height=500px}
+
+## Mr Basketball team annual dinner
+
+![](/post\mr-basketball-team/b002.JPG){width=700px height=500px}
+

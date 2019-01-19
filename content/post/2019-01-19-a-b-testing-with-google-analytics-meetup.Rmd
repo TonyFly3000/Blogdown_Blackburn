@@ -1,0 +1,41 @@
+---
+title: A/B testing with Google Analytics meetup
+author: ''
+date: '2019-01-19'
+slug: a-b-testing-with-google-analytics-meetup
+categories: []
+tags: []
+description: 'A/B testing with Google Analytics meetup'
+topics: []
+---
+
+## A/B testing with Google Analytics and Optimise
+
+Host by [55 analytic](https://www.fifty-five.com/) and [Aftership](https://www.aftership.com/)@[Techtemple](http://www.kejisi.com/).meetup:http://www.huodongxing.com/event/8474882293500
+
+Summary:
+
+- Company should provide tailor made content to increase customer satisfaction,engagement and ROI
+
+- data value: opportunity-> data-> informaction-> solution-> decision 
+
+- Google Analytics and Optimise can easily set up A/B testing: 
+  1. Set up KPI with Google Analytics 
+  2. Set up A/B testing with Google Optimise
+  3. paste code into your website
+  4. get report from Google Optimise
+
+![](/post\a-b-testing-with-google-analytics-meetup/g1.jpeg){width=700px height=500px}
+
+![](/post\a-b-testing-with-google-analytics-meetup/g3.jpeg){width=700px height=500px}
+
+![](/post\a-b-testing-with-google-analytics-meetup/g4.jpeg){width=700px height=500px}
+
+![](/post\a-b-testing-with-google-analytics-meetup/g5.jpeg){width=700px height=500px}
+
+## co work space : Tech temple
+
+![](/post\a-b-testing-with-google-analytics-meetup/t001.jpeg){width=700px height=500px}
+![](/post\a-b-testing-with-google-analytics-meetup/t002.jpeg){width=700px height=500px}
+
+![](/post\a-b-testing-with-google-analytics-meetup/t003.jpeg){width=700px height=500px}

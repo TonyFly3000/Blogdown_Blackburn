@@ -7,10 +7,33 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 06 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 19 Jan 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A/B testing with Google Analytics meetup</title>
+      <link>/post/a-b-testing-with-google-analytics-meetup/</link>
+      <pubDate>Sat, 19 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/a-b-testing-with-google-analytics-meetup/</guid>
+      <description>A/B testing with Google Analytics and OptimiseHost by 55 analytic and Aftership@Techtemple.meetup:http://www.huodongxing.com/event/8474882293500
+Summary:
+Company should provide tailor made content to increase customer satisfaction,engagement and ROI
+data value: opportunity-&amp;gt; data-&amp;gt; informaction-&amp;gt; solution-&amp;gt; decision
+Google Analytics and Optimise can easily set up A/B testing:Set up KPI with Google AnalyticsSet up A/B testing with Google Optimisepaste code into your websiteget report from Google Optimiseco work space : Tech temple</description>
+    </item>
+    
+    <item>
+      <title>Mr Basketball team</title>
+      <link>/post/mr-basketball-team/</link>
+      <pubDate>Fri, 18 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/mr-basketball-team/</guid>
+      <description>Mr Basketball team first game first win2019 target: Speed &amp;amp; Skill &amp;amp; Strength
+Mr Basketball team annual dinner</description>
+    </item>
     
     <item>
       <title>Who use R</title>
@@ -24,6 +47,15 @@ JSON API data from https://cranlogs.r-pkg.org/
 data from package cranlogs which wrap data from https://cranlogs.r-pkg.org/
 CSV data from http://cran-logs.rstudio.com/
 R base download volume by yearThere is a tremendous growth in 2018Q4, reaching 140K monthly download at Oct nearly double year over year.</description>
+    </item>
+    
+    <item>
+      <title>Happy Christmas 2018</title>
+      <link>/post/christmas-2018/</link>
+      <pubDate>Tue, 25 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/christmas-2018/</guid>
+      <description>Christmas party @ShenzhenChristmas party @ShanghaiChristmas gift</description>
     </item>
     
     <item>
