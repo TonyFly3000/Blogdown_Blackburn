@@ -1,0 +1,139 @@
+---
+title: rstudio::conf 2019
+author: ''
+date: '2019-01-15'
+slug: rstudio-conf-2019
+categories: []
+tags: []
+description: 'rstudio::conf 2019'
+topics: []
+---
+
+Get,clean,visualize,model,present
+
+[Rstudio conference 2019](https://resources.rstudio.com/rstudio-conf-2019) hosted during January 15 - 18 in Austin, TX
+
+[Rstudio conference 2020](https://www.rstudio.com/conference/) will be hosted in San Francisco, California from January 27–30, 2020
+
+--------------------------------------------------------
+
+
+## Get:
+
+
+### [Databases using R: The latest - Edgar Ruiz](https://resources.rstudio.com/rstudio-conf-2019/databases-using-r-the-latest)
+
+connect with database with R in connection pane
+
+
+--------------------------------------------------------
+
+## Clean:
+
+## Visualize:
+
+
+### [3D mapping, plotting, and printing with rayshader - Tyler Morgan-Wall](https://resources.rstudio.com/rstudio-conf-2019/3d-mapping-plotting-and-printing-with-rayshader)
+
+3D map Visualization
+
+
+
+### [gganimate live cookbook - Thomas Lin Pedersen](https://resources.rstudio.com/rstudio-conf-2019/gganimate-live-cookboo)
+
+make ggplot move
+
+
+--------------------------------------------------------
+
+## Model:
+
+
+### [Introducing mlflow - Kevin Kuo](https://resources.rstudio.com/rstudio-conf-2019/introducing-mlflow)
+
+
+use mlflow to record modeling building result 
+
+
+
+--------------------------------------------------------
+
+
+
+## Present:
+
+### [RStudio Connect Past, present, and future - Jeff Allen](https://resources.rstudio.com/rstudio-conf-2019/rstudio-connect-past-present-and-future)
+
+product RStudio Connect  can share the R code and output to organization with  authentication and email notification.
+
+
+
+
+### [pagedown: Creating beautiful PDFs with R Markdown and CSS - Yihui Xie](https://resources.rstudio.com/rstudio-conf-2019/pagedown-creating-beautiful-pdfs-with-r-markdown-and-css)
+pakcage pagedown create PDF,business card,poster.
+
+
+
+
+### [Introducing the gt package - Rich Iannone](https://resources.rstudio.com/rstudio-conf-2019/introducing-the-gt-package)
+make formatted table in html and embedded in email body
+
+
+
+
+### [Democratizing R with Plumber APIs - James Blair](https://resources.rstudio.com/rstudio-conf-2019/democratizing-r-with-plumber-apis)
+Create API server for user interaction programmatically. For example,user post a request with input parameter and will get back a predict respond.
+
+
+
+## Other:
+
+### [Welcome to rstudio::conf 2019](https://resources.rstudio.com/rstudio-conf-2019/welcome-to-rstudio-conf-2019)
+
+
+
+### [The next million R users - Carl Howe](https://resources.rstudio.com/rstudio-conf-2019/the-next-million-r-users
+)
+Teach next million R users.
+
+Why R :1.community , 2.package ,3.visualization,4.free
+
+
+### [Configuration management tools for the R admin - Kelly O'Briant](https://resources.rstudio.com/rstudio-conf-2019/configuration-management-tools-for-the-r-admin)
+R admin set up
+
+
+
+
+
+### [New language features in RStudio - Jonathan McPherson](https://resources.rstudio.com/rstudio-conf-2019/new-language-features-in-rstudio)
+how to use SQL , python and R in Rstudio and Backgroup job
+
+
+
+
+
+### [Empowering a data team with RStudio addins - Hao Zhu](https://resources.rstudio.com/rstudio-conf-2019/empowering-a-data-team-with-rstudio-addins)
+
+create rstudio add-in
+
+### [It depends: A dialog about dependencies - Jim Hester](https://resources.rstudio.com/rstudio-conf-2019/it-depends-a-dialog-about-dependencies)
+
+check package or projects depends,number of function used,size ect with package itdepends
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

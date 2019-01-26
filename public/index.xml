@@ -36,6 +36,20 @@ Summary:
     </item>
     
     <item>
+      <title>rstudio::conf 2019</title>
+      <link>/post/rstudio-conf-2019/</link>
+      <pubDate>Tue, 15 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/rstudio-conf-2019/</guid>
+      <description>Get,clean,visualize,model,present
+Rstudio conference 2019 hosted during January 15 - 18 in Austin, TX
+Rstudio conference 2020 will be hosted in San Francisco, California from January 27–30, 2020
+Get:Databases using R: The latest - Edgar Ruizconnect with database with R in connection pane
+Clean:Visualize:3D mapping, plotting, and printing with rayshader - Tyler Morgan-Wall3D map Visualization
+gganimate live cookbook - Thomas Lin Pedersenmake ggplot move</description>
+    </item>
+    
+    <item>
       <title>Who use R</title>
       <link>/post/who-use-r/</link>
       <pubDate>Sun, 06 Jan 2019 00:00:00 +0000</pubDate>
