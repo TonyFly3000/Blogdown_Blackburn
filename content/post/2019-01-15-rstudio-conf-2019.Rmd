@@ -9,7 +9,7 @@ description: 'rstudio::conf 2019'
 topics: []
 ---
 
-Get,clean,visualize,model,present
+I segment the talk into following groups:Get,clean,visualize,model,present,other 
 
 [Rstudio conference 2019](https://resources.rstudio.com/rstudio-conf-2019) hosted during January 15 - 18 in Austin, TX
 
@@ -30,6 +30,12 @@ connect with database with R in connection pane
 
 ## Clean:
 
+### [Lazy evaluation - Jenny Bryan](https://resources.rstudio.com/rstudio-conf-2019/lazy-evaluation)
+
+The "tidy eval" framework is implemented in the rlang package and is rolling out in packages across the tidyverse and beyond.explain metaprogramming and non standard evaluation 
+
+
+
 ## Visualize:
 
 
@@ -39,7 +45,7 @@ connect with database with R in connection pane
 
 
 
-### [gganimate live cookbook - Thomas Lin Pedersen](https://resources.rstudio.com/rstudio-conf-2019/gganimate-live-cookboo)
+### [gganimate live cookbook - Thomas Lin Pedersen](https://resources.rstudio.com/rstudio-conf-2019/gganimate-live-cookbook)
 
 make ggplot move
 
@@ -54,6 +60,11 @@ make ggplot move
 
 use mlflow to record modeling building result 
 
+
+### [parsnip: A tidy model interface - Max Kuhn](https://resources.rstudio.com/rstudio-conf-2019/parsnip-a-tidy-model-interface)
+
+
+parsnip is a new tidymodels package that generalizes model interfaces across packages. The idea is to have a single function interface for types of specific models 
 
 
 --------------------------------------------------------
