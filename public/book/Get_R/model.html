@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chapter 5 Model | Get R</title>
+  <title>Get R</title>
   <meta name="description" content="This is R book with Get, clean, visualize and model">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
-  <meta property="og:title" content="Chapter 5 Model | Get R />
+  <meta property="og:title" content="Get R" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Model | Get R />
+  <meta name="twitter:title" content="Get R" />
   
   <meta name="twitter:description" content="This is R book with Get, clean, visualize and model" />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Tony JC Duan">
 
 
-<meta name="date" content="2018-12-19">
+<meta name="date" content="2019-01-29">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,7 +36,6 @@
 <link rel="next" href="case.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -50,6 +49,64 @@
 
 
 
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -77,7 +134,18 @@
 <li class="chapter" data-level="1.3.3" data-path="intro.html"><a href="intro.html#rstudio-server"><i class="fa fa-check"></i><b>1.3.3</b> Rstudio server</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#r-version-working-location-and-computer-environment"><i class="fa fa-check"></i><b>1.4</b> R Version , working location and computer environment</a></li>
-<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#r-package"><i class="fa fa-check"></i><b>1.5</b> R Package</a></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#return-the-machine-cpu"><i class="fa fa-check"></i><b>1.5</b> Return the machine CPU</a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#return-number-of-true-cores"><i class="fa fa-check"></i><b>1.6</b> Return number of true cores</a></li>
+<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#return-number-of-threads"><i class="fa fa-check"></i><b>1.7</b> Return number of threads</a></li>
+<li class="chapter" data-level="1.8" data-path="intro.html"><a href="intro.html#return-the-machine-ram"><i class="fa fa-check"></i><b>1.8</b> Return the machine RAM</a></li>
+<li class="chapter" data-level="1.9" data-path="intro.html"><a href="intro.html#r-package"><i class="fa fa-check"></i><b>1.9</b> R Package</a><ul>
+<li class="chapter" data-level="1.9.1" data-path="intro.html"><a href="intro.html#install-a-package-from-cran"><i class="fa fa-check"></i><b>1.9.1</b> Install a package from CRAN:</a></li>
+<li class="chapter" data-level="1.9.2" data-path="intro.html"><a href="intro.html#install-a-package-from-githubnot-recommended"><i class="fa fa-check"></i><b>1.9.2</b> Install a package from Github<strong>(NOT recommended)</strong>:</a></li>
+<li class="chapter" data-level="1.9.3" data-path="intro.html"><a href="intro.html#install-a-package-from-github-zip-file-not-recommended"><i class="fa fa-check"></i><b>1.9.3</b> Install a package from Github zip file <strong>(NOT recommended)</strong>:</a></li>
+<li class="chapter" data-level="1.9.4" data-path="intro.html"><a href="intro.html#get-help-on-package"><i class="fa fa-check"></i><b>1.9.4</b> Get help on Package:</a></li>
+<li class="chapter" data-level="1.9.5" data-path="intro.html"><a href="intro.html#uninstall-packages"><i class="fa fa-check"></i><b>1.9.5</b> Uninstall packages:</a></li>
+<li class="chapter" data-level="1.9.6" data-path="intro.html"><a href="intro.html#check-r-installed-packages-location"><i class="fa fa-check"></i><b>1.9.6</b> Check R installed packages location:</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="get.html"><a href="get.html"><i class="fa fa-check"></i><b>2</b> Get</a><ul>
 <li class="chapter" data-level="2.1" data-path="get.html"><a href="get.html#connect-with-csvtxt"><i class="fa fa-check"></i><b>2.1</b> Connect with csv/txt</a></li>
@@ -148,17 +216,44 @@
 <li class="chapter" data-level="4.2.13" data-path="visualize.html"><a href="visualize.html#convert-ggplot-to-plotly"><i class="fa fa-check"></i><b>4.2.13</b> convert ggplot to plotly</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="visualize.html"><a href="visualize.html#leaflet"><i class="fa fa-check"></i><b>4.3</b> leaflet</a></li>
+<li class="chapter" data-level="4.4" data-path="visualize.html"><a href="visualize.html#highcharter"><i class="fa fa-check"></i><b>4.4</b> highcharter</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="visualize.html"><a href="visualize.html#scatter-plot-2"><i class="fa fa-check"></i><b>4.4.1</b> scatter plot</a></li>
+<li class="chapter" data-level="4.4.2" data-path="visualize.html"><a href="visualize.html#line-plot-2"><i class="fa fa-check"></i><b>4.4.2</b> line plot</a></li>
+<li class="chapter" data-level="4.4.3" data-path="visualize.html"><a href="visualize.html#bar-plot-2"><i class="fa fa-check"></i><b>4.4.3</b> bar plot</a></li>
+<li class="chapter" data-level="4.4.4" data-path="visualize.html"><a href="visualize.html#histogram-2"><i class="fa fa-check"></i><b>4.4.4</b> histogram</a></li>
+<li class="chapter" data-level="4.4.5" data-path="visualize.html"><a href="visualize.html#boxplot-2"><i class="fa fa-check"></i><b>4.4.5</b> Boxplot</a></li>
+<li class="chapter" data-level="4.4.6" data-path="visualize.html"><a href="visualize.html#heatmap-2"><i class="fa fa-check"></i><b>4.4.6</b> Heatmap</a></li>
+<li class="chapter" data-level="4.4.7" data-path="visualize.html"><a href="visualize.html#moving-chart-2"><i class="fa fa-check"></i><b>4.4.7</b> Moving chart</a></li>
+<li class="chapter" data-level="4.4.8" data-path="visualize.html"><a href="visualize.html#other-plot-2"><i class="fa fa-check"></i><b>4.4.8</b> Other plot</a></li>
+<li class="chapter" data-level="4.4.9" data-path="visualize.html"><a href="visualize.html#make-multi-chart-by-variable-1"><i class="fa fa-check"></i><b>4.4.9</b> make multi chart by variable:</a></li>
+<li class="chapter" data-level="4.4.10" data-path="visualize.html"><a href="visualize.html#setting-titlesubtitlex-labely-label-1"><i class="fa fa-check"></i><b>4.4.10</b> setting: title,subtitle,x label,y label</a></li>
+<li class="chapter" data-level="4.4.11" data-path="visualize.html"><a href="visualize.html#themes-1"><i class="fa fa-check"></i><b>4.4.11</b> themes</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="model.html"><a href="model.html"><i class="fa fa-check"></i><b>5</b> Model</a></li>
-<li class="chapter" data-level="6" data-path="case.html"><a href="case.html"><i class="fa fa-check"></i><b>6</b> Case</a><ul>
-<li class="chapter" data-level="6.1" data-path="case.html"><a href="case.html#credit-scorecard"><i class="fa fa-check"></i><b>6.1</b> Credit scorecard</a></li>
-<li class="chapter" data-level="6.2" data-path="case.html"><a href="case.html#ab-testing"><i class="fa fa-check"></i><b>6.2</b> A/B testing</a></li>
 </ul></li>
+<li class="chapter" data-level="5" data-path="model.html"><a href="model.html"><i class="fa fa-check"></i><b>5</b> Model</a><ul>
+<li class="chapter" data-level="5.1" data-path="model.html"><a href="model.html#relationship"><i class="fa fa-check"></i><b>5.1</b> relationship</a></li>
+<li class="chapter" data-level="5.2" data-path="model.html"><a href="model.html#confidence-intervals"><i class="fa fa-check"></i><b>5.2</b> Confidence intervals</a></li>
+<li class="chapter" data-level="5.3" data-path="model.html"><a href="model.html#hypothesis-testing"><i class="fa fa-check"></i><b>5.3</b> Hypothesis testing</a></li>
+<li class="chapter" data-level="5.4" data-path="model.html"><a href="model.html#model-flow"><i class="fa fa-check"></i><b>5.4</b> model flow</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="model.html"><a href="model.html#clean-data"><i class="fa fa-check"></i><b>5.4.1</b> clean data</a></li>
+<li class="chapter" data-level="5.4.2" data-path="model.html"><a href="model.html#build-model"><i class="fa fa-check"></i><b>5.4.2</b> build model</a></li>
+<li class="chapter" data-level="5.4.3" data-path="model.html"><a href="model.html#verify-model"><i class="fa fa-check"></i><b>5.4.3</b> verify model</a></li>
+<li class="chapter" data-level="5.4.4" data-path="model.html"><a href="model.html#deploy-model"><i class="fa fa-check"></i><b>5.4.4</b> deploy model</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="model.html"><a href="model.html#supervised-learning"><i class="fa fa-check"></i><b>5.5</b> Supervised Learning</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="model.html"><a href="model.html#random-forest"><i class="fa fa-check"></i><b>5.5.1</b> Random Forest</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="model.html"><a href="model.html#unsupervised-learning"><i class="fa fa-check"></i><b>5.6</b> Unsupervised Learning</a></li>
+<li class="chapter" data-level="5.7" data-path="model.html"><a href="model.html#statistical-distribution"><i class="fa fa-check"></i><b>5.7</b> Statistical distribution</a></li>
+<li class="chapter" data-level="5.8" data-path="model.html"><a href="model.html#caret"><i class="fa fa-check"></i><b>5.8</b> caret</a></li>
+<li class="chapter" data-level="5.9" data-path="model.html"><a href="model.html#h2o"><i class="fa fa-check"></i><b>5.9</b> H2O</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="case.html"><a href="case.html"><i class="fa fa-check"></i><b>6</b> Case</a></li>
 <li class="chapter" data-level="7" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>7</b> References</a><ul>
 <li class="chapter" data-level="7.1" data-path="references.html"><a href="references.html#the-giants"><i class="fa fa-check"></i><b>7.1</b> The Giants</a></li>
 <li class="chapter" data-level="7.2" data-path="references.html"><a href="references.html#book"><i class="fa fa-check"></i><b>7.2</b> Book</a></li>
 <li class="chapter" data-level="7.3" data-path="references.html"><a href="references.html#link"><i class="fa fa-check"></i><b>7.3</b> Link</a><ul>
-<li><a href="references.html#csv-vs-_csv-r-markdown-r-bookdown-r-blogdown-feather-data-format-database-connection-rmarkdown-cheatsheet-working-with-string-machine-learning-for-humans-probability-distributions-tidy-data-t-test-caret"><span class="toc-section-number">7.3.1</span> .csv vs _csv
+<li><a href="references.html#csv-vs-_csv-r-markdown-r-bookdown-r-blogdown-feather-data-format-database-connection-rmarkdown-cheatsheet-working-with-string-machine-learning-for-humans-probability-distributions-tidy-data-t-test-caret-highcharter"><span class="toc-section-number">7.3.1</span> .csv vs _csv
 ### R markdown
 ### R bookdown
 ### R blogdown
@@ -170,7 +265,8 @@
 ### Probability Distributions
 ### tidy data
 ### T test
-### caret</a></li>
+### caret
+### highcharter</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>8</b> Appendix</a><ul>
@@ -178,13 +274,13 @@
 <li class="chapter" data-level="8.1.1" data-path="appendix.html"><a href="appendix.html#apply-family"><i class="fa fa-check"></i><b>8.1.1</b> apply family</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="appendix.html"><a href="appendix.html#ggvis"><i class="fa fa-check"></i><b>8.2</b> ggvis</a><ul>
-<li class="chapter" data-level="8.2.1" data-path="appendix.html"><a href="appendix.html#scatter-plot-2"><i class="fa fa-check"></i><b>8.2.1</b> scatter plot</a></li>
-<li class="chapter" data-level="8.2.2" data-path="appendix.html"><a href="appendix.html#line-plot-2"><i class="fa fa-check"></i><b>8.2.2</b> line plot</a></li>
-<li class="chapter" data-level="8.2.3" data-path="appendix.html"><a href="appendix.html#bar-plot-2"><i class="fa fa-check"></i><b>8.2.3</b> bar plot</a></li>
+<li class="chapter" data-level="8.2.1" data-path="appendix.html"><a href="appendix.html#scatter-plot-3"><i class="fa fa-check"></i><b>8.2.1</b> scatter plot</a></li>
+<li class="chapter" data-level="8.2.2" data-path="appendix.html"><a href="appendix.html#line-plot-3"><i class="fa fa-check"></i><b>8.2.2</b> line plot</a></li>
+<li class="chapter" data-level="8.2.3" data-path="appendix.html"><a href="appendix.html#bar-plot-3"><i class="fa fa-check"></i><b>8.2.3</b> bar plot</a></li>
 <li class="chapter" data-level="8.2.4" data-path="appendix.html"><a href="appendix.html#dot-plot-2"><i class="fa fa-check"></i><b>8.2.4</b> Dot plot</a></li>
-<li class="chapter" data-level="8.2.5" data-path="appendix.html"><a href="appendix.html#histogram-2"><i class="fa fa-check"></i><b>8.2.5</b> histogram</a></li>
-<li class="chapter" data-level="8.2.6" data-path="appendix.html"><a href="appendix.html#boxplot-2"><i class="fa fa-check"></i><b>8.2.6</b> Boxplot</a></li>
-<li class="chapter" data-level="8.2.7" data-path="appendix.html"><a href="appendix.html#other-plot-2"><i class="fa fa-check"></i><b>8.2.7</b> Other plot</a></li>
+<li class="chapter" data-level="8.2.5" data-path="appendix.html"><a href="appendix.html#histogram-3"><i class="fa fa-check"></i><b>8.2.5</b> histogram</a></li>
+<li class="chapter" data-level="8.2.6" data-path="appendix.html"><a href="appendix.html#boxplot-3"><i class="fa fa-check"></i><b>8.2.6</b> Boxplot</a></li>
+<li class="chapter" data-level="8.2.7" data-path="appendix.html"><a href="appendix.html#other-plot-3"><i class="fa fa-check"></i><b>8.2.7</b> Other plot</a></li>
 <li class="chapter" data-level="8.2.8" data-path="appendix.html"><a href="appendix.html#setting"><i class="fa fa-check"></i><b>8.2.8</b> setting</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="appendix.html"><a href="appendix.html#connect-with-alation"><i class="fa fa-check"></i><b>8.3</b> Connect with Alation</a></li>
@@ -216,8 +312,70 @@
             <section class="normal" id="section-">
 <div id="model" class="section level1">
 <h1><span class="header-section-number">Chapter 5</span> Model</h1>
-<p>coming soon</p>
+<p>Comming Soon.</p>
+<div id="relationship" class="section level2">
+<h2><span class="header-section-number">5.1</span> relationship</h2>
+</div>
+<div id="confidence-intervals" class="section level2">
+<h2><span class="header-section-number">5.2</span> Confidence intervals</h2>
+</div>
+<div id="hypothesis-testing" class="section level2">
+<h2><span class="header-section-number">5.3</span> Hypothesis testing</h2>
+</div>
+<div id="model-flow" class="section level2">
+<h2><span class="header-section-number">5.4</span> model flow</h2>
+<div id="clean-data" class="section level3">
+<h3><span class="header-section-number">5.4.1</span> clean data</h3>
+<p>encode variable,chooes variable</p>
+<p>split the data to train and test dataset</p>
+</div>
+<div id="build-model" class="section level3">
+<h3><span class="header-section-number">5.4.2</span> build model</h3>
+<p>design and build model with hyperparameters tunning and find the model parameters</p>
+</div>
+<div id="verify-model" class="section level3">
+<h3><span class="header-section-number">5.4.3</span> verify model</h3>
+<p>verify and explain the model , model performance with train/test/cross-validation dataset</p>
+</div>
+<div id="deploy-model" class="section level3">
+<h3><span class="header-section-number">5.4.4</span> deploy model</h3>
+</div>
+</div>
+<div id="supervised-learning" class="section level2">
+<h2><span class="header-section-number">5.5</span> Supervised Learning</h2>
+<div id="random-forest" class="section level3">
+<h3><span class="header-section-number">5.5.1</span> Random Forest</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(caret)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">library</span>(tictoc)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co"># Repeated CV.</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">fitControl &lt;-<span class="st"> </span><span class="kw">trainControl</span>(<span class="dt">method =</span> <span class="st">&quot;repeatedcv&quot;</span>,</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">                           <span class="dt">number =</span> <span class="dv">3</span>,</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">                           <span class="dt">repeats =</span> <span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="kw">tic</span>()</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="kw">set.seed</span>(<span class="dv">42</span>)</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">rf_model &lt;-<span class="st"> </span><span class="kw">train</span>(diagnosis <span class="op">~</span><span class="st"> </span>., </a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">                  <span class="dt">data =</span> bc_train_data, </a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">                  <span class="dt">method =</span> <span class="st">&quot;rf&quot;</span>, </a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">                  <span class="dt">trControl =</span> fitControl,</a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">                  <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="kw">toc</span>()</a></code></pre></div>
+</div>
+</div>
+<div id="unsupervised-learning" class="section level2">
+<h2><span class="header-section-number">5.6</span> Unsupervised Learning</h2>
+</div>
+<div id="statistical-distribution" class="section level2">
+<h2><span class="header-section-number">5.7</span> Statistical distribution</h2>
+</div>
+<div id="caret" class="section level2">
+<h2><span class="header-section-number">5.8</span> caret</h2>
+</div>
+<div id="h2o" class="section level2">
+<h2><span class="header-section-number">5.9</span> H2O</h2>
 
+</div>
 </div>
             </section>
 
@@ -245,7 +403,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapaper": false,
+"instapper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -257,10 +415,6 @@ gitbook.start({
 "edit": {
 "link": "https://github.com/TonyFly2000/Bookdown/05-Model.Rmd",
 "text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
 },
 "download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
 "toc": {

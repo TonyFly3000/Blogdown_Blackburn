@@ -25,15 +25,15 @@
 <meta name="author" content="Tony JC Duan">
 
 
-<meta name="date" content="2018-09-06">
+<meta name="date" content="2019-01-29">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="model.html">
-<link rel="next" href="references.html">
+<link rel="prev" href="references.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -47,8 +47,75 @@
 
 
 
+<script src="libs/detect-resize-0.5.3/jquery.resize.js"></script>
+<link href="libs/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet" />
+<script src="libs/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+<script src="libs/d3-3.5.2/d3.min.js"></script>
+<script src="libs/vega-1.4.3/vega.min.js"></script>
+<script src="libs/lodash-2.2.1/lodash.min.js"></script>
+<script>var lodash = _.noConflict();</script>
+<link href="libs/ggvis-0.4.4/css/ggvis.css" rel="stylesheet" />
+<script src="libs/ggvis-0.4.4/js/ggvis.js"></script>
 
 
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -76,7 +143,18 @@
 <li class="chapter" data-level="1.3.3" data-path="intro.html"><a href="intro.html#rstudio-server"><i class="fa fa-check"></i><b>1.3.3</b> Rstudio server</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#r-version-working-location-and-computer-environment"><i class="fa fa-check"></i><b>1.4</b> R Version , working location and computer environment</a></li>
-<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#r-package"><i class="fa fa-check"></i><b>1.5</b> R Package</a></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#return-the-machine-cpu"><i class="fa fa-check"></i><b>1.5</b> Return the machine CPU</a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#return-number-of-true-cores"><i class="fa fa-check"></i><b>1.6</b> Return number of true cores</a></li>
+<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#return-number-of-threads"><i class="fa fa-check"></i><b>1.7</b> Return number of threads</a></li>
+<li class="chapter" data-level="1.8" data-path="intro.html"><a href="intro.html#return-the-machine-ram"><i class="fa fa-check"></i><b>1.8</b> Return the machine RAM</a></li>
+<li class="chapter" data-level="1.9" data-path="intro.html"><a href="intro.html#r-package"><i class="fa fa-check"></i><b>1.9</b> R Package</a><ul>
+<li class="chapter" data-level="1.9.1" data-path="intro.html"><a href="intro.html#install-a-package-from-cran"><i class="fa fa-check"></i><b>1.9.1</b> Install a package from CRAN:</a></li>
+<li class="chapter" data-level="1.9.2" data-path="intro.html"><a href="intro.html#install-a-package-from-githubnot-recommended"><i class="fa fa-check"></i><b>1.9.2</b> Install a package from Github<strong>(NOT recommended)</strong>:</a></li>
+<li class="chapter" data-level="1.9.3" data-path="intro.html"><a href="intro.html#install-a-package-from-github-zip-file-not-recommended"><i class="fa fa-check"></i><b>1.9.3</b> Install a package from Github zip file <strong>(NOT recommended)</strong>:</a></li>
+<li class="chapter" data-level="1.9.4" data-path="intro.html"><a href="intro.html#get-help-on-package"><i class="fa fa-check"></i><b>1.9.4</b> Get help on Package:</a></li>
+<li class="chapter" data-level="1.9.5" data-path="intro.html"><a href="intro.html#uninstall-packages"><i class="fa fa-check"></i><b>1.9.5</b> Uninstall packages:</a></li>
+<li class="chapter" data-level="1.9.6" data-path="intro.html"><a href="intro.html#check-r-installed-packages-location"><i class="fa fa-check"></i><b>1.9.6</b> Check R installed packages location:</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="get.html"><a href="get.html"><i class="fa fa-check"></i><b>2</b> Get</a><ul>
 <li class="chapter" data-level="2.1" data-path="get.html"><a href="get.html#connect-with-csvtxt"><i class="fa fa-check"></i><b>2.1</b> Connect with csv/txt</a></li>
@@ -84,24 +162,36 @@
 <li class="chapter" data-level="2.3" data-path="get.html"><a href="get.html#connect-with-rdsrdatafeather"><i class="fa fa-check"></i><b>2.3</b> Connect with rds/RData/feather</a></li>
 <li class="chapter" data-level="2.4" data-path="get.html"><a href="get.html#connect-with-sasstatmatlab-ect"><i class="fa fa-check"></i><b>2.4</b> Connect with sas/stat/matlab ect</a></li>
 <li class="chapter" data-level="2.5" data-path="get.html"><a href="get.html#connect-with-database-mysqlsqliteteradatapostgresql"><i class="fa fa-check"></i><b>2.5</b> Connect with database (Mysql;sqlite;teradata;postgresql)</a><ul>
-<li class="chapter" data-level="2.5.1" data-path="get.html"><a href="get.html#teradata-with-rjdbc-package"><i class="fa fa-check"></i><b>2.5.1</b> Teradata with RJDBC package</a></li>
-<li class="chapter" data-level="2.5.2" data-path="get.html"><a href="get.html#teradata-with-ebaytd-package"><i class="fa fa-check"></i><b>2.5.2</b> Teradata with ebaytd package</a></li>
+<li class="chapter" data-level="2.5.1" data-path="get.html"><a href="get.html#mysql"><i class="fa fa-check"></i><b>2.5.1</b> Mysql</a></li>
+<li class="chapter" data-level="2.5.2" data-path="get.html"><a href="get.html#sqlite"><i class="fa fa-check"></i><b>2.5.2</b> sqlite</a></li>
+<li class="chapter" data-level="2.5.3" data-path="get.html"><a href="get.html#teradata-with-rjdbc-package"><i class="fa fa-check"></i><b>2.5.3</b> Teradata with RJDBC package</a></li>
+<li class="chapter" data-level="2.5.4" data-path="get.html"><a href="get.html#teradata-with-ebaytd-package"><i class="fa fa-check"></i><b>2.5.4</b> Teradata with ebaytd package</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="get.html"><a href="get.html#connect-with-salesforce"><i class="fa fa-check"></i><b>2.6</b> Connect with salesforce</a></li>
 <li class="chapter" data-level="2.7" data-path="get.html"><a href="get.html#connect-with-web-crawler"><i class="fa fa-check"></i><b>2.7</b> Connect with Web crawler</a></li>
 <li class="chapter" data-level="2.8" data-path="get.html"><a href="get.html#connect-with-api"><i class="fa fa-check"></i><b>2.8</b> Connect with API</a></li>
-<li class="chapter" data-level="2.9" data-path="get.html"><a href="get.html#connect-with-big-datahadoopspark"><i class="fa fa-check"></i><b>2.9</b> Connect with Big data(Hadoop;Spark)</a></li>
-<li class="chapter" data-level="2.10" data-path="get.html"><a href="get.html#connect-with-other-eg-soundpicturevideo"><i class="fa fa-check"></i><b>2.10</b> Connect with Other eg sound,picture,video</a></li>
+<li class="chapter" data-level="2.9" data-path="get.html"><a href="get.html#connect-with-finance-data"><i class="fa fa-check"></i><b>2.9</b> Connect with Finance data</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="get.html"><a href="get.html#tidyquant-package-to-get-stock-price"><i class="fa fa-check"></i><b>2.9.1</b> tidyquant package to get stock price</a></li>
+<li class="chapter" data-level="2.9.2" data-path="get.html"><a href="get.html#finreportr-package-to-get-stock-annual-report"><i class="fa fa-check"></i><b>2.9.2</b> finreportr package to get stock annual report</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="get.html"><a href="get.html#connect-with-big-data-platformhadoopspark"><i class="fa fa-check"></i><b>2.10</b> Connect with Big data platform(Hadoop;Spark)</a></li>
+<li class="chapter" data-level="2.11" data-path="get.html"><a href="get.html#connect-with-other-eg-soundpicturevideo"><i class="fa fa-check"></i><b>2.11</b> Connect with Other eg sound,picture,video</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="clean.html"><a href="clean.html"><i class="fa fa-check"></i><b>3</b> Clean</a><ul>
-<li class="chapter" data-level="3.1" data-path="clean.html"><a href="clean.html#working-with-date-and-time"><i class="fa fa-check"></i><b>3.1</b> Working with date and time</a></li>
-<li class="chapter" data-level="3.2" data-path="clean.html"><a href="clean.html#working-with-missing-data"><i class="fa fa-check"></i><b>3.2</b> working with missing data</a></li>
-<li class="chapter" data-level="3.3" data-path="clean.html"><a href="clean.html#working-with-string"><i class="fa fa-check"></i><b>3.3</b> working with string</a></li>
-<li class="chapter" data-level="3.4" data-path="clean.html"><a href="clean.html#fifty-shape-of-data"><i class="fa fa-check"></i><b>3.4</b> Fifty shape of data</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="clean.html"><a href="clean.html#dplyr"><i class="fa fa-check"></i><b>3.4.1</b> dplyr</a></li>
-<li class="chapter" data-level="3.4.2" data-path="clean.html"><a href="clean.html#apply-family"><i class="fa fa-check"></i><b>3.4.2</b> apply family</a></li>
+<li class="chapter" data-level="3.1" data-path="clean.html"><a href="clean.html#r-data-types"><i class="fa fa-check"></i><b>3.1</b> R Data Types</a></li>
+<li class="chapter" data-level="3.2" data-path="clean.html"><a href="clean.html#r-data-structures"><i class="fa fa-check"></i><b>3.2</b> R Data structures</a></li>
+<li class="chapter" data-level="3.3" data-path="clean.html"><a href="clean.html#working-with-date-and-time"><i class="fa fa-check"></i><b>3.3</b> Working with date and time</a></li>
+<li class="chapter" data-level="3.4" data-path="clean.html"><a href="clean.html#working-with-missing-data"><i class="fa fa-check"></i><b>3.4</b> Working with missing data</a></li>
+<li class="chapter" data-level="3.5" data-path="clean.html"><a href="clean.html#working-with-string"><i class="fa fa-check"></i><b>3.5</b> Working with string</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="clean.html"><a href="clean.html#string-manipulation"><i class="fa fa-check"></i><b>3.5.1</b> string manipulation</a></li>
+<li class="chapter" data-level="3.5.2" data-path="clean.html"><a href="clean.html#regular-expressions"><i class="fa fa-check"></i><b>3.5.2</b> Regular Expressions</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="clean.html"><a href="clean.html#tidey-data"><i class="fa fa-check"></i><b>3.5</b> tidey data</a></li>
+<li class="chapter" data-level="3.6" data-path="clean.html"><a href="clean.html#exploratory-data-analysiseda"><i class="fa fa-check"></i><b>3.6</b> Exploratory data analysis[EDA]</a></li>
+<li class="chapter" data-level="3.7" data-path="clean.html"><a href="clean.html#fifty-shape-of-data"><i class="fa fa-check"></i><b>3.7</b> Fifty shape of data</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="clean.html"><a href="clean.html#dplyr-package"><i class="fa fa-check"></i><b>3.7.1</b> dplyr package</a></li>
+<li class="chapter" data-level="3.7.2" data-path="clean.html"><a href="clean.html#sqldf-package"><i class="fa fa-check"></i><b>3.7.2</b> sqldf package</a></li>
+<li class="chapter" data-level="3.7.3" data-path="clean.html"><a href="clean.html#tidyr-package"><i class="fa fa-check"></i><b>3.7.3</b> tidyr package</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="visualize.html"><a href="visualize.html"><i class="fa fa-check"></i><b>4</b> Visualize</a><ul>
 <li class="chapter" data-level="4.1" data-path="visualize.html"><a href="visualize.html#ggplot2"><i class="fa fa-check"></i><b>4.1</b> ggplot2</a><ul>
@@ -111,45 +201,102 @@
 <li class="chapter" data-level="4.1.4" data-path="visualize.html"><a href="visualize.html#dot-plot"><i class="fa fa-check"></i><b>4.1.4</b> Dot plot</a></li>
 <li class="chapter" data-level="4.1.5" data-path="visualize.html"><a href="visualize.html#histogram"><i class="fa fa-check"></i><b>4.1.5</b> histogram</a></li>
 <li class="chapter" data-level="4.1.6" data-path="visualize.html"><a href="visualize.html#boxplot"><i class="fa fa-check"></i><b>4.1.6</b> Boxplot</a></li>
-<li class="chapter" data-level="4.1.7" data-path="visualize.html"><a href="visualize.html#other-plot"><i class="fa fa-check"></i><b>4.1.7</b> Other plot</a></li>
-<li class="chapter" data-level="4.1.8" data-path="visualize.html"><a href="visualize.html#settingtitlesubtitlex-labely-label"><i class="fa fa-check"></i><b>4.1.8</b> setting:title,subtitle,x label,y label</a></li>
-<li class="chapter" data-level="4.1.9" data-path="visualize.html"><a href="visualize.html#themes"><i class="fa fa-check"></i><b>4.1.9</b> themes</a></li>
+<li class="chapter" data-level="4.1.7" data-path="visualize.html"><a href="visualize.html#waterfall-chart"><i class="fa fa-check"></i><b>4.1.7</b> Waterfall chart</a></li>
+<li class="chapter" data-level="4.1.8" data-path="visualize.html"><a href="visualize.html#heatmap"><i class="fa fa-check"></i><b>4.1.8</b> Heatmap</a></li>
+<li class="chapter" data-level="4.1.9" data-path="visualize.html"><a href="visualize.html#moving-chart"><i class="fa fa-check"></i><b>4.1.9</b> Moving chart</a></li>
+<li class="chapter" data-level="4.1.10" data-path="visualize.html"><a href="visualize.html#other-plot"><i class="fa fa-check"></i><b>4.1.10</b> Other plot</a></li>
+<li class="chapter" data-level="4.1.11" data-path="visualize.html"><a href="visualize.html#make-multi-chart-by-variable"><i class="fa fa-check"></i><b>4.1.11</b> make multi chart by variable:</a></li>
+<li class="chapter" data-level="4.1.12" data-path="visualize.html"><a href="visualize.html#setting-titlesubtitlex-labely-label"><i class="fa fa-check"></i><b>4.1.12</b> setting: title,subtitle,x label,y label</a></li>
+<li class="chapter" data-level="4.1.13" data-path="visualize.html"><a href="visualize.html#themes"><i class="fa fa-check"></i><b>4.1.13</b> themes</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="visualize.html"><a href="visualize.html#ggvis"><i class="fa fa-check"></i><b>4.2</b> ggvis</a><ul>
+<li class="chapter" data-level="4.2" data-path="visualize.html"><a href="visualize.html#plotly"><i class="fa fa-check"></i><b>4.2</b> plotly</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="visualize.html"><a href="visualize.html#scatter-plot-1"><i class="fa fa-check"></i><b>4.2.1</b> scatter plot</a></li>
 <li class="chapter" data-level="4.2.2" data-path="visualize.html"><a href="visualize.html#line-plot-1"><i class="fa fa-check"></i><b>4.2.2</b> line plot</a></li>
 <li class="chapter" data-level="4.2.3" data-path="visualize.html"><a href="visualize.html#bar-plot-1"><i class="fa fa-check"></i><b>4.2.3</b> bar plot</a></li>
 <li class="chapter" data-level="4.2.4" data-path="visualize.html"><a href="visualize.html#dot-plot-1"><i class="fa fa-check"></i><b>4.2.4</b> Dot plot</a></li>
-<li class="chapter" data-level="4.2.5" data-path="visualize.html"><a href="visualize.html#histogram-1"><i class="fa fa-check"></i><b>4.2.5</b> histogram</a></li>
+<li class="chapter" data-level="4.2.5" data-path="visualize.html"><a href="visualize.html#histogram-1"><i class="fa fa-check"></i><b>4.2.5</b> Histogram</a></li>
 <li class="chapter" data-level="4.2.6" data-path="visualize.html"><a href="visualize.html#boxplot-1"><i class="fa fa-check"></i><b>4.2.6</b> Boxplot</a></li>
-<li class="chapter" data-level="4.2.7" data-path="visualize.html"><a href="visualize.html#other-plot-1"><i class="fa fa-check"></i><b>4.2.7</b> Other plot</a></li>
-<li class="chapter" data-level="4.2.8" data-path="visualize.html"><a href="visualize.html#setting"><i class="fa fa-check"></i><b>4.2.8</b> setting</a></li>
+<li class="chapter" data-level="4.2.7" data-path="visualize.html"><a href="visualize.html#heatmap-1"><i class="fa fa-check"></i><b>4.2.7</b> Heatmap</a></li>
+<li class="chapter" data-level="4.2.8" data-path="visualize.html"><a href="visualize.html#map"><i class="fa fa-check"></i><b>4.2.8</b> Map</a></li>
+<li class="chapter" data-level="4.2.9" data-path="visualize.html"><a href="visualize.html#moving-chart-1"><i class="fa fa-check"></i><b>4.2.9</b> Moving chart</a></li>
+<li class="chapter" data-level="4.2.10" data-path="visualize.html"><a href="visualize.html#other-plot-1"><i class="fa fa-check"></i><b>4.2.10</b> Other plot</a></li>
+<li class="chapter" data-level="4.2.11" data-path="visualize.html"><a href="visualize.html#settingtitlesubtitlex-labely-label"><i class="fa fa-check"></i><b>4.2.11</b> setting:title,subtitle,x label,y label</a></li>
+<li class="chapter" data-level="4.2.12" data-path="visualize.html"><a href="visualize.html#hover-text"><i class="fa fa-check"></i><b>4.2.12</b> hover text</a></li>
+<li class="chapter" data-level="4.2.13" data-path="visualize.html"><a href="visualize.html#convert-ggplot-to-plotly"><i class="fa fa-check"></i><b>4.2.13</b> convert ggplot to plotly</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="visualize.html"><a href="visualize.html#plotly"><i class="fa fa-check"></i><b>4.3</b> plotly</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="visualize.html"><a href="visualize.html#scatter-plot-2"><i class="fa fa-check"></i><b>4.3.1</b> scatter plot</a></li>
-<li class="chapter" data-level="4.3.2" data-path="visualize.html"><a href="visualize.html#line-plot-2"><i class="fa fa-check"></i><b>4.3.2</b> line plot</a></li>
-<li class="chapter" data-level="4.3.3" data-path="visualize.html"><a href="visualize.html#bar-plot-2"><i class="fa fa-check"></i><b>4.3.3</b> bar plot</a></li>
-<li class="chapter" data-level="4.3.4" data-path="visualize.html"><a href="visualize.html#dot-plot-2"><i class="fa fa-check"></i><b>4.3.4</b> Dot plot</a></li>
-<li class="chapter" data-level="4.3.5" data-path="visualize.html"><a href="visualize.html#histogram-2"><i class="fa fa-check"></i><b>4.3.5</b> histogram</a></li>
-<li class="chapter" data-level="4.3.6" data-path="visualize.html"><a href="visualize.html#boxplot-2"><i class="fa fa-check"></i><b>4.3.6</b> Boxplot</a></li>
-<li class="chapter" data-level="4.3.7" data-path="visualize.html"><a href="visualize.html#map"><i class="fa fa-check"></i><b>4.3.7</b> Map</a></li>
-<li class="chapter" data-level="4.3.8" data-path="visualize.html"><a href="visualize.html#other-plot-2"><i class="fa fa-check"></i><b>4.3.8</b> Other plot</a></li>
-<li class="chapter" data-level="4.3.9" data-path="visualize.html"><a href="visualize.html#settingtitlesubtitlex-labely-label-1"><i class="fa fa-check"></i><b>4.3.9</b> setting:title,subtitle,x label,y label</a></li>
-<li class="chapter" data-level="4.3.10" data-path="visualize.html"><a href="visualize.html#hover-text"><i class="fa fa-check"></i><b>4.3.10</b> hover text</a></li>
-<li class="chapter" data-level="4.3.11" data-path="visualize.html"><a href="visualize.html#convert-ggplot-to-plotly"><i class="fa fa-check"></i><b>4.3.11</b> convert ggplot to plotly</a></li>
+<li class="chapter" data-level="4.3" data-path="visualize.html"><a href="visualize.html#leaflet"><i class="fa fa-check"></i><b>4.3</b> leaflet</a></li>
+<li class="chapter" data-level="4.4" data-path="visualize.html"><a href="visualize.html#highcharter"><i class="fa fa-check"></i><b>4.4</b> highcharter</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="visualize.html"><a href="visualize.html#scatter-plot-2"><i class="fa fa-check"></i><b>4.4.1</b> scatter plot</a></li>
+<li class="chapter" data-level="4.4.2" data-path="visualize.html"><a href="visualize.html#line-plot-2"><i class="fa fa-check"></i><b>4.4.2</b> line plot</a></li>
+<li class="chapter" data-level="4.4.3" data-path="visualize.html"><a href="visualize.html#bar-plot-2"><i class="fa fa-check"></i><b>4.4.3</b> bar plot</a></li>
+<li class="chapter" data-level="4.4.4" data-path="visualize.html"><a href="visualize.html#histogram-2"><i class="fa fa-check"></i><b>4.4.4</b> histogram</a></li>
+<li class="chapter" data-level="4.4.5" data-path="visualize.html"><a href="visualize.html#boxplot-2"><i class="fa fa-check"></i><b>4.4.5</b> Boxplot</a></li>
+<li class="chapter" data-level="4.4.6" data-path="visualize.html"><a href="visualize.html#heatmap-2"><i class="fa fa-check"></i><b>4.4.6</b> Heatmap</a></li>
+<li class="chapter" data-level="4.4.7" data-path="visualize.html"><a href="visualize.html#moving-chart-2"><i class="fa fa-check"></i><b>4.4.7</b> Moving chart</a></li>
+<li class="chapter" data-level="4.4.8" data-path="visualize.html"><a href="visualize.html#other-plot-2"><i class="fa fa-check"></i><b>4.4.8</b> Other plot</a></li>
+<li class="chapter" data-level="4.4.9" data-path="visualize.html"><a href="visualize.html#make-multi-chart-by-variable-1"><i class="fa fa-check"></i><b>4.4.9</b> make multi chart by variable:</a></li>
+<li class="chapter" data-level="4.4.10" data-path="visualize.html"><a href="visualize.html#setting-titlesubtitlex-labely-label-1"><i class="fa fa-check"></i><b>4.4.10</b> setting: title,subtitle,x label,y label</a></li>
+<li class="chapter" data-level="4.4.11" data-path="visualize.html"><a href="visualize.html#themes-1"><i class="fa fa-check"></i><b>4.4.11</b> themes</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="visualize.html"><a href="visualize.html#leaflet"><i class="fa fa-check"></i><b>4.4</b> leaflet</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="model.html"><a href="model.html"><i class="fa fa-check"></i><b>5</b> Model</a></li>
-<li class="chapter" data-level="6" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>6</b> Appendix</a></li>
+<li class="chapter" data-level="5" data-path="model.html"><a href="model.html"><i class="fa fa-check"></i><b>5</b> Model</a><ul>
+<li class="chapter" data-level="5.1" data-path="model.html"><a href="model.html#relationship"><i class="fa fa-check"></i><b>5.1</b> relationship</a></li>
+<li class="chapter" data-level="5.2" data-path="model.html"><a href="model.html#confidence-intervals"><i class="fa fa-check"></i><b>5.2</b> Confidence intervals</a></li>
+<li class="chapter" data-level="5.3" data-path="model.html"><a href="model.html#hypothesis-testing"><i class="fa fa-check"></i><b>5.3</b> Hypothesis testing</a></li>
+<li class="chapter" data-level="5.4" data-path="model.html"><a href="model.html#model-flow"><i class="fa fa-check"></i><b>5.4</b> model flow</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="model.html"><a href="model.html#clean-data"><i class="fa fa-check"></i><b>5.4.1</b> clean data</a></li>
+<li class="chapter" data-level="5.4.2" data-path="model.html"><a href="model.html#build-model"><i class="fa fa-check"></i><b>5.4.2</b> build model</a></li>
+<li class="chapter" data-level="5.4.3" data-path="model.html"><a href="model.html#verify-model"><i class="fa fa-check"></i><b>5.4.3</b> verify model</a></li>
+<li class="chapter" data-level="5.4.4" data-path="model.html"><a href="model.html#deploy-model"><i class="fa fa-check"></i><b>5.4.4</b> deploy model</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="model.html"><a href="model.html#supervised-learning"><i class="fa fa-check"></i><b>5.5</b> Supervised Learning</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="model.html"><a href="model.html#random-forest"><i class="fa fa-check"></i><b>5.5.1</b> Random Forest</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="model.html"><a href="model.html#unsupervised-learning"><i class="fa fa-check"></i><b>5.6</b> Unsupervised Learning</a></li>
+<li class="chapter" data-level="5.7" data-path="model.html"><a href="model.html#statistical-distribution"><i class="fa fa-check"></i><b>5.7</b> Statistical distribution</a></li>
+<li class="chapter" data-level="5.8" data-path="model.html"><a href="model.html#caret"><i class="fa fa-check"></i><b>5.8</b> caret</a></li>
+<li class="chapter" data-level="5.9" data-path="model.html"><a href="model.html#h2o"><i class="fa fa-check"></i><b>5.9</b> H2O</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="case.html"><a href="case.html"><i class="fa fa-check"></i><b>6</b> Case</a></li>
 <li class="chapter" data-level="7" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>7</b> References</a><ul>
 <li class="chapter" data-level="7.1" data-path="references.html"><a href="references.html#the-giants"><i class="fa fa-check"></i><b>7.1</b> The Giants</a></li>
 <li class="chapter" data-level="7.2" data-path="references.html"><a href="references.html#book"><i class="fa fa-check"></i><b>7.2</b> Book</a></li>
-<li class="chapter" data-level="7.3" data-path="references.html"><a href="references.html#other-topic"><i class="fa fa-check"></i><b>7.3</b> Other topic</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="references.html"><a href="references.html#shiny"><i class="fa fa-check"></i><b>7.3.1</b> Shiny</a></li>
-<li class="chapter" data-level="7.3.2" data-path="references.html"><a href="references.html#r-markdown"><i class="fa fa-check"></i><b>7.3.2</b> R markdown</a></li>
-<li class="chapter" data-level="7.3.3" data-path="references.html"><a href="references.html#r-bookdown"><i class="fa fa-check"></i><b>7.3.3</b> R bookdown</a></li>
-<li class="chapter" data-level="7.3.4" data-path="references.html"><a href="references.html#r-blogdown"><i class="fa fa-check"></i><b>7.3.4</b> R blogdown</a></li>
+<li class="chapter" data-level="7.3" data-path="references.html"><a href="references.html#link"><i class="fa fa-check"></i><b>7.3</b> Link</a><ul>
+<li><a href="references.html#csv-vs-_csv-r-markdown-r-bookdown-r-blogdown-feather-data-format-database-connection-rmarkdown-cheatsheet-working-with-string-machine-learning-for-humans-probability-distributions-tidy-data-t-test-caret-highcharter"><span class="toc-section-number">7.3.1</span> .csv vs _csv
+### R markdown
+### R bookdown
+### R blogdown
+### feather data format
+### database connection
+### rmarkdown cheatsheet
+### working with string
+### Machine Learning for Humans
+### Probability Distributions
+### tidy data
+### T test
+### caret
+### highcharter</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>8</b> Appendix</a><ul>
+<li class="chapter" data-level="8.1" data-path="appendix.html"><a href="appendix.html#delete-filedownload-file-ect."><i class="fa fa-check"></i><b>8.1</b> delete file,download file ect.</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="appendix.html"><a href="appendix.html#apply-family"><i class="fa fa-check"></i><b>8.1.1</b> apply family</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="appendix.html"><a href="appendix.html#ggvis"><i class="fa fa-check"></i><b>8.2</b> ggvis</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="appendix.html"><a href="appendix.html#scatter-plot-3"><i class="fa fa-check"></i><b>8.2.1</b> scatter plot</a></li>
+<li class="chapter" data-level="8.2.2" data-path="appendix.html"><a href="appendix.html#line-plot-3"><i class="fa fa-check"></i><b>8.2.2</b> line plot</a></li>
+<li class="chapter" data-level="8.2.3" data-path="appendix.html"><a href="appendix.html#bar-plot-3"><i class="fa fa-check"></i><b>8.2.3</b> bar plot</a></li>
+<li class="chapter" data-level="8.2.4" data-path="appendix.html"><a href="appendix.html#dot-plot-2"><i class="fa fa-check"></i><b>8.2.4</b> Dot plot</a></li>
+<li class="chapter" data-level="8.2.5" data-path="appendix.html"><a href="appendix.html#histogram-3"><i class="fa fa-check"></i><b>8.2.5</b> histogram</a></li>
+<li class="chapter" data-level="8.2.6" data-path="appendix.html"><a href="appendix.html#boxplot-3"><i class="fa fa-check"></i><b>8.2.6</b> Boxplot</a></li>
+<li class="chapter" data-level="8.2.7" data-path="appendix.html"><a href="appendix.html#other-plot-3"><i class="fa fa-check"></i><b>8.2.7</b> Other plot</a></li>
+<li class="chapter" data-level="8.2.8" data-path="appendix.html"><a href="appendix.html#setting"><i class="fa fa-check"></i><b>8.2.8</b> setting</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="appendix.html"><a href="appendix.html#connect-with-alation"><i class="fa fa-check"></i><b>8.3</b> Connect with Alation</a></li>
+<li class="chapter" data-level="8.4" data-path="appendix.html"><a href="appendix.html#pre-modeling"><i class="fa fa-check"></i><b>8.4</b> pre-modeling</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="appendix.html"><a href="appendix.html#sampling"><i class="fa fa-check"></i><b>8.4.1</b> Sampling</a></li>
+<li class="chapter" data-level="8.4.2" data-path="appendix.html"><a href="appendix.html#most-common-distributions"><i class="fa fa-check"></i><b>8.4.2</b> 10 most common Distributions</a></li>
+<li class="chapter" data-level="8.4.3" data-path="appendix.html"><a href="appendix.html#statistical-test"><i class="fa fa-check"></i><b>8.4.3</b> statistical test</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -173,16 +320,683 @@
 
             <section class="normal" id="section-">
 <div id="appendix" class="section level1">
-<h1><span class="header-section-number">Chapter 6</span> Appendix</h1>
+<h1><span class="header-section-number">Chapter 8</span> Appendix</h1>
+<div id="delete-filedownload-file-ect." class="section level2">
+<h2><span class="header-section-number">8.1</span> delete file,download file ect.</h2>
+<p>Open ebay.com with defalt chrome:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">browseURL</span>(<span class="st">&quot;www.ebay.com&quot;</span>,</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">          <span class="dt">browser =</span> <span class="st">&quot;C:/Program Files (x86)/Google/Chrome/Application/chrome.exe&quot;</span>)</a></code></pre></div>
+<p>Delete a file with unlink or file.remove():</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">unlink</span>(<span class="st">&quot;C.txt&quot;</span>)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">file.remove</span>(<span class="st">&quot;A.txt&quot;</span>, <span class="st">&quot;B.txt&quot;</span>)</a></code></pre></div>
+<p>Check a folder existence:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">dir.exists</span>(<span class="st">&#39;test_file&#39;</span>)</a></code></pre></div>
+<p>Create a folder :</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">dir.create</span>(<span class="st">&#39;test_file&#39;</span>)</a></code></pre></div>
+<p>Delete a folder :</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">unlink</span>(<span class="st">&#39;test_file&#39;</span>, <span class="dt">recursive=</span><span class="ot">TRUE</span>)</a></code></pre></div>
+<p>Download Files:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">download.file</span>(<span class="st">&#39;https://freemusicarchive.org/file/music/no_curator/Scott_Holmes/Corporate__Motivational_Music/Scott_Holmes_-_13_-_Think_BIG.mp3&#39;</span>,<span class="dt">destfile=</span><span class="st">&#39;Think_BIG.mp3&#39;</span>,<span class="dt">method=</span><span class="st">&#39;curl&#39;</span>)</a></code></pre></div>
+<p>unzip file:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">library</span>(R.utils)</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">gunzip</span>(<span class="st">&#39;2018-11-17-r.csv.gz&#39;</span>)</a></code></pre></div>
+<p>Play music</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">library</span>(tuneR)</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">File1&lt;-<span class="st"> </span><span class="kw">readMP3</span>(<span class="st">&quot;Think_BIG.mp3&quot;</span>)</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="kw">play</span>(File1)</a></code></pre></div>
+<p>Shutdown Computer in 10 seconds:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">shutdown</span>(<span class="dt">wait=</span><span class="dv">10</span>)</a></code></pre></div>
+<p>Check internet speed:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;hrbrmstr/speedtest&quot;</span>)</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">speedtest<span class="op">::</span><span class="kw">spd_test</span>()</a></code></pre></div>
+<p>Check run time:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">sleep_for_a_minute &lt;-<span class="st"> </span><span class="cf">function</span>() { <span class="kw">Sys.sleep</span>(<span class="dv">60</span>) }</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">start_time &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="kw">sleep_for_a_minute</span>()</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">end_time &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">start_time</a>
+<a class="sourceLine" id="cb11-6" data-line-number="6">end_time</a>
+<a class="sourceLine" id="cb11-7" data-line-number="7">end_time <span class="op">-</span><span class="st"> </span>start_time</a></code></pre></div>
+<div id="apply-family" class="section level3">
+<h3><span class="header-section-number">8.1.1</span> apply family</h3>
+<div id="apply" class="section level4">
+<h4><span class="header-section-number">8.1.1.1</span> apply()</h4>
+<p>apply to matrix</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">X &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">30</span>), <span class="dt">nrow=</span><span class="dv">2</span>, <span class="dt">ncol=</span><span class="dv">6</span>) <span class="co"># Construct a 5x6 matrix</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="kw">apply</span>(X, <span class="dv">2</span>, sum)  <span class="co"># Sum the values of each column with `apply()`  </span></a>
+<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="kw">apply</span>(X, <span class="dv">1</span>, mean)  <span class="co"># mean the values of each row with `apply()` </span></a></code></pre></div>
+</div>
+<div id="lapply" class="section level4">
+<h4><span class="header-section-number">8.1.1.2</span> lapply()</h4>
+<p>The output returned is a list</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">A=<span class="kw">as.data.frame</span>(<span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>,<span class="dt">nrow=</span><span class="dv">3</span>,<span class="dt">ncol=</span><span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">B=<span class="kw">as.data.frame</span>(<span class="kw">matrix</span>(<span class="dv">11</span><span class="op">:</span><span class="dv">19</span>,<span class="dt">nrow=</span><span class="dv">3</span>,<span class="dt">ncol=</span><span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb13-3" data-line-number="3">C=<span class="kw">as.data.frame</span>(<span class="kw">matrix</span>(<span class="dv">101</span><span class="op">:</span><span class="dv">109</span>,<span class="dt">nrow=</span><span class="dv">3</span>,<span class="dt">ncol=</span><span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb13-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb13-5" data-line-number="5">MyList &lt;-<span class="st"> </span><span class="kw">list</span>(A,B,C)          <span class="co"># Put dataframe A B C to a list </span></a>
+<a class="sourceLine" id="cb13-6" data-line-number="6"><span class="kw">lapply</span>(MyList,<span class="st">&quot;[&quot;</span>, , <span class="dv">2</span>)        <span class="co"># Get each dataframs second col</span></a>
+<a class="sourceLine" id="cb13-7" data-line-number="7"><span class="kw">lapply</span>(MyList,<span class="st">&quot;[&quot;</span>, <span class="dv">1</span>, )        <span class="co"># Get each dataframs first row</span></a></code></pre></div>
+</div>
+<div id="sapply" class="section level4">
+<h4><span class="header-section-number">8.1.1.3</span> sapply()</h4>
+<p>The sapply() function works like lapply(), but it tries to simplify the output to the most elementary data structure that is possible. And indeed, sapply() is a ‘wrapper’ function for lapply().</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">A=<span class="kw">as.data.frame</span>(<span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>,<span class="dt">nrow=</span><span class="dv">3</span>,<span class="dt">ncol=</span><span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb14-2" data-line-number="2">B=<span class="kw">as.data.frame</span>(<span class="kw">matrix</span>(<span class="dv">11</span><span class="op">:</span><span class="dv">19</span>,<span class="dt">nrow=</span><span class="dv">3</span>,<span class="dt">ncol=</span><span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb14-3" data-line-number="3">C=<span class="kw">as.data.frame</span>(<span class="kw">matrix</span>(<span class="dv">101</span><span class="op">:</span><span class="dv">109</span>,<span class="dt">nrow=</span><span class="dv">3</span>,<span class="dt">ncol=</span><span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb14-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb14-5" data-line-number="5">MyList &lt;-<span class="st"> </span><span class="kw">list</span>(A,B,C)          <span class="co"># Put dataframe A B C to a list </span></a>
+<a class="sourceLine" id="cb14-6" data-line-number="6"><span class="kw">sapply</span>(MyList,<span class="st">&quot;[&quot;</span>, , <span class="dv">2</span>)        <span class="co"># Get each dataframs second col and put it into a matrix by col</span></a>
+<a class="sourceLine" id="cb14-7" data-line-number="7"><span class="kw">sapply</span>(MyList,<span class="st">&quot;[&quot;</span>, <span class="dv">1</span>, )        <span class="co"># Get each dataframs first row  and put it into a matrix by col</span></a></code></pre></div>
+</div>
+<div id="mapply" class="section level4">
+<h4><span class="header-section-number">8.1.1.4</span> mapply()</h4>
+<p>The mapply() function stands for ‘multivariate apply’. Its purpose is to be able to vectorize arguments to a function that is not usually accepting vectors as arguments.</p>
+</div>
+</div>
+</div>
+<div id="ggvis" class="section level2">
+<h2><span class="header-section-number">8.2</span> ggvis</h2>
+<div id="scatter-plot-3" class="section level3">
+<h3><span class="header-section-number">8.2.1</span> scatter plot</h3>
+<p>pop_m vs year scatter plot:from 1950 to 2007, world pop increased from 2B to 6B,Asia 1B to 4B</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">library</span>(gapminder)</a>
+<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb15-3" data-line-number="3"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb15-4" data-line-number="4"><span class="kw">library</span>(ggvis)</a></code></pre></div>
+<pre><code>## Warning: package &#39;ggvis&#39; was built under R version 3.5.2</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">gapminder2=gapminder<span class="op">%&gt;%</span><span class="kw">group_by</span>(year,continent)<span class="op">%&gt;%</span><span class="kw">summarise</span>(<span class="dt">pop_m=</span><span class="kw">sum</span>(pop<span class="op">/</span><span class="dv">1000000</span>,<span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</a>
+<a class="sourceLine" id="cb17-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">gg=<span class="st"> </span><span class="kw">ggvis</span>(gapminder2,<span class="op">~</span>year, <span class="op">~</span>pop_m,<span class="dt">fill =</span> <span class="op">~</span>continent) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">layer_points</span>()</a>
+<a class="sourceLine" id="cb17-4" data-line-number="4">gg</a></code></pre></div>
+<div id="plot_id138272477-container" class="ggvis-output-container">
+<div id="plot_id138272477" class="ggvis-output"></div>
+<div class="plot-gear-icon">
+<nav class="ggvis-control">
+<a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
+<ul class="ggvis-dropdown">
+<li>
+Renderer: 
+<a id="plot_id138272477_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id138272477" data-renderer="svg">SVG</a>
+ | 
+<a id="plot_id138272477_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id138272477" data-renderer="canvas">Canvas</a>
+</li>
+<li>
+<a id="plot_id138272477_download" class="ggvis-download" data-plot-id="plot_id138272477">Download</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<script type="text/javascript">
+var plot_id138272477_spec = {
+  "data": [
+    {
+      "name": "gapminder20_flat",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "year": "number",
+          "pop_m": "number"
+        }
+      },
+      "values": "\"continent\",\"year\",\"pop_m\"\n\"Africa\",1952,237.640501\n\"Americas\",1952,345.152446\n\"Asia\",1952,1395.357351\n\"Europe\",1952,418.120846\n\"Oceania\",1952,10.686006\n\"Africa\",1957,264.837738\n\"Americas\",1957,386.953916\n\"Asia\",1957,1562.780599\n\"Europe\",1957,437.890351\n\"Oceania\",1957,11.941976\n\"Africa\",1962,296.516865\n\"Americas\",1962,433.270254\n\"Asia\",1962,1696.357182\n\"Europe\",1962,460.355155\n\"Oceania\",1962,13.283518\n\"Africa\",1967,335.289489\n\"Americas\",1967,480.746623\n\"Asia\",1967,1905.6629\n\"Europe\",1967,481.178958\n\"Oceania\",1967,14.600414\n\"Africa\",1972,379.879541\n\"Americas\",1972,529.38421\n\"Asia\",1972,2150.972248\n\"Europe\",1972,500.635059\n\"Oceania\",1972,16.1061\n\"Africa\",1977,433.061021\n\"Americas\",1977,578.067699\n\"Asia\",1977,2384.513556\n\"Europe\",1977,517.164531\n\"Oceania\",1977,17.239\n\"Africa\",1982,499.348587\n\"Americas\",1982,630.29092\n\"Asia\",1982,2610.135582\n\"Europe\",1982,531.266901\n\"Oceania\",1982,18.39485\n\"Africa\",1987,574.83411\n\"Americas\",1987,682.753971\n\"Asia\",1987,2871.220762\n\"Europe\",1987,543.09416\n\"Oceania\",1987,19.574415\n\"Africa\",1992,659.081517\n\"Americas\",1992,739.274104\n\"Asia\",1992,3133.292191\n\"Europe\",1992,558.142797\n\"Oceania\",1992,20.919651\n\"Africa\",1997,743.832984\n\"Americas\",1997,796.90041\n\"Asia\",1997,3383.2855\n\"Europe\",1997,568.944148\n\"Oceania\",1997,22.24143\n\"Africa\",2002,833.723916\n\"Americas\",2002,849.772762\n\"Asia\",2002,3601.802203\n\"Europe\",2002,578.223869\n\"Oceania\",2002,23.454829\n\"Africa\",2007,929.539692\n\"Americas\",2007,898.871184\n\"Asia\",2007,3811.953827\n\"Europe\",2007,586.098529\n\"Oceania\",2007,24.549947"
+    },
+    {
+      "name": "gapminder20",
+      "source": "gapminder20_flat",
+      "transform": [
+        {
+          "type": "treefacet",
+          "keys": [
+            "data.year"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "scale/fill",
+      "format": {
+        "type": "csv",
+        "parse": {}
+      },
+      "values": "\"domain\"\n\"Africa\"\n\"Americas\"\n\"Asia\"\n\"Europe\"\n\"Oceania\""
+    },
+    {
+      "name": "scale/x",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "domain": "number"
+        }
+      },
+      "values": "\"domain\"\n1949.25\n2009.75"
+    },
+    {
+      "name": "scale/y",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "domain": "number"
+        }
+      },
+      "values": "\"domain\"\n-179.37738505\n4002.01721805"
+    }
+  ],
+  "scales": [
+    {
+      "name": "fill",
+      "type": "ordinal",
+      "domain": {
+        "data": "scale/fill",
+        "field": "data.domain"
+      },
+      "points": true,
+      "sort": false,
+      "range": "category10"
+    },
+    {
+      "name": "x",
+      "domain": {
+        "data": "scale/x",
+        "field": "data.domain"
+      },
+      "zero": false,
+      "nice": false,
+      "clamp": false,
+      "range": "width"
+    },
+    {
+      "name": "y",
+      "domain": {
+        "data": "scale/y",
+        "field": "data.domain"
+      },
+      "zero": false,
+      "nice": false,
+      "clamp": false,
+      "range": "height"
+    }
+  ],
+  "marks": [
+    {
+      "type": "group",
+      "from": {
+        "data": "gapminder20"
+      },
+      "marks": [
+        {
+          "type": "symbol",
+          "properties": {
+            "update": {
+              "size": {
+                "value": 50
+              },
+              "fill": {
+                "scale": "fill",
+                "field": "data.continent"
+              },
+              "x": {
+                "scale": "x",
+                "field": "data.year"
+              },
+              "y": {
+                "scale": "y",
+                "field": "data.pop_m"
+              }
+            },
+            "ggvis": {
+              "data": {
+                "value": "gapminder20"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "legends": [
+    {
+      "orient": "right",
+      "fill": "fill",
+      "title": "continent"
+    }
+  ],
+  "axes": [
+    {
+      "type": "x",
+      "scale": "x",
+      "orient": "bottom",
+      "layer": "back",
+      "grid": true,
+      "title": "year"
+    },
+    {
+      "type": "y",
+      "scale": "y",
+      "orient": "left",
+      "layer": "back",
+      "grid": true,
+      "title": "pop_m"
+    }
+  ],
+  "padding": null,
+  "ggvis_opts": {
+    "keep_aspect": false,
+    "resizable": true,
+    "padding": {},
+    "duration": 250,
+    "renderer": "svg",
+    "hover_duration": 0,
+    "width": 672,
+    "height": 480
+  },
+  "handlers": null
+};
+ggvis.getPlot("plot_id138272477").parseSpec(plot_id138272477_spec);
+</script>
+</div>
+<div id="line-plot-3" class="section level3">
+<h3><span class="header-section-number">8.2.2</span> line plot</h3>
+<p>pop_m vs year line plot:from 1950 to 2007, world pop increased from 2B to 6B</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="kw">library</span>(gapminder)</a>
+<a class="sourceLine" id="cb18-2" data-line-number="2"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb18-3" data-line-number="3"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb18-4" data-line-number="4">gapminder2=gapminder<span class="op">%&gt;%</span><span class="kw">group_by</span>(year)<span class="op">%&gt;%</span><span class="kw">summarise</span>(<span class="dt">pop_m=</span><span class="kw">sum</span>(pop<span class="op">/</span><span class="dv">1000000</span>,<span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</a>
+<a class="sourceLine" id="cb18-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb18-6" data-line-number="6">gg=<span class="st"> </span><span class="kw">ggvis</span>(gapminder2,<span class="op">~</span>year, <span class="op">~</span>pop_m) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">layer_points</span>()<span class="op">%&gt;%</span><span class="st"> </span><span class="kw">layer_smooths</span>()</a>
+<a class="sourceLine" id="cb18-7" data-line-number="7">gg</a></code></pre></div>
+<div id="plot_id250645175-container" class="ggvis-output-container">
+<div id="plot_id250645175" class="ggvis-output"></div>
+<div class="plot-gear-icon">
+<nav class="ggvis-control">
+<a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
+<ul class="ggvis-dropdown">
+<li>
+Renderer: 
+<a id="plot_id250645175_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id250645175" data-renderer="svg">SVG</a>
+ | 
+<a id="plot_id250645175_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_id250645175" data-renderer="canvas">Canvas</a>
+</li>
+<li>
+<a id="plot_id250645175_download" class="ggvis-download" data-plot-id="plot_id250645175">Download</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<script type="text/javascript">
+var plot_id250645175_spec = {
+  "data": [
+    {
+      "name": "gapminder20",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "year": "number",
+          "pop_m": "number"
+        }
+      },
+      "values": "\"year\",\"pop_m\"\n1952,2406.95715\n1957,2664.40458\n1962,2899.782974\n1967,3217.478384\n1972,3576.977158\n1977,3930.045807\n1982,4289.43684\n1987,4691.477418\n1992,5110.71026\n1997,5515.204472\n2002,5886.977579\n2007,6251.013179"
+    },
+    {
+      "name": "gapminder20/model_prediction1",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "pred_": "number",
+          "resp_": "number"
+        }
+      },
+      "values": "\"pred_\",\"resp_\"\n1952,2407.89787557353\n1952.69620253165,2439.77780116149\n1953.39240506329,2472.24032199596\n1954.08860759494,2505.29243210419\n1954.78481012658,2538.94112551336\n1955.48101265823,2573.19339625068\n1956.17721518987,2608.05623834336\n1956.87341772152,2643.5366458186\n1957.56962025316,2679.65757470819\n1958.26582278481,2716.43762941678\n1958.96202531646,2753.84970459621\n1959.6582278481,2791.86571336788\n1960.35443037975,2830.45756885324\n1961.05063291139,2869.59718417369\n1961.74683544304,2909.25647245069\n1962.44303797468,2949.45349454976\n1963.13924050633,2990.32072933143\n1963.83544303797,3031.83172288317\n1964.53164556962,3073.94464986527\n1965.22784810127,3116.61768493808\n1965.92405063291,3159.80900276188\n1966.62025316456,3203.47677799701\n1967.3164556962,3247.66727268045\n1968.01265822785,3292.91983182474\n1968.70886075949,3339.16696905348\n1969.40506329114,3386.2063952882\n1970.10126582278,3433.8358214505\n1970.79746835443,3481.8529584619\n1971.49367088608,3530.05551724397\n1972.18987341772,3578.28233091084\n1972.88607594937,3627.11723055653\n1973.58227848101,3676.69742376476\n1974.27848101266,3726.87224442369\n1974.9746835443,3777.49102642155\n1975.67088607595,3828.40310364648\n1976.36708860759,3879.45780998671\n1977.06329113924,3930.50597692402\n1977.75949367089,3981.64392338381\n1978.45569620253,4033.02647897799\n1979.15189873418,4084.68359197143\n1979.84810126582,4136.64521062904\n1980.54430379747,4188.94128321567\n1981.24050632911,4241.60175799624\n1981.93670886076,4294.65658323563\n1982.63291139241,4348.36148921558\n1983.32911392405,4402.90943814504\n1984.0253164557,4458.07726069565\n1984.72151898734,4513.63917747698\n1985.41772151899,4569.36940909852\n1986.11392405063,4625.04217616984\n1986.81012658228,4680.43169930046\n1987.50632911392,4735.79725988999\n1988.20253164557,4792.12017626368\n1988.89873417722,4849.09637052739\n1989.59493670886,4906.35171407355\n1990.29113924051,4963.51207829452\n1990.98734177215,5020.20333458272\n1991.6835443038,5076.05135433053\n1992.37974683544,5130.93451872828\n1993.07594936709,5185.85927768209\n1993.77215189873,5240.89613608996\n1994.46835443038,5295.94984822872\n1995.16455696203,5350.92516837516\n1995.86075949367,5405.72685080609\n1996.55696202532,5460.25964979829\n1997.25316455696,5514.45919217268\n1997.94936708861,5568.58832365099\n1998.64556962025,5622.69618468911\n1999.3417721519,5676.7409758317\n2000.03797468354,5730.68089762335\n2000.73417721519,5784.47415060871\n2001.43037974684,5838.07893533239\n2002.12658227848,5891.45485499772\n2002.82278481013,5944.62725688755\n2003.51898734177,5997.62889679435\n2004.21518987342,6050.46992243069\n2004.91139240506,6103.16048150904\n2005.60759493671,6155.71072174196\n2006.30379746835,6208.13079084193\n2007,6260.43083652149"
+    },
+    {
+      "name": "scale/x",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "domain": "number"
+        }
+      },
+      "values": "\"domain\"\n1949.25\n2009.75"
+    },
+    {
+      "name": "scale/y",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "domain": "number"
+        }
+      },
+      "values": "\"domain\"\n2214.28346567393\n6453.10452084757"
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "domain": {
+        "data": "scale/x",
+        "field": "data.domain"
+      },
+      "zero": false,
+      "nice": false,
+      "clamp": false,
+      "range": "width"
+    },
+    {
+      "name": "y",
+      "domain": {
+        "data": "scale/y",
+        "field": "data.domain"
+      },
+      "zero": false,
+      "nice": false,
+      "clamp": false,
+      "range": "height"
+    }
+  ],
+  "marks": [
+    {
+      "type": "symbol",
+      "properties": {
+        "update": {
+          "fill": {
+            "value": "#000000"
+          },
+          "size": {
+            "value": 50
+          },
+          "x": {
+            "scale": "x",
+            "field": "data.year"
+          },
+          "y": {
+            "scale": "y",
+            "field": "data.pop_m"
+          }
+        },
+        "ggvis": {
+          "data": {
+            "value": "gapminder20"
+          }
+        }
+      },
+      "from": {
+        "data": "gapminder20"
+      }
+    },
+    {
+      "type": "line",
+      "properties": {
+        "update": {
+          "stroke": {
+            "value": "#000000"
+          },
+          "strokeWidth": {
+            "value": 2
+          },
+          "x": {
+            "scale": "x",
+            "field": "data.pred_"
+          },
+          "y": {
+            "scale": "y",
+            "field": "data.resp_"
+          },
+          "fill": {
+            "value": "transparent"
+          }
+        },
+        "ggvis": {
+          "data": {
+            "value": "gapminder20/model_prediction1"
+          }
+        }
+      },
+      "from": {
+        "data": "gapminder20/model_prediction1"
+      }
+    }
+  ],
+  "legends": [],
+  "axes": [
+    {
+      "type": "x",
+      "scale": "x",
+      "orient": "bottom",
+      "layer": "back",
+      "grid": true,
+      "title": "year"
+    },
+    {
+      "type": "y",
+      "scale": "y",
+      "orient": "left",
+      "layer": "back",
+      "grid": true,
+      "title": "pop_m"
+    }
+  ],
+  "padding": null,
+  "ggvis_opts": {
+    "keep_aspect": false,
+    "resizable": true,
+    "padding": {},
+    "duration": 250,
+    "renderer": "svg",
+    "hover_duration": 0,
+    "width": 672,
+    "height": 480
+  },
+  "handlers": null
+};
+ggvis.getPlot("plot_id250645175").parseSpec(plot_id250645175_spec);
+</script>
+<p>Add one more line with another variable</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">library</span>(gapminder)</a>
+<a class="sourceLine" id="cb19-2" data-line-number="2"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb19-3" data-line-number="3"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb19-4" data-line-number="4">gapminder2=gapminder<span class="op">%&gt;%</span><span class="kw">group_by</span>(year)<span class="op">%&gt;%</span><span class="kw">summarise</span>(<span class="dt">pop_m=</span><span class="kw">sum</span>(pop<span class="op">/</span><span class="dv">1000000</span>,<span class="dt">na.rm =</span> <span class="ot">TRUE</span>),<span class="dt">pop_m_haft=</span><span class="kw">sum</span>(pop<span class="op">/</span><span class="dv">1000000</span>,<span class="dt">na.rm =</span> <span class="ot">TRUE</span>)<span class="op">/</span><span class="dv">2</span>)</a></code></pre></div>
+</div>
+<div id="bar-plot-3" class="section level3">
+<h3><span class="header-section-number">8.2.3</span> bar plot</h3>
+<p>pop_m vs continent bar plot:At 2007, Asia have most pop 3.8B</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw">library</span>(gapminder)</a>
+<a class="sourceLine" id="cb20-2" data-line-number="2"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb20-3" data-line-number="3"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb20-4" data-line-number="4">gapminder2=gapminder<span class="op">%&gt;%</span><span class="kw">filter</span>(year<span class="op">==</span><span class="dv">2007</span>)<span class="op">%&gt;%</span><span class="kw">group_by</span>(continent)<span class="op">%&gt;%</span><span class="kw">summarise</span>(<span class="dt">pop_m=</span><span class="kw">sum</span>(pop<span class="op">/</span><span class="dv">1000000</span>,<span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</a>
+<a class="sourceLine" id="cb20-5" data-line-number="5">gg=<span class="kw">ggplot</span>(gapminder2, <span class="kw">aes</span>(<span class="dt">x =</span> continent,<span class="dt">y=</span>pop_m)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb20-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_col</span>()</a>
+<a class="sourceLine" id="cb20-7" data-line-number="7">gg</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+</div>
+<div id="dot-plot-2" class="section level3">
+<h3><span class="header-section-number">8.2.4</span> Dot plot</h3>
+<p>pop_m vs continent bar plot:At 2007, Asia have most pop 3.8B</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="kw">library</span>(gapminder)</a>
+<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb21-3" data-line-number="3"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb21-4" data-line-number="4">gapminder2=gapminder<span class="op">%&gt;%</span><span class="kw">filter</span>(year<span class="op">==</span><span class="dv">2007</span>)<span class="op">%&gt;%</span><span class="kw">group_by</span>(continent)<span class="op">%&gt;%</span><span class="kw">summarise</span>(<span class="dt">pop_m=</span><span class="kw">sum</span>(pop<span class="op">/</span><span class="dv">1000000</span>,<span class="dt">na.rm =</span> <span class="ot">TRUE</span>),<span class="dt">pop_m_half=</span><span class="kw">sum</span>(pop<span class="op">/</span><span class="dv">1000000</span>,<span class="dt">na.rm =</span> <span class="ot">TRUE</span>)<span class="op">/</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb21-5" data-line-number="5">gg=<span class="kw">ggplot</span>(gapminder2, <span class="kw">aes</span>(<span class="dt">x =</span> pop_m, <span class="dt">y =</span> continent)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb21-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_point</span>()</a>
+<a class="sourceLine" id="cb21-7" data-line-number="7">gg</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+</div>
+<div id="histogram-3" class="section level3">
+<h3><span class="header-section-number">8.2.5</span> histogram</h3>
+<p>pop_m histogram:At 2007, most of the countries under 500M pop,two countries over 1000M pop.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="kw">library</span>(gapminder)</a>
+<a class="sourceLine" id="cb22-2" data-line-number="2"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb22-3" data-line-number="3"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb22-4" data-line-number="4">gapminder2=gapminder<span class="op">%&gt;%</span><span class="kw">filter</span>(year<span class="op">==</span><span class="dv">2007</span>)<span class="op">%&gt;%</span><span class="kw">mutate</span>(<span class="dt">pop_m=</span>pop<span class="op">/</span><span class="dv">1000000</span>)</a>
+<a class="sourceLine" id="cb22-5" data-line-number="5">gg=<span class="kw">ggplot</span>(gapminder2, <span class="kw">aes</span>(<span class="dt">x =</span> pop_m)) <span class="op">+</span><span class="kw">geom_histogram</span>()</a>
+<a class="sourceLine" id="cb22-6" data-line-number="6">gg</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+</div>
+<div id="boxplot-3" class="section level3">
+<h3><span class="header-section-number">8.2.6</span> Boxplot</h3>
+<p>pop_m Boxplot:At 2007, most of the countries under 500M pop,two countries over 1000M pop.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="kw">library</span>(gapminder)</a>
+<a class="sourceLine" id="cb23-2" data-line-number="2"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb23-3" data-line-number="3"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb23-4" data-line-number="4">gapminder2=gapminder<span class="op">%&gt;%</span><span class="kw">filter</span>(year<span class="op">==</span><span class="dv">2007</span>)<span class="op">%&gt;%</span><span class="kw">mutate</span>(<span class="dt">pop_m=</span>pop<span class="op">/</span><span class="dv">1000000</span>)</a>
+<a class="sourceLine" id="cb23-5" data-line-number="5">gg=<span class="kw">ggplot</span>(gapminder2, <span class="kw">aes</span>(<span class="dt">x =</span><span class="dv">1</span>, <span class="dt">y=</span>pop_m)) <span class="op">+</span><span class="kw">geom_boxplot</span>()</a>
+<a class="sourceLine" id="cb23-6" data-line-number="6">gg</a></code></pre></div>
+</div>
+<div id="other-plot-3" class="section level3">
+<h3><span class="header-section-number">8.2.7</span> Other plot</h3>
+<p>Map</p>
+</div>
+<div id="setting" class="section level3">
+<h3><span class="header-section-number">8.2.8</span> setting</h3>
+</div>
+</div>
+<div id="connect-with-alation" class="section level2">
+<h2><span class="header-section-number">8.3</span> Connect with Alation</h2>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw">library</span>(devtools)</a>
+<a class="sourceLine" id="cb24-2" data-line-number="2">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="dt">repo =</span> <span class="st">&quot;mattwg/alation&quot;</span>)</a>
+<a class="sourceLine" id="cb24-3" data-line-number="3"><span class="kw">library</span>(alation)</a>
+<a class="sourceLine" id="cb24-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb24-5" data-line-number="5"><span class="co">#create token</span></a>
+<a class="sourceLine" id="cb24-6" data-line-number="6"><span class="kw">getToken</span>(<span class="dt">user=</span><span class="st">&quot;magardner&quot;</span>,<span class="dt">password=</span><span class="st">&quot;secret&quot;</span>, <span class="dt">url=</span><span class="st">&quot;https://alation.corp.ebay.com&quot;</span>)</a>
+<a class="sourceLine" id="cb24-7" data-line-number="7"><span class="co">#change new token </span></a>
+<a class="sourceLine" id="cb24-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb24-9" data-line-number="9"><span class="kw">changeToken</span>(<span class="dt">user=</span><span class="st">&quot;magardner&quot;</span>,<span class="dt">password=</span><span class="st">&quot;newsecret&quot;</span>, <span class="dt">url=</span><span class="st">&quot;https://alation.corp.ebay.com&quot;</span>)</a>
+<a class="sourceLine" id="cb24-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb24-11" data-line-number="11"><span class="co"># get sql</span></a>
+<a class="sourceLine" id="cb24-12" data-line-number="12">sql &lt;-<span class="st"> </span><span class="kw">getQuery</span>(<span class="dv">123456</span>)</a>
+<a class="sourceLine" id="cb24-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb24-14" data-line-number="14"><span class="co"># get data</span></a>
+<a class="sourceLine" id="cb24-15" data-line-number="15">df &lt;-<span class="st"> </span><span class="kw">getResult</span>(<span class="dv">12345</span>)</a></code></pre></div>
+</div>
+<div id="pre-modeling" class="section level2">
+<h2><span class="header-section-number">8.4</span> pre-modeling</h2>
+<div id="sampling" class="section level3">
+<h3><span class="header-section-number">8.4.1</span> Sampling</h3>
+<div id="simple-random-sampling" class="section level4">
+<h4><span class="header-section-number">8.4.1.1</span> Simple Random Sampling</h4>
+</div>
+<div id="stratified-sampling" class="section level4">
+<h4><span class="header-section-number">8.4.1.2</span> Stratified Sampling</h4>
+</div>
+</div>
+<div id="most-common-distributions" class="section level3">
+<h3><span class="header-section-number">8.4.2</span> 10 most common Distributions</h3>
+<ul>
+<li>p for “probability”</li>
+<li>q for “quantile”</li>
+<li>d for “density”</li>
+</ul>
+<div id="normal-distribution" class="section level4">
+<h4><span class="header-section-number">8.4.2.1</span> Normal distribution:</h4>
+<p>Question: Suppose people weights are normally distributed with mean 70 KG and variance 25 KG. What is the probability that a randomly chosen people weighs more then 80 KG?</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="dv">1</span><span class="op">-</span><span class="kw">pnorm</span>(<span class="dv">80</span>, <span class="dt">mean=</span><span class="dv">70</span>, <span class="dt">sd=</span><span class="kw">sqrt</span>(<span class="dv">25</span>))</a></code></pre></div>
+<pre><code>## [1] 0.02275013</code></pre>
+<p>Question: Suppose IQ scores are normally distributed with mean 100 and standard deviation 15. What is the 95th percentile of the distribution of IQ scores?</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="kw">qnorm</span>(<span class="fl">0.95</span>, <span class="dt">mean=</span><span class="dv">100</span>, <span class="dt">sd=</span><span class="dv">15</span>)</a></code></pre></div>
+<pre><code>## [1] 124.6728</code></pre>
+</div>
+<div id="binomial-including-bernoulli-distribution" class="section level4">
+<h4><span class="header-section-number">8.4.2.2</span> binomial (including Bernoulli) distribution:</h4>
+<p>The binomial distribution is a discrete probability distribution. It describes the outcome of n independent trials in an experiment. Each trial is assumed to have only two outcomes, either success or failure.</p>
+<p>Question: Suppose Shop XYZ product have probability 0.05 of being defective. Suppose product are shipped in cartons containing 25 product. What is the probability that a randomly chosen carton contains exactly one defective product?</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="kw">dbinom</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="fl">0.05</span>)</a></code></pre></div>
+<pre><code>## [1] 0.3649863</code></pre>
+<p>Question: Suppose Shop XYZ product have probability 0.05 of being defective. Suppose product are shipped in cartons containing 25 product. What is the probability that a randomly chosen carton contains no more than one defective product(0 or 1 product)?</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="kw">pbinom</span>(<span class="dv">1</span>, <span class="dv">25</span>, <span class="fl">0.05</span>)</a></code></pre></div>
+<pre><code>## [1] 0.6423759</code></pre>
+</div>
+<div id="chi-squared-distribution" class="section level4">
+<h4><span class="header-section-number">8.4.2.3</span> chi-squared distribution:</h4>
+<p>Question:Find the 95th percentile of the Chi-Squared distribution with 7 degrees of freedom.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="kw">qchisq</span>(.<span class="dv">95</span>, <span class="dt">df=</span><span class="dv">7</span>)</a></code></pre></div>
+<pre><code>## [1] 14.06714</code></pre>
+</div>
+<div id="exponential-distribution" class="section level4">
+<h4><span class="header-section-number">8.4.2.4</span> exponential distribution:</h4>
+<p>The exponential distribution describes the arrival time of a randomly recurring independent event sequence.</p>
+<p>Question:Suppose the mean checkout time of a supermarket cashier is three minutes. Find the probability of a customer checkout being completed by the cashier in less than two minutes.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1"><span class="kw">pexp</span>(<span class="dv">2</span>, <span class="dt">rate=</span><span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)</a></code></pre></div>
+<pre><code>## [1] 0.4865829</code></pre>
+</div>
+<div id="f-distribution" class="section level4">
+<h4><span class="header-section-number">8.4.2.5</span> F distribution:</h4>
+<p>Question:Find the 95th percentile of the F distribution with (5, 2) degrees of freedom.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="kw">qf</span>(.<span class="dv">95</span>, <span class="dt">df1=</span><span class="dv">5</span>, <span class="dt">df2=</span><span class="dv">2</span>) </a></code></pre></div>
+<pre><code>## [1] 19.29641</code></pre>
+</div>
+<div id="poisson-distribution" class="section level4">
+<h4><span class="header-section-number">8.4.2.6</span> Poisson distribution:</h4>
+<p>The Poisson distribution is the probability distribution of independent event occurrences in an interval.</p>
+<p>Question:If there are 12 cars crossing a bridge per minute on average, find the probability of having 17 or more cars crossing the bridge in a particular minute.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="dv">1</span><span class="op">-</span><span class="kw">ppois</span>(<span class="dv">16</span>, <span class="dt">lambda=</span><span class="dv">12</span>)   <span class="co"># lower tail </span></a></code></pre></div>
+<pre><code>## [1] 0.101291</code></pre>
+</div>
+<div id="students-t-distribution" class="section level4">
+<h4><span class="header-section-number">8.4.2.7</span> Student’s t distribution:</h4>
+<p>Question:Find the 97th percentiles of the Student t distribution with 5 degrees of freedom.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1"><span class="kw">qt</span>(<span class="fl">0.97</span>, <span class="dt">df=</span><span class="dv">5</span>)   <span class="co"># 5 degrees of freedom </span></a></code></pre></div>
+<pre><code>## [1] 2.421585</code></pre>
+</div>
+<div id="uniform-distribution" class="section level4">
+<h4><span class="header-section-number">8.4.2.8</span> Uniform distribution:</h4>
+<p>The uniform distribution is the probability distribution of random number selection from between a and b.</p>
+<p>Question:Select 5 random numbers between one and three.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1"><span class="kw">runif</span>(<span class="dv">5</span>, <span class="dt">min=</span><span class="dv">1</span>, <span class="dt">max=</span><span class="dv">3</span>) </a></code></pre></div>
+<pre><code>## [1] 1.091797 1.695506 1.112618 2.873735 1.200429</code></pre>
+</div>
+<div id="gamma-distribution" class="section level4">
+<h4><span class="header-section-number">8.4.2.9</span> gamma distribution</h4>
+</div>
+<div id="geometric-distribution" class="section level4">
+<h4><span class="header-section-number">8.4.2.10</span> geometric distribution</h4>
+</div>
+</div>
+<div id="statistical-test" class="section level3">
+<h3><span class="header-section-number">8.4.3</span> statistical test</h3>
+<div id="correlational-test" class="section level4">
+<h4><span class="header-section-number">8.4.3.1</span> Correlational test</h4>
+<p>Pearson correlation:
+Tests for the strength of the association between two continuous variables</p>
+<p>Spearman correlation:
+Tests for the strength of the association between two ordinal variables (does not rely on the assumption of normally distributed data)</p>
+</div>
+<div id="chi-square-test" class="section level4">
+<h4><span class="header-section-number">8.4.3.2</span> chi square test</h4>
+<p>Tests for the strength of the association between two categorical variables</p>
+</div>
+<div id="one-sample-t-test" class="section level4">
+<h4><span class="header-section-number">8.4.3.3</span> One sample T test</h4>
+<p>all T test also call Student’s t-test.William Sealy Gosset, who developed the “t-statistic” and published it under the pseudonym of “Student” in 1908</p>
+</div>
+<div id="two-sample-t-test" class="section level4">
+<h4><span class="header-section-number">8.4.3.4</span> Two sample T test</h4>
+</div>
+<div id="paired-t-test" class="section level4">
+<h4><span class="header-section-number">8.4.3.5</span> Paired T-test</h4>
+<p>Tests for the difference between two related variables</p>
+</div>
+<div id="independent-t-test" class="section level4">
+<h4><span class="header-section-number">8.4.3.6</span> Independent T-test</h4>
+<p>Tests for the difference between two independent variables</p>
+</div>
+<div id="anova" class="section level4">
+<h4><span class="header-section-number">8.4.3.7</span> ANOVA</h4>
+<p>Tests the difference between group means after any other variance in the outcome variable is accounted for</p>
+</div>
+<div id="f-test" class="section level4">
+<h4><span class="header-section-number">8.4.3.8</span> F test</h4>
 
+</div>
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="model.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="references.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -212,7 +1026,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/TonyFly2000/Bookdown/06-Appendix.Rmd",
+"link": "https://github.com/TonyFly2000/Bookdown/08-Appendix.Rmd",
 "text": "Edit"
 },
 "download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
