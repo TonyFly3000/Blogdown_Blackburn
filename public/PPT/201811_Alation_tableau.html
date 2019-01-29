@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Tony Duan" />
+  <meta name="dcterms.date" content="2018-12-25" />
+  <title>Auto Dashboard with Alation &amp; Tableau</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="201811_Alation_tableau_files/reveal.js-3.3.0.1/css/reveal.css"/>
+
+
+
+<link rel="stylesheet" href="201811_Alation_tableau_files/reveal.js-3.3.0.1/css/theme/black.css" id="theme">
+
+<style type="text/css">
+.reveal section img {
+  background: rgba(255, 255, 255, 0.85);
+}
+</style>
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+    <link rel="stylesheet" href="test.css"/>
+
+<!-- Printing and PDF exports -->
+<script id="paper-css" type="application/dynamic-css">
+
+/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and
+   manipulate this file as you see fit. */
+
+
+@media print {
+
+	/* SECTION 1: Set default width, margin, float, and
+	   background. This prevents elements from extending
+	   beyond the edge of the printed page, and prevents
+	   unnecessary background images from printing */
+	html {
+		background: #fff;
+		width: auto;
+		height: auto;
+		overflow: visible;
+	}
+	body {
+		background: #fff;
+		font-size: 20pt;
+		width: auto;
+		height: auto;
+		border: 0;
+		margin: 0 5%;
+		padding: 0;
+		overflow: visible;
+		float: none !important;
+	}
+
+	/* SECTION 2: Remove any elements not needed in print.
+	   This would include navigation, ads, sidebars, etc. */
+	.nestedarrow,
+	.controls,
+	.fork-reveal,
+	.share-reveal,
+	.state-background,
+	.reveal .progress,
+	.reveal .backgrounds {
+		display: none !important;
+	}
+
+	/* SECTION 3: Set body font face, size, and color.
+	   Consider using a serif font for readability. */
+	body, p, td, li, div {
+		font-size: 20pt!important;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		color: #000;
+	}
+
+	/* SECTION 4: Set heading font face, sizes, and color.
+	   Differentiate your headings from your body text.
+	   Perhaps use a large sans-serif for distinction. */
+	h1,h2,h3,h4,h5,h6 {
+		color: #000!important;
+		height: auto;
+		line-height: normal;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		text-shadow: 0 0 0 #000 !important;
+		text-align: left;
+		letter-spacing: normal;
+	}
+	/* Need to reduce the size of the fonts for printing */
+	h1 { font-size: 28pt !important;  }
+	h2 { font-size: 24pt !important; }
+	h3 { font-size: 22pt !important; }
+	h4 { font-size: 22pt !important; font-variant: small-caps; }
+	h5 { font-size: 21pt !important; }
+	h6 { font-size: 20pt !important; font-style: italic; }
+
+	/* SECTION 5: Make hyperlinks more usable.
+	   Ensure links are underlined, and consider appending
+	   the URL to the end of the link for usability. */
+	a:link,
+	a:visited {
+		color: #000 !important;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	/*
+	.reveal a:link:after,
+	.reveal a:visited:after {
+		content: " (" attr(href) ") ";
+		color: #222 !important;
+		font-size: 90%;
+	}
+	*/
+
+
+	/* SECTION 6: more reveal.js specific additions by @skypanther */
+	ul, ol, div, p {
+		visibility: visible;
+		position: static;
+		width: auto;
+		height: auto;
+		display: block;
+		overflow: visible;
+		margin: 0;
+		text-align: left !important;
+	}
+	.reveal pre,
+	.reveal table {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.reveal pre code {
+		padding: 20px;
+		border: 1px solid #ddd;
+	}
+	.reveal blockquote {
+		margin: 20px 0;
+	}
+	.reveal .slides {
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
+		zoom: 1 !important;
+
+		overflow: visible !important;
+		display: block !important;
+
+		text-align: left !important;
+		-webkit-perspective: none;
+		   -moz-perspective: none;
+		    -ms-perspective: none;
+		        perspective: none;
+
+		-webkit-perspective-origin: 50% 50%;
+		   -moz-perspective-origin: 50% 50%;
+		    -ms-perspective-origin: 50% 50%;
+		        perspective-origin: 50% 50%;
+	}
+	.reveal .slides section {
+		visibility: visible !important;
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+		display: block !important;
+		overflow: visible !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 60px 20px !important;
+		z-index: auto !important;
+
+		opacity: 1 !important;
+
+		page-break-after: always !important;
+
+		-webkit-transform-style: flat !important;
+		   -moz-transform-style: flat !important;
+		    -ms-transform-style: flat !important;
+		        transform-style: flat !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+
+		-webkit-transition: none !important;
+		   -moz-transition: none !important;
+		    -ms-transition: none !important;
+		        transition: none !important;
+	}
+	.reveal .slides section.stack {
+		padding: 0 !important;
+	}
+	.reveal section:last-of-type {
+		page-break-after: avoid !important;
+	}
+	.reveal section .fragment {
+		opacity: 1 !important;
+		visibility: visible !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+	}
+	.reveal section img {
+		display: block;
+		margin: 15px 0px;
+		background: rgba(255,255,255,1);
+		border: 1px solid #666;
+		box-shadow: none;
+	}
+
+	.reveal section small {
+		font-size: 0.8em;
+	}
+
+}  
+</script>
+
+
+<script id="pdf-css" type="application/dynamic-css">
+    
+/**
+ * This stylesheet is used to print reveal.js
+ * presentations to PDF.
+ *
+ * https://github.com/hakimel/reveal.js#pdf-export
+ */
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+body {
+	margin: 0 auto !important;
+	border: 0;
+	padding: 0;
+	float: none !important;
+	overflow: visible;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+/* Remove any elements not needed in print. */
+.nestedarrow,
+.reveal .controls,
+.reveal .progress,
+.reveal .playback,
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 0 0 0 #000 !important;
+}
+
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: Courier, 'Courier New', monospace !important;
+}
+
+ul, ol, div, p {
+	visibility: visible;
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: visible;
+	margin: auto;
+}
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.reveal .slides {
+	position: static;
+	width: 100%;
+	height: auto;
+
+	left: auto;
+	top: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	overflow: visible;
+	display: block;
+
+	-webkit-perspective: none;
+	   -moz-perspective: none;
+	    -ms-perspective: none;
+	        perspective: none;
+
+	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+	   -moz-perspective-origin: 50% 50%;
+	    -ms-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+}
+
+.reveal .slides section {
+	page-break-after: always !important;
+
+	visibility: visible !important;
+	position: relative !important;
+	display: block !important;
+	position: relative !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	min-height: 1px;
+
+	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.reveal img {
+	box-shadow: none;
+}
+
+.reveal .roll {
+	overflow: visible;
+	line-height: 1em;
+}
+
+/* Slide backgrounds are placed inside of their slide when exporting to PDF */
+.reveal section .slide-background {
+	display: block !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+/* All elements should be above the slide-background */
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+
+/* Display slide speaker notes when 'showNotes' is enabled */
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	max-height: none;
+	left: auto;
+	top: auto;
+	z-index: 100;
+}
+
+/* Display slide numbers when 'slideNumber' is enabled */
+.reveal .slide-number-pdf {
+	display: block;
+	position: absolute;
+	font-size: 14px;
+}
+
+</script>
+
+
+<script>
+var style = document.createElement( 'style' );
+style.type = 'text/css';
+var style_script_id = window.location.search.match( /print-pdf/gi ) ? 'pdf-css' : 'paper-css';
+var style_script = document.getElementById(style_script_id).text;
+style.innerHTML = style_script;
+document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+
+    <link href="201811_Alation_tableau_files/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+    <link href="201811_Alation_tableau_files/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Auto Dashboard with Alation &amp; Tableau</h1>
+  <h1 class="subtitle">R Conference</h1>
+    <h2 class="author">Tony Duan</h2>
+    <h3 class="date">2018-12-25</h3>
+</section>
+
+<section><section id="video" class="title-slide slide level1"><h1>Video</h1></section><section id="tableau" class="slide level2">
+<h2>Tableau</h2>
+<iframe width="1200" height="550" src="https://www.youtube.com/embed/Qo6W-oBO9XM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</section><section id="alation-x-ebay" class="slide level2">
+<h2>Alation X eBay</h2>
+<iframe width="1200" height="550" src="https://www.youtube.com/embed/yxyfUKD21nA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</section><section id="tools" class="slide level2">
+<h2>Tools</h2>
+<ul>
+<li><p>Tableau: Virtualization tools</p></li>
+<li><p>Alation: Search Save Share Schedule SQL</p></li>
+</ul>
+</section></section>
+<section><section id="sharing" class="title-slide slide level1"><h1>Sharing</h1></section><section id="dashbard-big-picture" class="slide level2">
+<h2>Dashbard Big picture</h2>
+<p><img data-src="file/PPT_pic/page2.png" /></p>
+</section><section id="dashbard-big-picture-1" class="slide level2">
+<h2>Dashbard Big picture</h2>
+<p><img data-src="file/PPT_pic/page3.png" /></p>
+</section><section id="dashbard-big-picture-2" class="slide level2">
+<h2>Dashbard Big picture</h2>
+<p><img data-src="file/PPT_pic/page4.png" /></p>
+</section><section id="alation" class="slide level2">
+<h2>Alation</h2>
+<p><img data-src="file/PPT_pic/page6.png" /></p>
+</section><section id="alation-1" class="slide level2">
+<h2>Alation</h2>
+<p><img data-src="file/PPT_pic/page7.png" /></p>
+</section><section id="alation-2" class="slide level2">
+<h2>Alation</h2>
+<p><img data-src="file/PPT_pic/page8.png" /></p>
+</section><section id="alation-3" class="slide level2">
+<h2>Alation</h2>
+<p><img data-src="file/PPT_pic/page9.png" /></p>
+</section><section id="alation-4" class="slide level2">
+<h2>Alation</h2>
+<p><img data-src="file/PPT_pic/page10.png" /></p>
+</section><section id="alation-5" class="slide level2">
+<h2>Alation</h2>
+<p><img data-src="file/PPT_pic/page11.png" /></p>
+</section><section id="tableau-1" class="slide level2">
+<h2>Tableau</h2>
+<p><img data-src="file/PPT_pic/page13.png" /></p>
+</section><section id="tableau-2" class="slide level2">
+<h2>Tableau</h2>
+<p><img data-src="file/PPT_pic/page14.png" /></p>
+</section><section id="tableau-3" class="slide level2">
+<h2>Tableau</h2>
+<p><img data-src="file/PPT_pic/page15.png" /></p>
+</section><section id="tableau-4" class="slide level2">
+<h2>Tableau</h2>
+<p><img data-src="file/PPT_pic/page16.png" /></p>
+</section><section id="tableau-5" class="slide level2">
+<h2>Tableau</h2>
+<p><img data-src="file/PPT_pic/page17.png" /></p>
+</section><section id="tableau-6" class="slide level2">
+<h2>Tableau</h2>
+<p><img data-src="file/PPT_pic/page18.png" /></p>
+</section><section id="tableau-7" class="slide level2">
+<h2>Tableau</h2>
+<p><img data-src="file/PPT_pic/page19.png" /></p>
+</section><section id="tableau-8" class="slide level2">
+<h2>Tableau</h2>
+<p><img data-src="file/PPT_pic/page20.png" /></p>
+</section><section id="tableau-9" class="slide level2">
+<h2>Tableau</h2>
+<p><img data-src="file/PPT_pic/page21.png" /></p>
+</section><section id="tableau-10" class="slide level2">
+<h2>Tableau</h2>
+<p><img data-src="file/PPT_pic/page22.png" /></p>
+</section><section id="tableau-11" class="slide level2">
+<h2>Tableau</h2>
+<p><img data-src="file/PPT_pic/page23.png" /></p>
+</section><section id="tableau-12" class="slide level2">
+<h2>Tableau</h2>
+<p><img data-src="file/PPT_pic/page24.png" /></p>
+</section><section id="tableau-13" class="slide level2">
+<h2>Tableau</h2>
+<p><img data-src="file/PPT_pic/page25.png" /></p>
+</section><section id="tableau-14" class="slide level2">
+<h2>Tableau</h2>
+<p><img data-src="file/PPT_pic/page26.png" /></p>
+</section><section id="tableau-15" class="slide level2">
+<h2>Tableau</h2>
+<p><img data-src="file/PPT_pic/page27.png" /></p>
+</section><section id="tableau-16" class="slide level2">
+<h2>Tableau</h2>
+<p><img data-src="file/PPT_pic/page28.png" /></p>
+</section><section id="tableau-17" class="slide level2">
+<h2>Tableau</h2>
+<p><img data-src="file/PPT_pic/page29.png" /></p>
+</section><section id="tableau-18" class="slide level2">
+<h2>Tableau</h2>
+<p><img data-src="file/PPT_pic/page31.png" /></p>
+</section><section id="issue" class="slide level2">
+<h2>Issue</h2>
+<p><img data-src="file/PPT_pic/page32.png" /></p>
+</section><section id="issue-1" class="slide level2">
+<h2>Issue</h2>
+<p><img data-src="file/PPT_pic/page33.png" /></p>
+</section></section>
+<section><section id="r-conference" class="title-slide slide level1"><h1>R conference</h1></section><section id="event" class="slide level2">
+<h2>Event</h2>
+<iframe width="850" height="620" src="https://tduan.netlify.com/post/r-conference-gz.html">
+</iframe>
+</section><section id="topic" class="slide level2">
+<h2>Topic</h2>
+<ol type="1">
+<li>High dimension chart</li>
+<li>Shiny</li>
+<li>R Package</li>
+<li>Data Science , deep learning</li>
+</ol>
+</section><section id="high-dimension-chart" class="slide level2">
+<h2>1.High dimension chart</h2>
+<ul>
+<li><p>ILM transaciton blackgroup:</p></li>
+<li><p>Payment to Ascan normally 1-3 days</p></li>
+<li><p>If Payment to Ascan longer than 3 days then it more likely ship from China then have ASCAN after 5 day.</p></li>
+</ul>
+</section><section id="high-dimension-chart-1" class="slide level2">
+<h2>1.High dimension chart</h2>
+<p><img data-src="file/PPT_pic/ILM.png" /></p>
+</section><section id="high-dimension-chart-2" class="slide level2">
+<h2>1.High dimension chart</h2>
+<p><img data-src="file/pic001.png" /></p>
+</section><section id="high-dimension-chart-3" class="slide level2">
+<h2>1.High dimension chart</h2>
+<p><img data-src="file/pic003.png" /></p>
+</section><section id="high-dimension-chart-4" class="slide level2">
+<h2>1.High dimension chart</h2>
+<p><img data-src="file/pic002.png" /></p>
+</section><section id="a.ilm-transaction-ascan-day" class="slide level2">
+<h2>A.ILM transaction ASCAN day</h2>
+<div class="fragment" data-fragment-index="1">
+<p><img src="file/Rplot001.png" width="80%" /></p>
+</div>
+</section><section id="b.winit-transaction" class="slide level2">
+<h2>B.WINIT transaction</h2>
+<p><img src="file/Rplot002.png" width="80%" /></p>
+</section><section id="c.vs-uk-local-seller" class="slide level2">
+<h2>C.VS UK local seller</h2>
+<p><img src="file/Rplot003.png" width="120%" /></p>
+</section><section id="d.what-is-the-trend" class="slide level2">
+<h2>D.what is the trend ?</h2>
+<p><img src="file/gg2_UK.gif" width="60%" /></p>
+</section><section id="shiny-account360" class="slide level2">
+<h2>2.Shiny Account360</h2>
+<iframe src="https://r-studio.corp.ebay.com/shiny/tduan/Account360/" height="800" width="1000">
+</iframe>
+</section><section id="r-package" class="slide level2">
+<h2>3.R Package</h2>
+<p><img data-src="https://media.giphy.com/media/l1Et7Qw1XjvunS0Io/giphy.gif" width="800" height="500" /></p>
+</section><section id="data-sciencist" class="slide level2">
+<h2>4.“Data sciencist”</h2>
+<p><img data-src="file/PPT_pic/page42.png" /></p>
+</section><section id="data-sciencist-1" class="slide level2">
+<h2>4.“Data sciencist”</h2>
+<p><img data-src="file/PPT_pic/page43.png" /></p>
+</section><section id="data-sciencist-2" class="slide level2">
+<h2>4.“Data sciencist”</h2>
+<p><img data-src="file/PPT_pic/page44.png" /></p>
+</section></section>
+<section><section id="summary" class="title-slide slide level1"><h1>Summary</h1></section><section id="summary-1" class="slide level2">
+<h2>Summary</h2>
+<ul>
+<li><p>Alation</p></li>
+<li><p>Tableau</p></li>
+<li><p>High dimension chart/Shiny/package/“Data sciencist”</p></li>
+</ul>
+</section><section id="end" class="slide level2">
+<h2>End</h2>
+<p><img data-src="file/PPT_pic/dd.gif" width="800" height="500" /></p>
+</section><section id="tutorial" class="slide level2">
+<h2>Tutorial</h2>
+<iframe width="1200" height="550" src="https://www.youtube.com/embed/gWZtNdMko1k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</section></section>
+    </div>
+  </div>
+
+  <script src="201811_Alation_tableau_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="201811_Alation_tableau_files/reveal.js-3.3.0.1/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: false,
+        // Transition style
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+
+
+        chalkboard: {
+        },
+
+        keyboard: {
+          67: function() { RevealChalkboard.toggleNotesCanvas() },    // toggle notes canvas when 'c' is pressed
+          66: function() { RevealChalkboard.toggleChalkboard() }, // toggle chalkboard when 'b' is pressed
+          46: function() { RevealChalkboard.clear() },    // clear chalkboard when 'DEL' is pressed
+           8: function() { RevealChalkboard.reset() },    // reset chalkboard data on current slide when 'BACKSPACE' is pressed
+          68: function() { RevealChalkboard.download() }, // downlad recorded chalkboard drawing when 'd' is pressed
+        },
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '201811_Alation_tableau_files/reveal.js-3.3.0.1/plugin/chalkboard/chalkboard.js', async: true },
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>
