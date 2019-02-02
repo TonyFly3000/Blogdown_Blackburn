@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Get R</title>
+  <meta name="description" content="This is R book with Get, clean, visualize and model">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Get R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is R book with Get, clean, visualize and model" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Get R" />
+  
+  <meta name="twitter:description" content="This is R book with Get, clean, visualize and model" />
+  
+
+<meta name="author" content="Tony JC Duan">
+
+
+<meta name="date" content="2019-02-02">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="intro.html">
+<link rel="next" href="clean.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Get R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#history-of-analytic-software"><i class="fa fa-check"></i><b>1.1</b> History of analytic software</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#install-r-and-rstudio"><i class="fa fa-check"></i><b>1.2</b> Install R and RStudio</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#software-navigation"><i class="fa fa-check"></i><b>1.3</b> Software navigation</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="intro.html"><a href="intro.html#r"><i class="fa fa-check"></i><b>1.3.1</b> R</a></li>
+<li class="chapter" data-level="1.3.2" data-path="intro.html"><a href="intro.html#rstudio"><i class="fa fa-check"></i><b>1.3.2</b> Rstudio</a></li>
+<li class="chapter" data-level="1.3.3" data-path="intro.html"><a href="intro.html#rstudio-server"><i class="fa fa-check"></i><b>1.3.3</b> Rstudio server</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#r-version-working-location-and-computer-environment"><i class="fa fa-check"></i><b>1.4</b> R Version , working location and computer environment</a></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#return-the-machine-cpu"><i class="fa fa-check"></i><b>1.5</b> Return the machine CPU</a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#return-number-of-true-cores"><i class="fa fa-check"></i><b>1.6</b> Return number of true cores</a></li>
+<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#return-number-of-threads"><i class="fa fa-check"></i><b>1.7</b> Return number of threads</a></li>
+<li class="chapter" data-level="1.8" data-path="intro.html"><a href="intro.html#return-the-machine-ram"><i class="fa fa-check"></i><b>1.8</b> Return the machine RAM</a></li>
+<li class="chapter" data-level="1.9" data-path="intro.html"><a href="intro.html#r-package"><i class="fa fa-check"></i><b>1.9</b> R Package</a><ul>
+<li class="chapter" data-level="1.9.1" data-path="intro.html"><a href="intro.html#install-a-package-from-cran"><i class="fa fa-check"></i><b>1.9.1</b> Install a package from CRAN:</a></li>
+<li class="chapter" data-level="1.9.2" data-path="intro.html"><a href="intro.html#install-a-package-from-githubnot-recommended"><i class="fa fa-check"></i><b>1.9.2</b> Install a package from Github<strong>(NOT recommended)</strong>:</a></li>
+<li class="chapter" data-level="1.9.3" data-path="intro.html"><a href="intro.html#install-a-package-from-github-zip-file-not-recommended"><i class="fa fa-check"></i><b>1.9.3</b> Install a package from Github zip file <strong>(NOT recommended)</strong>:</a></li>
+<li class="chapter" data-level="1.9.4" data-path="intro.html"><a href="intro.html#get-help-on-package"><i class="fa fa-check"></i><b>1.9.4</b> Get help on Package:</a></li>
+<li class="chapter" data-level="1.9.5" data-path="intro.html"><a href="intro.html#uninstall-packages"><i class="fa fa-check"></i><b>1.9.5</b> Uninstall packages:</a></li>
+<li class="chapter" data-level="1.9.6" data-path="intro.html"><a href="intro.html#check-r-installed-packages-location"><i class="fa fa-check"></i><b>1.9.6</b> Check R installed packages location:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="get.html"><a href="get.html"><i class="fa fa-check"></i><b>2</b> Get</a><ul>
+<li class="chapter" data-level="2.1" data-path="get.html"><a href="get.html#connect-with-csvtxt"><i class="fa fa-check"></i><b>2.1</b> Connect with csv/txt</a></li>
+<li class="chapter" data-level="2.2" data-path="get.html"><a href="get.html#connect-with-xlsx"><i class="fa fa-check"></i><b>2.2</b> Connect with xlsx</a></li>
+<li class="chapter" data-level="2.3" data-path="get.html"><a href="get.html#connect-with-rdsrdatafeather"><i class="fa fa-check"></i><b>2.3</b> Connect with rds/RData/feather</a></li>
+<li class="chapter" data-level="2.4" data-path="get.html"><a href="get.html#connect-with-sasstatmatlab-ect"><i class="fa fa-check"></i><b>2.4</b> Connect with sas/stat/matlab ect</a></li>
+<li class="chapter" data-level="2.5" data-path="get.html"><a href="get.html#connect-with-database-mysqlsqliteteradatapostgresql"><i class="fa fa-check"></i><b>2.5</b> Connect with database (Mysql;sqlite;teradata;postgresql)</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="get.html"><a href="get.html#mysql"><i class="fa fa-check"></i><b>2.5.1</b> Mysql</a></li>
+<li class="chapter" data-level="2.5.2" data-path="get.html"><a href="get.html#sqlite"><i class="fa fa-check"></i><b>2.5.2</b> sqlite</a></li>
+<li class="chapter" data-level="2.5.3" data-path="get.html"><a href="get.html#teradata-with-rjdbc-package"><i class="fa fa-check"></i><b>2.5.3</b> Teradata with RJDBC package</a></li>
+<li class="chapter" data-level="2.5.4" data-path="get.html"><a href="get.html#teradata-with-ebaytd-package"><i class="fa fa-check"></i><b>2.5.4</b> Teradata with ebaytd package</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="get.html"><a href="get.html#connect-with-salesforce"><i class="fa fa-check"></i><b>2.6</b> Connect with salesforce</a></li>
+<li class="chapter" data-level="2.7" data-path="get.html"><a href="get.html#connect-with-web-crawler"><i class="fa fa-check"></i><b>2.7</b> Connect with Web crawler</a></li>
+<li class="chapter" data-level="2.8" data-path="get.html"><a href="get.html#connect-with-api"><i class="fa fa-check"></i><b>2.8</b> Connect with API</a></li>
+<li class="chapter" data-level="2.9" data-path="get.html"><a href="get.html#connect-with-finance-data"><i class="fa fa-check"></i><b>2.9</b> Connect with Finance data</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="get.html"><a href="get.html#tidyquant-package-to-get-stock-price"><i class="fa fa-check"></i><b>2.9.1</b> tidyquant package to get stock price</a></li>
+<li class="chapter" data-level="2.9.2" data-path="get.html"><a href="get.html#finreportr-package-to-get-stock-annual-report"><i class="fa fa-check"></i><b>2.9.2</b> finreportr package to get stock annual report</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="get.html"><a href="get.html#connect-with-big-data-platformhadoopspark"><i class="fa fa-check"></i><b>2.10</b> Connect with Big data platform(Hadoop;Spark)</a></li>
+<li class="chapter" data-level="2.11" data-path="get.html"><a href="get.html#connect-with-other-eg-soundpicturevideo"><i class="fa fa-check"></i><b>2.11</b> Connect with Other eg sound,picture,video</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="clean.html"><a href="clean.html"><i class="fa fa-check"></i><b>3</b> Clean</a><ul>
+<li class="chapter" data-level="3.1" data-path="clean.html"><a href="clean.html#r-data-types"><i class="fa fa-check"></i><b>3.1</b> R Data Types</a></li>
+<li class="chapter" data-level="3.2" data-path="clean.html"><a href="clean.html#r-data-structures"><i class="fa fa-check"></i><b>3.2</b> R Data structures</a></li>
+<li class="chapter" data-level="3.3" data-path="clean.html"><a href="clean.html#working-with-date-and-time"><i class="fa fa-check"></i><b>3.3</b> Working with date and time</a></li>
+<li class="chapter" data-level="3.4" data-path="clean.html"><a href="clean.html#working-with-missing-data"><i class="fa fa-check"></i><b>3.4</b> Working with missing data</a></li>
+<li class="chapter" data-level="3.5" data-path="clean.html"><a href="clean.html#working-with-string"><i class="fa fa-check"></i><b>3.5</b> Working with string</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="clean.html"><a href="clean.html#string-manipulation"><i class="fa fa-check"></i><b>3.5.1</b> string manipulation</a></li>
+<li class="chapter" data-level="3.5.2" data-path="clean.html"><a href="clean.html#regular-expressions"><i class="fa fa-check"></i><b>3.5.2</b> Regular Expressions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="clean.html"><a href="clean.html#exploratory-data-analysiseda"><i class="fa fa-check"></i><b>3.6</b> Exploratory data analysis[EDA]</a></li>
+<li class="chapter" data-level="3.7" data-path="clean.html"><a href="clean.html#fifty-shape-of-data"><i class="fa fa-check"></i><b>3.7</b> Fifty shape of data</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="clean.html"><a href="clean.html#dplyr-package"><i class="fa fa-check"></i><b>3.7.1</b> dplyr package</a></li>
+<li class="chapter" data-level="3.7.2" data-path="clean.html"><a href="clean.html#sqldf-package"><i class="fa fa-check"></i><b>3.7.2</b> sqldf package</a></li>
+<li class="chapter" data-level="3.7.3" data-path="clean.html"><a href="clean.html#tidyr-package"><i class="fa fa-check"></i><b>3.7.3</b> tidyr package</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="visualize.html"><a href="visualize.html"><i class="fa fa-check"></i><b>4</b> Visualize</a><ul>
+<li class="chapter" data-level="4.1" data-path="visualize.html"><a href="visualize.html#ggplot2"><i class="fa fa-check"></i><b>4.1</b> ggplot2</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="visualize.html"><a href="visualize.html#scatter-plot"><i class="fa fa-check"></i><b>4.1.1</b> scatter plot</a></li>
+<li class="chapter" data-level="4.1.2" data-path="visualize.html"><a href="visualize.html#line-plot"><i class="fa fa-check"></i><b>4.1.2</b> line plot</a></li>
+<li class="chapter" data-level="4.1.3" data-path="visualize.html"><a href="visualize.html#bar-plot"><i class="fa fa-check"></i><b>4.1.3</b> bar plot</a></li>
+<li class="chapter" data-level="4.1.4" data-path="visualize.html"><a href="visualize.html#dot-plot"><i class="fa fa-check"></i><b>4.1.4</b> Dot plot</a></li>
+<li class="chapter" data-level="4.1.5" data-path="visualize.html"><a href="visualize.html#histogram"><i class="fa fa-check"></i><b>4.1.5</b> histogram</a></li>
+<li class="chapter" data-level="4.1.6" data-path="visualize.html"><a href="visualize.html#boxplot"><i class="fa fa-check"></i><b>4.1.6</b> Boxplot</a></li>
+<li class="chapter" data-level="4.1.7" data-path="visualize.html"><a href="visualize.html#waterfall-chart"><i class="fa fa-check"></i><b>4.1.7</b> Waterfall chart</a></li>
+<li class="chapter" data-level="4.1.8" data-path="visualize.html"><a href="visualize.html#heatmap"><i class="fa fa-check"></i><b>4.1.8</b> Heatmap</a></li>
+<li class="chapter" data-level="4.1.9" data-path="visualize.html"><a href="visualize.html#moving-chart"><i class="fa fa-check"></i><b>4.1.9</b> Moving chart</a></li>
+<li class="chapter" data-level="4.1.10" data-path="visualize.html"><a href="visualize.html#other-plot"><i class="fa fa-check"></i><b>4.1.10</b> Other plot</a></li>
+<li class="chapter" data-level="4.1.11" data-path="visualize.html"><a href="visualize.html#make-multi-chart-by-variable"><i class="fa fa-check"></i><b>4.1.11</b> make multi chart by variable:</a></li>
+<li class="chapter" data-level="4.1.12" data-path="visualize.html"><a href="visualize.html#setting-titlesubtitlex-labely-label"><i class="fa fa-check"></i><b>4.1.12</b> setting: title,subtitle,x label,y label</a></li>
+<li class="chapter" data-level="4.1.13" data-path="visualize.html"><a href="visualize.html#themes"><i class="fa fa-check"></i><b>4.1.13</b> themes</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="visualize.html"><a href="visualize.html#plotly"><i class="fa fa-check"></i><b>4.2</b> plotly</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="visualize.html"><a href="visualize.html#scatter-plot-1"><i class="fa fa-check"></i><b>4.2.1</b> scatter plot</a></li>
+<li class="chapter" data-level="4.2.2" data-path="visualize.html"><a href="visualize.html#line-plot-1"><i class="fa fa-check"></i><b>4.2.2</b> line plot</a></li>
+<li class="chapter" data-level="4.2.3" data-path="visualize.html"><a href="visualize.html#bar-plot-1"><i class="fa fa-check"></i><b>4.2.3</b> bar plot</a></li>
+<li class="chapter" data-level="4.2.4" data-path="visualize.html"><a href="visualize.html#dot-plot-1"><i class="fa fa-check"></i><b>4.2.4</b> Dot plot</a></li>
+<li class="chapter" data-level="4.2.5" data-path="visualize.html"><a href="visualize.html#histogram-1"><i class="fa fa-check"></i><b>4.2.5</b> Histogram</a></li>
+<li class="chapter" data-level="4.2.6" data-path="visualize.html"><a href="visualize.html#boxplot-1"><i class="fa fa-check"></i><b>4.2.6</b> Boxplot</a></li>
+<li class="chapter" data-level="4.2.7" data-path="visualize.html"><a href="visualize.html#heatmap-1"><i class="fa fa-check"></i><b>4.2.7</b> Heatmap</a></li>
+<li class="chapter" data-level="4.2.8" data-path="visualize.html"><a href="visualize.html#map"><i class="fa fa-check"></i><b>4.2.8</b> Map</a></li>
+<li class="chapter" data-level="4.2.9" data-path="visualize.html"><a href="visualize.html#moving-chart-1"><i class="fa fa-check"></i><b>4.2.9</b> Moving chart</a></li>
+<li class="chapter" data-level="4.2.10" data-path="visualize.html"><a href="visualize.html#other-plot-1"><i class="fa fa-check"></i><b>4.2.10</b> Other plot</a></li>
+<li class="chapter" data-level="4.2.11" data-path="visualize.html"><a href="visualize.html#settingtitlesubtitlex-labely-label"><i class="fa fa-check"></i><b>4.2.11</b> setting:title,subtitle,x label,y label</a></li>
+<li class="chapter" data-level="4.2.12" data-path="visualize.html"><a href="visualize.html#hover-text"><i class="fa fa-check"></i><b>4.2.12</b> hover text</a></li>
+<li class="chapter" data-level="4.2.13" data-path="visualize.html"><a href="visualize.html#convert-ggplot-to-plotly"><i class="fa fa-check"></i><b>4.2.13</b> convert ggplot to plotly</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="visualize.html"><a href="visualize.html#leaflet"><i class="fa fa-check"></i><b>4.3</b> leaflet</a></li>
+<li class="chapter" data-level="4.4" data-path="visualize.html"><a href="visualize.html#highcharter"><i class="fa fa-check"></i><b>4.4</b> highcharter</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="visualize.html"><a href="visualize.html#scatter-plot-2"><i class="fa fa-check"></i><b>4.4.1</b> scatter plot</a></li>
+<li class="chapter" data-level="4.4.2" data-path="visualize.html"><a href="visualize.html#line-plot-2"><i class="fa fa-check"></i><b>4.4.2</b> line plot</a></li>
+<li class="chapter" data-level="4.4.3" data-path="visualize.html"><a href="visualize.html#bar-plot-2"><i class="fa fa-check"></i><b>4.4.3</b> bar plot</a></li>
+<li class="chapter" data-level="4.4.4" data-path="visualize.html"><a href="visualize.html#histogram-2"><i class="fa fa-check"></i><b>4.4.4</b> histogram</a></li>
+<li class="chapter" data-level="4.4.5" data-path="visualize.html"><a href="visualize.html#boxplot-2"><i class="fa fa-check"></i><b>4.4.5</b> Boxplot</a></li>
+<li class="chapter" data-level="4.4.6" data-path="visualize.html"><a href="visualize.html#heatmap-2"><i class="fa fa-check"></i><b>4.4.6</b> Heatmap</a></li>
+<li class="chapter" data-level="4.4.7" data-path="visualize.html"><a href="visualize.html#moving-chart-2"><i class="fa fa-check"></i><b>4.4.7</b> Moving chart</a></li>
+<li class="chapter" data-level="4.4.8" data-path="visualize.html"><a href="visualize.html#other-plot-2"><i class="fa fa-check"></i><b>4.4.8</b> Other plot</a></li>
+<li class="chapter" data-level="4.4.9" data-path="visualize.html"><a href="visualize.html#make-multi-chart-by-variable-1"><i class="fa fa-check"></i><b>4.4.9</b> make multi chart by variable:</a></li>
+<li class="chapter" data-level="4.4.10" data-path="visualize.html"><a href="visualize.html#setting-titlesubtitlex-labely-label-1"><i class="fa fa-check"></i><b>4.4.10</b> setting: title,subtitle,x label,y label</a></li>
+<li class="chapter" data-level="4.4.11" data-path="visualize.html"><a href="visualize.html#themes-1"><i class="fa fa-check"></i><b>4.4.11</b> themes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="model.html"><a href="model.html"><i class="fa fa-check"></i><b>5</b> Model</a><ul>
+<li class="chapter" data-level="5.1" data-path="model.html"><a href="model.html#relationship"><i class="fa fa-check"></i><b>5.1</b> relationship</a></li>
+<li class="chapter" data-level="5.2" data-path="model.html"><a href="model.html#confidence-intervals"><i class="fa fa-check"></i><b>5.2</b> Confidence intervals</a></li>
+<li class="chapter" data-level="5.3" data-path="model.html"><a href="model.html#hypothesis-testing"><i class="fa fa-check"></i><b>5.3</b> Hypothesis testing</a></li>
+<li class="chapter" data-level="5.4" data-path="model.html"><a href="model.html#model-flow"><i class="fa fa-check"></i><b>5.4</b> model flow</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="model.html"><a href="model.html#clean-data"><i class="fa fa-check"></i><b>5.4.1</b> clean data</a></li>
+<li class="chapter" data-level="5.4.2" data-path="model.html"><a href="model.html#build-model"><i class="fa fa-check"></i><b>5.4.2</b> build model</a></li>
+<li class="chapter" data-level="5.4.3" data-path="model.html"><a href="model.html#verify-model"><i class="fa fa-check"></i><b>5.4.3</b> verify model</a></li>
+<li class="chapter" data-level="5.4.4" data-path="model.html"><a href="model.html#deploy-model"><i class="fa fa-check"></i><b>5.4.4</b> deploy model</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="model.html"><a href="model.html#supervised-learning"><i class="fa fa-check"></i><b>5.5</b> Supervised Learning</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="model.html"><a href="model.html#random-forest"><i class="fa fa-check"></i><b>5.5.1</b> Random Forest</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="model.html"><a href="model.html#unsupervised-learning"><i class="fa fa-check"></i><b>5.6</b> Unsupervised Learning</a></li>
+<li class="chapter" data-level="5.7" data-path="model.html"><a href="model.html#statistical-distribution"><i class="fa fa-check"></i><b>5.7</b> Statistical distribution</a></li>
+<li class="chapter" data-level="5.8" data-path="model.html"><a href="model.html#caret"><i class="fa fa-check"></i><b>5.8</b> caret</a></li>
+<li class="chapter" data-level="5.9" data-path="model.html"><a href="model.html#h2o"><i class="fa fa-check"></i><b>5.9</b> H2O</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="case.html"><a href="case.html"><i class="fa fa-check"></i><b>6</b> Case</a></li>
+<li class="chapter" data-level="7" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>7</b> References</a><ul>
+<li class="chapter" data-level="7.1" data-path="references.html"><a href="references.html#the-giants"><i class="fa fa-check"></i><b>7.1</b> The Giants</a></li>
+<li class="chapter" data-level="7.2" data-path="references.html"><a href="references.html#book"><i class="fa fa-check"></i><b>7.2</b> Book</a></li>
+<li class="chapter" data-level="7.3" data-path="references.html"><a href="references.html#link"><i class="fa fa-check"></i><b>7.3</b> Link</a><ul>
+<li><a href="references.html#csv-vs-_csv-r-markdown-r-bookdown-r-blogdown-feather-data-format-database-connection-rmarkdown-cheatsheet-working-with-string-machine-learning-for-humans-probability-distributions-tidy-data-t-test-caret-highcharter"><span class="toc-section-number">7.3.1</span> .csv vs _csv
+### R markdown
+### R bookdown
+### R blogdown
+### feather data format
+### database connection
+### rmarkdown cheatsheet
+### working with string
+### Machine Learning for Humans
+### Probability Distributions
+### tidy data
+### T test
+### caret
+### highcharter</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>8</b> Appendix</a><ul>
+<li class="chapter" data-level="8.1" data-path="appendix.html"><a href="appendix.html#delete-filedownload-file-ect."><i class="fa fa-check"></i><b>8.1</b> delete file,download file ect.</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="appendix.html"><a href="appendix.html#apply-family"><i class="fa fa-check"></i><b>8.1.1</b> apply family</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="appendix.html"><a href="appendix.html#ggvis"><i class="fa fa-check"></i><b>8.2</b> ggvis</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="appendix.html"><a href="appendix.html#scatter-plot-3"><i class="fa fa-check"></i><b>8.2.1</b> scatter plot</a></li>
+<li class="chapter" data-level="8.2.2" data-path="appendix.html"><a href="appendix.html#line-plot-3"><i class="fa fa-check"></i><b>8.2.2</b> line plot</a></li>
+<li class="chapter" data-level="8.2.3" data-path="appendix.html"><a href="appendix.html#bar-plot-3"><i class="fa fa-check"></i><b>8.2.3</b> bar plot</a></li>
+<li class="chapter" data-level="8.2.4" data-path="appendix.html"><a href="appendix.html#dot-plot-2"><i class="fa fa-check"></i><b>8.2.4</b> Dot plot</a></li>
+<li class="chapter" data-level="8.2.5" data-path="appendix.html"><a href="appendix.html#histogram-3"><i class="fa fa-check"></i><b>8.2.5</b> histogram</a></li>
+<li class="chapter" data-level="8.2.6" data-path="appendix.html"><a href="appendix.html#boxplot-3"><i class="fa fa-check"></i><b>8.2.6</b> Boxplot</a></li>
+<li class="chapter" data-level="8.2.7" data-path="appendix.html"><a href="appendix.html#other-plot-3"><i class="fa fa-check"></i><b>8.2.7</b> Other plot</a></li>
+<li class="chapter" data-level="8.2.8" data-path="appendix.html"><a href="appendix.html#setting"><i class="fa fa-check"></i><b>8.2.8</b> setting</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="appendix.html"><a href="appendix.html#connect-with-alation"><i class="fa fa-check"></i><b>8.3</b> Connect with Alation</a></li>
+<li class="chapter" data-level="8.4" data-path="appendix.html"><a href="appendix.html#pre-modeling"><i class="fa fa-check"></i><b>8.4</b> pre-modeling</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="appendix.html"><a href="appendix.html#sampling"><i class="fa fa-check"></i><b>8.4.1</b> Sampling</a></li>
+<li class="chapter" data-level="8.4.2" data-path="appendix.html"><a href="appendix.html#most-common-distributions"><i class="fa fa-check"></i><b>8.4.2</b> 10 most common Distributions</a></li>
+<li class="chapter" data-level="8.4.3" data-path="appendix.html"><a href="appendix.html#statistical-test"><i class="fa fa-check"></i><b>8.4.3</b> statistical test</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/TonyFly2000/Bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Get R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="get" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Get</h1>
+<p>In this chapter,will share how to connect(both input and output) with variety of data source into R system,for example csv,excel,database ect.</p>
+<div id="connect-with-csvtxt" class="section level2">
+<h2><span class="header-section-number">2.1</span> Connect with csv/txt</h2>
+<p>Input csv:
+read a csv using [readr::read_csv].Its 8 times faster than read.csv</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(readr)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">csv_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;zipcode.csv&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>)</a></code></pre></div>
+<p>Output csv:
+write a csv using [readr::write_csv].Its twice as fast as write.csv</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(readr)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">write_csv</span>(csv_data, <span class="st">&quot;zipcode.csv&quot;</span>, <span class="dt">append =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<p>Input txt:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">txt_data &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;txt_data.txt&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<p>Output txt:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">write.table</span>(data001, <span class="dt">file =</span> <span class="st">&quot;mtcars.txt&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</a></code></pre></div>
+</div>
+<div id="connect-with-xlsx" class="section level2">
+<h2><span class="header-section-number">2.2</span> Connect with xlsx</h2>
+<p>Three mays to Connect with xlsx:</p>
+<ul>
+<li><p>1.readxl Package(without Java):</p></li>
+<li><p>2.xlsx Package(use Java):</p></li>
+<li><p>3.tidyxl Package(imports non-tabular data from Excel)</p></li>
+</ul>
+<p>1.readxl Package(without Java) [recommended] :</p>
+<p>Input excel:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">library</span>(readxl)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#read default first sheet</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">excel_data=<span class="kw">read_excel</span>(<span class="st">&#39;example.xlsx&#39;</span>)</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co"># list sheet name in excel file</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="kw">excel_sheets</span>(<span class="st">&#39;example.xlsx&#39;</span>)</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#read sheet2 </span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">sheet2_data=<span class="kw">read_excel</span>(<span class="st">&#39;example.xlsx&#39;</span>,<span class="dt">sheet=</span><span class="st">&#39;sheet2&#39;</span>)</a></code></pre></div>
+<p>output excel:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">library</span>(xlsx)</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw">write.xlsx</span>(mydata, <span class="st">&quot;c:/mydata.xlsx&quot;</span>,<span class="dt">row.names=</span><span class="ot">FALSE</span>)</a></code></pre></div>
+</div>
+<div id="connect-with-rdsrdatafeather" class="section level2">
+<h2><span class="header-section-number">2.3</span> Connect with rds/RData/feather</h2>
+<p>rds:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># input a dataframe</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">rdsdata=<span class="kw">readRDS</span>(<span class="dt">file =</span> <span class="st">&quot;my_data.rds&quot;</span>)</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co"># output a dataframe</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="kw">saveRDS</span>(rdsdata, <span class="dt">file =</span> <span class="st">&quot;my_data.rds&quot;</span>)</a></code></pre></div>
+<p>RData:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co">#input RData:</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw">load</span>(<span class="st">&quot;my_work_space.RData&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co">#output a dataframe into RData:</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw">save</span>(data1, <span class="dt">file =</span> <span class="st">&quot;data.RData&quot;</span>)</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="co"># output multiple dataframe into RData</span></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="kw">save</span>(data1, data2, <span class="dt">file =</span> <span class="st">&quot;data.RData&quot;</span>)</a>
+<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="co"># output all dataframe into RData</span></a>
+<a class="sourceLine" id="cb9-6" data-line-number="6"><span class="kw">save.image</span>(<span class="dt">file =</span> <span class="st">&quot;my_work_space.RData&quot;</span>)</a></code></pre></div>
+<p>feather (by Wes Mckinney and Hadley Wickham):</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co"># input feather</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">data=<span class="kw">read_feather</span>(<span class="st">&#39;data.feather&#39;</span>)</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="co"># output feather</span></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="kw">write_feather</span>(data,<span class="st">&#39;data.feather&#39;</span>)</a></code></pre></div>
+</div>
+<div id="connect-with-sasstatmatlab-ect" class="section level2">
+<h2><span class="header-section-number">2.4</span> Connect with sas/stat/matlab ect</h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">library</span>(haven)</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="co"># SAS</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">sas_data=<span class="kw">read_sas</span>(<span class="st">&quot;mtcars.sas7bdat&quot;</span>)</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="kw">write_sas</span>(mtcars, <span class="st">&quot;mtcars.sas7bdat&quot;</span>)</a>
+<a class="sourceLine" id="cb11-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="co"># SPSS</span></a>
+<a class="sourceLine" id="cb11-7" data-line-number="7">spss_data=<span class="kw">read_sav</span>(<span class="st">&quot;mtcars.sav&quot;</span>)</a>
+<a class="sourceLine" id="cb11-8" data-line-number="8"><span class="kw">write_sav</span>(mtcars, <span class="st">&quot;mtcars.sav&quot;</span>)</a>
+<a class="sourceLine" id="cb11-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb11-10" data-line-number="10"><span class="co"># Stata</span></a>
+<a class="sourceLine" id="cb11-11" data-line-number="11">stata_data=<span class="kw">read_dta</span>(<span class="st">&quot;mtcars.dta&quot;</span>)</a>
+<a class="sourceLine" id="cb11-12" data-line-number="12"><span class="kw">write_dta</span>(mtcars, <span class="st">&quot;mtcars.dta&quot;</span>)</a>
+<a class="sourceLine" id="cb11-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb11-14" data-line-number="14"><span class="co"># matlab</span></a>
+<a class="sourceLine" id="cb11-15" data-line-number="15"><span class="kw">library</span>(R.matlab)</a>
+<a class="sourceLine" id="cb11-16" data-line-number="16">matlab_data=<span class="kw">readMat</span>(<span class="st">&#39;file.mat&#39;</span>)<span class="er">)</span></a></code></pre></div>
+</div>
+<div id="connect-with-database-mysqlsqliteteradatapostgresql" class="section level2">
+<h2><span class="header-section-number">2.5</span> Connect with database (Mysql;sqlite;teradata;postgresql)</h2>
+<div id="mysql" class="section level3">
+<h3><span class="header-section-number">2.5.1</span> Mysql</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">library</span>(RMySQL)</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">mydb =<span class="st"> </span><span class="kw">dbConnect</span>(<span class="kw">MySQL</span>(), <span class="dt">user=</span><span class="st">&#39;user&#39;</span>, <span class="dt">password=</span><span class="st">&#39;password&#39;</span>, <span class="dt">dbname=</span><span class="st">&#39;database_name&#39;</span>, <span class="dt">host=</span><span class="st">&#39;host&#39;</span>)</a>
+<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="co">#Listing all Tables in VDM</span></a>
+<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="kw">dbListTables</span>(mydb)</a>
+<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="co">#Listing all column name in  a table </span></a>
+<a class="sourceLine" id="cb12-6" data-line-number="6"><span class="kw">dbListFields</span>(mydb, <span class="st">&#39;some_table&#39;</span>)</a>
+<a class="sourceLine" id="cb12-7" data-line-number="7"><span class="co">#create table from database:  </span></a>
+<a class="sourceLine" id="cb12-8" data-line-number="8"><span class="kw">dbSendQuery</span>(conn, <span class="st">&quot;create  table P_xxxx_t.DW_COUNTRIES AS SELECT  * from DW_COUNTRIES&quot;</span>)</a>
+<a class="sourceLine" id="cb12-9" data-line-number="9"><span class="co">#Download table from database:  </span></a>
+<a class="sourceLine" id="cb12-10" data-line-number="10">data001=<span class="kw">dbGetQuery</span>(conn, <span class="st">&quot; select * from P_xxxx_t.DW_COUNTRIES&quot;</span>)</a>
+<a class="sourceLine" id="cb12-11" data-line-number="11"><span class="co"># update table to database</span></a>
+<a class="sourceLine" id="cb12-12" data-line-number="12"><span class="kw">dbWriteTable</span>(mydb, <span class="dt">name=</span><span class="st">&#39;table_name&#39;</span>, <span class="dt">value=</span>data.frame.name)</a></code></pre></div>
+</div>
+<div id="sqlite" class="section level3">
+<h3><span class="header-section-number">2.5.2</span> sqlite</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;RSQLite&quot;</span>)</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="co"># connect to the sqlite file</span></a>
+<a class="sourceLine" id="cb13-3" data-line-number="3">con =<span class="st"> </span><span class="kw">dbConnect</span>(<span class="dt">drv=</span><span class="st">&quot;SQLite&quot;</span>, <span class="dt">dbname=</span><span class="st">&quot;country.sqlite&quot;</span>)</a>
+<a class="sourceLine" id="cb13-4" data-line-number="4"><span class="co"># get a list of all tables</span></a>
+<a class="sourceLine" id="cb13-5" data-line-number="5">alltables =<span class="st"> </span><span class="kw">dbListTables</span>(con)</a>
+<a class="sourceLine" id="cb13-6" data-line-number="6"><span class="co"># get the populationtable as a data.frame</span></a>
+<a class="sourceLine" id="cb13-7" data-line-number="7">data =<span class="st"> </span><span class="kw">dbGetQuery</span>( con,<span class="st">&#39;select * from populationtable&#39;</span> )</a></code></pre></div>
+</div>
+<div id="teradata-with-rjdbc-package" class="section level3">
+<h3><span class="header-section-number">2.5.3</span> Teradata with RJDBC package</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw">library</span>(DBI)</a>
+<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="kw">library</span>(RJDBC)</a>
+<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="kw">library</span>(rJava)</a>
+<a class="sourceLine" id="cb14-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb14-5" data-line-number="5">jdbc.drv&lt;-<span class="kw">JDBC</span>(<span class="st">&quot;com.teradata.jdbc.TeraDriver&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;C:/JDBC/terajdbc4.jar&quot;</span>, <span class="st">&quot;C:/JDBC/tdgssconfig.jar&quot;</span>))</a>
+<a class="sourceLine" id="cb14-6" data-line-number="6">con&lt;-<span class="kw">dbConnect</span>(jdbc.drv, <span class="st">&quot;jdbc:teradata://mz2.phx.ebay.com&quot;</span>, <span class="st">&quot;username&quot;</span>, <span class="st">&quot;passowrd&quot;</span>) </a>
+<a class="sourceLine" id="cb14-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb14-8" data-line-number="8"><span class="co"># list all table in database</span></a>
+<a class="sourceLine" id="cb14-9" data-line-number="9"><span class="kw">dbListTables</span>(con)</a>
+<a class="sourceLine" id="cb14-10" data-line-number="10"><span class="co"># list all column name in table dw_countries</span></a>
+<a class="sourceLine" id="cb14-11" data-line-number="11"><span class="kw">dbListFields</span>(con, <span class="st">&quot;dw_countries&quot;</span>)</a>
+<a class="sourceLine" id="cb14-12" data-line-number="12"><span class="co"># download data</span></a>
+<a class="sourceLine" id="cb14-13" data-line-number="13">countries001=<span class="kw">dbGetQuery</span>(con, <span class="st">&quot; select * from dw_countries&quot;</span>)</a></code></pre></div>
+</div>
+<div id="teradata-with-ebaytd-package" class="section level3">
+<h3><span class="header-section-number">2.5.4</span> Teradata with ebaytd package</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">library</span>(ebaytd)</a>
+<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="kw">teradataInit</span>(<span class="st">&quot;YOUR_USER_NAME&quot;</span>, <span class="st">&quot;YOUR_TERADATA_PASSWORD&quot;</span>)</a>
+<a class="sourceLine" id="cb15-3" data-line-number="3"><span class="co"># local </span></a>
+<a class="sourceLine" id="cb15-4" data-line-number="4">conn &lt;-<span class="st"> </span><span class="kw">teradataConnect</span>(<span class="dt">database=</span> <span class="st">&#39;P_xxxx_t&#39;</span>, <span class="dt">system=</span><span class="st">&quot;mozart&quot;</span>) </a>
+<a class="sourceLine" id="cb15-5" data-line-number="5">connf &lt;-<span class="st"> </span><span class="kw">teradataConnect</span>(<span class="dt">database=</span><span class="st">&#39;P_xxxx_t&#39;</span>, <span class="dt">fastload =</span> <span class="ot">TRUE</span>,<span class="dt">csv=</span><span class="ot">TRUE</span>,<span class="dt">system=</span><span class="st">&quot;mozart&quot;</span>)</a>
+<a class="sourceLine" id="cb15-6" data-line-number="6"><span class="co"># server </span></a>
+<a class="sourceLine" id="cb15-7" data-line-number="7">conn &lt;-<span class="st"> </span><span class="kw">teradataConnect</span>(<span class="dt">database=</span> <span class="st">&#39;P_xxxx_t&#39;</span>, <span class="dt">system=</span><span class="st">&quot;mozarbe&quot;</span>) </a>
+<a class="sourceLine" id="cb15-8" data-line-number="8">connf &lt;-<span class="st"> </span><span class="kw">teradataConnect</span>(<span class="dt">database=</span><span class="st">&#39;P_xxxx_t&#39;</span>, <span class="dt">fastload =</span> <span class="ot">TRUE</span>,<span class="dt">csv=</span><span class="ot">TRUE</span>,<span class="dt">system=</span><span class="st">&quot;mozarbe&quot;</span>)</a>
+<a class="sourceLine" id="cb15-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb15-10" data-line-number="10"><span class="co">#Create table at Teradata:</span></a>
+<a class="sourceLine" id="cb15-11" data-line-number="11"><span class="kw">dbSendQuery</span>(conn, <span class="st">&quot;create multiset table P_xxxx_t.DW_COUNTRIES AS (SELECT  * from DW_COUNTRIES) WITH    DATA &quot;</span>)</a>
+<a class="sourceLine" id="cb15-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb15-13" data-line-number="13"><span class="co">#Download table from Teradata:  </span></a>
+<a class="sourceLine" id="cb15-14" data-line-number="14">data001=<span class="kw">dbGetQuery</span>(conn, <span class="st">&quot; select * from P_xxxx_t.DW_COUNTRIES&quot;</span>)</a>
+<a class="sourceLine" id="cb15-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb15-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb15-17" data-line-number="17"><span class="co">#Download table from Teradata by batch:  </span></a>
+<a class="sourceLine" id="cb15-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb15-19" data-line-number="19">res=<span class="kw">dbsendQuery</span>(conn, <span class="st">&quot; select * from P_xxxx_t.DW_COUNTRIES&quot;</span>)</a>
+<a class="sourceLine" id="cb15-20" data-line-number="20">result&lt;-<span class="kw">list</span>()</a>
+<a class="sourceLine" id="cb15-21" data-line-number="21">e=<span class="dv">1</span></a>
+<a class="sourceLine" id="cb15-22" data-line-number="22">result[[e]]&lt;-<span class="kw">dbFetch</span>(res,<span class="dt">n=</span><span class="dv">5000</span>)</a>
+<a class="sourceLine" id="cb15-23" data-line-number="23"><span class="cf">while</span>(<span class="kw">nrow</span>(chunk &lt;-<span class="st"> </span><span class="kw">dbFetch</span>(res, <span class="dt">n =</span> <span class="dv">5000</span>))<span class="op">&gt;</span><span class="dv">0</span>){</a>
+<a class="sourceLine" id="cb15-24" data-line-number="24">  e&lt;-e<span class="op">+</span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb15-25" data-line-number="25">  result[[e]]&lt;-chunk</a>
+<a class="sourceLine" id="cb15-26" data-line-number="26">  <span class="kw">print</span>(e)</a>
+<a class="sourceLine" id="cb15-27" data-line-number="27">  data001&lt;-<span class="kw">do.call</span>(rbind,result)</a>
+<a class="sourceLine" id="cb15-28" data-line-number="28">}</a>
+<a class="sourceLine" id="cb15-29" data-line-number="29"></a>
+<a class="sourceLine" id="cb15-30" data-line-number="30"></a>
+<a class="sourceLine" id="cb15-31" data-line-number="31"></a>
+<a class="sourceLine" id="cb15-32" data-line-number="32"></a>
+<a class="sourceLine" id="cb15-33" data-line-number="33"></a>
+<a class="sourceLine" id="cb15-34" data-line-number="34"></a>
+<a class="sourceLine" id="cb15-35" data-line-number="35"><span class="co">#Upload table to Teradata:</span></a>
+<a class="sourceLine" id="cb15-36" data-line-number="36"><span class="kw">teradataFastloadCSV</span>(data001, conn, connf, <span class="st">&quot;P_xxxx_t&quot;</span>, <span class="st">&quot;tera_data001&quot;</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>, <span class="dt">primary_index =</span> <span class="kw">c</span>(<span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb15-37" data-line-number="37"><span class="co">#Check whether a table is exist on Teradata:</span></a>
+<a class="sourceLine" id="cb15-38" data-line-number="38"><span class="kw">dbExistsTable</span>(conn,<span class="st">&quot;P_xxxx_t&quot;</span>,<span class="st">&quot;test&quot;</span>)</a>
+<a class="sourceLine" id="cb15-39" data-line-number="39"><span class="co">#Delete table on Teradata</span></a>
+<a class="sourceLine" id="cb15-40" data-line-number="40"><span class="kw">dbExistsRemove</span>(conn,<span class="st">&quot;P_xxxx_t&quot;</span>,<span class="st">&quot;tera_data001&quot;</span>)</a></code></pre></div>
+</div>
+</div>
+<div id="connect-with-salesforce" class="section level2">
+<h2><span class="header-section-number">2.6</span> Connect with salesforce</h2>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw">library</span>(RForcecom)</a>
+<a class="sourceLine" id="cb16-2" data-line-number="2">username &lt;-<span class="st"> &quot;xxx@ebay.com&quot;</span></a>
+<a class="sourceLine" id="cb16-3" data-line-number="3">password &lt;-<span class="st"> &quot;xxxxxxx&quot;</span></a>
+<a class="sourceLine" id="cb16-4" data-line-number="4">instanceURL &lt;-<span class="st"> &quot;https://AP4.salesforce.com/&quot;</span></a>
+<a class="sourceLine" id="cb16-5" data-line-number="5">apiVersion &lt;-<span class="st"> &quot;41.0&quot;</span></a>
+<a class="sourceLine" id="cb16-6" data-line-number="6">session &lt;-<span class="st"> </span><span class="kw">rforcecom.login</span>(username, password, instanceURL, apiVersion)</a>
+<a class="sourceLine" id="cb16-7" data-line-number="7"><span class="co"># list all table in saleforces</span></a>
+<a class="sourceLine" id="cb16-8" data-line-number="8">all_object=<span class="kw">rforcecom.getObjectList</span>(session)</a>
+<a class="sourceLine" id="cb16-9" data-line-number="9"><span class="co"># get table column name</span></a>
+<a class="sourceLine" id="cb16-10" data-line-number="10">ILM_table_info=<span class="kw">rforcecom.getObjectDescription</span>(session, <span class="st">&#39;Item_Location_c&#39;</span>)</a>
+<a class="sourceLine" id="cb16-11" data-line-number="11"><span class="co"># get table with column :&#39;Id&#39; and &#39;Recommended_Action_c&#39; from table Item_Location_c</span></a>
+<a class="sourceLine" id="cb16-12" data-line-number="12">ILM=<span class="kw">rforcecom.retrieve</span>(session,<span class="st">&#39;Item_Location_c&#39;</span>, <span class="kw">c</span>(<span class="st">&quot;Id&quot;</span>,<span class="st">&quot;Recommended_Action_c&quot;</span>))</a>
+<a class="sourceLine" id="cb16-13" data-line-number="13"><span class="co"># get table with column :&#39;Id&#39; and &#39;Recommended_Action_c&#39; from table Item_Location_c using soqlQuery</span></a>
+<a class="sourceLine" id="cb16-14" data-line-number="14">soqlQuery &lt;-<span class="st"> &quot;SELECT Id,Recommended_Action FROM Item_Location_c&quot;</span></a>
+<a class="sourceLine" id="cb16-15" data-line-number="15">ILM=<span class="kw">rforcecom.query</span>(session, soqlQuery)</a></code></pre></div>
+</div>
+<div id="connect-with-web-crawler" class="section level2">
+<h2><span class="header-section-number">2.7</span> Connect with Web crawler</h2>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&#39;rvest&#39;</span>)</a>
+<a class="sourceLine" id="cb17-2" data-line-number="2"><span class="co">#Specifying the url for desired website to be scrapped</span></a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">url &lt;-<span class="st"> </span><span class="kw">url</span>(<span class="st">&#39;https://www.ebay.com/sch/i.html?_from=R40&amp;_sacat=0&amp;_nkw=iphone&amp;_pgn=3&amp;_skc=400&amp;rt=nc&#39;</span>)</a>
+<a class="sourceLine" id="cb17-4" data-line-number="4"><span class="co">#Reading the HTML code from the website</span></a>
+<a class="sourceLine" id="cb17-5" data-line-number="5">webpage &lt;-<span class="st"> </span><span class="kw">read_html</span>(url)</a>
+<a class="sourceLine" id="cb17-6" data-line-number="6"><span class="co">#get title html</span></a>
+<a class="sourceLine" id="cb17-7" data-line-number="7">listing_data_html &lt;-<span class="st"> </span><span class="kw">html_nodes</span>(webpage,<span class="st">&#39;.vip&#39;</span>)</a>
+<a class="sourceLine" id="cb17-8" data-line-number="8"><span class="co">#get titel data</span></a>
+<a class="sourceLine" id="cb17-9" data-line-number="9">listing_data &lt;-<span class="st"> </span><span class="kw">html_text</span>(listing_data_html)</a>
+<a class="sourceLine" id="cb17-10" data-line-number="10"><span class="kw">head</span>(listing_data)</a></code></pre></div>
+</div>
+<div id="connect-with-api" class="section level2">
+<h2><span class="header-section-number">2.8</span> Connect with API</h2>
+<p>Get all account Rbloggers all tweets:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="co">#Create your own appication key at https://dev.twitter.com/apps</span></a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">consumer_key =<span class="st"> &quot;EZRy5JzOH2QQmVAe9B4j2w&quot;</span>;</a>
+<a class="sourceLine" id="cb18-3" data-line-number="3">consumer_secret =<span class="st"> &quot;OIDC4MdfZJ82nbwpZfoUO4WOLTYjoRhpHRAWj6JMec&quot;</span>;</a>
+<a class="sourceLine" id="cb18-4" data-line-number="4"><span class="co">#Use basic auth</span></a>
+<a class="sourceLine" id="cb18-5" data-line-number="5">secret &lt;-<span class="st"> </span>jsonlite<span class="op">::</span><span class="kw">base64_enc</span>(<span class="kw">paste</span>(consumer_key, consumer_secret, <span class="dt">sep =</span> <span class="st">&quot;:&quot;</span>))</a>
+<a class="sourceLine" id="cb18-6" data-line-number="6">req &lt;-<span class="st"> </span>httr<span class="op">::</span><span class="kw">POST</span>(<span class="st">&quot;https://api.twitter.com/oauth2/token&quot;</span>,</a>
+<a class="sourceLine" id="cb18-7" data-line-number="7">  httr<span class="op">::</span><span class="kw">add_headers</span>(</a>
+<a class="sourceLine" id="cb18-8" data-line-number="8">    <span class="st">&quot;Authorization&quot;</span> =<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;Basic&quot;</span>, <span class="kw">gsub</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>, <span class="st">&quot;&quot;</span>, secret)),</a>
+<a class="sourceLine" id="cb18-9" data-line-number="9">    <span class="st">&quot;Content-Type&quot;</span> =<span class="st"> &quot;application/x-www-form-urlencoded;charset=UTF-8&quot;</span></a>
+<a class="sourceLine" id="cb18-10" data-line-number="10">  ),</a>
+<a class="sourceLine" id="cb18-11" data-line-number="11">  <span class="dt">body =</span> <span class="st">&quot;grant_type=client_credentials&quot;</span></a>
+<a class="sourceLine" id="cb18-12" data-line-number="12">);</a>
+<a class="sourceLine" id="cb18-13" data-line-number="13"><span class="co">#Extract the access token</span></a>
+<a class="sourceLine" id="cb18-14" data-line-number="14">httr<span class="op">::</span><span class="kw">stop_for_status</span>(req, <span class="st">&quot;authenticate with twitter&quot;</span>)</a>
+<a class="sourceLine" id="cb18-15" data-line-number="15">token &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;Bearer&quot;</span>, httr<span class="op">::</span><span class="kw">content</span>(req)<span class="op">$</span>access_token)</a>
+<a class="sourceLine" id="cb18-16" data-line-number="16"><span class="co">#Actual API call</span></a>
+<a class="sourceLine" id="cb18-17" data-line-number="17">url &lt;-<span class="st"> &quot;https://api.twitter.com/1.1/statuses/user_timeline.json?count=10&amp;screen_name=Rbloggers&quot;</span></a>
+<a class="sourceLine" id="cb18-18" data-line-number="18">req &lt;-<span class="st"> </span>httr<span class="op">::</span><span class="kw">GET</span>(url, httr<span class="op">::</span><span class="kw">add_headers</span>(<span class="dt">Authorization =</span> token))</a>
+<a class="sourceLine" id="cb18-19" data-line-number="19">json &lt;-<span class="st"> </span>httr<span class="op">::</span><span class="kw">content</span>(req, <span class="dt">as =</span> <span class="st">&quot;text&quot;</span>)</a>
+<a class="sourceLine" id="cb18-20" data-line-number="20">tweets &lt;-<span class="st"> </span><span class="kw">fromJSON</span>(json)</a>
+<a class="sourceLine" id="cb18-21" data-line-number="21"><span class="kw">substring</span>(tweets<span class="op">$</span>text, <span class="dv">1</span>, <span class="dv">100</span>)</a></code></pre></div>
+</div>
+<div id="connect-with-finance-data" class="section level2">
+<h2><span class="header-section-number">2.9</span> Connect with Finance data</h2>
+<div id="tidyquant-package-to-get-stock-price" class="section level3">
+<h3><span class="header-section-number">2.9.1</span> tidyquant package to get stock price</h3>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">library</span>(tidyquant)</a>
+<a class="sourceLine" id="cb19-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb19-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb19-4" data-line-number="4"><span class="co"># Pull Apple stock data</span></a>
+<a class="sourceLine" id="cb19-5" data-line-number="5">apple &lt;-<span class="st"> </span><span class="kw">tq_get</span>(<span class="st">&quot;AAPL&quot;</span>, <span class="dt">get =</span> <span class="st">&quot;stock.prices&quot;</span>, </a>
+<a class="sourceLine" id="cb19-6" data-line-number="6">                <span class="dt">from =</span> <span class="st">&quot;2007-01-03&quot;</span>, <span class="dt">to =</span> <span class="st">&quot;2017-06-05&quot;</span>)</a>
+<a class="sourceLine" id="cb19-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb19-8" data-line-number="8"><span class="co"># Take a look at what it returned</span></a>
+<a class="sourceLine" id="cb19-9" data-line-number="9"><span class="kw">head</span>(apple)</a>
+<a class="sourceLine" id="cb19-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb19-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb19-12" data-line-number="12"><span class="co"># Plot the stock price over time</span></a>
+<a class="sourceLine" id="cb19-13" data-line-number="13"><span class="kw">plot</span>(apple<span class="op">$</span>date, apple<span class="op">$</span>adjusted, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>)</a></code></pre></div>
+</div>
+<div id="finreportr-package-to-get-stock-annual-report" class="section level3">
+<h3><span class="header-section-number">2.9.2</span> finreportr package to get stock annual report</h3>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw">library</span>(finreportr)</a>
+<a class="sourceLine" id="cb20-2" data-line-number="2"><span class="kw">CompanyInfo</span>(<span class="st">&quot;AMZN&quot;</span>)</a>
+<a class="sourceLine" id="cb20-3" data-line-number="3"><span class="kw">head</span>(<span class="kw">AnnualReports</span>(<span class="st">&quot;AMZN&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1">BalanceSheet=<span class="kw">GetBalanceSheet</span>(<span class="st">&quot;AMZN&quot;</span>, <span class="dv">2017</span>)</a>
+<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="kw">head</span>(BalanceSheet)</a>
+<a class="sourceLine" id="cb21-3" data-line-number="3">Income=<span class="kw">GetIncome</span>(<span class="st">&quot;AMZN&quot;</span>, <span class="dv">2017</span>)</a>
+<a class="sourceLine" id="cb21-4" data-line-number="4"><span class="kw">head</span>(Income)</a>
+<a class="sourceLine" id="cb21-5" data-line-number="5">CashFlow=<span class="kw">GetCashFlow</span>(<span class="st">&quot;AMZN&quot;</span>, <span class="dv">2017</span>)</a>
+<a class="sourceLine" id="cb21-6" data-line-number="6"><span class="kw">head</span>(CashFlow)</a></code></pre></div>
+</div>
+</div>
+<div id="connect-with-big-data-platformhadoopspark" class="section level2">
+<h2><span class="header-section-number">2.10</span> Connect with Big data platform(Hadoop;Spark)</h2>
+</div>
+<div id="connect-with-other-eg-soundpicturevideo" class="section level2">
+<h2><span class="header-section-number">2.11</span> Connect with Other eg sound,picture,video</h2>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="clean.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/TonyFly2000/Bookdown/02-Get.Rmd",
+"text": "Edit"
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
