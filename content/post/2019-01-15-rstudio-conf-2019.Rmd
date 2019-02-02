@@ -77,6 +77,10 @@ parsnip is a new tidymodels package that generalizes model interfaces across pac
 
 product RStudio Connect  can share the R code and output to organization with  authentication and email notification.
 
+### [Shiny in production: Principles, practices, and tools - Joe Cheng](https://resources.rstudio.com/rstudio-conf-2019/shiny-in-production-principles-practices-and-tools-joe-cheng)
+
+data is keep updating , big size of data been show in tidy way.
+
 
 
 
@@ -131,6 +135,22 @@ create rstudio add-in
 ### [It depends: A dialog about dependencies - Jim Hester](https://resources.rstudio.com/rstudio-conf-2019/it-depends-a-dialog-about-dependencies)
 
 check package or projects depends,number of function used,size ect with package itdepends
+
+
+
+
+### [Welcome and RStudio Vision - Tareef Kawaf](https://resources.rstudio.com/rstudio-conf-2019/opening-keynote-tareef-kawaf)
+
+- Why code:Repeatable;Inspectable;Resuable;Diffable.
+- code is communication
+
+
+
+
+
+
+
+
 
 
 
