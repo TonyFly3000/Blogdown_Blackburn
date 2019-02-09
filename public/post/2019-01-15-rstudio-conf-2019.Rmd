@@ -35,6 +35,11 @@ connect with database with R in connection pane
 The "tidy eval" framework is implemented in the rlang package and is rolling out in packages across the tidyverse and beyond.explain metaprogramming and non standard evaluation 
 
 
+### [Melt the clock Tidy time series analysis - Earo Wang
+]
+(https://resources.rstudio.com/rstudio-conf-2019/melt-the-clock-tidy-time-series-analysis)
+
+
 
 ## Visualize:
 
@@ -67,6 +72,15 @@ use mlflow to record modeling building result
 parsnip is a new tidymodels package that generalizes model interfaces across packages. The idea is to have a single function interface for types of specific models 
 
 
+### [Solving the model representation problem with broom - Alex Hayes](https://resources.rstudio.com/rstudio-conf-2019/solving-the-model-representation-problem-with-broom)
+
+
+### [Using R, the Tidyverse, H2O, and Shiny to reduce employee attrition - Matt Dancho](https://resources.rstudio.com/rstudio-conf-2019/using-r-the-tidyverse-h2o-and-shiny-to-reduce-employee-attrition)
+
+
+
+
+
 --------------------------------------------------------
 
 
@@ -77,11 +91,30 @@ parsnip is a new tidymodels package that generalizes model interfaces across pac
 
 product RStudio Connect  can share the R code and output to organization with  authentication and email notification.
 
+
 ### [Shiny in production: Principles, practices, and tools - Joe Cheng](https://resources.rstudio.com/rstudio-conf-2019/shiny-in-production-principles-practices-and-tools-joe-cheng)
 
-data is keep updating , big size of data been show in tidy way.
+can shiny be used for production?
+
+- 2015 answer:Yes,its quite possible
+
+- 2019 answer:Yes,its quite esay
+
+challenges for shiny in production:cultural/Organizational/Technical
+
+New tools for shiny:shinytest/shinyloadtest/profvis/plot caching/Async
+
+1.use shinyloadtest to see if its fast
+2.if not,use profvis to see whats making it slow
+3.Optimize
+- move work out of Shiny
+- make code faster
+- use caching
+- use async
 
 
+
+### [Reactlog 2.0: Debugging the state of Shiny - Barret Schloerke](https://resources.rstudio.com/rstudio-conf-2019/reactlog-2-0-debugging-the-state-of-shiny)
 
 
 ### [pagedown: Creating beautiful PDFs with R Markdown and CSS - Yihui Xie](https://resources.rstudio.com/rstudio-conf-2019/pagedown-creating-beautiful-pdfs-with-r-markdown-and-css)
@@ -100,10 +133,19 @@ make formatted table in html and embedded in email body
 Create API server for user interaction programmatically. For example,user post a request with input parameter and will get back a predict respond.
 
 
+### [The unreasonable effectiveness of public work - David Robinson](https://resources.rstudio.com/rstudio-conf-2019/the-unreasonable-effectiveness-of-public-work)
+
+
+### [R Markdown: The bigger picture - Garrett Grolemund
+](https://resources.rstudio.com/rstudio-conf-2019/r-markdown-the-bigger-picture)
+
 
 ## Other:
 
 ### [Welcome to rstudio::conf 2019](https://resources.rstudio.com/rstudio-conf-2019/welcome-to-rstudio-conf-2019)
+
+
+
 
 
 
