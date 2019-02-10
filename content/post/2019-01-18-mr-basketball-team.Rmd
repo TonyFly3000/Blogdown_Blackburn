@@ -4,7 +4,7 @@ author: ''
 date: '2019-01-18'
 slug: mr-basketball-team
 categories: []
-tags: []
+tags: [life]
 description: 'Mr Basketball team '
 topics: []
 ---

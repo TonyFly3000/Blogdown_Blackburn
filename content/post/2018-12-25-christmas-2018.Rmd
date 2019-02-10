@@ -4,7 +4,7 @@ author: ''
 date: '2018-12-25'
 slug: christmas-2018
 categories: []
-tags: []
+tags: [life]
 description: 'Christmas 2018'
 topics: []
 ---
