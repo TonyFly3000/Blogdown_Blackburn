@@ -5,7 +5,9 @@ sidemenu = "true"
 description = "Tony Project"
 +++
 
-## ShinyApp exmaple: [World index@Shinyapps.io](https://tduan.shinyapps.io/gapminder/) 
+# Shiny
+
+## [World index@Shinyapps.io](https://tduan.shinyapps.io/gapminder/) 
 Data from https://www.gapminder.org
 and inspired by Hans Rosling
 
@@ -13,7 +15,7 @@ and inspired by Hans Rosling
 
 
 -------------------------------------------------------------------
-# 
+# Talk
 
 ## 2018-12-26 Introduction to Alation and tableau 
 

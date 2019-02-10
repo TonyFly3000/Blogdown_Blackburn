@@ -45,7 +45,7 @@ Summary:
 Rstudio conference 2019 hosted during January 15 - 18 in Austin, TX
 Rstudio conference 2020 will be hosted in San Francisco, California from January 27–30, 2020
 Get:Databases using R: The latest - Edgar Ruizconnect with database with R in connection pane
-Clean:Lazy evaluation - Jenny BryanThe “tidy eval” framework is implemented in the rlang package and is rolling out in packages across the tidyverse and beyond.</description>
+Clean:Working with names and expressions in your tidy eval code - Lionel HenryLazy evaluation - Jenny BryanThe “tidy eval” framework is implemented in the rlang package and is rolling out in packages across the tidyverse and beyond.</description>
     </item>
     
     <item>

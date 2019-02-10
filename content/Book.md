@@ -22,6 +22,12 @@ description = "Tony Book"
 
 <img src="/img/Get_SQL.png" alt="Smiley face" height="400" width="300">
 
+---------------------------------------------------------------------
+
+##  [R语言与数据科学入门 (Coming soon)](./moderndive_book/index.html)
+
+<img src="https://moderndive.com/wide_format.png",height="250" width="400"> 
+
 
 ---------------------------------------------------------------------
 

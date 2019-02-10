@@ -30,14 +30,15 @@ connect with database with R in connection pane
 
 ## Clean:
 
+### [Working with names and expressions in your tidy eval code - Lionel Henry](https://resources.rstudio.com/rstudio-conf-2019/working-with-names-and-expressions-in-your-tidy-eval-code)
+
+
 ### [Lazy evaluation - Jenny Bryan](https://resources.rstudio.com/rstudio-conf-2019/lazy-evaluation)
 
 The "tidy eval" framework is implemented in the rlang package and is rolling out in packages across the tidyverse and beyond.explain metaprogramming and non standard evaluation 
 
 
-### [Melt the clock Tidy time series analysis - Earo Wang
-]
-(https://resources.rstudio.com/rstudio-conf-2019/melt-the-clock-tidy-time-series-analysis)
+### [Melt the clock Tidy time series analysis - Earo Wang](https://resources.rstudio.com/rstudio-conf-2019/melt-the-clock-tidy-time-series-analysis)
 
 
 
@@ -54,7 +55,7 @@ The "tidy eval" framework is implemented in the rlang package and is rolling out
 
 make ggplot move
 
-
+### [Visualizing uncertainty with hypothetical outcomes plots - Claus Wilke](https://resources.rstudio.com/rstudio-conf-2019/visualizing-uncertainty-with-hypothetical-outcomes-plots)
 --------------------------------------------------------
 
 ## Model:
@@ -78,7 +79,7 @@ parsnip is a new tidymodels package that generalizes model interfaces across pac
 ### [Using R, the Tidyverse, H2O, and Shiny to reduce employee attrition - Matt Dancho](https://resources.rstudio.com/rstudio-conf-2019/using-r-the-tidyverse-h2o-and-shiny-to-reduce-employee-attrition)
 
 
-
+### [Why TensorFlow eager execution matters - Sigrid Keydana](https://resources.rstudio.com/rstudio-conf-2019/why-tensorflow-eager-execution-matters)
 
 
 --------------------------------------------------------
@@ -86,6 +87,10 @@ parsnip is a new tidymodels package that generalizes model interfaces across pac
 
 
 ## Present:
+
+### [The lazy and easily distracted report writer: Using rmarkdown and parameterised reports - Mike K Smith](https://resources.rstudio.com/rstudio-conf-2019/the-lazy-and-easily-distracted-report-writer-using-rmarkdown-and-parameterised-reports)
+
+
 
 ### [RStudio Connect Past, present, and future - Jeff Allen](https://resources.rstudio.com/rstudio-conf-2019/rstudio-connect-past-present-and-future)
 
