@@ -4,10 +4,10 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Decision Tree model in python">
+  <meta name="description" content="">
   <meta name="generator" content="Hugo 0.51" />
 
-  <title>Decision Tree model in python &middot; Tony Duan</title>
+  <title>Life &middot; Tony Duan</title>
 
   
   
@@ -39,6 +39,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
  
+  
+  <link rel="alternate" type="application/rss+xml" title="Tony Duan" href="/tags/life/index.xml" />
   
 
   
@@ -223,15 +225,20 @@
 
 
 <div class="header">
-  <h1>Decision Tree model in python</h1>
+  <h1>Life</h1>
 </div>
-<div class="content">
 
-  <div class="post-meta">
+<div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="/post/mr-basketball-team/">Mr Basketball team</a></h2>
+
+    <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>01 Sep 2018, 00:00</time>
+    <time>18 Jan 2019, 00:00</time>
   </div>
 
   
@@ -247,9 +254,7 @@
   <div>
     <i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="/tags/python">python</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="/tags/data">data</a>
+      <a class="post-taxonomy-tag" href="/tags/life">life</a>
     
   </div>
   
@@ -257,104 +262,62 @@
 
 </div>
 
+  </header>
+
+  <p>
+        
+        Mr Basketball team 
+        
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="/post/christmas-2018/">Happy Christmas 2018</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>25 Dec 2018, 00:00</time>
+  </div>
+
   
 
+  
+  
+  
+  
 
-<p>import pacakges and load iris dataset</p>
-<pre class="python"><code>from sklearn.datasets import load_iris
-from sklearn.model_selection import train_test_split
-from sklearn import tree
-from sklearn.metrics import accuracy_score
-iris = load_iris()
-print (iris.feature_names)  # metadata: names of the features</code></pre>
-<pre><code>## [&#39;sepal length (cm)&#39;, &#39;sepal width (cm)&#39;, &#39;petal length (cm)&#39;, &#39;petal width (cm)&#39;]</code></pre>
-<pre class="python"><code>print (iris.target_names)  # metadata: names of the different types of flowers</code></pre>
-<pre><code>## [&#39;setosa&#39; &#39;versicolor&#39; &#39;virginica&#39;]</code></pre>
-<pre class="python"><code>X = iris.data  # features
-y = iris.target  # labels</code></pre>
-<p>X_train is train features and X_test is test features</p>
-<p>y_train is train label and y_test is test label</p>
-<p>with 0.3 splict, we have 70% obs(105) for training and 30% obs(45) for testing</p>
-<pre class="python"><code>X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
-print(len(X_train))</code></pre>
-<pre><code>## 105</code></pre>
-<pre class="python"><code>print(len(X_test))</code></pre>
-<pre><code>## 45</code></pre>
-<p>Traning default DecisionTree model give us overall testing accuracy：</p>
-<pre class="python"><code># define model
-my_classifier = tree.DecisionTreeClassifier()
-# train model on trainning data
-my_classifier.fit(X_train, y_train)
-# make prediction on testing data
-predictions = my_classifier.predict(X_test)
-#print (predictions)
-score=accuracy_score(y_test, predictions)
-print(score)</code></pre>
-<pre><code>## 0.9333333333333333</code></pre>
-<div id="reference" class="section level3">
-<h3>Reference</h3>
-<ul>
-<li><p><a href="https://github.com/machine-learning-projects/machine-learning-recipes" class="uri">https://github.com/machine-learning-projects/machine-learning-recipes</a></p></li>
-<li><p><a href="https://www.youtube.com/playlist?list=PLOU2XLYxmsIIuiBfYad6rFYQU_jL2ryal" class="uri">https://www.youtube.com/playlist?list=PLOU2XLYxmsIIuiBfYad6rFYQU_jL2ryal</a></p></li>
-<li><p><a href="https://developers.google.com/machine-learning/guides/rules-of-ml/" class="uri">https://developers.google.com/machine-learning/guides/rules-of-ml/</a></p></li>
-<li><p><a href="https://developers.google.com/machine-learning/glossary/" class="uri">https://developers.google.com/machine-learning/glossary/</a></p></li>
-</ul>
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="/tags/life">life</a>
+    
+  </div>
+  
+  
+
 </div>
 
+  </header>
+
+  <p>
+        
+        Christmas 2018
+        
+  </p>
 
   
-<div class="prev-next-post pure-g">
-  <div class="pure-u-1-24" style="text-align: left;">
-    
-    <a href="/post/knn-model-in-python/"><i class="fa fa-chevron-left"></i></a>
-    
-  </div>
-  <div class="pure-u-10-24">
-    
-    <nav class="prev">
-      <a href="/post/knn-model-in-python/">KNN model in python</a>
-    </nav>
-    
-  </div>
-  <div class="pure-u-2-24">
-    &nbsp;
-  </div>
-  <div class="pure-u-10-24">
-    
-    <nav class="next">
-      <a href="/post/how-ai-can-save-our-humanity-by-kai-fu-lee/">How AI can save our humanity by Kai-Fu Lee | 李开复：人工智能将拯救人类</a>
-    </nav>
-    
-  </div>
-  <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="/post/how-ai-can-save-our-humanity-by-kai-fu-lee/"><i class="fa fa-chevron-right"></i></a>
-    
-  </div>
-</div>
-
-
+</article>
 
   
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-
-(function() {
-    
-    
-    if (window.location.hostname == "localhost")
-        return;
-
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    var disqus_shortname = 'Your Disqus shortname';
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-
 </div>
 
 </div>
@@ -379,4 +342,3 @@ print(score)</code></pre>
 
 </body>
 </html>
-

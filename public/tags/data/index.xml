@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 20 Sep 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 19 Jan 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/data/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A/B testing with Google Analytics meetup</title>
+      <link>/post/a-b-testing-with-google-analytics-meetup/</link>
+      <pubDate>Sat, 19 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/a-b-testing-with-google-analytics-meetup/</guid>
+      <description>A/B testing with Google Analytics and OptimiseHost by 55 analytic and Aftership@Techtemple.meetup:http://www.huodongxing.com/event/8474882293500
+Summary:
+Company should provide tailor made content to increase customer satisfaction,engagement and ROI
+data value: opportunity-&amp;gt; data-&amp;gt; informaction-&amp;gt; solution-&amp;gt; decision
+Google Analytics and Optimise can easily set up A/B testing:Set up KPI with Google AnalyticsSet up A/B testing with Google Optimisepaste code into your websiteget report from Google Optimiseco work space : Tech temple</description>
+    </item>
     
     <item>
       <title>Pydata HK meetup</title>
@@ -18,7 +31,7 @@
       <pubDate>Thu, 20 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/pydata-hk-meetup/</guid>
-      <description>My first Pydata meetup @The Hong Kong Polytechnic University:Event:https://www.meetup.com/PyData-Hong-Kong/events/254406736/
+      <description>My first Pydata meetup @The Hong Kong Polytechnic University:Event:https://www.meetup.com/PyData-Hong-Kong/events/254406736/
 Discovering Frequent Patterns in Time Series through Unsupervised Data Mining Techniques: the Case of the Energy Profiling in Buildings by Engineer Marco Savino Piscitelli
 Write Better Python Code by Mr. Anthony Chiu
 </description>
@@ -61,7 +74,7 @@ print (iris.feature_names) # metadata: names of the features## [&amp;#39;sepal 
       <pubDate>Thu, 02 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/machine-learning-over-coffee-with-josh-gordon/</guid>
-      <description></description>
+      <description></description>
     </item>
     
   </channel>

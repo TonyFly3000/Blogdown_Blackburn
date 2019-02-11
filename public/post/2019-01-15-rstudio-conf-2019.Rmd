@@ -4,7 +4,7 @@ author: ''
 date: '2019-01-15'
 slug: rstudio-conf-2019
 categories: []
-tags: []
+tags: [R]
 description: 'rstudio::conf 2019'
 topics: []
 ---
@@ -41,6 +41,7 @@ The "tidy eval" framework is implemented in the rlang package and is rolling out
 ### [Melt the clock Tidy time series analysis - Earo Wang](https://resources.rstudio.com/rstudio-conf-2019/melt-the-clock-tidy-time-series-analysis)
 
 
+--------------------------------------------------------
 
 ## Visualize:
 
@@ -55,7 +56,9 @@ The "tidy eval" framework is implemented in the rlang package and is rolling out
 
 make ggplot move
 
+
 ### [Visualizing uncertainty with hypothetical outcomes plots - Claus Wilke](https://resources.rstudio.com/rstudio-conf-2019/visualizing-uncertainty-with-hypothetical-outcomes-plots)
+
 --------------------------------------------------------
 
 ## Model:
@@ -144,6 +147,7 @@ Create API server for user interaction programmatically. For example,user post a
 ### [R Markdown: The bigger picture - Garrett Grolemund
 ](https://resources.rstudio.com/rstudio-conf-2019/r-markdown-the-bigger-picture)
 
+--------------------------------------------------------
 
 ## Other:
 

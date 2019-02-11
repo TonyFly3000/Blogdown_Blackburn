@@ -1,0 +1,56 @@
+---
+title: rstudio::conf 2018
+author: ''
+date: '2018-02-02'
+slug: rstudio-conf-2018
+categories: []
+tags: [R]
+description: 'rstudio::conf 2018'
+topics: []
+---
+
+
+
+I segment the talk into following groups:Get,clean,visualize,model,present,other 
+
+[Rstudio conference 2018](https://resources.rstudio.com/rstudio-conf-2018) hosted during January 15 - 18 in Austin, TX
+
+--------------------------------------------------------
+
+
+## Get:
+
+
+
+--------------------------------------------------------
+
+## Clean:
+
+--------------------------------------------------------
+
+## Visualize:
+
+
+
+--------------------------------------------------------
+
+## Model:
+
+
+### [Machine Learning with R and TensorFlow - J.J. ALLAIRE](https://resources.rstudio.com/rstudio-conf-2018/machine-learning-with-r-and-tensorflow-2)
+
+
+
+### [Reinforcement learning in Minecraft with CNTK-R – Ali-Kazim Zaidi](https://resources.rstudio.com/rstudio-conf-2018/reinforcement-learning-in-minecraft-with-cntk-r-ali-kazim-zaidi)
+
+--------------------------------------------------------
+
+## Present:
+
+--------------------------------------------------------
+
+## Other:
+
+
+
+

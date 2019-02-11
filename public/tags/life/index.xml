@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Life on Tony Duan</title>
+    <link>/tags/life/</link>
+    <description>Recent content in Life on Tony Duan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 18 Jan 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/life/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mr Basketball team</title>
+      <link>/post/mr-basketball-team/</link>
+      <pubDate>Fri, 18 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/mr-basketball-team/</guid>
+      <description>Mr Basketball team first game first win2019 target: Speed &amp;amp; Skill &amp;amp; Strength
+Mr Basketball team annual dinner</description>
+    </item>
+    
+    <item>
+      <title>Happy Christmas 2018</title>
+      <link>/post/christmas-2018/</link>
+      <pubDate>Tue, 25 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/christmas-2018/</guid>
+      <description>Christmas party @ShenzhenChristmas party @ShanghaiChristmas gift</description>
+    </item>
+    
+  </channel>
+</rss>

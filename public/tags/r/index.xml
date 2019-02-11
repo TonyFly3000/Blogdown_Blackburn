@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 06 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 15 Jan 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>rstudio::conf 2019</title>
+      <link>/post/rstudio-conf-2019/</link>
+      <pubDate>Tue, 15 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/rstudio-conf-2019/</guid>
+      <description>I segment the talk into following groups:Get,clean,visualize,model,present,other
+Rstudio conference 2019 hosted during January 15 - 18 in Austin, TX
+Rstudio conference 2020 will be hosted in San Francisco, California from January 27–30, 2020
+Get:Databases using R: The latest - Edgar Ruizconnect with database with R in connection pane
+Clean:Working with names and expressions in your tidy eval code - Lionel HenryLazy evaluation - Jenny BryanThe “tidy eval” framework is implemented in the rlang package and is rolling out in packages across the tidyverse and beyond.</description>
+    </item>
     
     <item>
       <title>Who use R</title>
@@ -48,6 +61,17 @@ JSON API data from https://cranlogs.r-pkg.org/
 (Rstudio 1.1 can choose 32-bit or 64 bit base R)
 3.Python support1.Support line-by-line execution of Python code
 2.When working on Rmarkdwon ,1.2 now able to call python variable on R environment or call R variable on python environment</description>
+    </item>
+    
+    <item>
+      <title>rstudio::conf 2018</title>
+      <link>/post/rstudio-conf-2018/</link>
+      <pubDate>Fri, 02 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/rstudio-conf-2018/</guid>
+      <description>I segment the talk into following groups:Get,clean,visualize,model,present,other
+Rstudio conference 2018 hosted during January 15 - 18 in Austin, TX
+Get:Clean:Visualize:Model:Machine Learning with R and TensorFlow - J.J. ALLAIREReinforcement learning in Minecraft with CNTK-R – Ali-Kazim ZaidiPresent:Other:</description>
     </item>
     
   </channel>

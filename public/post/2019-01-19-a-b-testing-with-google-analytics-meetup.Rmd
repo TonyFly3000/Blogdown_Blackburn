@@ -4,7 +4,7 @@ author: ''
 date: '2019-01-19'
 slug: a-b-testing-with-google-analytics-meetup
 categories: []
-tags: []
+tags: [data]
 description: 'A/B testing with Google Analytics meetup'
 topics: []
 ---
