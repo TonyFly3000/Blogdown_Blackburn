@@ -7,10 +7,41 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 01 Dec 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 16 Feb 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/reading/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Principles</title>
+      <link>/reading/principles/</link>
+      <pubDate>Sat, 16 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/reading/principles/</guid>
+      <description>“Principles” by Ray Dalio at September 19, 2017:
+https://www.youtube.com/watch?v=axjq92vga9E</description>
+    </item>
+    
+    <item>
+      <title>deep work</title>
+      <link>/reading/deep-work/</link>
+      <pubDate>Sat, 16 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/reading/deep-work/</guid>
+      <description>“Deep work” by Cal Newport at January 5, 2016:
+https://www.youtube.com/watch?v=gTaJhjQHcf8
+https://www.youtube.com/watch?v=3E7hkPZ-HTk
+ContentPart 1 The Idea
+Chapter 1 Deep Work Is Valuable
+Chapter 2 Deep Work Is Rare
+Chapter 3 Deep Work Is Meaningful
+Part 2 The Rules
+Rule #1 Work Deeply
+Rule #2 Embrace Boredom
+Rule #3 Quit Social Media
+Rule #4 Drain the Shallows
+</description>
+    </item>
     
     <item>
       <title>Remote</title>
@@ -40,7 +71,7 @@ You’re probably already doing it</description>
       <pubDate>Sat, 01 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/reading/test001/</guid>
-      <description>Rework by Jason Fried and David Heinemeier Hansson at March 2, 2010:
+      <description>Rework by Jason Fried and David Heinemeier Hansson at March 2, 2010:
 https://www.amazon.com/Rework-Jason-Fried-ebook/dp/B002MUAJ2A
 Content1.First
 The New Reality

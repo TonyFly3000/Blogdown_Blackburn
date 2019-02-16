@@ -53,4 +53,16 @@ description = "Tony Book"
 <img src="/reading/zero-to-one/zero_2_one.jpg" alt="Smiley face" height="400" width="250"> 
 
 
+---------------------------------------------------------------------
+["Deep work" by Cal Newport](/reading/deep-work/index.html)
+
+<img src="/reading/deep-work/deep work.jpg" alt="Smiley face" height="400" width="250"> 
+
+---------------------------------------------------------------------
+["Principles" by Ray Dalio](/reading/principles/index.html)
+
+<img src="/reading/principles/Principles.jpg" alt="Smiley face" height="400" width="250"> 
+
+
+
 
