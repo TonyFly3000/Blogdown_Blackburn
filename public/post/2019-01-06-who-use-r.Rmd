@@ -22,7 +22,9 @@ There are two data sources:
 ## Conclusion
 
 Estimate total 1-2 milion R user around the world 35% from US and 5% from China with 20% YOY grow.
+
 -------------------------------------------------------------------------------
+
 
 ## R base download volume by year
 There is a tremendous growth in 2018Q4, reaching 140K monthly download at Oct nearly double year over year. 
