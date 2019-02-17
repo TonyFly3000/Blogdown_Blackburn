@@ -19,6 +19,9 @@ There are two data sources:
 
 3. CSV data from http://cran-logs.rstudio.com/
 
+## Conclusion
+
+Estimate total 1-2 milion R user around the world 35% from US and 5% from China with 20% YOY grow.
 -------------------------------------------------------------------------------
 
 ## R base download volume by year
@@ -57,6 +60,59 @@ p%>%layout(title = 'R software download')
 ```
 code:http://rpubs.com/estimate/whousingR
 
+
+-------------------------------------------------------------------------------
+
+## 2018 R base download volume by version
+
+version 3.5.1 have the most  monthly download
+
+```{r,warning=FALSE ,message=FALSE}
+library(tidyverse)
+library(plotly)
+library(lubridate)
+# load data 
+version002=read.csv('version002.csv')
+p=plot_ly(data=version002,y=~downloads,x=~month    
+          ,color = ~version
+          ,type = 'scatter', mode = 'lines+markers')
+p%>%layout(title = '2018 R base download volume by version')
+```
+
+
+-------------------------------------------------------------------------------
+
+## 2018 R base total download volume by Top 10 country 
+
+2018 Total R base download around 1 Million .US have the most download  378K.China have 50K 
+Total R base download around 800K at 2017.
+
+```{r,warning=FALSE ,message=FALSE}
+# load data 
+library(tidyverse)
+library(plotly)
+country003=read.csv('country003.csv')
+country003%>%filter(year==2018)%>%summarise(downloads=sum(downloads))
+country003%>%filter(year==2017)%>%summarise(downloads=sum(downloads))
+```
+
+
+```{r,warning=FALSE ,message=FALSE}
+# load data 
+library(tidyverse)
+library(plotly)
+country003=read.csv('country003.csv')
+country004=country003%>%group_by(Country)%>%summarise(downloads=sum(downloads))%>%
+  top_n(10, wt = downloads)
+
+p=country003%>%filter(Country %in% country004$Country,year==2018)%>%
+  plot_ly(x = ~downloads, y = ~fct_reorder(Country, downloads)) %>%
+  add_markers() %>%
+  layout(xaxis = list(title = "downloads"),
+         yaxis = list(title = "Country", type = "category"))
+
+p%>%layout(title = '2018 R base total download volume by Top 10 country')
+```
 -------------------------------------------------------------------------------
 
 ## Top 10 R pakcage download at past week
@@ -93,49 +149,6 @@ p=plot_ly(data=R_download002,y=~downloads,x=~month
 p%>%layout(title = 'ggplot2 download')
 ```
 
--------------------------------------------------------------------------------
 
-## 2018 R base download volume by version
-
-version 3.5.1 have the most  monthly download
-
-```{r,warning=FALSE ,message=FALSE}
-library(tidyverse)
-library(plotly)
-library(lubridate)
-# load data 
-version002=read.csv('version002.csv')
-p=plot_ly(data=version002,y=~downloads,x=~month    
-          ,color = ~version
-          ,type = 'scatter', mode = 'lines+markers')
-p%>%layout(title = '2018 R base download volume by version')
-```
-
-
--------------------------------------------------------------------------------
-
-## 2017,2018 R base total download volume by Top 10 country 
-
-US have the most download 276K in 2017 and 378K in 2018.China 48K in 2017 and 50K in 2018
-
-```{r,warning=FALSE ,message=FALSE}
-# load data 
-library(tidyverse)
-country003=read.csv('country003.csv')
-
-country004=country003%>%group_by(Country)%>%summarise(downloads=sum(downloads))%>%
-  top_n(10, wt = downloads)
-
-p=country003%>%filter(Country %in% country004$Country)%>%
-  plot_ly(x = ~downloads, y = ~fct_reorder(Country, downloads)
-          ,color = ~as.factor(year)) %>%
-  add_markers() %>%
-  layout(xaxis = list(title = "downloads"),
-         yaxis = list(title = "Country", type = "category"))
-
-p%>%layout(title = '2017,2018 R base total download volume by Top 10 country')
-```
-
-
-code:http://rpubs.com/estimate/whousingR
-
+## Reference
+https://www.quora.com/How-many-people-use-R

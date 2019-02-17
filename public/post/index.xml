@@ -7,24 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 16 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 19 Jan 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Learning How to Learn</title>
-      <link>/post/learning-how-to-learn/</link>
-      <pubDate>Sat, 16 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/learning-how-to-learn/</guid>
-      <description>SummaryDaniel Bourke youtube:https://www.youtube.com/watch?v=2DUxjcVtcdI
-coursera:
-Learning How to Learn: Powerful mental tools to help you master tough subjectsby McMaster University &amp;amp; University of California San Diego
-https://www.coursera.org/learn/learning-how-to-learn/home/welcome
-A MIND FOR NUMBERS by Barbara Oakley:https://www.youtube.com/watch?v=XHTV1uyVkhw
-WEEK 1: What is learning?Focused and Diffuse ModesWEEK 2: ChunkingWEEK 3:Procrastination and MemoryWEEK 4:Renaissance Learning and Unlocking Your Potential</description>
-    </item>
     
     <item>
       <title>A/B testing with Google Analytics meetup</title>
@@ -73,7 +59,7 @@ There are two data sources:
 JSON API data from https://cranlogs.r-pkg.org/
 data from package cranlogs which wrap data from https://cranlogs.r-pkg.org/
 CSV data from http://cran-logs.rstudio.com/
-R base download volume by yearThere is a tremendous growth in 2018Q4, reaching 140K monthly download at Oct nearly double year over year.</description>
+ConclusionEstimate total 1-2 milion R user around the world 35% from US and 5% from China with 20% YOY grow.</description>
     </item>
     
     <item>
@@ -389,6 +375,20 @@ Get:Clean:Visualize:Model:Machine Learning with R and TensorFlow - J.J. A
       <description>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
 ▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png  should become
 ▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
+    </item>
+    
+    <item>
+      <title>Learning How to Learn</title>
+      <link>/post/learning-how-to-learn/</link>
+      <pubDate>Sat, 01 Jan 2000 00:00:00 +0000</pubDate>
+      
+      <guid>/post/learning-how-to-learn/</guid>
+      <description>SummaryDaniel Bourke youtube:https://www.youtube.com/watch?v=2DUxjcVtcdI
+coursera:
+Learning How to Learn: Powerful mental tools to help you master tough subjectsby McMaster University &amp;amp; University of California San Diego
+https://www.coursera.org/learn/learning-how-to-learn/home/welcome
+A MIND FOR NUMBERS by Barbara Oakley:https://www.youtube.com/watch?v=XHTV1uyVkhw
+WEEK 1: What is learning?Focused and Diffuse ModesWEEK 2: ChunkingWEEK 3:Procrastination and MemoryWEEK 4:Renaissance Learning and Unlocking Your Potential</description>
     </item>
     
     <item>
