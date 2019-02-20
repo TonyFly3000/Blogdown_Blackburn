@@ -7,10 +7,30 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 19 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 19 Feb 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Pydata HK meetup Feb2019</title>
+      <link>/post/pydata-hk-meetup-feb2019/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/pydata-hk-meetup-feb2019/</guid>
+      <description>https://www.meetup.com/PyData-Hong-Kong/events/258897818/
+Making the Big Data ecosystem work together with Python: Apache Arrow, Spark, Flink, Beam, and Dask by Holden Karau
+Cheess toastCheess noddle</description>
+    </item>
+    
+    <item>
+      <title>Happy Chinese New year 2019 : The year of PIG!</title>
+      <link>/post/happy-chinese-new-year-2019-the-year-of-pig/</link>
+      <pubDate>Mon, 04 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/happy-chinese-new-year-2019-the-year-of-pig/</guid>
+      <description>HometownUpper Hill Shenzhen</description>
+    </item>
     
     <item>
       <title>A/B testing with Google Analytics meetup</title>
