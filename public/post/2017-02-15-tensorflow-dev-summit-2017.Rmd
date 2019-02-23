@@ -1,0 +1,31 @@
+---
+title: TensorFlow Dev Summit 2017
+author: ''
+date: '2017-02-15'
+slug: tensorflow-dev-summit-2017
+categories: []
+tags: []
+description: 'TensorFlow Dev Summit 2017'
+topics: []
+---
+
+## TensorFlow Dev Summit 2017
+
+- Tensorflow 1.0 launch
+- Tensorflow support board ML .for exameple,K-means,SVM,Random Forest
+
+![](/post\tensorflow-dev-summit-2017/2019-02-23 16_18_05-Clipboard.png){width=760px height=500px}
+
+
+![](/post\tensorflow-dev-summit-2017/2019-02-23 16_21_13-Clipboard.png){width=760px height=500px}
+
+
+<iframe width="760" height="520" src="https://www.youtube.com/embed/4n1AHvDvVvw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+event:https://events.withgoogle.com/tensorflow-dev-summit/
+
+Full playlist:
+
+https://www.youtube.com/watch?v=4n1AHvDvVvw
+
+

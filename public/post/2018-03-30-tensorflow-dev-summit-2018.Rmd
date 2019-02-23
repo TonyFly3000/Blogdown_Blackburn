@@ -1,0 +1,20 @@
+---
+title: TensorFlow Dev Summit 2018
+author: ''
+date: '2018-03-30'
+slug: tensorflow-dev-summit-2018
+categories: []
+tags: []
+description: 'tensorflow-dev-summit-2018'
+topics: []
+---
+
+## TensorFlow Dev Summit 2018
+
+
+<iframe width="760" height="520" src="https://www.youtube.com/embed/kSa3UObNS6o" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+Full playlist:
+
+https://www.youtube.com/playlist?list=PLQY2H8rRoyvxjVx3zfw4vA4cvlKogyLNN
+
