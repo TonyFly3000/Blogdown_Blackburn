@@ -19,6 +19,7 @@ topics: []
 
 ![](/post\tensorflow-dev-summit-2017/2019-02-23 16_21_13-Clipboard.png){width=760px height=500px}
 
+![](/post\tensorflow-dev-summit-2017/2019-02-23 16_35_54-Clipboard.png){width=760px height=500px}
 
 <iframe width="760" height="520" src="https://www.youtube.com/embed/4n1AHvDvVvw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
