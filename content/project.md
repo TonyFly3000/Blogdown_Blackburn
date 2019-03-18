@@ -17,6 +17,11 @@ and inspired by Hans Rosling
 -------------------------------------------------------------------
 # Talk
 
+## 2019-03-16 2019 TensorFlow Dev Summit meetup
+
+[Slice](/PPT/2019TFDS_intro.html)
+
+
 ## 2018-12-26 Introduction to Alation and tableau 
 
 [Slice](/PPT/201811_Alation_tableau.html) and [PPT](/PPT/201812_auto_dashboard.pptx)
