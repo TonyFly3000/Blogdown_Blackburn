@@ -10,7 +10,17 @@ topics: []
 ---
 
 
-Mar 2019  TFUG Shenzhen event @ Wework
+Tensorflow user group first event @ Wework
+
+活动行：https://www.huodongxing.com/event/2482903677300
+
+
+[微信公众号文章](https://mp.weixin.qq.com/s?src=11&timestamp=1553009140&ver=1494&signature=0K*K5D6AUTGbo6o7GQDCOMFTA0J87CW-3SnR6IvBAJC9CGskQThZBbLlDIwTqVSYSv6Zk4wB*VkBSeWmiIouAZquWQu4LIkS7H*D*OcVQqoFKS6hBd80Z6Na*JbDMtOw&new=1)
+
+
+活动PPT：https://github.com/TonyFly3000/TFUG_Shenzhen
+
+
 
 ![](/post\2019-tfug-event-shenzhen/01.jpg){width=760px height=500px}
 
