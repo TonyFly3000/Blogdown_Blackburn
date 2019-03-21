@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 16 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 21 Mar 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Bodypump &amp; Bodycombat</title>
+      <link>/post/bodypump-bodycombat/</link>
+      <pubDate>Thu, 21 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/bodypump-bodycombat/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Mar 2019  TFUG Shenzhen event@Wework</title>
@@ -20,8 +29,8 @@
       <guid>/post/2019-tfug-event-shenzhen/</guid>
       <description>Tensorflow user group first event @ Wework
 活动行：https://www.huodongxing.com/event/2482903677300
-微信公众号文章
-活动PPT：https://github.com/TonyFly3000/TFUG_Shenzhen</description>
+活动PPT：https://github.com/TonyFly3000/TFUG_Shenzhen
+微信公众号文章</description>
     </item>
     
     <item>
