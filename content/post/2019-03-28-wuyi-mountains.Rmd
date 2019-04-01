@@ -1,0 +1,48 @@
+---
+title: 2019 BM outing @武夷山 | WUYI mountains
+author: ''
+date: '2019-03-28'
+slug: wuyi-mountains
+categories: []
+tags: []
+description: 'WUYI mountains'
+topics: []
+---
+
+
+
+## Location:
+
+
+```{r warning=FALSE ,message=FALSE}
+library(leaflet)
+library(ggmap)
+location=geocode("WUYI", source = "dsk")
+lon=location$lon
+lat=location$lat
+m <- leaflet()%>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  setView(lng=lon, lat=lat, zoom = 08) %>%
+addMarkers(lng=lon, lat=lat, popup="WUYI mountains")
+m
+
+```
+
+
+![](/post/wuyi-mountains/wuyi001.jpg){width=700px height=500px}
+![](/post/wuyi-mountains/wuyi004.jpg){width=700px height=500px}
+
+![](/post/wuyi-mountains/wuyi002.jpg){width=700px height=550px}
+
+
+
+![](/post/wuyi-mountains/wuyi003.jpg){width=700px height=550px}
+
+
+
+![](/post/wuyi-mountains/wuyi005.jpg){width=700px height=500px}
+
+
+
+
+

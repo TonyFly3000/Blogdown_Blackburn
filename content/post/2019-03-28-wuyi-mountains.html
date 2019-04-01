@@ -1,0 +1,42 @@
+---
+title: 2019 BM outing @武夷山 | WUYI mountains
+author: ''
+date: '2019-03-28'
+slug: wuyi-mountains
+categories: []
+tags: []
+description: 'WUYI mountains'
+topics: []
+---
+
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="/rmarkdown-libs/leaflet/leaflet.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/leaflet/leaflet.js"></script>
+<link href="/rmarkdown-libs/leafletfix/leafletfix.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/Proj4Leaflet/proj4-compressed.js"></script>
+<script src="/rmarkdown-libs/Proj4Leaflet/proj4leaflet.js"></script>
+<link href="/rmarkdown-libs/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/leaflet-binding/leaflet.js"></script>
+
+
+<div id="location" class="section level2">
+<h2>Location:</h2>
+<pre class="r"><code>library(leaflet)
+library(ggmap)
+location=geocode(&quot;WUYI&quot;, source = &quot;dsk&quot;)
+lon=location$lon
+lat=location$lat
+m &lt;- leaflet()%&gt;%
+  addTiles() %&gt;%  # Add default OpenStreetMap map tiles
+  setView(lng=lon, lat=lat, zoom = 08) %&gt;%
+addMarkers(lng=lon, lat=lat, popup=&quot;WUYI mountains&quot;)
+m</code></pre>
+<div id="htmlwidget-1" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[27.70167,117.98917,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"WUYI mountains",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"setView":[[27.70167,117.98917],8,[]],"limits":{"lat":[27.70167,27.70167],"lng":[117.98917,117.98917]}},"evals":[],"jsHooks":[]}</script>
+<p><img src="/post/wuyi-mountains/wuyi001.jpg" width="700" height="500" />
+<img src="/post/wuyi-mountains/wuyi004.jpg" width="700" height="500" /></p>
+<p><img src="/post/wuyi-mountains/wuyi002.jpg" width="700" height="550" /></p>
+<p><img src="/post/wuyi-mountains/wuyi003.jpg" width="700" height="550" /></p>
+<p><img src="/post/wuyi-mountains/wuyi005.jpg" width="700" height="500" /></p>
+</div>
