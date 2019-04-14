@@ -5,7 +5,7 @@ sidemenu = "true"
 description = "Welcome.It is Tony Duan | a data analyst | R fans | coffee lover"
 +++
 
-<center><img src="/img/home_pic.jpg" alt="Smiley face" height="380" width="500"></center>
+<center><img src="/img/wuyi002.jpg" alt="Smiley face" height="550" width="700"></center>
 
 
 ## <center>[CV( in PDF)](./CV.pdf)</center>

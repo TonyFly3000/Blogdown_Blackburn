@@ -1,0 +1,12 @@
+---
+title: Aussie
+author: ''
+date: '2012-04-30'
+slug: aussie
+categories: []
+tags: []
+description: 'Aussie'
+topics: []
+---
+
+![](/post/aussie/home_pic.jpg){width=700px height=500px}
