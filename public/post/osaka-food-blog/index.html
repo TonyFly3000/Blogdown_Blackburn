@@ -4,10 +4,10 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
+  <meta name="description" content="Osaka | 大阪">
   <meta name="generator" content="Hugo 0.48" />
 
-  <title>Tony Duan</title>
+  <title>Osaka | 大阪 Food Blog &middot; Tony Duan</title>
 
   
   
@@ -39,8 +39,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
  
-  
-  <link rel="alternate" type="application/rss+xml" title="Tony Duan" href="/index.xml" />
   
 
   
@@ -225,54 +223,11 @@
 
 
 <div class="header">
-  <h1>Tony Duan</h1>
-  <h2>Data artist | Coffee lover</h2>
+  <h1>Osaka | 大阪 Food Blog</h1>
 </div>
-
 <div class="content">
-  
-    <article>
-  <header>
-    <h2><a href="/post/kyoto/">Kyoto | 京都 Food Blog</a></h2>
 
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>02 May 2019, 00:00</time>
-  </div>
-
-  
-
-  
-  
-  
-  
-
-  
-  
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-        
-        Kyoto | 京都
-        
-  </p>
-
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="/post/osaka-food-blog/">Osaka | 大阪 Food Blog</a></h2>
-
-    <div class="post-meta">
+  <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
@@ -293,342 +248,93 @@
 
 </div>
 
-  </header>
+  <script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="/rmarkdown-libs/leaflet/leaflet.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/leaflet/leaflet.js"></script>
+<link href="/rmarkdown-libs/leafletfix/leafletfix.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/Proj4Leaflet/proj4-compressed.js"></script>
+<script src="/rmarkdown-libs/Proj4Leaflet/proj4leaflet.js"></script>
+<link href="/rmarkdown-libs/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/leaflet-binding/leaflet.js"></script>
 
-  <p>
-        
-        Osaka | 大阪
-        
-  </p>
 
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="/post/wuyi-mountains/">2019 BM outing @武夷山 | WUYI mountains</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>28 Mar 2019, 00:00</time>
-  </div>
-
-  
-
-  
-  
-  
-  
-
-  
-  
-  
-  
-
+<div id="location" class="section level2">
+<h2>Location:</h2>
+<pre class="r"><code>library(leaflet)
+library(ggmap)
+location=geocode(&quot;Osaka&quot;, source = &quot;dsk&quot;)
+lon=location$lon
+lat=location$lat
+m &lt;- leaflet()%&gt;%
+  addTiles() %&gt;%  # Add default OpenStreetMap map tiles
+  setView(lng=lon, lat=lat, zoom = 08) %&gt;%
+addMarkers(lng=lon, lat=lat, popup=&quot;Kyoto&quot;)
+m</code></pre>
+<div id="htmlwidget-1" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[34.69374,135.50218,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Kyoto",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"setView":[[34.69374,135.50218],8,[]],"limits":{"lat":[34.69374,34.69374],"lng":[135.50218,135.50218]}},"evals":[],"jsHooks":[]}</script>
+<p><img src="/post/osaka-food-blog/IMG_2180.jpeg" width="700" height="500" /></p>
+<p>双重幸福拉面 @ 花丸軒 地址：大阪府大阪市中央区難波1-2-1</p>
+<p><img src="/post/osaka-food-blog/IMG_2176.jpeg" width="700" height="500" /></p>
+<p>寿司 @ 天下の台所 大起水産 地址： 大阪府大阪市中央區難波 5-1-60</p>
+<p><img src="/post/osaka-food-blog/IMG_2266.jpeg" width="700" height="500" /></p>
+<p>烤和牛饭@ 肉劇場 地址：大阪府大阪市中央区道頓堀2-2-2</p>
+<p><img src="/post/osaka-food-blog/IMG_2173.jpeg" width="700" height="500" /></p>
+<p>手冲咖啡 @ 星乃珈琲店 地址：大阪府大阪市中央区南船場3-10-11 D+北心斎橋 2F</p>
 </div>
 
-  </header>
-
-  <p>
-        
-        WUYI mountains
-        
-  </p>
 
   
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="/post/bodypump-bodycombat/">Bodypump &amp; Bodycombat</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>21 Mar 2019, 00:00</time>
-  </div>
-
-  
-
-  
-  
-  
-  
-
-  
-  
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-        
-        Bodypump &amp; Bodycombat
-        
-  </p>
-
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="/post/2019-tfug-event-shenzhen/">Mar 2019  TFUG Shenzhen event@Wework</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>16 Mar 2019, 00:00</time>
-  </div>
-
-  
-
-  
-  
-  
-  
-
-  
-  
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-        
-        2019 TFUG event@Shenzhen
-        
-  </p>
-
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="/post/2019q1-seller-seimnar/">2019Q1 ebay Seller Seimnar</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>12 Mar 2019, 00:00</time>
-  </div>
-
-  
-
-  
-  
-  
-  
-
-  
-  
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-        
-        2019Q1 ebay Seller Seimnar
-        
-  </p>
-
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="/post/pydata-hk-meetup-feb2019/">Pydata HK meetup Feb2019</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>19 Feb 2019, 00:00</time>
-  </div>
-
-  
-
-  
-  
-  
-  
-
-  
-  
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-        
-        Pydata HK meetup Feb2019
-        
-  </p>
-
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="/post/happy-chinese-new-year-2019-the-year-of-pig/">Happy Chinese New year 2019 : The year of PIG!</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>04 Feb 2019, 00:00</time>
-  </div>
-
-  
-
-  
-  
-  
-  
-
-  
-  
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-        
-        Happy Chinese New year 2019 : The year of PIG!
-        
-  </p>
-
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="/post/a-b-testing-with-google-analytics-meetup/">A/B testing with Google Analytics meetup</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>19 Jan 2019, 00:00</time>
-  </div>
-
-  
-
-  
-  
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
     
-      <a class="post-taxonomy-tag" href="/tags/data">data</a>
+    <a href="/post/wuyi-mountains/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-        
-        A/B testing with Google Analytics meetup
-        
-  </p>
-
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="/post/mr-basketball-team/">Mr Basketball team</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>18 Jan 2019, 00:00</time>
-  </div>
-
-  
-
-  
-  
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
+  <div class="pure-u-10-24">
     
-      <a class="post-taxonomy-tag" href="/tags/life">life</a>
+    <nav class="prev">
+      <a href="/post/wuyi-mountains/">2019 BM outing @武夷山 | WUYI mountains</a>
+    </nav>
     
   </div>
-  
-  
-
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="/post/kyoto/">Kyoto | 京都 Food Blog</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="/post/kyoto/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
 </div>
 
-  </header>
-
-  <p>
-        
-        Mr Basketball team 
-        
-  </p>
-
-  
-</article>
-
-  
-
-  
 
 
-<nav class="pagination" role="pagination">
   
-  <i class="fa fa-chevron-left"></i>
-  
-  <span>&nbsp;1 / 5&nbsp;</span>
-  
-  <a href="/page/2/"><i class="fa fa-chevron-right"></i></a>
-  
-</nav>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
 
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
 </div>
