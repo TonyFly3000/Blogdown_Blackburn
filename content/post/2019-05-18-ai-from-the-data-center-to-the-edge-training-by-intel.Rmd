@@ -37,6 +37,10 @@ http://vmmrdb.cecsresearch.org/
 
 [Part4-OpenVINO_Video_Inference](/post\ai-from-the-data-center-to-the-edge-training-by-intel/Part4-OpenVINO_Video_Inference.html)
 
+
+------------------------------------------------------------------
+
+
 ## Inroduction to Tensorflow workshop by GDG Shanghai
 
 ![](/post\ai-from-the-data-center-to-the-edge-training-by-intel/004.jpg){width=760px height=500px}

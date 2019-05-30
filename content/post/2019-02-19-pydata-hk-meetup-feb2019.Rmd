@@ -19,7 +19,7 @@ Making the Big Data ecosystem work together with Python: Apache Arrow, Spark, Fl
 
 ![](/post\pydata-hk-meetup-feb2019/IMG_1719.jpeg){width=700px height=500px}
 
-![](/post\pydata-hk-meetup-feb2019/IMG_1720.jpeg){width=400px height=400px}
+![](/post\pydata-hk-meetup-feb2019/IMG_1720.jpeg){width=700px height=700px}
 
 ## Cheess toast
 ![](/post\pydata-hk-meetup-feb2019/123.png){width=330px height=450px}
