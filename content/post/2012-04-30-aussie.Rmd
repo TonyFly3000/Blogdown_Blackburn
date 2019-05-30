@@ -9,4 +9,4 @@ description: 'Aussie'
 topics: []
 ---
 
-![](/post/aussie/home_pic.jpg){width=700px height=500px}
+![](/post/aussie/home_pic.jpg){width=700px height=550px}

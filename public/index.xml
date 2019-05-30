@@ -6,11 +6,38 @@
     <description>Recent content on Tony Duan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 02 May 2019 00:00:00 +0000</lastBuildDate>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 28 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>2019 Q2 ebay Seller seminar</title>
+      <link>/post/2019-q2-ebay-seller-seimnar-guangzhou-shenzhen/</link>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019-q2-ebay-seller-seimnar-guangzhou-shenzhen/</guid>
+      <description>2019 Q2 ebay Seller Seimnar @ Guangzhou and Shenzhen.jpg Coffee</description>
+    </item>
+    
+    <item>
+      <title>AI From the Data Center to the Edge Workshop by Intel</title>
+      <link>/post/ai-from-the-data-center-to-the-edge-training-by-intel/</link>
+      <pubDate>Sat, 18 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ai-from-the-data-center-to-the-edge-training-by-intel/</guid>
+      <description>AI From the Data Center to the Edge workshop by IntelStolen Car model Data set:http://vmmrdb.cecsresearch.org/
+jupyter notebook:Part1-Exploratory_Data_Analysis
+Part2-Training_InceptionV3
+Part3-Model_Analysis
+Part4-OpenVINO_Video_Inference
+Inroduction to Tensorflow workshop by GDG Shanghaicalifornia_housing Data set:california_housing_train.csv
+california_housing_test.csv
+jupyter notebook:notebook_demo.ipynb
+P0.ipynb
+Peet’s Coffee</description>
+    </item>
     
     <item>
       <title>Kyoto | 京都 Food Blog</title>
@@ -31,7 +58,7 @@
       <pubDate>Wed, 01 May 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/osaka-food-blog/</guid>
-      <description>Location:library(leaflet)library(ggmap)location=geocode(&amp;quot;Osaka&amp;quot;, source = &amp;quot;dsk&amp;quot;)lon=location$lonlat=location$latm &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=lon, lat=lat, zoom = 08) %&amp;gt;%addMarkers(lng=lon, lat=lat, popup=&amp;quot;Kyoto&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[34.69374,135.50218,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;Kyoto&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[34.69374,135.50218],8,[]],&#34;limits&#34;:{&#34;lat&#34;:[34.69374,34.69374],&#34;lng&#34;:[135.50218,135.50218]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}双重幸福拉面 @ 花丸軒 地址：大阪府大阪市中央区難波1-2-1
+      <description>Location:library(leaflet)library(ggmap)location=geocode(&amp;quot;Osaka&amp;quot;, source = &amp;quot;dsk&amp;quot;)lon=location$lonlat=location$latm &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=lon, lat=lat, zoom = 08) %&amp;gt;%addMarkers(lng=lon, lat=lat, popup=&amp;quot;Osaka&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[34.69374,135.50218,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;Osaka&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[34.69374,135.50218],8,[]],&#34;limits&#34;:{&#34;lat&#34;:[34.69374,34.69374],&#34;lng&#34;:[135.50218,135.50218]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}双重幸福拉面 @ 花丸軒 地址：大阪府大阪市中央区難波1-2-1
 寿司 @ 天下の台所 大起水産 地址： 大阪府大阪市中央區難波 5-1-60
 烤和牛饭@ 肉劇場 地址：大阪府大阪市中央区道頓堀2-2-2
 手冲咖啡 @ 星乃珈琲店 地址：大阪府大阪市中央区南船場3-10-11 D+北心斎橋 2F
@@ -69,12 +96,12 @@
     </item>
     
     <item>
-      <title>2019Q1 ebay Seller Seimnar</title>
+      <title>2019 Q1 ebay Seller seminar</title>
       <link>/post/2019q1-seller-seimnar/</link>
       <pubDate>Tue, 12 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019q1-seller-seimnar/</guid>
-      <description>2019Q1 ebay Seller Seimnar @ Guangzhou and Shenzhen</description>
+      <description>2019 Q1 ebay Seller Seimnar @ Guangzhou and Shenzhen&amp;amp; coffee</description>
     </item>
     
     <item>
@@ -623,20 +650,6 @@ https://www.youtube.com/watch?v=4n1AHvDvVvw
       
       <guid>/post/aussie/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>Learning How to Learn</title>
-      <link>/post/learning-how-to-learn/</link>
-      <pubDate>Sat, 01 Jan 2000 00:00:00 +0000</pubDate>
-      
-      <guid>/post/learning-how-to-learn/</guid>
-      <description>SummaryDaniel Bourke youtube:https://www.youtube.com/watch?v=2DUxjcVtcdI
-coursera:
-Learning How to Learn: Powerful mental tools to help you master tough subjectsby McMaster University &amp;amp; University of California San Diego
-https://www.coursera.org/learn/learning-how-to-learn/home/welcome
-A MIND FOR NUMBERS by Barbara Oakley:https://www.youtube.com/watch?v=XHTV1uyVkhw
-WEEK 1: What is learning?Focused and Diffuse ModesWEEK 2: ChunkingWEEK 3:Procrastination and MemoryWEEK 4:Renaissance Learning and Unlocking Your Potential</description>
     </item>
     
     <item>

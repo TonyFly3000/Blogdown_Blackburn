@@ -1,0 +1,66 @@
+---
+title: AI From the Data Center to the Edge Workshop by Intel
+author: ''
+date: '2019-05-18'
+slug: ai-from-the-data-center-to-the-edge-training-by-intel
+categories: []
+tags: []
+description: 'AI From the Data Center to the Edge  by Intel'
+topics: []
+---
+
+
+
+## AI From the Data Center to the Edge workshop by Intel
+
+![](/post\ai-from-the-data-center-to-the-edge-training-by-intel/001.jpg){width=760px height=550px}
+
+
+![](/post\ai-from-the-data-center-to-the-edge-training-by-intel/002.jpg){width=760px height=550px}
+
+
+![](/post\ai-from-the-data-center-to-the-edge-training-by-intel/003.jpg){width=760px height=500px}
+![](/post\ai-from-the-data-center-to-the-edge-training-by-intel/005.jpg){width=760px height=500px}
+
+
+
+## Stolen Car model Data set:
+http://vmmrdb.cecsresearch.org/
+
+## jupyter notebook:
+
+[Part1-Exploratory_Data_Analysis](/post\ai-from-the-data-center-to-the-edge-training-by-intel/Part1-Exploratory_Data_Analysis.html)
+
+[Part2-Training_InceptionV3](/post\ai-from-the-data-center-to-the-edge-training-by-intel/Part2-Training_InceptionV3.html)
+
+[Part3-Model_Analysis](/post\ai-from-the-data-center-to-the-edge-training-by-intel/Part3-Model_Analysis.html)
+
+[Part4-OpenVINO_Video_Inference](/post\ai-from-the-data-center-to-the-edge-training-by-intel/Part4-OpenVINO_Video_Inference.html)
+
+## Inroduction to Tensorflow workshop by GDG Shanghai
+
+![](/post\ai-from-the-data-center-to-the-edge-training-by-intel/004.jpg){width=760px height=500px}
+
+
+
+![](/post\ai-from-the-data-center-to-the-edge-training-by-intel/006.jpg){width=760px height=500px}
+![](/post\ai-from-the-data-center-to-the-edge-training-by-intel/007.jpg){width=760px height=500px}
+
+## california_housing Data set:
+
+[california_housing_train.csv](/post\ai-from-the-data-center-to-the-edge-training-by-intel/california_housing_train.csv)
+
+[california_housing_test.csv](/post\ai-from-the-data-center-to-the-edge-training-by-intel/california_housing_test.csv)
+
+## jupyter notebook:
+
+[notebook_demo.ipynb](/post\ai-from-the-data-center-to-the-edge-training-by-intel/notebook_demo.html)
+
+[P0.ipynb](/post\ai-from-the-data-center-to-the-edge-training-by-intel/P0.html)
+
+
+## Peet's Coffee
+
+
+![](/post\ai-from-the-data-center-to-the-edge-training-by-intel/coffee.jpg){width=760px height=500px}
+
