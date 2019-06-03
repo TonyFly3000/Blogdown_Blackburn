@@ -1,0 +1,59 @@
+---
+title: Google Cloud Platform (GCP) Trainning by GDG
+author: ''
+date: '2019-05-31'
+slug: google-cloud-platform-gcp-trainning-by-gdg
+categories: []
+tags: []
+description: 'Google Cloud Platform (GCP) Trainning by GDG'
+topics: []
+---
+
+
+## GCP Fundamentals:Core Infrastructure Training
+
+https://www.huodongxing.com/event/4490855305500
+
+
+### By Eefy Lin 
+![](/post\google-cloud-platform-gcp-trainning-by-gdg/IMG_2402.JPEG){width=760px height=550px}
+
+### GCP launch
+![](/post\google-cloud-platform-gcp-trainning-by-gdg/IMG_2408.JPEG){width=760px height=550px}
+
+### Always good food at GDG
+![](/post\google-cloud-platform-gcp-trainning-by-gdg/IMG_2407.JPEG){width=760px height=550px}
+
+### Completed
+![](/post\google-cloud-platform-gcp-trainning-by-gdg/IMG_2411.JPEG){width=500px height=650px}
+
+
+## Course Slice:
+
+[0_Course_Intro.pdf](/post\google-cloud-platform-gcp-trainning-by-gdg/GCP_Fund_Module_0_Course_Intro.pdf)
+
+[1_Introducing_Google_Cloud_Platform.pdf](/post\google-cloud-platform-gcp-trainning-by-gdg/GCP_Fund_Module_1_Introducing_Google_Cloud_Platform.pdf)
+
+[2_Getting_started_with_Google_Cloud_Platform.pdf](/post\google-cloud-platform-gcp-trainning-by-gdg/GCP_Fund_Module_2_Getting_started_with_Google_Cloud_Platform.pdf)
+
+[3_Virtual_Machines_in_the_Cloud.pdf](/post\google-cloud-platform-gcp-trainning-by-gdg/GCP_Fund_Module_3_Virtual_Machines_in_the_Cloud.pdf)
+
+[4_Storage_in_the_Cloud.pdf](/post\google-cloud-platform-gcp-trainning-by-gdg/GCP_Fund_Module_4_Storage_in_the_Cloud.pdf)
+
+[5_Containers_in_the_Cloud.pdf](/post\google-cloud-platform-gcp-trainning-by-gdg/GCP_Fund_Module_5_Containers_in_the_Cloud.pdf)
+
+[6_Applications_in_the_Cloud.pdf](/post\google-cloud-platform-gcp-trainning-by-gdg/GCP_Fund_Module_6_Applications_in_the_Cloud.pdf)
+
+[7_Developing__Deploying__and_Monitoring_in_the_Cloud.pdf](/post\google-cloud-platform-gcp-trainning-by-gdg/GCP_Fund_Module_7_Developing__Deploying__and_Monitoring_in_the_Cloud.pdf)
+
+
+[8_Big_Data_and_Machine_Learning_in_the_Cloud.pdf](/post\google-cloud-platform-gcp-trainning-by-gdg/GCP_Fund_Module_8_Big_Data_and_Machine_Learning_in_the_Cloud.pdf)
+
+[9_Summary_and_Review.pdf](/post\google-cloud-platform-gcp-trainning-by-gdg/GCP_Fund_Module_9_Summary_and_Review.pdf)
+
+
+
+
+
+
+

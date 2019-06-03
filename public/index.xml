@@ -7,10 +7,30 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 28 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 31 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Google Cloud Platform (GCP) Trainning by GDG</title>
+      <link>/post/google-cloud-platform-gcp-trainning-by-gdg/</link>
+      <pubDate>Fri, 31 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/google-cloud-platform-gcp-trainning-by-gdg/</guid>
+      <description>GCP Fundamentals:Core Infrastructure Traininghttps://www.huodongxing.com/event/4490855305500
+By Eefy LinGCP launchAlways good food at GDGCompletedCourse Slice:0_Course_Intro.pdf
+1_Introducing_Google_Cloud_Platform.pdf
+2_Getting_started_with_Google_Cloud_Platform.pdf
+3_Virtual_Machines_in_the_Cloud.pdf
+4_Storage_in_the_Cloud.pdf
+5_Containers_in_the_Cloud.pdf
+6_Applications_in_the_Cloud.pdf
+7_Developing__Deploying__and_Monitoring_in_the_Cloud.pdf
+8_Big_Data_and_Machine_Learning_in_the_Cloud.pdf
+9_Summary_and_Review.pdf
+</description>
+    </item>
     
     <item>
       <title>2019 Q2 ebay Seller seminar</title>
