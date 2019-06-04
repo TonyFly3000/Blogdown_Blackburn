@@ -1,0 +1,253 @@
+---
+title: kaggle kernel系列:方便面
+author: ''
+date: '2009-06-04'
+slug: kaggle kernel:ramen ratings
+categories: []
+tags: []
+description: 'kaggle kernel:ramen ratings'
+topics: []
+---
+
+## 数据集：方便面评分 ramen ratings 
+
+Link:https://www.kaggle.com/residentmario/ramen-ratings
+
+2018年1月的数据，40KB，CSV format.7个变量，3180行数据量
+
+数据源 从 在网站[theramenrater.com] 上爬下来。目前该网站还在继续点评方便面
+
+数据内容是方便面的点评数据。外国人方便面都叫拉面。。weird。。
+
+目前有 114个kernal(大部分为python),65个赞。
+
+收录到在 2019-06-04期tidytuesday
+
+https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-06-04
+
+## package
+
+```{r warning=FALSE ,message=FALSE}
+# input data
+library(readr)
+# clean data
+library(tidyverse)
+# model
+library(rpart)
+library(rpart.plot)
+library(ROCR)
+```
+
+## input data
+
+```{r warning=FALSE ,message=FALSE}
+ramen_ratings <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-06-04/ramen_ratings.csv")
+
+```
+
+
+## EDA
+
+3180行，6个变量
+```{r warning=FALSE ,message=FALSE}
+glimpse(ramen_ratings)
+```
+
+2个数值型，4个文本型
+```{r warning=FALSE ,message=FALSE}
+names(ramen_ratings%>%select_if(is.numeric))
+names(ramen_ratings%>%select_if(is.character))
+```
+
+review_number为点评序号；stars为评分
+```{r warning=FALSE ,message=FALSE}
+
+ramen_ratings %>%
+  keep(is.numeric) %>% 
+  gather() %>% 
+  ggplot(aes(value)) +
+    facet_wrap(~ key, scales = "free") +
+    geom_histogram()
+
+```
+
+
+13.9% 为日清牌子
+```{r warning=FALSE ,message=FALSE}
+ramen_ratings %>%mutate(brand=fct_lump(brand,10))%>%
+   count(brand, sort = TRUE)%>%mutate(percent = n / sum(n))
+```
+
+57% 为包装；19%为碗装
+```{r warning=FALSE ,message=FALSE}
+ramen_ratings %>%
+   count(style, sort = TRUE)%>%mutate(percent = n / sum(n))
+```
+
+16% 日本。不确定是产地为日本还是牌子是日本。
+```{r warning=FALSE ,message=FALSE}
+ramen_ratings %>%mutate(country=fct_lump(country,8))%>%
+   count(country, sort = TRUE)%>%mutate(percent = n / sum(n))
+```
+
+brand和country 交叉表。可见country 为产地。
+```{r warning=FALSE ,message=FALSE}
+ramen_ratings %>%mutate(country=fct_lump(country,20))%>%
+   count(brand,country, sort = TRUE)%>%mutate(percent = n / sum(n))
+```
+
+```{r warning=FALSE ,message=FALSE}
+ramen_ratings%>%filter(country=='Hong Kong')
+```
+
+
+```{r warning=FALSE ,message=FALSE}
+ramen_ratings%>%arrange(desc(stars))
+```
+
+## clean data
+
+```{r warning=FALSE ,message=FALSE}
+ramen_ratings_02=ramen_ratings%>%filter(is.na(stars)==FALSE)%>%
+  mutate(stars_level=factor(round(stars)),stars_target=factor(if_else(stars>=4,1,0)))%>%select(-review_number)%>%
+  mutate(brand_top=fct_lump(brand,50),
+         Spicy=str_detect(variety,'Spicy')+str_detect(variety,'Chili')+str_detect(          variety,'Hot')+str_detect(variety,'Kimchi') +str_detect(variety,'Laksa'),
+         Spicy_flag=if_else(Spicy>0,1,0),
+         Beef_flag=str_detect(variety,'Beef'),
+         Udon_flag=str_detect(variety,'Udon'),
+         Chicken_flag=str_detect(variety,'Chicken')
+         )
+```
+
+
+```{r warning=FALSE ,message=FALSE}
+ramen_ratings_02 %>%
+   count(stars_target, sort = TRUE)%>%mutate(percent = n / sum(n))
+```
+
+
+```{r warning=FALSE ,message=FALSE}
+ramen_ratings_02 %>%
+   count(stars_level, sort = TRUE)%>%mutate(percent = n / sum(n))
+```
+
+
+
+## Plot
+
+马来西亚高评分的占比最高
+
+```{r warning=FALSE ,message=FALSE}
+
+data=ramen_ratings_02%>%mutate(country=fct_lump(country,8))
+
+ggplot(data, aes(x = country, fill = stars_level))+
+  geom_bar(position="fill", colour="black")+
+  theme_classic(base_size = 9)+
+  labs(title='Bar chart for country due to stars ranges', 
+        subtitle='Cumulated', y="Indicator", fill="User assessment ranges")
+
+```
+
+图中可见 是否辣味 对评分影响不大
+```{r warning=FALSE ,message=FALSE}
+
+data=ramen_ratings_02
+
+ggplot(data, aes(x = Spicy_flag, fill = stars_level))+
+  geom_bar(position="fill", colour="black")+
+  theme_classic(base_size = 9)+
+  labs(title='Bar chart for country due to stars ranges', 
+        subtitle='Cumulated', y="Indicator", fill="User assessment ranges")
+
+
+
+```
+
+## Data split
+
+
+```{r warning=FALSE ,message=FALSE}
+set.seed(101) # Set Seed so that same sample can be reproduced in future also
+
+sample <- sample.int(n = nrow(ramen_ratings_02), size = floor(.9*nrow(ramen_ratings_02)), replace = F)
+train <- ramen_ratings_02[sample, ]%>%select(-variety,-stars,-stars_level,-brand)
+test  <- ramen_ratings_02[-sample, ]%>%select(-variety,-stars,-stars_level,-brand)
+```
+
+```{r warning=FALSE ,message=FALSE}
+dim(ramen_ratings_02)
+dim(train)
+dim(test)
+glimpse(train)
+
+```
+
+## Model
+是否辣味果然没有进入模型变量
+
+```{r warning=FALSE ,message=FALSE}
+tree = rpart(stars_target ~ country+style+brand_top+Spicy_flag, data=train,method = 'class')
+rpart.plot(tree)
+prp(tree)
+#tree
+```
+
+
+## evaluation
+
+如果什么都不知道准确率为50%；根据平均数 准确率为56% 。根据运用决策树模型，使用产地/品牌/类型 3个变量 ，准确率为67%
+
+
+on training data set : 66%
+```{r warning=FALSE ,message=FALSE}
+
+train$predict_stars_target<-predict(tree, train, type = 'class')
+table_mat <- table(train$stars_target, train$predict_stars_target)
+table_mat
+
+train%>%mutate(true=if_else(stars_target==predict_stars_target,1,0))%>%group_by()%>%summarise(true=sum(true),total=n())%>%mutate(accuary_rate=true/total)
+```
+
+on testing data set: 67%
+```{r warning=FALSE ,message=FALSE}
+test$predict_stars_target<-predict(tree, test, type = 'class')
+table_mat <- table(test$stars_target, test$predict_stars_target)
+table_mat
+
+test%>%mutate(true=if_else(stars_target==predict_stars_target,1,0))%>%group_by()%>%summarise(true=sum(true),total=n())%>%mutate(accuary_rate=true/total)
+```
+
+
+on average as benchmark : 56%
+
+```{r warning=FALSE ,message=FALSE}
+ramen_ratings_02%>%count(stars_target, sort = TRUE)%>%mutate(percent = n / sum(n))
+```
+
+高分概率最高的50个方便面的预测准确度并没有比平均高。
+
+```{r warning=FALSE ,message=FALSE}
+test$predict_stars_target_prob<-predict(tree, test)[,2]
+test=test%>%arrange(desc(predict_stars_target_prob))
+top_50_test=head(test,50)
+top_50_test%>%mutate(true=if_else(stars_target==predict_stars_target,1,0))%>%group_by()%>%summarise(true=sum(true),total=n())%>%mutate(accuary_rate=true/total)
+
+```
+
+## ROC
+
+```{r warning=FALSE ,message=FALSE}
+
+Pred.cart = predict(tree, newdata = test, type = "prob")[,2] 
+Pred2 = prediction(Pred.cart, test$stars_target) 
+plot(performance(Pred2, "tpr", "fpr"))
+abline(0, 1, lty = 2)
+
+```
+
+
+
+
+
+

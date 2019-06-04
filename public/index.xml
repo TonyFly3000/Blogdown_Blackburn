@@ -673,6 +673,23 @@ https://www.youtube.com/watch?v=4n1AHvDvVvw
     </item>
     
     <item>
+      <title>kaggle kernel系列:方便面</title>
+      <link>/post/kaggle-kernelramen-ratings/</link>
+      <pubDate>Thu, 04 Jun 2009 00:00:00 +0000</pubDate>
+      
+      <guid>/post/kaggle-kernelramen-ratings/</guid>
+      <description>数据集：方便面评分 ramen ratingsLink:https://www.kaggle.com/residentmario/ramen-ratings
+2018年1月的数据，40KB，CSV format.7个变量，3180行数据量
+数据源 从 在网站[theramenrater.com] 上爬下来。目前该网站还在继续点评方便面
+数据内容是方便面的点评数据。外国人方便面都叫拉面。。weird。。
+目前有 114个kernal(大部分为python),65个赞。
+收录到在 2019-06-04期tidytuesday
+https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-06-04
+package# input datalibrary(readr)# clean datalibrary(tidyverse)# modellibrary(rpart)library(rpart.plot)library(ROCR)input dataramen_ratings &amp;lt;- readr::read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-06-04/ramen_ratings.csv&amp;quot;)EDA3180行，6个变量
+glimpse(ramen_ratings)## Observations: 3,180## Variables: 6## $ review_number &amp;lt;int&amp;gt; 3180, 3179, 3178, 3177, 3176, 3175, 3174, 3173, ...## $ brand &amp;lt;chr&amp;gt; &amp;quot;Yum Yum&amp;quot;, &amp;quot;Nagatanien&amp;quot;, &amp;quot;Acecook&amp;quot;, &amp;quot;Maison de C.</description>
+    </item>
+    
+    <item>
       <title>Visit_record</title>
       <link>/post/visit-record/</link>
       <pubDate>Wed, 01 Jan 1997 00:00:00 +0000</pubDate>

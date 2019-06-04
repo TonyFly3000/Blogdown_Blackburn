@@ -1,0 +1,299 @@
+---
+title: kaggle kernel系列:方便面
+author: ''
+date: '2009-06-04'
+slug: kaggle kernel:ramen ratings
+categories: []
+tags: []
+description: 'kaggle kernel:ramen ratings'
+topics: []
+---
+
+
+
+<div id="-ramen-ratings" class="section level2">
+<h2>数据集：方便面评分 ramen ratings</h2>
+<p>Link:<a href="https://www.kaggle.com/residentmario/ramen-ratings" class="uri">https://www.kaggle.com/residentmario/ramen-ratings</a></p>
+<p>2018年1月的数据，40KB，CSV format.7个变量，3180行数据量</p>
+<p>数据源 从 在网站[theramenrater.com] 上爬下来。目前该网站还在继续点评方便面</p>
+<p>数据内容是方便面的点评数据。外国人方便面都叫拉面。。weird。。</p>
+<p>目前有 114个kernal(大部分为python),65个赞。</p>
+<p>收录到在 2019-06-04期tidytuesday</p>
+<p><a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-06-04" class="uri">https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-06-04</a></p>
+</div>
+<div id="package" class="section level2">
+<h2>package</h2>
+<pre class="r"><code># input data
+library(readr)
+# clean data
+library(tidyverse)
+# model
+library(rpart)
+library(rpart.plot)
+library(ROCR)</code></pre>
+</div>
+<div id="input-data" class="section level2">
+<h2>input data</h2>
+<pre class="r"><code>ramen_ratings &lt;- readr::read_csv(&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-06-04/ramen_ratings.csv&quot;)</code></pre>
+</div>
+<div id="eda" class="section level2">
+<h2>EDA</h2>
+<p>3180行，6个变量</p>
+<pre class="r"><code>glimpse(ramen_ratings)</code></pre>
+<pre><code>## Observations: 3,180
+## Variables: 6
+## $ review_number &lt;int&gt; 3180, 3179, 3178, 3177, 3176, 3175, 3174, 3173, ...
+## $ brand         &lt;chr&gt; &quot;Yum Yum&quot;, &quot;Nagatanien&quot;, &quot;Acecook&quot;, &quot;Maison de C...
+## $ variety       &lt;chr&gt; &quot;Tem Tem Tom Yum Moo Deng&quot;, &quot;tom Yum Kung Rice V...
+## $ style         &lt;chr&gt; &quot;Cup&quot;, &quot;Pack&quot;, &quot;Cup&quot;, &quot;Cup&quot;, &quot;Tray&quot;, &quot;Cup&quot;, &quot;Pac...
+## $ country       &lt;chr&gt; &quot;Thailand&quot;, &quot;Japan&quot;, &quot;Japan&quot;, &quot;France&quot;, &quot;Japan&quot;,...
+## $ stars         &lt;dbl&gt; 3.75, 2.00, 2.50, 3.75, 5.00, 3.50, 3.75, 5.00, ...</code></pre>
+<p>2个数值型，4个文本型</p>
+<pre class="r"><code>names(ramen_ratings%&gt;%select_if(is.numeric))</code></pre>
+<pre><code>## [1] &quot;review_number&quot; &quot;stars&quot;</code></pre>
+<pre class="r"><code>names(ramen_ratings%&gt;%select_if(is.character))</code></pre>
+<pre><code>## [1] &quot;brand&quot;   &quot;variety&quot; &quot;style&quot;   &quot;country&quot;</code></pre>
+<p>review_number为点评序号；stars为评分</p>
+<pre class="r"><code>ramen_ratings %&gt;%
+  keep(is.numeric) %&gt;% 
+  gather() %&gt;% 
+  ggplot(aes(value)) +
+    facet_wrap(~ key, scales = &quot;free&quot;) +
+    geom_histogram()</code></pre>
+<p><img src="/post/2009-06-04-kaggle-kernel-wine-reviews_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>13.9% 为日清牌子</p>
+<pre class="r"><code>ramen_ratings %&gt;%mutate(brand=fct_lump(brand,10))%&gt;%
+   count(brand, sort = TRUE)%&gt;%mutate(percent = n / sum(n))</code></pre>
+<pre><code>## # A tibble: 11 x 3
+##    brand               n percent
+##    &lt;fct&gt;           &lt;int&gt;   &lt;dbl&gt;
+##  1 Other            2059  0.647 
+##  2 Nissin            443  0.139 
+##  3 Nongshim          110  0.0346
+##  4 Maruchan          106  0.0333
+##  5 Myojo              90  0.0283
+##  6 Samyang Foods      82  0.0258
+##  7 Mama               71  0.0223
+##  8 Paldo              71  0.0223
+##  9 Indomie            56  0.0176
+## 10 Ottogi             48  0.0151
+## 11 Sapporo Ichiban    44  0.0138</code></pre>
+<p>57% 为包装；19%为碗装</p>
+<pre class="r"><code>ramen_ratings %&gt;%
+   count(style, sort = TRUE)%&gt;%mutate(percent = n / sum(n))</code></pre>
+<pre><code>## # A tibble: 9 x 3
+##   style          n  percent
+##   &lt;chr&gt;      &lt;int&gt;    &lt;dbl&gt;
+## 1 Pack        1832 0.576   
+## 2 Bowl         612 0.192   
+## 3 Cup          559 0.176   
+## 4 Tray         138 0.0434  
+## 5 Box           32 0.0101  
+## 6 Restaurant     3 0.000943
+## 7 &lt;NA&gt;           2 0.000629
+## 8 Bar            1 0.000314
+## 9 Can            1 0.000314</code></pre>
+<p>16% 日本。不确定是产地为日本还是牌子是日本。</p>
+<pre class="r"><code>ramen_ratings %&gt;%mutate(country=fct_lump(country,8))%&gt;%
+   count(country, sort = TRUE)%&gt;%mutate(percent = n / sum(n))</code></pre>
+<pre><code>## # A tibble: 9 x 3
+##   country           n percent
+##   &lt;fct&gt;         &lt;int&gt;   &lt;dbl&gt;
+## 1 Other           830  0.261 
+## 2 Japan           532  0.167 
+## 3 United States   382  0.120 
+## 4 South Korea     357  0.112 
+## 5 Taiwan          330  0.104 
+## 6 China           207  0.0651
+## 7 Thailand        205  0.0645
+## 8 Malaysia        182  0.0572
+## 9 Hong Kong       155  0.0487</code></pre>
+<p>brand和country 交叉表。可见country 为产地。</p>
+<pre class="r"><code>ramen_ratings %&gt;%mutate(country=fct_lump(country,20))%&gt;%
+   count(brand,country, sort = TRUE)%&gt;%mutate(percent = n / sum(n))</code></pre>
+<pre><code>## # A tibble: 523 x 4
+##    brand         country           n percent
+##    &lt;chr&gt;         &lt;fct&gt;         &lt;int&gt;   &lt;dbl&gt;
+##  1 Nissin        Japan           134  0.0421
+##  2 Nissin        United States   105  0.0330
+##  3 Samyang Foods South Korea      80  0.0252
+##  4 Nissin        Hong Kong        79  0.0248
+##  5 Paldo         South Korea      70  0.0220
+##  6 Myojo         Japan            63  0.0198
+##  7 Nongshim      South Korea      60  0.0189
+##  8 Mama          Thailand         58  0.0182
+##  9 Maruchan      United States    56  0.0176
+## 10 Indomie       Indonesia        54  0.0170
+## # ... with 513 more rows</code></pre>
+<pre class="r"><code>ramen_ratings%&gt;%filter(country==&#39;Hong Kong&#39;)</code></pre>
+<pre><code>## # A tibble: 155 x 6
+##    review_number brand   variety                       style country  stars
+##            &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;                         &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt;
+##  1          3171 Doll    Bowl Noodle Satay &amp; Beef Fla~ Bowl  Hong Ko~  4.25
+##  2          3143 Sau Tao Tom Yum Kung Flavour Rice Ve~ Pack  Hong Ko~  3.75
+##  3          3044 Sau Tao Laksa Flavour Ramen           Pack  Hong Ko~  4.5 
+##  4          3019 Sau Tao Tom Yum Kung Flavour Ramen    Pack  Hong Ko~  5   
+##  5          2928 Nissin  Cup Noodles Light Spicy Seaf~ Cup   Hong Ko~  3.25
+##  6          2903 Nissin  Demae Ramen Sesame Oil Flavo~ Pack  Hong Ko~  3.5 
+##  7          2806 Nissin  Cup Noodles Light Seafood Fl~ Cup   Hong Ko~  5   
+##  8          2802 Nissin  Cup Noodles Black Pepper Cra~ Pack  Hong Ko~  5   
+##  9          2767 Nissin  Cup Noodles Spicy Seafood Fl~ Pack  Hong Ko~  5   
+## 10          2750 Nissin  Cup Noodles Tom Yum Goong Fl~ Pack  Hong Ko~  5   
+## # ... with 145 more rows</code></pre>
+<pre class="r"><code>ramen_ratings%&gt;%arrange(desc(stars))</code></pre>
+<pre><code>## # A tibble: 3,180 x 6
+##    review_number brand       variety                 style country    stars
+##            &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;                   &lt;chr&gt; &lt;chr&gt;      &lt;dbl&gt;
+##  1          3176 Maruchan    Gotsumori Shio Yakisoba Tray  Japan          5
+##  2          3173 Sapporo Ic~ Momosan Ramen Tonkotsu  Pack  United St~     5
+##  3          3161 Sakurai Fo~ Vegetarian Soymilk Spi~ Pack  Japan          5
+##  4          3160 Mazendo     Noodles With Chili Mal~ Pack  Taiwan         5
+##  5          3157 TIEasy      Traditional Scallion S~ Pack  Taiwan         5
+##  6          3156 Nongshim    Spicy Gamjatang         Pack  South Kor~     5
+##  7          3153 Maison de ~ Ramen Gout BBQ Coree    Cup   France         5
+##  8          3152 Maruchan    QTTA Curry Ramen        Cup   Japan          5
+##  9          3151 Hakubaku    Shoyu Soy Sauce Flavor~ Pack  United St~     5
+## 10          3148 Hakubaku    Tonkotsu Pork Flavor R~ Pack  United St~     5
+## # ... with 3,170 more rows</code></pre>
+</div>
+<div id="clean-data" class="section level2">
+<h2>clean data</h2>
+<pre class="r"><code>ramen_ratings_02=ramen_ratings%&gt;%filter(is.na(stars)==FALSE)%&gt;%
+  mutate(stars_level=factor(round(stars)),stars_target=factor(if_else(stars&gt;=4,1,0)))%&gt;%select(-review_number)%&gt;%
+  mutate(brand_top=fct_lump(brand,50),
+         Spicy=str_detect(variety,&#39;Spicy&#39;)+str_detect(variety,&#39;Chili&#39;)+str_detect(          variety,&#39;Hot&#39;)+str_detect(variety,&#39;Kimchi&#39;) +str_detect(variety,&#39;Laksa&#39;),
+         Spicy_flag=if_else(Spicy&gt;0,1,0),
+         Beef_flag=str_detect(variety,&#39;Beef&#39;),
+         Udon_flag=str_detect(variety,&#39;Udon&#39;),
+         Chicken_flag=str_detect(variety,&#39;Chicken&#39;)
+         )</code></pre>
+<pre class="r"><code>ramen_ratings_02 %&gt;%
+   count(stars_target, sort = TRUE)%&gt;%mutate(percent = n / sum(n))</code></pre>
+<pre><code>## # A tibble: 2 x 3
+##   stars_target     n percent
+##   &lt;fct&gt;        &lt;int&gt;   &lt;dbl&gt;
+## 1 0             1804   0.570
+## 2 1             1362   0.430</code></pre>
+<pre class="r"><code>ramen_ratings_02 %&gt;%
+   count(stars_level, sort = TRUE)%&gt;%mutate(percent = n / sum(n))</code></pre>
+<pre><code>## # A tibble: 6 x 3
+##   stars_level     n percent
+##   &lt;fct&gt;       &lt;int&gt;   &lt;dbl&gt;
+## 1 4            1683  0.532 
+## 2 5             614  0.194 
+## 3 3             486  0.154 
+## 4 2             269  0.0850
+## 5 0              68  0.0215
+## 6 1              46  0.0145</code></pre>
+</div>
+<div id="plot" class="section level2">
+<h2>Plot</h2>
+<p>马来西亚高评分的占比最高</p>
+<pre class="r"><code>data=ramen_ratings_02%&gt;%mutate(country=fct_lump(country,8))
+
+ggplot(data, aes(x = country, fill = stars_level))+
+  geom_bar(position=&quot;fill&quot;, colour=&quot;black&quot;)+
+  theme_classic(base_size = 9)+
+  labs(title=&#39;Bar chart for country due to stars ranges&#39;, 
+        subtitle=&#39;Cumulated&#39;, y=&quot;Indicator&quot;, fill=&quot;User assessment ranges&quot;)</code></pre>
+<p><img src="/post/2009-06-04-kaggle-kernel-wine-reviews_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p>图中可见 是否辣味 对评分影响不大</p>
+<pre class="r"><code>data=ramen_ratings_02
+
+ggplot(data, aes(x = Spicy_flag, fill = stars_level))+
+  geom_bar(position=&quot;fill&quot;, colour=&quot;black&quot;)+
+  theme_classic(base_size = 9)+
+  labs(title=&#39;Bar chart for country due to stars ranges&#39;, 
+        subtitle=&#39;Cumulated&#39;, y=&quot;Indicator&quot;, fill=&quot;User assessment ranges&quot;)</code></pre>
+<p><img src="/post/2009-06-04-kaggle-kernel-wine-reviews_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+</div>
+<div id="data-split" class="section level2">
+<h2>Data split</h2>
+<pre class="r"><code>set.seed(101) # Set Seed so that same sample can be reproduced in future also
+
+sample &lt;- sample.int(n = nrow(ramen_ratings_02), size = floor(.9*nrow(ramen_ratings_02)), replace = F)
+train &lt;- ramen_ratings_02[sample, ]%&gt;%select(-variety,-stars,-stars_level,-brand)
+test  &lt;- ramen_ratings_02[-sample, ]%&gt;%select(-variety,-stars,-stars_level,-brand)</code></pre>
+<pre class="r"><code>dim(ramen_ratings_02)</code></pre>
+<pre><code>## [1] 3166   13</code></pre>
+<pre class="r"><code>dim(train)</code></pre>
+<pre><code>## [1] 2849    9</code></pre>
+<pre class="r"><code>dim(test)</code></pre>
+<pre><code>## [1] 317   9</code></pre>
+<pre class="r"><code>glimpse(train)</code></pre>
+<pre><code>## Observations: 2,849
+## Variables: 9
+## $ style        &lt;chr&gt; &quot;Pack&quot;, &quot;Pack&quot;, &quot;Bowl&quot;, &quot;Pack&quot;, &quot;Box&quot;, &quot;Cup&quot;, &quot;Bo...
+## $ country      &lt;chr&gt; &quot;Malaysia&quot;, &quot;Taiwan&quot;, &quot;South Korea&quot;, &quot;UK&quot;, &quot;Malay...
+## $ stars_target &lt;fct&gt; 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0...
+## $ brand_top    &lt;fct&gt; MyKuali, Other, Ottogi, Other, MyKuali, Other, Ni...
+## $ Spicy        &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0...
+## $ Spicy_flag   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0...
+## $ Beef_flag    &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, ...
+## $ Udon_flag    &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, ...
+## $ Chicken_flag &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, ...</code></pre>
+</div>
+<div id="model" class="section level2">
+<h2>Model</h2>
+<p>是否辣味果然没有进入模型变量</p>
+<pre class="r"><code>tree = rpart(stars_target ~ country+style+brand_top+Spicy_flag, data=train,method = &#39;class&#39;)
+rpart.plot(tree)</code></pre>
+<p><img src="/post/2009-06-04-kaggle-kernel-wine-reviews_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<pre class="r"><code>prp(tree)</code></pre>
+<p><img src="/post/2009-06-04-kaggle-kernel-wine-reviews_files/figure-html/unnamed-chunk-19-2.png" width="672" /></p>
+<pre class="r"><code>#tree</code></pre>
+</div>
+<div id="evaluation" class="section level2">
+<h2>evaluation</h2>
+<p>如果什么都不知道准确率为50%；根据平均数 准确率为56% 。根据运用决策树模型，使用产地/品牌/类型 3个变量 ，准确率为67%</p>
+<p>on training data set : 66%</p>
+<pre class="r"><code>train$predict_stars_target&lt;-predict(tree, train, type = &#39;class&#39;)
+table_mat &lt;- table(train$stars_target, train$predict_stars_target)
+table_mat</code></pre>
+<pre><code>##    
+##       0   1
+##   0 997 613
+##   1 335 904</code></pre>
+<pre class="r"><code>train%&gt;%mutate(true=if_else(stars_target==predict_stars_target,1,0))%&gt;%group_by()%&gt;%summarise(true=sum(true),total=n())%&gt;%mutate(accuary_rate=true/total)</code></pre>
+<pre><code>## # A tibble: 1 x 3
+##    true total accuary_rate
+##   &lt;dbl&gt; &lt;int&gt;        &lt;dbl&gt;
+## 1  1901  2849        0.667</code></pre>
+<p>on testing data set: 67%</p>
+<pre class="r"><code>test$predict_stars_target&lt;-predict(tree, test, type = &#39;class&#39;)
+table_mat &lt;- table(test$stars_target, test$predict_stars_target)
+table_mat</code></pre>
+<pre><code>##    
+##       0   1
+##   0 129  65
+##   1  37  86</code></pre>
+<pre class="r"><code>test%&gt;%mutate(true=if_else(stars_target==predict_stars_target,1,0))%&gt;%group_by()%&gt;%summarise(true=sum(true),total=n())%&gt;%mutate(accuary_rate=true/total)</code></pre>
+<pre><code>## # A tibble: 1 x 3
+##    true total accuary_rate
+##   &lt;dbl&gt; &lt;int&gt;        &lt;dbl&gt;
+## 1   215   317        0.678</code></pre>
+<p>on average as benchmark : 56%</p>
+<pre class="r"><code>ramen_ratings_02%&gt;%count(stars_target, sort = TRUE)%&gt;%mutate(percent = n / sum(n))</code></pre>
+<pre><code>## # A tibble: 2 x 3
+##   stars_target     n percent
+##   &lt;fct&gt;        &lt;int&gt;   &lt;dbl&gt;
+## 1 0             1804   0.570
+## 2 1             1362   0.430</code></pre>
+<p>高分概率最高的50个方便面的预测准确度并没有比平均高。</p>
+<pre class="r"><code>test$predict_stars_target_prob&lt;-predict(tree, test)[,2]
+test=test%&gt;%arrange(desc(predict_stars_target_prob))
+top_50_test=head(test,50)
+top_50_test%&gt;%mutate(true=if_else(stars_target==predict_stars_target,1,0))%&gt;%group_by()%&gt;%summarise(true=sum(true),total=n())%&gt;%mutate(accuary_rate=true/total)</code></pre>
+<pre><code>## # A tibble: 1 x 3
+##    true total accuary_rate
+##   &lt;dbl&gt; &lt;int&gt;        &lt;dbl&gt;
+## 1    33    50         0.66</code></pre>
+</div>
+<div id="roc" class="section level2">
+<h2>ROC</h2>
+<pre class="r"><code>Pred.cart = predict(tree, newdata = test, type = &quot;prob&quot;)[,2] 
+Pred2 = prediction(Pred.cart, test$stars_target) 
+plot(performance(Pred2, &quot;tpr&quot;, &quot;fpr&quot;))
+abline(0, 1, lty = 2)</code></pre>
+<p><img src="/post/2009-06-04-kaggle-kernel-wine-reviews_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+</div>
