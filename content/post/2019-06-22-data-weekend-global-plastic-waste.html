@@ -1,0 +1,251 @@
+---
+title: Data weekend:Global Plastic Waste
+author: ''
+date: '2019-06-22'
+slug: data-weekend-global-plastic-waste
+categories: []
+tags: []
+description: 'Data weekend:Global Plastic Waste'
+topics: []
+---
+
+
+
+<p><img src="/post/data-weekend-global-plastic-waste/nation_plastic_waste.png" width="900" height="600" /></p>
+<p>PHOTOGRAPHS BY RANDY OLSON</p>
+<div class="section level2">
+<h2>开篇</h2>
+<p><strong>上海市垃圾分类立法</strong> 在</p>
+<p><strong>2019年7月1日</strong>起施行。个人混投垃圾最高可罚200元，单位混装混运最高可罚5万元。丢垃圾要分为4类:</p>
+<ul>
+<li><ol style="list-style-type: decimal">
+<li><strong>可回收物</strong>:废纸张、废塑料、废玻璃制品、废金属、废织物等</li>
+</ol></li>
+<li><ol start="2" style="list-style-type: decimal">
+<li><strong>有害垃圾</strong>:废电池、废灯管、废药品、废油漆及其容器等</li>
+</ol></li>
+<li><ol start="3" style="list-style-type: decimal">
+<li><strong>湿垃圾</strong>:食材废料、剩菜剩饭、过期食品、瓜皮果核、花卉绿植等</li>
+</ol></li>
+<li><ol start="4" style="list-style-type: decimal">
+<li><strong>干垃圾</strong>:除可回收物、有害垃圾、湿垃圾以外的其它生活废弃物</li>
+</ol></li>
+</ul>
+<p>《上海市生活垃圾管理条例》同时规定:旅馆不得主动提供客房一次性日用品。餐饮服务不得主动提供一次性餐具。</p>
+</div>
+<div id="package" class="section level2">
+<h2>package</h2>
+<pre class="r"><code>library(tidyverse)
+library(dplyr)
+library(scales)
+library(ggplot2)
+library(readr)
+library(janitor)
+library(ggthemes)
+theme_set(theme_light())</code></pre>
+</div>
+<div class="section level2">
+<h2>导入数据</h2>
+<pre class="r"><code>coast_vs_waste &lt;- read_csv(&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-05-21/coastal-population-vs-mismanaged-plastic.csv&quot;)
+
+mismanaged_vs_gdp &lt;- read_csv(&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-05-21/per-capita-mismanaged-plastic-waste-vs-gdp-per-capita.csv&quot;)
+
+waste_vs_gdp &lt;- read_csv(&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-05-21/per-capita-plastic-waste-vs-gdp-per-capita.csv&quot;)</code></pre>
+<pre class="r"><code># data source shttps://ourworldindata.org/plastic-pollution
+global_plastics_production=read_csv(&quot;https://raw.githubusercontent.com/TonyFly3000/kaggle/master/global-plastics-production.csv&quot;)</code></pre>
+<pre class="r"><code>global_plastics_production</code></pre>
+<pre><code>## # A tibble: 66 x 4
+##    Entity Code      Year `Global plastics production (million tonnes) (ton~
+##    &lt;chr&gt;  &lt;chr&gt;    &lt;int&gt;                                              &lt;int&gt;
+##  1 World  OWID_WRL  1950                                            2000000
+##  2 World  OWID_WRL  1951                                            2000000
+##  3 World  OWID_WRL  1952                                            2000000
+##  4 World  OWID_WRL  1953                                            3000000
+##  5 World  OWID_WRL  1954                                            3000000
+##  6 World  OWID_WRL  1955                                            4000000
+##  7 World  OWID_WRL  1956                                            5000000
+##  8 World  OWID_WRL  1957                                            5000000
+##  9 World  OWID_WRL  1958                                            6000000
+## 10 World  OWID_WRL  1959                                            7000000
+## # ... with 56 more rows</code></pre>
+</div>
+<div class="section level2">
+<h2>数据清洗</h2>
+<pre class="r"><code>coast_vs_waste%&gt;%glimpse()</code></pre>
+<pre><code>## Observations: 20,093
+## Variables: 6
+## $ Entity                              &lt;chr&gt; &quot;Afghanistan&quot;, &quot;Afghanista...
+## $ Code                                &lt;chr&gt; &quot;AFG&quot;, &quot;AFG&quot;, &quot;AFG&quot;, &quot;AFG&quot;...
+## $ Year                                &lt;int&gt; 1800, 1820, 1870, 1913, 19...
+## $ `Mismanaged plastic waste (tonnes)` &lt;int&gt; NA, NA, NA, NA, NA, NA, NA...
+## $ `Coastal population`                &lt;int&gt; NA, NA, NA, NA, NA, NA, NA...
+## $ `Total population (Gapminder)`      &lt;int&gt; 3280000, 3280000, 4207000,...</code></pre>
+<p>用janitor package 清理变量名, 如 Mismanaged plastic waste (tonnes) 清理成了mismanaged_plastic_waste_tonnes</p>
+<pre class="r"><code>coast_vs_waste %&gt;% clean_names() %&gt;%glimpse()</code></pre>
+<pre><code>## Observations: 20,093
+## Variables: 6
+## $ entity                          &lt;chr&gt; &quot;Afghanistan&quot;, &quot;Afghanistan&quot;, ...
+## $ code                            &lt;chr&gt; &quot;AFG&quot;, &quot;AFG&quot;, &quot;AFG&quot;, &quot;AFG&quot;, &quot;A...
+## $ year                            &lt;int&gt; 1800, 1820, 1870, 1913, 1950, ...
+## $ mismanaged_plastic_waste_tonnes &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA...
+## $ coastal_population              &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA...
+## $ total_population_gapminder      &lt;int&gt; 3280000, 3280000, 4207000, 573...</code></pre>
+<pre class="r"><code>mismanaged_vs_gdp %&gt;% clean_names() %&gt;%glimpse()</code></pre>
+<pre><code>## Observations: 22,204
+## Variables: 6
+## $ entity                                                           &lt;chr&gt; ...
+## $ code                                                             &lt;chr&gt; ...
+## $ year                                                             &lt;int&gt; ...
+## $ per_capita_mismanaged_plastic_waste_kilograms_per_person_per_day &lt;dbl&gt; ...
+## $ gdp_per_capita_ppp_constant_2011_international_rate              &lt;dbl&gt; ...
+## $ total_population_gapminder                                       &lt;int&gt; ...</code></pre>
+<pre class="r"><code>waste_vs_gdp %&gt;% clean_names() %&gt;%glimpse()</code></pre>
+<pre><code>## Observations: 22,204
+## Variables: 6
+## $ entity                                                                     &lt;chr&gt; ...
+## $ code                                                                       &lt;chr&gt; ...
+## $ year                                                                       &lt;int&gt; ...
+## $ per_capita_plastic_waste_kilograms_per_person_per_day                      &lt;dbl&gt; ...
+## $ gdp_per_capita_ppp_constant_2011_international_constant_2011_international &lt;dbl&gt; ...
+## $ total_population_gapminder                                                 &lt;int&gt; ...</code></pre>
+<pre class="r"><code>coast_vs_waste2 = clean_names(coast_vs_waste) %&gt;%filter(year&gt;2000) %&gt;% 
+  group_by(year)%&gt;%summarise(mismanaged_plastic_waste_tonnes=sum(mismanaged_plastic_waste_tonnes,na.rm = TRUE))</code></pre>
+<p>生成清理 function ‘clean_dataset’</p>
+<pre class="r"><code>clean_dataset &lt;- function(tbl) {
+  tbl %&gt;%
+    clean_names() %&gt;%          # 清理变量名
+    rename(country = entity,country_code = code) %&gt;% # 改变量名
+    filter(year == 2010) %&gt;%   # 选2010年
+    select(-year)              # 删除year变量
+}</code></pre>
+<pre class="r"><code>plastic_waste &lt;- clean_dataset(coast_vs_waste) %&gt;%  # 清洗数据 coast_vs_waste
+  select(-total_population_gapminder) %&gt;%           # 删除total_population_gapminder变量
+  
+  inner_join(clean_dataset(mismanaged_vs_gdp) %&gt;%   # 清洗数据 mismanaged_vs_gdp
+               select(-total_population_gapminder), # 删除total_population_gapminder变量
+             by = c(&quot;country&quot;, &quot;country_code&quot;)) %&gt;% # inner join by &quot;country&quot;, &quot;country_code&quot;
+  
+  inner_join(clean_dataset(waste_vs_gdp),           # 清洗数据 waste_vs_gdp
+             by = c(&quot;country&quot;, &quot;country_code&quot;)) %&gt;% # inner join by &quot;country&quot;, &quot;country_code&quot;
+                                                    # 选变量
+  select(country,
+         country_code,
+         mismanaged_waste = mismanaged_plastic_waste_tonnes,
+         coastal_population,
+         total_population = total_population_gapminder,
+         mismanaged_per_capita = per_capita_mismanaged_plastic_waste_kilograms_per_person_per_day,
+         plastic_waste_per_capita=per_capita_plastic_waste_kilograms_per_person_per_day,
+         gdp_per_capita = gdp_per_capita_ppp_constant_2011_international_rate) %&gt;%
+  mutate(gdp_per_capita=round(gdp_per_capita))%&gt;%
+  
+  filter(!is.na(mismanaged_waste),country!=&#39;Trinidad and Tobago&#39;)%&gt;%                 # 选mismanaged_waste 非空的记录
+   mutate(gdp_per_capita_group=cut_number(gdp_per_capita/1000, n = 4) # 按gdp_per_capita 排序 将国家分为 4组
+          ,mismanaged_per_capita_rate=mismanaged_per_capita/plastic_waste_per_capita,
+          managed_per_capita_rate=1-mismanaged_per_capita_rate
+          
+          ) </code></pre>
+<pre class="r"><code>glimpse(plastic_waste)</code></pre>
+<pre><code>## Observations: 186
+## Variables: 11
+## $ country                    &lt;chr&gt; &quot;Albania&quot;, &quot;Algeria&quot;, &quot;Angola&quot;, &quot;An...
+## $ country_code               &lt;chr&gt; &quot;ALB&quot;, &quot;DZA&quot;, &quot;AGO&quot;, &quot;AIA&quot;, &quot;ATG&quot;, ...
+## $ mismanaged_waste           &lt;int&gt; 29705, 520555, 62528, 52, 1253, 157...
+## $ coastal_population         &lt;int&gt; 2530533, 16556580, 3790041, 14561, ...
+## $ total_population           &lt;int&gt; 3204284, 35468208, 19081912, 15358,...
+## $ mismanaged_per_capita      &lt;dbl&gt; 0.032, 0.086, 0.045, 0.010, 0.051, ...
+## $ plastic_waste_per_capita   &lt;dbl&gt; 0.069, 0.144, 0.062, 0.252, 0.660, ...
+## $ gdp_per_capita             &lt;dbl&gt; 9927, 12871, 5898, NA, 19213, 18712...
+## $ gdp_per_capita_group       &lt;fct&gt; &quot;(4.41,11.9]&quot;, &quot;(11.9,28.7]&quot;, &quot;(4.4...
+## $ mismanaged_per_capita_rate &lt;dbl&gt; 0.46376812, 0.59722222, 0.72580645,...
+## $ managed_per_capita_rate    &lt;dbl&gt; 0.5362319, 0.4027778, 0.2741935, 0....</code></pre>
+</div>
+<div class="section level2">
+<h2>作图</h2>
+<div class="section level3">
+<h3>人类制造越来越多的垃圾 !</h3>
+<p>2010年每年制造近3亿万吨塑料垃圾.到2015年数字已上升到每年4亿万吨。这些垃圾不被回收的话将会污染我们的环境。</p>
+<pre class="r"><code>global_plastics_production%&gt;%clean_names() %&gt;%filter(year&gt;2000) %&gt;% 
+ggplot(aes(x=year,y=global_plastics_production_million_tonnes_tonnes/1000000)) +geom_point()+geom_line()+
+
+  labs(x = &quot;年&quot;,
+       y = &quot;全球制造的塑料垃圾（百万吨）&quot;,
+       #color = &quot;Coastal population&quot;,
+       title = &quot;人类制造越来越多的垃圾&quot;,
+       subtitle = &quot;每年制造近4亿万吨塑料垃圾&quot;,
+       caption =&quot;统计时间:2000-2015年;数据源:ourworldindata.org
+       @Tony Duan&quot;
+       )+theme(plot.title = element_text(hjust = 0.5))</code></pre>
+<p><img src="/post/2019-06-22-data-weekend-global-plastic-waste_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+</div>
+<div class="section level3">
+<h3>谁制造垃圾 ？</h3>
+<p>人均收入越高的国家，制造的塑料垃圾越多。如美国人均每天制造0.3千克塑料垃圾。中国人均0.15千克。</p>
+<pre class="r"><code>g1 &lt;- plastic_waste %&gt;%
+  arrange(-total_population) %&gt;%
+  mutate(pct_population_coastal = pmin(1, coastal_population / total_population),
+         high_coastal_pop = ifelse(pct_population_coastal &gt;= .8, &quot;&gt;=80%&quot;, &quot;&lt;80%&quot;)) %&gt;%
+  
+  ggplot(aes(gdp_per_capita,plastic_waste_per_capita)) +
+  
+  geom_point(aes(size = total_population,fill = gdp_per_capita_group), shape = 21, show.legend = F, alpha = 0.7)+
+  
+  geom_text(aes(label = country), size=3,vjust = 1, hjust = 1, check_overlap = TRUE) +
+  geom_smooth(method = &quot;lm&quot;) +
+  #scale_x_log10(labels = dollar_format()) +
+  #scale_y_log10() +
+  #scale_size_continuous(guide = FALSE) +
+  labs(x = &quot;人均GDP(美元)&quot;,
+       y = &quot;人均每天生成的塑料垃圾(千克)&quot;,
+       #color = &quot;Coastal population&quot;,
+       title = &quot;塑料垃圾与人口收入的关系&quot;,
+       subtitle = &quot;颜色为人均GPD组;点的大小代表国家总人口数量&quot;,
+       caption =&quot;统计时间:2010年;数据源:ourworldindata.org
+       @Tony Duan&quot;
+       )+theme(plot.title = element_text(hjust = 0.5))
+
+g1+ guides(fill=FALSE, color=FALSE)</code></pre>
+<p><img src="/post/2019-06-22-data-weekend-global-plastic-waste_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+</div>
+<div class="section level3">
+<h3>谁回收垃圾 ？</h3>
+<p>人均收入越高的国家，垃圾回收率越高。如美国塑料垃圾回收率为90%。中国仅为25%。
+可见人均收入最高的25%国家已建立有效的垃圾回收系统。所以垃圾回收能明显高于其他国家。</p>
+<pre class="r"><code>g2 &lt;- plastic_waste %&gt;%
+  arrange(-total_population) %&gt;%
+  mutate(pct_population_coastal = pmin(1, coastal_population / total_population),
+         high_coastal_pop = ifelse(pct_population_coastal &gt;= .8, &quot;&gt;=80%&quot;, &quot;&lt;80%&quot;)) %&gt;%
+  
+  ggplot(aes(gdp_per_capita, managed_per_capita_rate)) +
+  
+  geom_point(aes(size = total_population,fill = gdp_per_capita_group), shape = 21, show.legend = F, alpha = 0.7)+
+  
+  geom_text(aes(label = country), size=3,vjust = 1, hjust = 1, check_overlap = TRUE) +
+  #geom_smooth(method = &quot;lm&quot;) +
+  scale_x_log10(labels = dollar_format()) +
+  #scale_y_log10() +
+  scale_size_continuous(guide = FALSE) +
+  labs(x = &quot;人均GDP(美元)&quot;,
+       y = &quot;塑料垃圾回收率&quot;,
+       #color = &quot;Coastal population&quot;,
+       title = &quot;塑料垃圾回收率与人口收入的关系&quot;,
+       subtitle = &quot;颜色为人均GPD组;点的大小代表国家总人口数量&quot;,
+       caption =&quot;统计时间:2010年;数据源:ourworldindata.org
+       @Tony Duan&quot;
+       )+theme(plot.title = element_text(hjust = 0.5))
+
+g2+ guides(fill=FALSE, color=FALSE)</code></pre>
+<p><img src="/post/2019-06-22-data-weekend-global-plastic-waste_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+</div>
+</div>
+<div class="section level2">
+<h2>结论</h2>
+<p>随着经济的发展。中国人均每天将生成越来越多垃圾。目前中国还处在较低的垃圾回收率。所以建立有效的垃圾回收系统迫在眉睫。上海市的垃圾分类立法将成为其他城市的学习榜样。</p>
+</div>
+<div id="reference" class="section level2">
+<h2>Reference</h2>
+<p><a href="https://www.nationalgeographic.com/magazine/2018/06/plastic-planet-waste-pollution-trash-crisis/" class="uri">https://www.nationalgeographic.com/magazine/2018/06/plastic-planet-waste-pollution-trash-crisis/</a></p>
+<p><a href="http://env.people.com.cn/n1/2019/0215/c1010-30715370.html" class="uri">http://env.people.com.cn/n1/2019/0215/c1010-30715370.html</a></p>
+<p><a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-05-21" class="uri">https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-05-21</a></p>
+<p><a href="https://www.youtube.com/watch?v=BRdLOYtJk9o&amp;t=115s" class="uri">https://www.youtube.com/watch?v=BRdLOYtJk9o&amp;t=115s</a></p>
+<p><a href="https://github.com/dgrtwo/data-screencasts/blob/master/plastic-waste.Rmd" class="uri">https://github.com/dgrtwo/data-screencasts/blob/master/plastic-waste.Rmd</a></p>
+</div>

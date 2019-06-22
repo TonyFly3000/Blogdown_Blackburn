@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 31 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 22 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Data weekend:Global Plastic Waste</title>
+      <link>/post/data-weekend-global-plastic-waste/</link>
+      <pubDate>Sat, 22 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/data-weekend-global-plastic-waste/</guid>
+      <description>PHOTOGRAPHS BY RANDY OLSON
+开篇上海市垃圾分类立法 在
+2019年7月1日起施行。个人混投垃圾最高可罚200元，单位混装混运最高可罚5万元。丢垃圾要分为4类:
+可回收物:废纸张、废塑料、废玻璃制品、废金属、废织物等有害垃圾:废电池、废灯管、废药品、废油漆及其容器等湿垃圾:食材废料、剩菜剩饭、过期食品、瓜皮果核、花卉绿植等干垃圾:除可回收物、有害垃圾、湿垃圾以外的其它生活废弃物《上海市生活垃圾管理条例》同时规定:旅馆不得主动提供客房一次性日用品。餐饮服务不得主动提供一次性餐具。
+packagelibrary(tidyverse)library(dplyr)library(scales)library(ggplot2)library(readr)library(janitor)library(ggthemes)theme_set(theme_light())导入数据coast_vs_waste &amp;lt;- read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-05-21/coastal-population-vs-mismanaged-plastic.csv&amp;quot;)mismanaged_vs_gdp &amp;lt;- read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-05-21/per-capita-mismanaged-plastic-waste-vs-gdp-per-capita.csv&amp;quot;)waste_vs_gdp &amp;lt;- read_csv(&amp;quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-05-21/per-capita-plastic-waste-vs-gdp-per-capita.csv&amp;quot;)# data source shttps://ourworldindata.org/plastic-pollutionglobal_plastics_production=read_csv(&amp;quot;https://raw.githubusercontent.com/TonyFly3000/kaggle/master/global-plastics-production.csv&amp;quot;)global_plastics_production## # A tibble: 66 x 4## Entity Code Year `Global plastics production (million tonnes) (ton~## &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;## 1 World OWID_WRL 1950 2000000## 2 World OWID_WRL 1951 2000000## 3 World OWID_WRL 1952 2000000## 4 World OWID_WRL 1953 3000000## 5 World OWID_WRL 1954 3000000## 6 World OWID_WRL 1955 4000000## 7 World OWID_WRL 1956 5000000## 8 World OWID_WRL 1957 5000000## 9 World OWID_WRL 1958 6000000## 10 World OWID_WRL 1959 7000000## # .</description>
+    </item>
     
     <item>
       <title>Google Cloud Platform (GCP) Trainning by GDG</title>

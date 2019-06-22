@@ -1,0 +1,249 @@
+---
+title: Data weekend:Global Plastic Waste
+author: ''
+date: '2019-06-22'
+slug: data-weekend-global-plastic-waste
+categories: []
+tags: []
+description: 'Data weekend:Global Plastic Waste'
+topics: []
+---
+
+![](/post/data-weekend-global-plastic-waste/nation_plastic_waste.png){width=900px height=600px}
+
+PHOTOGRAPHS BY RANDY OLSON
+
+
+## 开篇
+
+__上海市垃圾分类立法__ 在
+
+ **2019年7月1日**起施行。个人混投垃圾最高可罚200元，单位混装混运最高可罚5万元。丢垃圾要分为4类:
+
+- 1) **可回收物**:废纸张、废塑料、废玻璃制品、废金属、废织物等
+- 2) **有害垃圾**:废电池、废灯管、废药品、废油漆及其容器等
+- 3) **湿垃圾**:食材废料、剩菜剩饭、过期食品、瓜皮果核、花卉绿植等
+- 4) **干垃圾**:除可回收物、有害垃圾、湿垃圾以外的其它生活废弃物
+
+《上海市生活垃圾管理条例》同时规定:旅馆不得主动提供客房一次性日用品。餐饮服务不得主动提供一次性餐具。
+
+
+## package
+
+```{r include = FALSE}
+Sys.setlocale(locale = "Chinese")
+```
+
+```{r warning=FALSE,message=FALSE}
+library(tidyverse)
+library(dplyr)
+library(scales)
+library(ggplot2)
+library(readr)
+library(janitor)
+library(ggthemes)
+theme_set(theme_light())
+```
+
+## 导入数据
+```{r warning=FALSE,message=FALSE}
+coast_vs_waste <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-05-21/coastal-population-vs-mismanaged-plastic.csv")
+
+mismanaged_vs_gdp <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-05-21/per-capita-mismanaged-plastic-waste-vs-gdp-per-capita.csv")
+
+waste_vs_gdp <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-05-21/per-capita-plastic-waste-vs-gdp-per-capita.csv")
+
+```
+
+```{r warning=FALSE,message=FALSE}
+# data source shttps://ourworldindata.org/plastic-pollution
+global_plastics_production=read_csv("https://raw.githubusercontent.com/TonyFly3000/kaggle/master/global-plastics-production.csv")
+```
+
+```{r}
+global_plastics_production
+```
+
+## 数据清洗
+```{r}
+coast_vs_waste%>%glimpse()
+```
+
+用janitor package 清理变量名, 如 Mismanaged plastic waste (tonnes) 清理成了mismanaged_plastic_waste_tonnes
+
+```{r}
+coast_vs_waste %>% clean_names() %>%glimpse()
+```
+
+
+
+```{r}
+mismanaged_vs_gdp %>% clean_names() %>%glimpse()
+```
+
+```{r}
+waste_vs_gdp %>% clean_names() %>%glimpse()
+```
+
+```{r}
+coast_vs_waste2 = clean_names(coast_vs_waste) %>%filter(year>2000) %>% 
+  group_by(year)%>%summarise(mismanaged_plastic_waste_tonnes=sum(mismanaged_plastic_waste_tonnes,na.rm = TRUE))
+```
+
+生成清理 function 'clean_dataset'
+```{r warning=FALSE,message=FALSE}
+clean_dataset <- function(tbl) {
+  tbl %>%
+    clean_names() %>%          # 清理变量名
+    rename(country = entity,country_code = code) %>% # 改变量名
+    filter(year == 2010) %>%   # 选2010年
+    select(-year)              # 删除year变量
+}
+
+```
+
+
+```{r warning=FALSE,message=FALSE}
+plastic_waste <- clean_dataset(coast_vs_waste) %>%  # 清洗数据 coast_vs_waste
+  select(-total_population_gapminder) %>%           # 删除total_population_gapminder变量
+  
+  inner_join(clean_dataset(mismanaged_vs_gdp) %>%   # 清洗数据 mismanaged_vs_gdp
+               select(-total_population_gapminder), # 删除total_population_gapminder变量
+             by = c("country", "country_code")) %>% # inner join by "country", "country_code"
+  
+  inner_join(clean_dataset(waste_vs_gdp),           # 清洗数据 waste_vs_gdp
+             by = c("country", "country_code")) %>% # inner join by "country", "country_code"
+                                                    # 选变量
+  select(country,
+         country_code,
+         mismanaged_waste = mismanaged_plastic_waste_tonnes,
+         coastal_population,
+         total_population = total_population_gapminder,
+         mismanaged_per_capita = per_capita_mismanaged_plastic_waste_kilograms_per_person_per_day,
+         plastic_waste_per_capita=per_capita_plastic_waste_kilograms_per_person_per_day,
+         gdp_per_capita = gdp_per_capita_ppp_constant_2011_international_rate) %>%
+  mutate(gdp_per_capita=round(gdp_per_capita))%>%
+  
+  filter(!is.na(mismanaged_waste),country!='Trinidad and Tobago')%>%                 # 选mismanaged_waste 非空的记录
+   mutate(gdp_per_capita_group=cut_number(gdp_per_capita/1000, n = 4) # 按gdp_per_capita 排序 将国家分为 4组
+          ,mismanaged_per_capita_rate=mismanaged_per_capita/plastic_waste_per_capita,
+          managed_per_capita_rate=1-mismanaged_per_capita_rate
+          
+          ) 
+
+```
+
+
+```{r}
+glimpse(plastic_waste)
+```
+
+
+## 作图
+
+### 人类制造越来越多的垃圾 !
+
+2010年每年制造近3亿万吨塑料垃圾.到2015年数字已上升到每年4亿万吨。这些垃圾不被回收的话将会污染我们的环境。
+
+
+```{r warning=FALSE,message=FALSE}
+global_plastics_production%>%clean_names() %>%filter(year>2000) %>% 
+ggplot(aes(x=year,y=global_plastics_production_million_tonnes_tonnes/1000000)) +geom_point()+geom_line()+
+
+  labs(x = "年",
+       y = "全球制造的塑料垃圾（百万吨）",
+       #color = "Coastal population",
+       title = "人类制造越来越多的垃圾",
+       subtitle = "每年制造近4亿万吨塑料垃圾",
+       caption ="统计时间:2000-2015年;数据源:ourworldindata.org
+       @Tony Duan"
+       )+theme(plot.title = element_text(hjust = 0.5))
+
+
+
+```
+
+
+### 谁制造垃圾 ？ 
+
+人均收入越高的国家，制造的塑料垃圾越多。如美国人均每天制造0.3千克塑料垃圾。中国人均0.15千克。
+
+```{r warning=FALSE,message=FALSE}
+g1 <- plastic_waste %>%
+  arrange(-total_population) %>%
+  mutate(pct_population_coastal = pmin(1, coastal_population / total_population),
+         high_coastal_pop = ifelse(pct_population_coastal >= .8, ">=80%", "<80%")) %>%
+  
+  ggplot(aes(gdp_per_capita,plastic_waste_per_capita)) +
+  
+  geom_point(aes(size = total_population,fill = gdp_per_capita_group), shape = 21, show.legend = F, alpha = 0.7)+
+  
+  geom_text(aes(label = country), size=3,vjust = 1, hjust = 1, check_overlap = TRUE) +
+  geom_smooth(method = "lm") +
+  #scale_x_log10(labels = dollar_format()) +
+  #scale_y_log10() +
+  #scale_size_continuous(guide = FALSE) +
+  labs(x = "人均GDP(美元)",
+       y = "人均每天生成的塑料垃圾(千克)",
+       #color = "Coastal population",
+       title = "塑料垃圾与人口收入的关系",
+       subtitle = "颜色为人均GPD组;点的大小代表国家总人口数量",
+       caption ="统计时间:2010年;数据源:ourworldindata.org
+       @Tony Duan"
+       )+theme(plot.title = element_text(hjust = 0.5))
+
+g1+ guides(fill=FALSE, color=FALSE)
+
+```
+
+### 谁回收垃圾 ？ 
+
+人均收入越高的国家，垃圾回收率越高。如美国塑料垃圾回收率为90%。中国仅为25%。
+可见人均收入最高的25%国家已建立有效的垃圾回收系统。所以垃圾回收能明显高于其他国家。
+
+```{r warning=FALSE,message=FALSE}
+g2 <- plastic_waste %>%
+  arrange(-total_population) %>%
+  mutate(pct_population_coastal = pmin(1, coastal_population / total_population),
+         high_coastal_pop = ifelse(pct_population_coastal >= .8, ">=80%", "<80%")) %>%
+  
+  ggplot(aes(gdp_per_capita, managed_per_capita_rate)) +
+  
+  geom_point(aes(size = total_population,fill = gdp_per_capita_group), shape = 21, show.legend = F, alpha = 0.7)+
+  
+  geom_text(aes(label = country), size=3,vjust = 1, hjust = 1, check_overlap = TRUE) +
+  #geom_smooth(method = "lm") +
+  scale_x_log10(labels = dollar_format()) +
+  #scale_y_log10() +
+  scale_size_continuous(guide = FALSE) +
+  labs(x = "人均GDP(美元)",
+       y = "塑料垃圾回收率",
+       #color = "Coastal population",
+       title = "塑料垃圾回收率与人口收入的关系",
+       subtitle = "颜色为人均GPD组;点的大小代表国家总人口数量",
+       caption ="统计时间:2010年;数据源:ourworldindata.org
+       @Tony Duan"
+       )+theme(plot.title = element_text(hjust = 0.5))
+
+g2+ guides(fill=FALSE, color=FALSE)
+
+```
+
+
+## 结论
+
+随着经济的发展。中国人均每天将生成越来越多垃圾。目前中国还处在较低的垃圾回收率。所以建立有效的垃圾回收系统迫在眉睫。上海市的垃圾分类立法将成为其他城市的学习榜样。
+
+## Reference
+
+https://www.nationalgeographic.com/magazine/2018/06/plastic-planet-waste-pollution-trash-crisis/
+
+http://env.people.com.cn/n1/2019/0215/c1010-30715370.html
+
+https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-05-21
+
+https://www.youtube.com/watch?v=BRdLOYtJk9o&t=115s
+
+https://github.com/dgrtwo/data-screencasts/blob/master/plastic-waste.Rmd
+
+
