@@ -1,0 +1,25 @@
+---
+title: June 2019 TFUG Shenzhen event:text classification Codelab
+author: ''
+date: '2019-06-15'
+slug: june-2019-tfug-shenzhen-event-wework
+categories: []
+tags: []
+description: 'June 2019 TFUG Shenzhen event:text classification Codelab'
+topics: []
+---
+
+TensorFlow text classification Codelab
+
+活动行：https://www.huodongxing.com/event/5495492574500
+
+Code:https://github.com/JayYip/deep-learning-nlp-notes/blob/master/colab-talk-shenzhen-0615/Colab-Practice.ipynb
+
+PPT:https://github.com/JayYip/deep-learning-nlp-notes/blob/master/colab-talk-shenzhen-0615/TFUG-Colab-Talk.pdf
+
+
+![](/post/june-2019-tfug-shenzhen-event-wework/001.jpg){width=700px height=500px}
+![](/post/june-2019-tfug-shenzhen-event-wework/002.jpg){width=700px height=500px}
+![](/post/june-2019-tfug-shenzhen-event-wework/003.jpg){width=700px height=500px}
+![](/post/june-2019-tfug-shenzhen-event-wework/005.png){width=700px height=500px}
+

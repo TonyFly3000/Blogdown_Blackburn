@@ -35,6 +35,18 @@
     </item>
     
     <item>
+      <title>June 2019 TFUG Shenzhen event:text classification Codelab</title>
+      <link>/post/june-2019-tfug-shenzhen-event-wework/</link>
+      <pubDate>Sat, 15 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/june-2019-tfug-shenzhen-event-wework/</guid>
+      <description>TensorFlow text classification Codelab
+活动行：https://www.huodongxing.com/event/5495492574500
+Code:https://github.com/JayYip/deep-learning-nlp-notes/blob/master/colab-talk-shenzhen-0615/Colab-Practice.ipynb
+PPT:https://github.com/JayYip/deep-learning-nlp-notes/blob/master/colab-talk-shenzhen-0615/TFUG-Colab-Talk.pdf</description>
+    </item>
+    
+    <item>
       <title>Google Cloud Platform (GCP) Trainning by GDG</title>
       <link>/post/google-cloud-platform-gcp-trainning-by-gdg/</link>
       <pubDate>Fri, 31 May 2019 00:00:00 +0000</pubDate>
