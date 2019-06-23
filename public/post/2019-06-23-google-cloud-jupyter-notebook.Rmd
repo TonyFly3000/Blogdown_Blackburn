@@ -1,0 +1,156 @@
+---
+title: '在 Google Cloud 安装 Jupyter notebook'
+author: ''
+date: '2019-06-23'
+slug: google-cloud-jupyter-notebook
+categories: []
+tags: []
+description: '在 Google Cloud 安装 Jupyter notebook'
+topics: []
+---
+
+
+# 1.成功注册谷歌云
+
+此次省略300字。具体申请教材请网上查找。流程比较简单，只需准备一个手机号码和信用卡。
+第一年免费使用。信用卡绑定不会扣费。
+
+
+# 2.登录谷歌云建立GPU服务器
+
+## 2.1 开启 GPU额度
+谷歌避免用户不小心开了很大的GPU。所以在开GPU服务前，需要用户开启可开的GPU额度。步骤如下
+
+
+### IAM & admin - >  Quotas 
+![](/post/google-cloud-jupyter-notebook/AA23-51-17-18.png){width=700px height=450px}
+
+### 选GPU
+![](/post/google-cloud-jupyter-notebook/AA23-48-17-17.png){width=700px height=450px}
+
+
+### EDIT QUOTA
+![](/post/google-cloud-jupyter-notebook/AA23-48-17-31.png){width=700px height=450px}
+
+
+### 加GPU QUOTA -> submit
+![](/post/google-cloud-jupyter-notebook/AA23-48-17-45.png){width=700px height=450px}
+
+
+## 2.2 开启GPU服务器
+
+### Compute Engine - > VM instances
+![](/post/google-cloud-jupyter-notebook/AA23-53-17-25.png){width=700px height=450px}
+
+
+### CREATE INSTANCES
+![](/post/google-cloud-jupyter-notebook/AA23-53-17-59.png){width=700px height=450px}
+
+### name,Region 自行选择;CPU个数，GPU个数自行选择。建议4+1
+![](/post/google-cloud-jupyter-notebook/AA23-54-17-29.png){width=700px height=450px}
+
+### 系统选择 Ubuntu 18;
+Allow default access;Allow HTTP traffic;Allow HTTPS traffic;Network tags:rstudio
+
+![](/post/google-cloud-jupyter-notebook/AA23-55-17-01.png){width=700px height=450px}
+
+
+
+# 3.开启防火墙
+
+### VPC netword - > Firewall rules
+![](/post/google-cloud-jupyter-notebook/AA23-04-18-11.png){width=700px height=450px}
+
+### CREATE FIREWALL RULE
+![](/post/google-cloud-jupyter-notebook/AA23-04-18-23.png){width=700px height=450px}
+
+### Target:All instances in the network;Source IP ranges:0.0.0.0/0;Protocools and ports:Allow all
+![](/post/google-cloud-jupyter-notebook/AA23-27-18-55.png){width=700px height=450px}
+
+
+# 4.打开SSH安装 Anaconda
+
+
+![](/post/google-cloud-jupyter-notebook/InkedAA23-10-18-02_LI.jpg){width=700px height=450px}
+
+![](/post/google-cloud-jupyter-notebook/AA23-19-18-48.png){width=700px height=450px}
+
+
+### 安装 Anaconda：
+
+```{R eval=FALSE}
+$ sudo apt-get update
+
+$ wget http://repo.continuum.io/archive/Anaconda3-2019.03-Linux-x86_64.sh
+
+$ bash Anaconda3-2019.03-Linux-x86_64.sh
+
+$ sudo apt-get install vim 
+
+```
+
+一直按回车 确认。如果有类似以下的问题。都回答yes
+
+Do you wish the installer to prepend the 
+Anaconda3 install location to PATH 
+in your /home/haroldsoh/.bashrc ? 
+[yes|no][no] >>> yes
+
+```{R eval=FALSE}
+$ source ~/.bashrc
+```
+
+
+```{R eval=FALSE}
+$ jupyter notebook --generate-config
+
+$ ls ~/.jupyter/jupyter_notebook_config.py
+
+$ sudo vim  ~/.jupyter/jupyter_notebook_config.py
+
+```
+
+### 将这几行代码添加入jupyter_notebook_config.py并保存。
+
+
+```{R eval=FALSE}
+c = get_config()
+c.NotebookApp.ip = '0.0.0.0'
+c.NotebookApp.open_browser = False
+c.NotebookApp.port = 8123
+```
+
+![](/post/google-cloud-jupyter-notebook/AA23-52-18-09.png){width=700px height=450px}
+
+
+开启Jupyer notebook。注意。每次都要先开启才能登录Jupyer notebook。如果想设置自动开启，请关注后续文章。
+```{R eval=FALSE}
+$ jupyter-notebook --no-browser --port=8123
+
+```
+
+![](/post/google-cloud-jupyter-notebook/InkedInkedAA23-53-18-15_LI.jpg){width=700px height=450px}
+
+
+
+
+# 5.登录 Jupyer notebook
+
+
+### 网页开打:你的IP:8123。如 123.123.123.123:8123。
+Token 为 SSH 中显示的Token 
+
+
+![](/post/google-cloud-jupyter-notebook/AA23-52-18-58.png){width=700px height=450px}
+
+
+
+### 成功安装 Jupyer notebook！
+
+
+![](/post/google-cloud-jupyter-notebook/AA23-53-18-50.png){width=700px height=450px}
+
+### Hello world !
+![](/post/google-cloud-jupyter-notebook/AA23-54-18-12.png){width=700px height=450px}
+
+

@@ -1,0 +1,126 @@
+---
+title: '在 Google Cloud 安装 R studio server'
+author: ''
+date: '2019-06-23'
+slug: google-cloud-r-studio-server
+categories: []
+tags: []
+description: '在 Google Cloud 安装 R studio server'
+topics: []
+---
+
+# 1.成功注册谷歌云
+
+此次省略300字。具体申请教材请网上查找。流程比较简单，只需准备一个手机号码和信用卡。
+第一年免费使用。信用卡绑定不会扣费。
+
+
+# 2.登录谷歌云建立GPU服务器
+
+## 2.1 开启 GPU额度
+谷歌避免用户不小心开了很大的GPU。所以在开GPU服务前，需要用户开启可开的GPU额度。步骤如下
+
+
+### IAM & admin - >  Quotas 
+![](/post/google-cloud-r-studio-server/AA23-51-17-18.png){width=700px height=450px}
+
+### 选GPU
+![](/post/google-cloud-r-studio-server/AA23-48-17-17.png){width=700px height=450px}
+
+
+### EDIT QUOTA
+![](/post/google-cloud-r-studio-server/AA23-48-17-31.png){width=700px height=450px}
+
+
+### 加GPU QUOTA -> submit
+![](/post/google-cloud-r-studio-server/AA23-48-17-45.png){width=700px height=450px}
+
+
+## 2.2 开启GPU服务器
+
+### Compute Engine - > VM instances
+![](/post/google-cloud-r-studio-server/AA23-53-17-25.png){width=700px height=450px}
+
+
+### CREATE INSTANCES
+![](/post/google-cloud-r-studio-server/AA23-53-17-59.png){width=700px height=450px}
+
+### name,Region 自行选择;CPU个数，GPU个数自行选择。建议4+1
+![](/post/google-cloud-r-studio-server/AA23-54-17-29.png){width=700px height=450px}
+
+### 系统选择 Ubuntu 18;
+Allow default access;Allow HTTP traffic;Allow HTTPS traffic;Network tags:rstudio
+
+![](/post/google-cloud-r-studio-server/AA23-55-17-01.png){width=700px height=450px}
+
+
+
+# 3.开启防火墙
+
+### VPC netword - > Firewall rules
+![](/post/google-cloud-r-studio-server/AA23-04-18-11.png){width=700px height=450px}
+
+### CREATE FIREWALL RULE
+![](/post/google-cloud-r-studio-server/AA23-04-18-23.png){width=700px height=450px}
+
+### Target:Specified target tags;Target tags:rstudio;Source IP ranges:0.0.0.0/0;Protocools and ports:tcp 8787
+![](/post/google-cloud-r-studio-server/AA23-06-18-09.png){width=700px height=450px}
+
+
+# 4.打开SSH安装[R studio server]
+
+
+![](/post/google-cloud-r-studio-server/InkedAA23-10-18-02_LI.jpg){width=700px height=450px}
+
+![](/post/google-cloud-r-studio-server/AA23-19-18-48.png){width=700px height=450px}
+
+
+### 安装 R：
+
+```{R eval=FALSE}
+$ sudo apt update
+$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+$ sudo apt update
+$ sudo apt install r-base r-base-core r-recommended
+$ sudo apt install git
+```
+### 安装 R studio server：
+
+```{R eval=FALSE}
+$ sudo apt-get install gdebi-core
+$ wget https://download2.rstudio.org/server/bionic/amd64/rstudio-server-1.2.1335-amd64.deb
+$ sudo gdebi rstudio-server-1.2.1335-amd64.deb
+```
+
+### 添加 R studio server用户,填入自己想要的用户名和密码:
+```{R eval=FALSE}
+$ sudo adduser tonyfly
+```
+
+
+
+### 开启R studio server：
+```{R eval=FALSE}
+$ sudo rstudio-server start
+```
+
+
+# 5.登录[R studio server]
+
+
+### 网页开打:你的IP:8787。如 123.123.123.123:8787。
+
+输入刚才添加的用户名和密码
+
+
+![](/post/google-cloud-r-studio-server/AA23-12-18-08.png){width=700px height=450px}
+
+
+### 成功安装 Rstudio server！
+
+![](/post/google-cloud-r-studio-server/AA23-12-18-24.png){width=700px height=450px}
+
+
+
+
+
