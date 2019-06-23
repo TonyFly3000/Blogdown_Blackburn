@@ -256,8 +256,8 @@
 <div id="gpu" class="section level1">
 <h1>2.登录谷歌云建立GPU服务器</h1>
 <div id="-gpu" class="section level2">
-<h2>2.1 开启 GPU额度</h2>
-<p>谷歌避免用户不小心开了很大的GPU。所以在开GPU服务前，需要用户开启可开的GPU额度。步骤如下</p>
+<h2>2.1 申请 GPU额度</h2>
+<p>目前谷歌需要申请GPU额度才能使用GPU。所以在开GPU服务前，需要用户申请GPU额度。步骤如下</p>
 <div id="iam-admin---quotas" class="section level3">
 <h3>IAM &amp; admin - &gt; Quotas</h3>
 <p><img src="/post/google-cloud-r-studio-server/AA23-51-17-18.png" width="700" height="450" /></p>
@@ -272,7 +272,7 @@
 </div>
 <div id="gpu-quota---submit" class="section level3">
 <h3>加GPU QUOTA -&gt; submit</h3>
-<p><img src="/post/google-cloud-r-studio-server/AA23-48-17-45.png" width="700" height="450" /></p>
+<p><img src="/post/google-cloud-r-studio-server/AA23-28-21-12.png" width="700" height="450" /></p>
 </div>
 </div>
 <div id="gpu" class="section level2">
@@ -289,10 +289,13 @@
 <h3>name,Region 自行选择;CPU个数，GPU个数自行选择。建议4+1</h3>
 <p><img src="/post/google-cloud-r-studio-server/AA23-54-17-29.png" width="700" height="450" /></p>
 </div>
-<div id="-ubuntu-18" class="section level3">
-<h3>系统选择 Ubuntu 18;</h3>
-<p>Allow default access;Allow HTTP traffic;Allow HTTPS traffic;Network tags:rstudio</p>
+<div id="allow-default-accessallow-http-trafficallow-https-trafficnetwork-tagsrstudio" class="section level3">
+<h3>Allow default access;Allow HTTP traffic;Allow HTTPS traffic;Network tags:rstudio</h3>
 <p><img src="/post/google-cloud-r-studio-server/AA23-55-17-01.png" width="700" height="450" /></p>
+</div>
+<div id="-ubuntu-18disk-size-100-gb" class="section level3">
+<h3>系统选择 Ubuntu 18;disk size 100 GB</h3>
+<p><img src="/post/google-cloud-r-studio-server/AA23-11-21-10.png" width="700" height="450" /></p>
 </div>
 </div>
 </div>
@@ -311,8 +314,8 @@
 <p><img src="/post/google-cloud-r-studio-server/AA23-06-18-09.png" width="700" height="450" /></p>
 </div>
 </div>
-<div id="sshr-studio-server" class="section level1">
-<h1>4.打开SSH安装[R studio server]</h1>
+<div id="ssh-r-studio-server" class="section level1">
+<h1>4.打开SSH安装 R studio server</h1>
 <p><img src="/post/google-cloud-r-studio-server/InkedAA23-10-18-02_LI.jpg" width="700" height="450" /></p>
 <p><img src="/post/google-cloud-r-studio-server/AA23-19-18-48.png" width="700" height="450" /></p>
 <div id="-r" class="section level3">
@@ -321,7 +324,8 @@
 $ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
 $ sudo apt update
 $ sudo apt install r-base r-base-core r-recommended
-$ sudo apt install git</code></pre>
+$ sudo apt install git
+$ sudo apt install libcurl4-openssl-dev libmagick++-dev </code></pre>
 </div>
 <div id="-r-studio-server" class="section level3">
 <h3>安装 R studio server：</h3>
@@ -338,8 +342,8 @@ $ sudo gdebi rstudio-server-1.2.1335-amd64.deb</code></pre>
 <pre class="r"><code>$ sudo rstudio-server start</code></pre>
 </div>
 </div>
-<div id="r-studio-server" class="section level1">
-<h1>5.登录[R studio server]</h1>
+<div id="-r-studio-server" class="section level1">
+<h1>5.登录 R studio server</h1>
 <div id="ip8787-123.123.123.1238787" class="section level3">
 <h3>网页开打:你的IP:8787。如 123.123.123.123:8787。</h3>
 <p>输入刚才添加的用户名和密码</p>
@@ -348,6 +352,43 @@ $ sudo gdebi rstudio-server-1.2.1335-amd64.deb</code></pre>
 <div id="-rstudio-server" class="section level3">
 <h3>成功安装 Rstudio server！</h3>
 <p><img src="/post/google-cloud-r-studio-server/AA23-12-18-24.png" width="700" height="450" /></p>
+</div>
+<div id="-rstudio-server" class="section level3">
+<h3>暂停 rstudio server</h3>
+<pre class="r"><code>$ sudo rstudio-server stop</code></pre>
+</div>
+<div id="-rstudio-server" class="section level3">
+<h3>重启 rstudio server</h3>
+<pre class="r"><code>$ sudo rstudio-server restart</code></pre>
+</div>
+<div id="-rstudio-server-session" class="section level3">
+<h3>所有正在运行的 rstudio server session</h3>
+<pre class="r"><code>$ sudo rstudio-server active-sessions</code></pre>
+</div>
+<div id="-rstudio-server-session" class="section level3">
+<h3>终止所有正在运行的 rstudio server session</h3>
+<pre class="r"><code>$ sudo rstudio-server suspend-all</code></pre>
+</div>
+<div id="-nvidia-cuda" class="section level3">
+<h3>安装 nvidia cuda</h3>
+<pre class="r"><code>$ curl -O http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-repo-ubuntu1804_10.0.130-1_amd64.deb
+
+$ sudo dpkg -i cuda-repo-ubuntu1804_10.0.130-1_amd64.deb
+
+$ sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1704/x86_64/7fa2af80.pub
+
+
+$ sudo apt-get update
+
+
+$ sudo apt-get install cuda-10-0
+
+
+$ sudo nvidia-smi -pm 1
+
+$ nvidia-smi</code></pre>
+<pre class="r"><code>$ sudo apt-get install python3-pip
+$ sudo /usr/bin/pip3 install virtualenv</code></pre>
 </div>
 </div>
 

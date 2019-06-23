@@ -17,8 +17,8 @@ topics: []
 
 # 2.登录谷歌云建立GPU服务器
 
-## 2.1 开启 GPU额度
-谷歌避免用户不小心开了很大的GPU。所以在开GPU服务前，需要用户开启可开的GPU额度。步骤如下
+## 2.1 申请 GPU额度
+目前谷歌需要申请GPU额度才能使用GPU。所以在开GPU服务前，需要用户申请GPU额度。步骤如下
 
 
 ### IAM & admin - >  Quotas 
@@ -33,7 +33,7 @@ topics: []
 
 
 ### 加GPU QUOTA -> submit
-![](/post/google-cloud-r-studio-server/AA23-48-17-45.png){width=700px height=450px}
+![](/post/google-cloud-r-studio-server/AA23-28-21-12.png){width=700px height=450px}
 
 
 ## 2.2 开启GPU服务器
@@ -48,12 +48,13 @@ topics: []
 ### name,Region 自行选择;CPU个数，GPU个数自行选择。建议4+1
 ![](/post/google-cloud-r-studio-server/AA23-54-17-29.png){width=700px height=450px}
 
-### 系统选择 Ubuntu 18;
-Allow default access;Allow HTTP traffic;Allow HTTPS traffic;Network tags:rstudio
+### Allow default access;Allow HTTP traffic;Allow HTTPS traffic;Network tags:rstudio
+
 
 ![](/post/google-cloud-r-studio-server/AA23-55-17-01.png){width=700px height=450px}
 
-
+### 系统选择 Ubuntu 18;disk size 100 GB
+![](/post/google-cloud-r-studio-server/AA23-11-21-10.png){width=700px height=450px}
 
 # 3.开启防火墙
 
@@ -67,7 +68,7 @@ Allow default access;Allow HTTP traffic;Allow HTTPS traffic;Network tags:rstudio
 ![](/post/google-cloud-r-studio-server/AA23-06-18-09.png){width=700px height=450px}
 
 
-# 4.打开SSH安装[R studio server]
+# 4.打开SSH安装 R studio server
 
 
 ![](/post/google-cloud-r-studio-server/InkedAA23-10-18-02_LI.jpg){width=700px height=450px}
@@ -83,6 +84,8 @@ $ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
 $ sudo apt update
 $ sudo apt install r-base r-base-core r-recommended
 $ sudo apt install git
+$ sudo apt install libcurl4-openssl-dev libmagick++-dev 
+
 ```
 ### 安装 R studio server：
 
@@ -105,7 +108,7 @@ $ sudo rstudio-server start
 ```
 
 
-# 5.登录[R studio server]
+# 5.登录 R studio server
 
 
 ### 网页开打:你的IP:8787。如 123.123.123.123:8787。
@@ -123,4 +126,52 @@ $ sudo rstudio-server start
 
 
 
+### 暂停 rstudio server
+```{R eval=FALSE}
+$ sudo rstudio-server stop
+```
+
+### 重启 rstudio server
+```{R eval=FALSE}
+$ sudo rstudio-server restart
+```
+
+### 所有正在运行的 rstudio server session
+
+```{R eval=FALSE}
+$ sudo rstudio-server active-sessions
+```
+
+### 终止所有正在运行的 rstudio server session
+
+```{R eval=FALSE}
+$ sudo rstudio-server suspend-all
+```
+
+### 安装 nvidia cuda
+
+```{R eval=FALSE}
+$ curl -O http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-repo-ubuntu1804_10.0.130-1_amd64.deb
+
+$ sudo dpkg -i cuda-repo-ubuntu1804_10.0.130-1_amd64.deb
+
+$ sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1704/x86_64/7fa2af80.pub
+
+
+$ sudo apt-get update
+
+
+$ sudo apt-get install cuda-10-0
+
+
+$ sudo nvidia-smi -pm 1
+
+$ nvidia-smi
+
+```
+
+```{R eval=FALSE}
+$ sudo apt-get install python3-pip
+$ sudo /usr/bin/pip3 install virtualenv
+```
 

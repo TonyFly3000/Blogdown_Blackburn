@@ -19,38 +19,38 @@ topics: []
 <div id="gpu" class="section level1">
 <h1>2.登录谷歌云建立GPU服务器</h1>
 <div id="-gpu" class="section level2">
-<h2>2.1 开启 GPU额度</h2>
-<p>谷歌避免用户不小心开了很大的GPU。所以在开GPU服务前，需要用户开启可开的GPU额度。步骤如下</p>
+<h2>2.1 申请 GPU额度</h2>
+<p>目前谷歌需要申请GPU额度才能使用GPU。所以在开GPU服务前，需要用户申请GPU额度。步骤如下</p>
 <div id="iam-admin---quotas" class="section level3">
 <h3>IAM &amp; admin - &gt; Quotas</h3>
-<p><img src="/post/google-cloud-jupyter-notebook/AA23-51-17-18.png" width="700" height="450" /></p>
+<p><img src="/post/google-cloud-r-studio-server/AA23-51-17-18.png" width="700" height="450" /></p>
 </div>
 <div id="gpu" class="section level3">
 <h3>选GPU</h3>
-<p><img src="/post/google-cloud-jupyter-notebook/AA23-48-17-17.png" width="700" height="450" /></p>
+<p><img src="/post/google-cloud-r-studio-server/AA23-48-17-17.png" width="700" height="450" /></p>
 </div>
 <div id="edit-quota" class="section level3">
 <h3>EDIT QUOTA</h3>
-<p><img src="/post/google-cloud-jupyter-notebook/AA23-48-17-31.png" width="700" height="450" /></p>
+<p><img src="/post/google-cloud-r-studio-server/AA23-48-17-31.png" width="700" height="450" /></p>
 </div>
 <div id="gpu-quota---submit" class="section level3">
 <h3>加GPU QUOTA -&gt; submit</h3>
-<p><img src="/post/google-cloud-jupyter-notebook/AA23-48-17-45.png" width="700" height="450" /></p>
+<p><img src="/post/google-cloud-r-studio-server/AA23-28-21-12.png" width="700" height="450" /></p>
 </div>
 </div>
 <div id="gpu" class="section level2">
 <h2>2.2 开启GPU服务器</h2>
 <div id="compute-engine---vm-instances" class="section level3">
 <h3>Compute Engine - &gt; VM instances</h3>
-<p><img src="/post/google-cloud-jupyter-notebook/AA23-53-17-25.png" width="700" height="450" /></p>
+<p><img src="/post/google-cloud-r-studio-server/AA23-53-17-25.png" width="700" height="450" /></p>
 </div>
 <div id="create-instances" class="section level3">
 <h3>CREATE INSTANCES</h3>
-<p><img src="/post/google-cloud-jupyter-notebook/AA23-53-17-59.png" width="700" height="450" /></p>
+<p><img src="/post/google-cloud-r-studio-server/AA23-53-17-59.png" width="700" height="450" /></p>
 </div>
 <div id="nameregion-cpugpu41" class="section level3">
 <h3>name,Region 自行选择;CPU个数，GPU个数自行选择。建议4+1</h3>
-<p><img src="/post/google-cloud-jupyter-notebook/AA23-54-17-29.png" width="700" height="450" /></p>
+<p><img src="/post/google-cloud-r-studio-server/AA23-54-17-29.png" width="700" height="450" /></p>
 </div>
 <div id="-ubuntu-18" class="section level3">
 <h3>系统选择 Ubuntu 18;</h3>
