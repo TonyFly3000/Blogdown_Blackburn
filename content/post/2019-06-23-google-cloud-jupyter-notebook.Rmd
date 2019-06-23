@@ -48,10 +48,13 @@ topics: []
 ### name,Region 自行选择;CPU个数，GPU个数自行选择。建议4+1
 ![](/post/google-cloud-r-studio-server/AA23-54-17-29.png){width=700px height=450px}
 
-### 系统选择 Ubuntu 18;
-Allow default access;Allow HTTP traffic;Allow HTTPS traffic;Network tags:rstudio
+### Allow default access;Allow HTTP traffic;Allow HTTPS traffic;Network tags:rstudio
 
-![](/post/google-cloud-jupyter-notebook/AA23-55-17-01.png){width=700px height=450px}
+
+![](/post/google-cloud-r-studio-server/AA23-55-17-01.png){width=700px height=450px}
+
+### 系统选择 Ubuntu 18;disk size 100 GB
+![](/post/google-cloud-r-studio-server/AA23-11-21-10.png){width=700px height=450px}
 
 
 

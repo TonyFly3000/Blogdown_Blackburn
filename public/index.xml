@@ -20,8 +20,7 @@
       <guid>/post/google-cloud-jupyter-notebook/</guid>
       <description>1.成功注册谷歌云此次省略300字。具体申请教材请网上查找。流程比较简单，只需准备一个手机号码和信用卡。第一年免费使用。信用卡绑定不会扣费。
 2.登录谷歌云建立GPU服务器2.1 申请 GPU额度目前谷歌需要申请GPU额度才能使用GPU。所以在开GPU服务前，需要用户申请GPU额度。步骤如下
-IAM &amp;amp; admin - &amp;gt; Quotas选GPUEDIT QUOTA加GPU QUOTA -&amp;gt; submit2.2 开启GPU服务器Compute Engine - &amp;gt; VM instancesCREATE INSTANCESname,Region 自行选择;CPU个数，GPU个数自行选择。建议4+1系统选择 Ubuntu 18;Allow default access;Allow HTTP traffic;Allow HTTPS traffic;Network tags:rstudio
-3.开启防火墙VPC netword - &amp;gt; Firewall rulesCREATE FIREWALL RULETarget:All instances in the network;Source IP ranges:0.</description>
+IAM &amp;amp; admin - &amp;gt; Quotas选GPUEDIT QUOTA加GPU QUOTA -&amp;gt; submit2.2 开启GPU服务器Compute Engine - &amp;gt; VM instancesCREATE INSTANCESname,Region 自行选择;CPU个数，GPU个数自行选择。建议4+1Allow default access;Allow HTTP traffic;Allow HTTPS traffic;Network tags:rstudio系统选择 Ubuntu 18;disk size 100 GB3.开启防火墙VPC netword - &amp;gt; Firewall rulesCREATE FIREWALL RULETarget:All instances in the network;Source IP ranges:0.</description>
     </item>
     
     <item>
