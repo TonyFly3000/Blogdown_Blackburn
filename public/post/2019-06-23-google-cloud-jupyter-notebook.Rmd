@@ -22,60 +22,60 @@ topics: []
 目前谷歌需要申请GPU额度才能使用GPU。所以在开GPU服务前，需要用户申请GPU额度。步骤如下
 
 ### IAM & admin - >  Quotas 
-![](/post/google-cloud-r-studio-server/AA23-51-17-18.png){width=700px height=450px}
+![](/post/google-cloud-r-studio-server/AA23-51-17-18.png){width=700px height=400px}
 
 ### 选GPU
-![](/post/google-cloud-r-studio-server/AA23-48-17-17.png){width=700px height=450px}
+![](/post/google-cloud-r-studio-server/AA23-48-17-17.png){width=700px height=400px}
 
 
 ### EDIT QUOTA
-![](/post/google-cloud-r-studio-server/AA23-48-17-31.png){width=700px height=450px}
+![](/post/google-cloud-r-studio-server/AA23-48-17-31.png){width=700px height=400px}
 
 
 ### 加GPU QUOTA -> submit
-![](/post/google-cloud-r-studio-server/AA23-28-21-12.png){width=700px height=450px}
+![](/post/google-cloud-r-studio-server/AA23-28-21-12.png){width=700px height=400px}
 
 
 ## 2.2 开启GPU服务器
 
 ### Compute Engine - > VM instances
-![](/post/google-cloud-r-studio-server/AA23-53-17-25.png){width=700px height=450px}
+![](/post/google-cloud-r-studio-server/AA23-53-17-25.png){width=700px height=400px}
 
 
 ### CREATE INSTANCES
-![](/post/google-cloud-r-studio-server/AA23-53-17-59.png){width=700px height=450px}
+![](/post/google-cloud-r-studio-server/AA23-53-17-59.png){width=700px height=400px}
 
 ### name,Region 自行选择;CPU个数，GPU个数自行选择。建议4+1
-![](/post/google-cloud-r-studio-server/AA23-54-17-29.png){width=700px height=450px}
+![](/post/google-cloud-r-studio-server/AA23-54-17-29.png){width=700px height=400px}
 
 ### Allow default access;Allow HTTP traffic;Allow HTTPS traffic;Network tags:rstudio
 
 
-![](/post/google-cloud-r-studio-server/AA23-55-17-01.png){width=700px height=450px}
+![](/post/google-cloud-r-studio-server/AA23-55-17-01.png){width=700px height=400px}
 
 ### 系统选择 Ubuntu 18;disk size 100 GB
-![](/post/google-cloud-r-studio-server/AA23-11-21-10.png){width=700px height=450px}
+![](/post/google-cloud-r-studio-server/AA23-11-21-10.png){width=700px height=400px}
 
 
 
 # 3.开启防火墙
 
 ### VPC netword - > Firewall rules
-![](/post/google-cloud-jupyter-notebook/AA23-04-18-11.png){width=700px height=450px}
+![](/post/google-cloud-jupyter-notebook/AA23-04-18-11.png){width=700px height=400px}
 
 ### CREATE FIREWALL RULE
-![](/post/google-cloud-jupyter-notebook/AA23-04-18-23.png){width=700px height=450px}
+![](/post/google-cloud-jupyter-notebook/AA23-04-18-23.png){width=700px height=400px}
 
 ### Target:All instances in the network;Source IP ranges:0.0.0.0/0;Protocools and ports:Allow all
-![](/post/google-cloud-jupyter-notebook/AA23-27-18-55.png){width=700px height=450px}
+![](/post/google-cloud-jupyter-notebook/AA23-27-18-55.png){width=700px height=400px}
 
 
 # 4.打开SSH安装 Anaconda
 
 
-![](/post/google-cloud-jupyter-notebook/InkedAA23-10-18-02_LI.jpg){width=700px height=450px}
+![](/post/google-cloud-jupyter-notebook/InkedAA23-10-18-02_LI.jpg){width=700px height=400px}
 
-![](/post/google-cloud-jupyter-notebook/AA23-19-18-48.png){width=700px height=450px}
+![](/post/google-cloud-jupyter-notebook/AA23-19-18-48.png){width=700px height=400px}
 
 
 ### 安装 Anaconda：
@@ -122,7 +122,7 @@ c.NotebookApp.open_browser = False
 c.NotebookApp.port = 8123
 ```
 
-![](/post/google-cloud-jupyter-notebook/AA23-52-18-09.png){width=700px height=450px}
+![](/post/google-cloud-jupyter-notebook/AA23-52-18-09.png){width=700px height=400px}
 
 
 开启Jupyer notebook。注意。每次都要先开启才能登录Jupyer notebook。如果想设置自动开启，请关注后续文章。
@@ -131,7 +131,7 @@ $ jupyter-notebook --no-browser --port=8123
 
 ```
 
-![](/post/google-cloud-jupyter-notebook/InkedInkedAA23-53-18-15_LI.jpg){width=700px height=450px}
+![](/post/google-cloud-jupyter-notebook/InkedInkedAA23-53-18-15_LI.jpg){width=700px height=400px}
 
 
 
@@ -143,16 +143,16 @@ $ jupyter-notebook --no-browser --port=8123
 Token 为 SSH 中显示的Token 
 
 
-![](/post/google-cloud-jupyter-notebook/AA23-52-18-58.png){width=700px height=450px}
+![](/post/google-cloud-jupyter-notebook/AA23-52-18-58.png){width=700px height=400px}
 
 
 
 ### 成功安装 Jupyer notebook！
 
 
-![](/post/google-cloud-jupyter-notebook/AA23-53-18-50.png){width=700px height=450px}
+![](/post/google-cloud-jupyter-notebook/AA23-53-18-50.png){width=700px height=400px}
 
 ### Hello world !
-![](/post/google-cloud-jupyter-notebook/AA23-54-18-12.png){width=700px height=450px}
+![](/post/google-cloud-jupyter-notebook/AA23-54-18-12.png){width=700px height=400px}
 
 

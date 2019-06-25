@@ -9,7 +9,7 @@ description: 'Data weekend:Global Plastic Waste'
 topics: []
 ---
 
-![](/post/data-weekend-global-plastic-waste/nation_plastic_waste.png){width=900px height=600px}
+![](/post/data-weekend-global-plastic-waste/nation_plastic_waste.png){width=900px height=550px}
 
 PHOTOGRAPHS BY RANDY OLSON
 
@@ -47,6 +47,7 @@ theme_set(theme_light())
 
 ## 导入数据
 ```{r warning=FALSE,message=FALSE}
+
 coast_vs_waste <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-05-21/coastal-population-vs-mismanaged-plastic.csv")
 
 mismanaged_vs_gdp <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-05-21/per-capita-mismanaged-plastic-waste-vs-gdp-per-capita.csv")

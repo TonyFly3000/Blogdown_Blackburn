@@ -260,42 +260,42 @@
 <p>目前谷歌需要申请GPU额度才能使用GPU。所以在开GPU服务前，需要用户申请GPU额度。步骤如下</p>
 <div id="iam-admin---quotas" class="section level3">
 <h3>IAM &amp; admin - &gt; Quotas</h3>
-<p><img src="/post/google-cloud-r-studio-server/AA23-51-17-18.png" width="700" height="450" /></p>
+<p><img src="/post/google-cloud-r-studio-server/AA23-51-17-18.png" width="700" height="400" /></p>
 </div>
 <div id="gpu" class="section level3">
 <h3>选GPU</h3>
-<p><img src="/post/google-cloud-r-studio-server/AA23-48-17-17.png" width="700" height="450" /></p>
+<p><img src="/post/google-cloud-r-studio-server/AA23-48-17-17.png" width="700" height="400" /></p>
 </div>
 <div id="edit-quota" class="section level3">
 <h3>EDIT QUOTA</h3>
-<p><img src="/post/google-cloud-r-studio-server/AA23-48-17-31.png" width="700" height="450" /></p>
+<p><img src="/post/google-cloud-r-studio-server/AA23-48-17-31.png" width="700" height="400" /></p>
 </div>
 <div id="gpu-quota---submit" class="section level3">
 <h3>加GPU QUOTA -&gt; submit</h3>
-<p><img src="/post/google-cloud-r-studio-server/AA23-28-21-12.png" width="700" height="450" /></p>
+<p><img src="/post/google-cloud-r-studio-server/AA23-28-21-12.png" width="700" height="400" /></p>
 </div>
 </div>
 <div id="gpu" class="section level2">
 <h2>2.2 开启GPU服务器</h2>
 <div id="compute-engine---vm-instances" class="section level3">
 <h3>Compute Engine - &gt; VM instances</h3>
-<p><img src="/post/google-cloud-r-studio-server/AA23-53-17-25.png" width="700" height="450" /></p>
+<p><img src="/post/google-cloud-r-studio-server/AA23-53-17-25.png" width="700" height="400" /></p>
 </div>
 <div id="create-instances" class="section level3">
 <h3>CREATE INSTANCES</h3>
-<p><img src="/post/google-cloud-r-studio-server/AA23-53-17-59.png" width="700" height="450" /></p>
+<p><img src="/post/google-cloud-r-studio-server/AA23-53-17-59.png" width="700" height="400" /></p>
 </div>
 <div id="nameregion-cpugpu41" class="section level3">
 <h3>name,Region 自行选择;CPU个数，GPU个数自行选择。建议4+1</h3>
-<p><img src="/post/google-cloud-r-studio-server/AA23-54-17-29.png" width="700" height="450" /></p>
+<p><img src="/post/google-cloud-r-studio-server/AA23-54-17-29.png" width="700" height="400" /></p>
 </div>
 <div id="allow-default-accessallow-http-trafficallow-https-trafficnetwork-tagsrstudio" class="section level3">
 <h3>Allow default access;Allow HTTP traffic;Allow HTTPS traffic;Network tags:rstudio</h3>
-<p><img src="/post/google-cloud-r-studio-server/AA23-55-17-01.png" width="700" height="450" /></p>
+<p><img src="/post/google-cloud-r-studio-server/AA23-55-17-01.png" width="700" height="400" /></p>
 </div>
 <div id="-ubuntu-18disk-size-100-gb" class="section level3">
 <h3>系统选择 Ubuntu 18;disk size 100 GB</h3>
-<p><img src="/post/google-cloud-r-studio-server/AA23-11-21-10.png" width="700" height="450" /></p>
+<p><img src="/post/google-cloud-r-studio-server/AA23-11-21-10.png" width="700" height="400" /></p>
 </div>
 </div>
 </div>
@@ -303,21 +303,21 @@
 <h1>3.开启防火墙</h1>
 <div id="vpc-netword---firewall-rules" class="section level3">
 <h3>VPC netword - &gt; Firewall rules</h3>
-<p><img src="/post/google-cloud-jupyter-notebook/AA23-04-18-11.png" width="700" height="450" /></p>
+<p><img src="/post/google-cloud-jupyter-notebook/AA23-04-18-11.png" width="700" height="400" /></p>
 </div>
 <div id="create-firewall-rule" class="section level3">
 <h3>CREATE FIREWALL RULE</h3>
-<p><img src="/post/google-cloud-jupyter-notebook/AA23-04-18-23.png" width="700" height="450" /></p>
+<p><img src="/post/google-cloud-jupyter-notebook/AA23-04-18-23.png" width="700" height="400" /></p>
 </div>
 <div id="targetall-instances-in-the-networksource-ip-ranges0.0.0.00protocools-and-portsallow-all" class="section level3">
 <h3>Target:All instances in the network;Source IP ranges:0.0.0.0/0;Protocools and ports:Allow all</h3>
-<p><img src="/post/google-cloud-jupyter-notebook/AA23-27-18-55.png" width="700" height="450" /></p>
+<p><img src="/post/google-cloud-jupyter-notebook/AA23-27-18-55.png" width="700" height="400" /></p>
 </div>
 </div>
 <div id="ssh-anaconda" class="section level1">
 <h1>4.打开SSH安装 Anaconda</h1>
-<p><img src="/post/google-cloud-jupyter-notebook/InkedAA23-10-18-02_LI.jpg" width="700" height="450" /></p>
-<p><img src="/post/google-cloud-jupyter-notebook/AA23-19-18-48.png" width="700" height="450" /></p>
+<p><img src="/post/google-cloud-jupyter-notebook/InkedAA23-10-18-02_LI.jpg" width="700" height="400" /></p>
+<p><img src="/post/google-cloud-jupyter-notebook/AA23-19-18-48.png" width="700" height="400" /></p>
 <div id="-anaconda" class="section level3">
 <h3>安装 Anaconda：</h3>
 <pre class="r"><code>$ sudo apt-get update
@@ -345,10 +345,10 @@ $ sudo vim  ~/.jupyter/jupyter_notebook_config.py</code></pre>
 c.NotebookApp.ip = &#39;0.0.0.0&#39;
 c.NotebookApp.open_browser = False
 c.NotebookApp.port = 8123</code></pre>
-<p><img src="/post/google-cloud-jupyter-notebook/AA23-52-18-09.png" width="700" height="450" /></p>
+<p><img src="/post/google-cloud-jupyter-notebook/AA23-52-18-09.png" width="700" height="400" /></p>
 <p>开启Jupyer notebook。注意。每次都要先开启才能登录Jupyer notebook。如果想设置自动开启，请关注后续文章。</p>
 <pre class="r"><code>$ jupyter-notebook --no-browser --port=8123</code></pre>
-<p><img src="/post/google-cloud-jupyter-notebook/InkedInkedAA23-53-18-15_LI.jpg" width="700" height="450" /></p>
+<p><img src="/post/google-cloud-jupyter-notebook/InkedInkedAA23-53-18-15_LI.jpg" width="700" height="400" /></p>
 </div>
 </div>
 <div id="-jupyer-notebook" class="section level1">
@@ -356,15 +356,15 @@ c.NotebookApp.port = 8123</code></pre>
 <div id="ip8123-123.123.123.1238123" class="section level3">
 <h3>网页开打:你的IP:8123。如 123.123.123.123:8123。</h3>
 <p>Token 为 SSH 中显示的Token</p>
-<p><img src="/post/google-cloud-jupyter-notebook/AA23-52-18-58.png" width="700" height="450" /></p>
+<p><img src="/post/google-cloud-jupyter-notebook/AA23-52-18-58.png" width="700" height="400" /></p>
 </div>
 <div id="-jupyer-notebook" class="section level3">
 <h3>成功安装 Jupyer notebook！</h3>
-<p><img src="/post/google-cloud-jupyter-notebook/AA23-53-18-50.png" width="700" height="450" /></p>
+<p><img src="/post/google-cloud-jupyter-notebook/AA23-53-18-50.png" width="700" height="400" /></p>
 </div>
 <div id="hello-world" class="section level3">
 <h3>Hello world !</h3>
-<p><img src="/post/google-cloud-jupyter-notebook/AA23-54-18-12.png" width="700" height="450" /></p>
+<p><img src="/post/google-cloud-jupyter-notebook/AA23-54-18-12.png" width="700" height="400" /></p>
 </div>
 </div>
 

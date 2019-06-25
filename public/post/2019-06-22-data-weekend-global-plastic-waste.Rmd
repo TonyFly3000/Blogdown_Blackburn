@@ -9,7 +9,7 @@ description: 'Data weekend:Global Plastic Waste'
 topics: []
 ---
 
-![](/post/data-weekend-global-plastic-waste/nation_plastic_waste.png){width=900px height=600px}
+![](/post/data-weekend-global-plastic-waste/nation_plastic_waste.png){width=900px height=550px}
 
 PHOTOGRAPHS BY RANDY OLSON
 

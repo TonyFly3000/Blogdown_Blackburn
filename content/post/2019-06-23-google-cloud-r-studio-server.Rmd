@@ -22,58 +22,58 @@ topics: []
 
 
 ### IAM & admin - >  Quotas 
-![](/post/google-cloud-r-studio-server/AA23-51-17-18.png){width=700px height=450px}
+![](/post/google-cloud-r-studio-server/AA23-51-17-18.png){width=700px height=400px}
 
 ### 选GPU
-![](/post/google-cloud-r-studio-server/AA23-48-17-17.png){width=700px height=450px}
+![](/post/google-cloud-r-studio-server/AA23-48-17-17.png){width=700px height=400px}
 
 
 ### EDIT QUOTA
-![](/post/google-cloud-r-studio-server/AA23-48-17-31.png){width=700px height=450px}
+![](/post/google-cloud-r-studio-server/AA23-48-17-31.png){width=700px height=400px}
 
 
 ### 加GPU QUOTA -> submit
-![](/post/google-cloud-r-studio-server/AA23-28-21-12.png){width=700px height=450px}
+![](/post/google-cloud-r-studio-server/AA23-28-21-12.png){width=700px height=400px}
 
 
 ## 2.2 开启GPU服务器
 
 ### Compute Engine - > VM instances
-![](/post/google-cloud-r-studio-server/AA23-53-17-25.png){width=700px height=450px}
+![](/post/google-cloud-r-studio-server/AA23-53-17-25.png){width=700px height=400px}
 
 
 ### CREATE INSTANCES
-![](/post/google-cloud-r-studio-server/AA23-53-17-59.png){width=700px height=450px}
+![](/post/google-cloud-r-studio-server/AA23-53-17-59.png){width=700px height=400px}
 
 ### name,Region 自行选择;CPU个数，GPU个数自行选择。建议4+1
-![](/post/google-cloud-r-studio-server/AA23-54-17-29.png){width=700px height=450px}
+![](/post/google-cloud-r-studio-server/AA23-54-17-29.png){width=700px height=400px}
 
 ### Allow default access;Allow HTTP traffic;Allow HTTPS traffic;Network tags:rstudio
 
 
-![](/post/google-cloud-r-studio-server/AA23-55-17-01.png){width=700px height=450px}
+![](/post/google-cloud-r-studio-server/AA23-55-17-01.png){width=700px height=400px}
 
 ### 系统选择 Ubuntu 18;disk size 100 GB
-![](/post/google-cloud-r-studio-server/AA23-11-21-10.png){width=700px height=450px}
+![](/post/google-cloud-r-studio-server/AA23-11-21-10.png){width=700px height=400px}
 
 # 3.开启防火墙
 
 ### VPC netword - > Firewall rules
-![](/post/google-cloud-r-studio-server/AA23-04-18-11.png){width=700px height=450px}
+![](/post/google-cloud-r-studio-server/AA23-04-18-11.png){width=700px height=400px}
 
 ### CREATE FIREWALL RULE
-![](/post/google-cloud-r-studio-server/AA23-04-18-23.png){width=700px height=450px}
+![](/post/google-cloud-r-studio-server/AA23-04-18-23.png){width=700px height=400px}
 
 ### Target:Specified target tags;Target tags:rstudio;Source IP ranges:0.0.0.0/0;Protocools and ports:tcp 8787
-![](/post/google-cloud-r-studio-server/AA23-06-18-09.png){width=700px height=450px}
+![](/post/google-cloud-r-studio-server/AA23-06-18-09.png){width=700px height=400px}
 
 
 # 4.打开SSH安装 R studio server
 
 
-![](/post/google-cloud-r-studio-server/InkedAA23-10-18-02_LI.jpg){width=700px height=450px}
+![](/post/google-cloud-r-studio-server/InkedAA23-10-18-02_LI.jpg){width=700px height=400px}
 
-![](/post/google-cloud-r-studio-server/AA23-19-18-48.png){width=700px height=450px}
+![](/post/google-cloud-r-studio-server/AA23-19-18-48.png){width=700px height=400px}
 
 
 ### 安装 R：
@@ -92,6 +92,8 @@ $ sudo apt update
 $ sudo apt install libcurl4-openssl-dev libxml2-dev libssl-dev
 
 $ sudo apt install libgit2-dev libssh2-1-dev libmagick++-dev
+
+$ sudo apt-get install libfftw3-3 libfftw3-dev libtiff5-dev
 
 $ sudo apt install vim git
 
@@ -129,12 +131,12 @@ $ sudo rstudio-server start
 输入刚才添加的用户名和密码
 
 
-![](/post/google-cloud-r-studio-server/AA23-12-18-08.png){width=700px height=450px}
+![](/post/google-cloud-r-studio-server/AA23-12-18-08.png){width=700px height=400px}
 
 
 ## 成功安装 Rstudio server！
 
-![](/post/google-cloud-r-studio-server/AA23-12-18-24.png){width=700px height=450px}
+![](/post/google-cloud-r-studio-server/AA23-12-18-24.png){width=700px height=400px}
 
 
 
