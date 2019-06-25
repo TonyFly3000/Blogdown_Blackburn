@@ -320,13 +320,24 @@
 <p><img src="/post/google-cloud-r-studio-server/AA23-19-18-48.png" width="700" height="450" /></p>
 <div id="-r" class="section level3">
 <h3>安装 R：</h3>
-<pre class="r"><code>$ sudo apt update
-$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+<pre class="r"><code>$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+
+$ sudo echo &quot;deb http://cran.wustl.edu/bin/linux/ubuntu bionic-cran35/&quot; | sudo tee -a /etc/apt/sources.list
+
 $ sudo apt update
-$ sudo apt install r-base r-base-core r-recommended
-$ sudo apt install git
-$ sudo apt install libcurl4-openssl-dev libmagick++-dev libssl-dev
+
+$ sudo apt install r-base r-base-dev
+
+$ sudo apt update
+
+$ sudo apt install libcurl4-openssl-dev libxml2-dev libssl-dev
+
+$ sudo apt install libgit2-dev libssh2-1-dev libmagick++-dev
+
+$ sudo apt install vim git
+
 $ sudo apt-get install python3-pip
+
 $ sudo /usr/bin/pip3 install virtualenv</code></pre>
 </div>
 <div id="-r-studio-server" class="section level3">
@@ -351,10 +362,9 @@ $ sudo gdebi rstudio-server-1.2.1335-amd64.deb</code></pre>
 <p>输入刚才添加的用户名和密码</p>
 <p><img src="/post/google-cloud-r-studio-server/AA23-12-18-08.png" width="700" height="450" /></p>
 </div>
-<div id="-rstudio-server" class="section level3">
-<h3>成功安装 Rstudio server！</h3>
+<div id="-rstudio-server" class="section level2">
+<h2>成功安装 Rstudio server！</h2>
 <p><img src="/post/google-cloud-r-studio-server/AA23-12-18-24.png" width="700" height="450" /></p>
-</div>
 <div id="-rstudio-server" class="section level3">
 <h3>暂停 rstudio server</h3>
 <pre class="r"><code>$ sudo rstudio-server stop</code></pre>
@@ -391,6 +401,11 @@ $ sudo nvidia-smi -pm 1
 $ nvidia-smi</code></pre>
 <pre class="r"><code>$ sudo apt-get install python3-pip
 $ sudo /usr/bin/pip3 install virtualenv</code></pre>
+</div>
+</div>
+<div id="reference" class="section level2">
+<h2>Reference</h2>
+<p><a href="https://github.com/duckmayr/install-update-r-on-linux" class="uri">https://github.com/duckmayr/install-update-r-on-linux</a></p>
 </div>
 </div>
 
