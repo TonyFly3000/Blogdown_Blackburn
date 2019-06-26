@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/post/tensorflow-in-r-1-mnist-image-classification/</loc>
+    <lastmod>2019-06-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/google-cloud-jupyter-notebook/</loc>
     <lastmod>2019-06-23T00:00:00+00:00</lastmod>
   </url>
@@ -354,7 +359,7 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2019-06-23T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -390,7 +395,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-06-23T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

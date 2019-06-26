@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 23 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tensorflow in R 系列(1) :数字图片分类 MNIST image classification</title>
+      <link>/post/tensorflow-in-r-1-mnist-image-classification/</link>
+      <pubDate>Tue, 25 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tensorflow-in-r-1-mnist-image-classification/</guid>
+      <description>开篇Tensorflow in R 系列，将分享如何使用R语言在Tensorflow/Keras 框架中训练深度学习模型。MNIST 全称为 Modified National Institute of Standards and Technology。这个名词一点也不重要。安装 R 和 R studio此次省略300字。建议使用云计算平台。如Kaggle Kernel/Google Codelab/Google Cloud 等
+可参考【在 Google Cloud 安装 R studio server】： https://tduan.netlify.com/post/google-cloud-r-studio-server/
+安装 keras packageinstall.packages(&amp;#39;devtools&amp;#39;)devtools::install_github(&amp;quot;rstudio/keras&amp;quot;)library(keras)install_keras()查看 tensorflow 版本。使用的是 tensorflow 1.10.0 (有点落后，主要是懒得更新)。python 版本3.6
+library(keras)library(reticulate) tensorflow::tf_config() ## TensorFlow v1.10.0 (C:\Users\User\AppData\Local\conda\conda\envs\R-TENS~1\lib\site-packages\keras\__init__.p)## Python v3.6 (C:\Users\User\AppData\Local\conda\conda\envs\r-tensorflow\python.exe)查看 keras 版本。
+keras:::keras_version() ## [1] &amp;#39;2.</description>
+    </item>
     
     <item>
       <title>在 Google Cloud 安装 Jupyter notebook</title>

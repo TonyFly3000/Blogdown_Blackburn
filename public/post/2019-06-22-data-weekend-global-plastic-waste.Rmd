@@ -144,7 +144,7 @@ glimpse(plastic_waste)
 
 ### 人类制造越来越多的垃圾 !
 
-2010年每年制造近3亿万吨塑料垃圾.到2015年数字已上升到每年4亿万吨。这些垃圾不被回收的话将会污染我们的环境。
+2010年每年制造近3亿吨塑料垃圾.到2015年数字已上升到每年4亿吨。这些垃圾不被回收的话将会污染我们的环境。
 
 
 ```{r warning=FALSE,message=FALSE}
@@ -155,7 +155,7 @@ ggplot(aes(x=year,y=global_plastics_production_million_tonnes_tonnes/1000000)) +
        y = "全球制造的塑料垃圾（百万吨）",
        #color = "Coastal population",
        title = "人类制造越来越多的垃圾",
-       subtitle = "每年制造近4亿万吨塑料垃圾",
+       subtitle = "每年制造近4亿吨塑料垃圾",
        caption ="统计时间:2000-2015年;数据源:ourworldindata.org
        @Tony Duan"
        )+theme(plot.title = element_text(hjust = 0.5))
