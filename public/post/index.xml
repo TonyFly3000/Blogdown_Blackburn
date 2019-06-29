@@ -561,6 +561,19 @@ Get:Clean:Visualize:Model:Machine Learning with R and TensorFlow - J.J. A
     </item>
     
     <item>
+      <title>Tensorflow in R 系列(2) :时装分类 Fashion-MNIST image classification</title>
+      <link>/post/tensorflow-in-r-2-fashion-mnist-image-classification/</link>
+      <pubDate>Wed, 28 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tensorflow-in-r-2-fashion-mnist-image-classification/</guid>
+      <description>开篇Tensorflow in R 系列，将分享如何使用R语言在Tensorflow/Keras 框架中训练深度学习模型。MNIST 全称为 Modified National Institute of Standards and Technology。这个名词一点也不重要。安装 R 和 R studio此次省略300字。建议使用云计算平台。如Kaggle Kernel/Google Codelab/Google Cloud 等
+可参考【在 Google Cloud 安装 R studio server】： https://tduan.netlify.com/post/google-cloud-r-studio-server/
+安装 keras packageinstall.packages(&amp;#39;devtools&amp;#39;)devtools::install_github(&amp;quot;rstudio/keras&amp;quot;)library(keras)install_keras()查看 tensorflow 版本。使用的是 tensorflow 1.10.0 (有点落后，主要是懒得更新)。python 版本3.6
+library(keras)library(reticulate) tensorflow::tf_config() ## TensorFlow v1.10.0 (C:\Users\User\AppData\Local\conda\conda\envs\R-TENS~1\lib\site-packages\keras\__init__.p)## Python v3.6 (C:\Users\User\AppData\Local\conda\conda\envs\r-tensorflow\python.exe)查看 keras 版本。
+keras:::keras_version() ## [1] &amp;#39;2.</description>
+    </item>
+    
+    <item>
       <title>TensorFlow Dev Summit 2017</title>
       <link>/post/tensorflow-dev-summit-2017/</link>
       <pubDate>Wed, 15 Feb 2017 00:00:00 +0000</pubDate>

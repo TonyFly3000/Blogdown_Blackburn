@@ -34,17 +34,26 @@ install_keras()
 
 查看 tensorflow 版本。使用的是 tensorflow 1.10.0 (有点落后，主要是懒得更新)。python 版本3.6
 
-```{R}
+```{R message = FALSE,warning = FALSE}
 library(keras)
 library(reticulate) 
 tensorflow::tf_config() 
 ```
 查看 keras 版本。
 
-```{R}
+```{R message = FALSE,warning = FALSE}
 keras:::keras_version() 
 ```
 
+安装本文用到的package
+
+```{R eval=FALSE}
+install.packages('meme')
+install.packages('tidyverse')
+install.packages('rpart')
+install.packages('meme')
+install.packages('randomForest')
+```
 
 ## 1.导入数据
 
@@ -60,7 +69,7 @@ keras:::keras_version()
 - 带x的通常为特征(feature)。带y的为标签(label)。
 - 训练数据是用来训练模型。测试数据不参加建模，而是模型建立后是用来测试模型的效果。
 
-```{R}
+```{R message = FALSE,warning = FALSE}
 library(keras)
 mnist <- dataset_mnist()
 
@@ -99,32 +108,40 @@ img <- t(apply(img, 2, rev))
 image(1:28, 1:28, img, col = gray((0:255)/255), xaxt = 'n', yaxt = 'n')
 ```
 
+x_train,y_train,x_test,y_test 4个数据都是array
+```{R}
+class(x_train)
+class(y_train)
+class(x_test)
+class(y_test)
+```
 
-第一张图片 数字5 ：0为黑色，255为白色
 
 
-x_train:  训练数字图片 为6万张28 × 28 的0-9 数字图片
+x_train:是 3维array的训练数字图片。第一维是6万张图片。第2，3维是每张28 × 28 的0-9 数字图片。
 ```{R}
 dim(x_train)
 ```
 
-y_train： 训练数字标签 为6万张数字图片对应的0-9标签
+y_train：是 1维array的训练数字标签。第一维是为6万张数字图片对应的0-9标签。
 ```{R}
 dim(y_train)
 ```
 
- x_test：  测试数字图片 为1万张28 × 28 的0-9 数字图片
+ x_test：是 3维array的测试数字图片。第一维是1万张图片。第2，3维是每张28 × 28 的0-9 数字图片。
 ```{R}
 dim(x_test)
 ```
 
-y_test： 测试数字标签 为1万张数字图片对应的0-9标签
+y_test： 是 1维array的测试数字标签 第一维是1万张数字图片对应的0-9标签。
 ```{R}
 dim(y_test)
 ```
 
 
 ## 3.数据处理
+
+### reshape
 
 将每个2维的28 × 28 的图片变成1维数据 1× 784 的数据
 
@@ -135,16 +152,17 @@ x_test <- array_reshape(x_test, c(nrow(x_test), 784))
 
 ```
 
-转换后数据为6万行 784 个  0-255的数字
+转换后数据为6万行 784 个  0-255的数字。6万行指6万个图片。每行784个数字代表1个图片
 
 ```{R}
 dim(x_train)
 ```
 
+### rescale
 
 将每个由0到255的像素(pixel)转为0到1：原来是0的，现在 0/255=0 。原来是255的，现在255/255=1。原来为200，现在200/255=0.78
 
-转换后数据为6万行 784 个 0-255的数字
+转换后数据为6万行 784 个 0-1的数字
 
 ```{R}
 # rescale
@@ -159,7 +177,9 @@ y_train 如之前所说是 6万个训练数字0-9标签
 dim(y_train)
 ```
 
-这里对标签作 0-1 embedding 处理。
+### embedding
+
+这里对标签作 0,1 embedding 处理。
 
 处理后 y_train 变成了 6万行 ，每行10 个 0或1 的数据。
 处理后 y_test 变成了 1万行 ，每行10 个 0或1 的数据。
@@ -201,7 +221,7 @@ head(y_train)
 
 ## 4.设计模型
 
-建立深度神经网络模型(deep neural network)
+### 建立深度神经网络模型(deep neural network)
 
 网络结构介绍。为容易理解, tensor 约等于 neural 约等于 数字。
 
@@ -221,8 +241,18 @@ model %>%
   layer_dense(units = 10, activation = 'softmax')
 ```
 
+### 神经网络型图：
 
-*模型的架构*:
+![](https://tensorflow.rstudio.com/tensorflow/articles/images/softmax-regression-scalargraph.png){width=80%}
+
+### 神经网络公式：
+
+公式是我们设计模型的时候定义的。比如图中的模型。W11-W33 9个weight 和 b1-b3 3个bias 经过训练得出。所以模型训练的Learnable Parameters=9+3=12
+
+
+![](https://tensorflow.rstudio.com/tensorflow/articles/images/softmax-regression-vectorequation.png){width=80%}
+
+### 模型的架构:
 Learnable Parameters: input*output+bias 
 
 第一层:使用 'relu' 的256个tensor 的隐藏层：
@@ -268,7 +298,7 @@ x_train 为训练数据集特征(6万张照片)。y_train 为训练数据集标�
 
 每次读入128张图片。重复训练10次。6万张照片80%用来训练。20%用来验证
 
-```{R}
+```{R message = FALSE,warning = FALSE}
 history <- model %>% fit(
   x_train, y_train, 
   epochs = 10, batch_size = 128, 
@@ -278,7 +308,7 @@ history <- model %>% fit(
 ```
 
 
-## 7.模型总结
+## 7.模型效果
 
 
 可见 经过 10次训练后。最终在验证集的accuracy表现为97%。从图中可见其实经过6次的训练。在验证集的表现以达到97%
@@ -288,15 +318,134 @@ history <- model %>% fit(
 plot(history)
 ```
 
+```{R message = FALSE,warning = FALSE}
+tensorflow_DNN_score <- model %>% evaluate(x_test,y_test)
+tensorflow_DNN_score
+```
 
+## 8.模型对比
+
+
+### Naive benchmark
+
+如果我们什么都不知道，瞎猜的话。准确度是10%
+
+```{R message = FALSE,warning = FALSE}
+y_test_final=mnist$test$y
+table(y_test_final)
+```
+
+```{R message = FALSE,warning = FALSE}
+Naive_score=1000/length(y_test_final)
+Naive_score
+```
+
+
+### 决策树模型 Decision tree benchmark
+
+使用决策树模型。准确度是61%
+
+
+```{R message = FALSE,warning = FALSE}
+library(tidyverse)
+library(keras)
+library(rpart)
+mnist <- dataset_mnist()
+x_train <- mnist$train$x
+y_train <- mnist$train$y
+x_test <- mnist$test$x
+y_test <- mnist$test$y
+
+x_train <- array_reshape(x_train, c(nrow(x_train), 784))
+x_test <- array_reshape(x_test, c(nrow(x_test), 784))
+
+x_train <- x_train / 255
+x_test <- x_test / 255
+
+all_data_test=as.data.frame(cbind(x_test, y_test))
+all_data_train=as.data.frame(cbind(x_train, y_train))
+d_tree <- rpart(y_train ~ .,method="class", data=all_data_train)
+
+prediction<- predict(d_tree, newdata = as.data.frame(x_test), type = "class")
+prediction=as.data.frame(prediction)
+
+all_prediction=as.data.frame(cbind(prediction,y_test))%>%mutate(correct=if_else(prediction==y_test,1,0))
+
+decision_tree_score=sum(all_prediction$correct)/nrow(all_prediction)
+decision_tree_score
+```
+
+
+### 随机森林模型 random forest  benchmark
+
+使用随机森林模型。准确度是92%
+
+```{R message = FALSE,warning = FALSE}
+library(tidyverse)
+library(keras)
+library(randomForest)
+mnist <- dataset_mnist()
+x_train <- mnist$train$x
+y_train <- mnist$train$y
+x_test <- mnist$test$x
+y_test <- mnist$test$y
+
+x_train <- array_reshape(x_train, c(nrow(x_train), 784))
+x_test <- array_reshape(x_test, c(nrow(x_test), 784))
+
+x_train <- x_train / 255
+x_test <- x_test / 255
+
+all_data_train=as.data.frame(cbind(x_train, y_train))
+all_data_train$y_train=factor(all_data_train$y_train)
+all_data_test=as.data.frame(cbind(x_test, y_test))
+
+numTrees = 5
+
+rf <- randomForest(y_train ~ .,data=all_data_train,ntree=numTrees,importance = TRUE) 
+
+pred <- predict(rf, x_test)
+randon_forest_score=mean(pred == all_data_test$y_test)  
+randon_forest_score
+```
+
+tensorflow神经网络模型的准确度是97%
+
+```{R}
+tensorflow_DNN_score=tensorflow_DNN_score$acc
+tensorflow_DNN_score
+```
+
+
+```{R}
+model_score=rbind(Naive_score,decision_tree_score,randon_forest_score,tensorflow_DNN_score)
+  
+model_score  
+```
+
+```{R}
+model_score_df=as.data.frame(model_score)
+model_score_df$model <- row.names(model_score_df)
+model_score_df=model_score_df %>% arrange(V1) %>%  mutate(model = factor(model, model),Accuray=V1)
+
+gg=ggplot(data=model_score_df,aes(x=model,y=Accuray,fill=model))+geom_bar(stat = 'identity') +geom_text(aes(label=Accuray)) + guides(fill=FALSE)
+gg+theme_bw()
+```
 
 ## 总结
 
-后续分享
+使用tensorflow 神经网络模型将准确率提高到97%。 可以得到如此高的准确率，主要是图片比较简单。只有0-9的标准数字。对于更加困难的问题。比如在自动驾驶中需要精准的物体识别等问题。将需要更加复杂的神经网络模型。
 
-Tensorflow in R 系列(2) :时装分类 Fashion-MNIST image classification
 
-Tensorflow in R 系列(3) :猫狗分类 Cats dog image classification with drop out
+
+
+### 后续分享
+
+Tensorflow in R 系列(2) :时装分类 Fashion-MNIST image classification with CNN
+
+
+```{R eval=FALSE,echo=FALSE}
+Tensorflow in R 系列(3) :猫狗分类 Cats dog image classification with augmentation & drop out
 
 Tensorflow in R 系列(4) :猫狗分类 Cats dog image classification with TensorBoard
 
@@ -307,7 +456,7 @@ Tensorflow in R 系列(6) :猫狗分类 Cats dog image classification with Googl
 Tensorflow in R 系列(7) :猫狗分类 Cats dog image classification with Tansfer learning
 
 Tensorflow in R 系列(8) :猫狗分类 Cats dog image classification with Google vision API
-
+```
 
 
 
@@ -317,5 +466,8 @@ Tensorflow in R 系列(8) :猫狗分类 Cats dog image classification with Googl
 https://developers.google.com/machine-learning/crash-course/
 
 https://www.youtube.com/watch?v=m0pIlLfpXWE
+
+https://tensorflow.rstudio.com/tensorflow/articles/tutorial_mnist_beginners.html
+
 
 

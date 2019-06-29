@@ -1,0 +1,241 @@
+---
+title: Tensorflow in R 系列(2) :时装分类 Fashion-MNIST image classification
+author: ''
+date: '2017-06-28'
+slug: tensorflow-in-r-2-fashion-mnist-image-classification
+categories: []
+tags: []
+description: 'Tensorflow in R 系列(2) :时装分类 Fashion-MNIST image classification'
+topics: []
+---
+
+
+
+<div class="section level2">
+<h2>开篇</h2>
+<ul>
+<li>Tensorflow in R 系列，将分享如何使用R语言在Tensorflow/Keras 框架中训练深度学习模型。</li>
+<li>MNIST 全称为 Modified National Institute of Standards and Technology。这个名词一点也不重要。</li>
+</ul>
+</div>
+<div id="-r--r-studio" class="section level2">
+<h2>安装 R 和 R studio</h2>
+<p>此次省略300字。建议使用云计算平台。如Kaggle Kernel/Google Codelab/Google Cloud 等</p>
+<p>可参考【在 Google Cloud 安装 R studio server】： <a href="https://tduan.netlify.com/post/google-cloud-r-studio-server/" class="uri">https://tduan.netlify.com/post/google-cloud-r-studio-server/</a></p>
+</div>
+<div id="-keras-package" class="section level2">
+<h2>安装 keras package</h2>
+<pre class="r"><code>install.packages(&#39;devtools&#39;)
+devtools::install_github(&quot;rstudio/keras&quot;)
+library(keras)
+install_keras()</code></pre>
+<p>查看 tensorflow 版本。使用的是 tensorflow 1.10.0 (有点落后，主要是懒得更新)。python 版本3.6</p>
+<pre class="r"><code>library(keras)
+library(reticulate) 
+tensorflow::tf_config() </code></pre>
+<pre><code>## TensorFlow v1.10.0 (C:\Users\User\AppData\Local\conda\conda\envs\R-TENS~1\lib\site-packages\keras\__init__.p)
+## Python v3.6 (C:\Users\User\AppData\Local\conda\conda\envs\r-tensorflow\python.exe)</code></pre>
+<p>查看 keras 版本。</p>
+<pre class="r"><code>keras:::keras_version() </code></pre>
+<pre><code>## [1] &#39;2.2.4&#39;</code></pre>
+</div>
+<div class="section level2">
+<h2>1.导入数据</h2>
+<p>导入4个数据集，分别为：</p>
+<ul>
+<li>x_train: 6万张训练数字图片</li>
+<li>y_train： 6万个训练数字0-9标签</li>
+<li>x_test： 1万测试数字图片</li>
+<li>y_test： 1万个测试数字0-9标签</li>
+</ul>
+<p>为什么有4个数据集 ?</p>
+<ul>
+<li>带x的通常为特征(feature)。带y的为标签(label)。</li>
+<li>训练数据是用来训练模型。测试数据不参加建模，而是模型建立后是用来测试模型的效果。</li>
+</ul>
+<pre class="r"><code>library(keras)
+mnist &lt;- dataset_mnist()
+
+x_train &lt;- mnist$train$x
+y_train &lt;- mnist$train$y
+x_test &lt;- mnist$test$x
+y_test &lt;- mnist$test$y</code></pre>
+<p>这些图片长这个样</p>
+<pre class="r"><code>par(mfcol=c(4,4))
+par(mar=c(0, 0, 1.5, 0), xaxs=&#39;i&#39;, yaxs=&#39;i&#39;)
+
+for (i in 1:16) { 
+  img &lt;- x_train[i, , ]
+  img &lt;- t(apply(img, 2, rev)) 
+  image(1:28, 1:28, img, col = gray((0:255)/255), xaxt = &#39;n&#39;, yaxt = &#39;n&#39;,
+        main = y_train[i])
+}</code></pre>
+<p><img src="/post/2019-06-28-tensorflow-in-r-2-fashion-mnist-image-classification_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<div class="section level2">
+<h2>2.数据探索</h2>
+<p>图片原理：</p>
+<p>28 × 28=784 的像素(pixel)组成一张图片。而每个彩色的像素是由RBG 3个由0-255 的数字组成。由于这里的像素是黑白的像素，所以一个像素只有1个数字。0-255，数字越大颜色越浅。比如0为黑色，255为白色</p>
+<pre class="r"><code>img &lt;- x_train[1, , ]
+img &lt;- t(apply(img, 2, rev)) 
+image(1:28, 1:28, img, col = gray((0:255)/255), xaxt = &#39;n&#39;, yaxt = &#39;n&#39;)</code></pre>
+<p><img src="/post/2019-06-28-tensorflow-in-r-2-fashion-mnist-image-classification_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>x_train,y_train,x_test,y_test 4个数据都是array</p>
+<pre class="r"><code>class(x_train)</code></pre>
+<pre><code>## [1] &quot;array&quot;</code></pre>
+<pre class="r"><code>class(y_train)</code></pre>
+<pre><code>## [1] &quot;array&quot;</code></pre>
+<pre class="r"><code>class(x_test)</code></pre>
+<pre><code>## [1] &quot;array&quot;</code></pre>
+<pre class="r"><code>class(y_test)</code></pre>
+<pre><code>## [1] &quot;array&quot;</code></pre>
+<p>x_train 是 3维array,第一维是6万张图片。第2，3维为每个图片的大小</p>
+<p>y_train 是 1维array,第一维是6万张数字图片的标签</p>
+<pre class="r"><code>str(x_train)</code></pre>
+<pre><code>##  int [1:60000, 1:28, 1:28] 0 0 0 0 0 0 0 0 0 0 ...</code></pre>
+<pre class="r"><code>str(y_train)</code></pre>
+<pre><code>##  int [1:60000(1d)] 5 0 4 1 9 2 1 3 1 4 ...</code></pre>
+<p>x_train:是 3维array的训练数字图片。第一维是6万张图片。第2，3维是每张28 × 28 的0-9 数字图片。</p>
+<pre class="r"><code>dim(x_train)</code></pre>
+<pre><code>## [1] 60000    28    28</code></pre>
+<p>y_train：是 1维array的训练数字标签。第一维是为6万张数字图片对应的0-9标签。</p>
+<pre class="r"><code>dim(y_train)</code></pre>
+<pre><code>## [1] 60000</code></pre>
+<p>x_test：是 3维array的测试数字图片。第一维是1万张图片。第2，3维是每张28 × 28 的0-9 数字图片。</p>
+<pre class="r"><code>dim(x_test)</code></pre>
+<pre><code>## [1] 10000    28    28</code></pre>
+<p>y_test： 是 1维array的测试数字标签 第一维是1万张数字图片对应的0-9标签。</p>
+<pre class="r"><code>dim(y_test)</code></pre>
+<pre><code>## [1] 10000</code></pre>
+</div>
+<div class="section level2">
+<h2>3.数据处理</h2>
+<p>将每个2维的28 × 28 的图片变成1维数据 1× 784 的数据</p>
+<pre class="r"><code># reshape 
+x_train &lt;- array_reshape(x_train, c(nrow(x_train), 784))
+x_test &lt;- array_reshape(x_test, c(nrow(x_test), 784))</code></pre>
+<p>转换后数据为6万行 784 个 0-255的数字</p>
+<pre class="r"><code>dim(x_train)</code></pre>
+<pre><code>## [1] 60000   784</code></pre>
+<p>将每个由0到255的像素(pixel)转为0到1：原来是0的，现在 0/255=0 。原来是255的，现在255/255=1。原来为200，现在200/255=0.78</p>
+<p>转换后数据为6万行 784 个 0-255的数字</p>
+<pre class="r"><code># rescale
+x_train &lt;- x_train / 255
+x_test &lt;- x_test / 255</code></pre>
+<p>y_train 如之前所说是 6万个训练数字0-9标签</p>
+<pre class="r"><code>dim(y_train)</code></pre>
+<pre><code>## [1] 60000</code></pre>
+<p>这里对标签作 0-1 embedding 处理。</p>
+<p>处理后 y_train 变成了 6万行 ，每行10 个 0或1 的数据。
+处理后 y_test 变成了 1万行 ，每行10 个 0或1 的数据。</p>
+<pre class="r"><code>y_train &lt;- to_categorical(y_train, 10)
+y_test &lt;- to_categorical(y_test, 10)</code></pre>
+<p>比如第1个数字是5。所以第1行 第6列为1，其他列为0。</p>
+<p>比如第2个数字是0。所以第1行 第1列为1，其他列为0</p>
+<pre class="r"><code>head(y_train)</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+## [1,]    0    0    0    0    0    1    0    0    0     0
+## [2,]    1    0    0    0    0    0    0    0    0     0
+## [3,]    0    0    0    0    1    0    0    0    0     0
+## [4,]    0    1    0    0    0    0    0    0    0     0
+## [5,]    0    0    0    0    0    0    0    0    0     1
+## [6,]    0    0    1    0    0    0    0    0    0     0</code></pre>
+<p><em>数据处理前</em></p>
+<ul>
+<li><p>x_train: 6万张训练数字图片 60000 * 28 * 28 形状的 0-255的数字</p></li>
+<li><p>y_train： 6万个训练数字0-9标签 60000 形状的 0-9的数字</p></li>
+<li><p>x_test： 1万测试数字图片 10000 * 28 * 28 形状的 0-255的数字</p></li>
+<li><p>y_test： 1万个测试数字0-9标签 10000 形状的 0-9的数字</p></li>
+</ul>
+<p><em>数据处理后</em></p>
+<ul>
+<li><p>x_train: 6万张训练数字图片 60000 * 784 形状的 0到1的数字</p></li>
+<li><p>y_train： 6万个训练数字0-9标签 60000 * 10 形状的 0或1的数字</p></li>
+<li><p>x_test： 1万测试数字图片 10000 * 784 形状的 0到1的数字</p></li>
+<li><p>y_test： 1万个测试数字0-9标签 10000 * 10 形状的 0或1的数字</p></li>
+</ul>
+</div>
+<div class="section level2">
+<h2>4.设计模型</h2>
+<p>建立深度神经网络模型(deep neural network)</p>
+<p>网络结构介绍。为容易理解, tensor 约等于 neural 约等于 数字。</p>
+<p>输入层：每个图片的形状为784型状的数字的输入层</p>
+<p>第一层:使用 ‘relu’ 的256个tensor 的隐藏层 (relu 是什么？后续文章再聊)</p>
+<p>第二层:使用 ‘relu’ 的128个tensor 的隐藏层</p>
+<p>输出层:使用 ‘softmax’ 的 10个 加总为1 的 0到1的概率 的 输出层 (softmax 是什么？后续文章再聊)</p>
+<pre class="r"><code>model &lt;- keras_model_sequential() 
+model %&gt;% 
+  layer_dense(units = 256, activation = &#39;relu&#39;, input_shape = c(784)) %&gt;% 
+  layer_dense(units = 128, activation = &#39;relu&#39;) %&gt;%
+  layer_dense(units = 10, activation = &#39;softmax&#39;)</code></pre>
+<p><em>模型的架构</em>:
+Learnable Parameters: input*output+bias</p>
+<p>第一层:使用 ‘relu’ 的256个tensor 的隐藏层：
+Learnable Parameters:200960=784*256 + 256</p>
+<p>第二层:使用 ‘relu’ 的128个tensor 的隐藏层：
+Learnable Parameters:32896=256*128+128</p>
+<p>输出层:使用 ‘softmax’ 的 10个 0到1的概率 的 输出层:
+Learnable Parameters :1290=128*10+10</p>
+<p>总Learnable Parameters :235146=200960+32896+1290</p>
+<pre class="r"><code>summary(model)</code></pre>
+<pre><code>## ___________________________________________________________________________
+## Layer (type)                     Output Shape                  Param #     
+## ===========================================================================
+## dense_1 (Dense)                  (None, 256)                   200960      
+## ___________________________________________________________________________
+## dense_2 (Dense)                  (None, 128)                   32896       
+## ___________________________________________________________________________
+## dense_3 (Dense)                  (None, 10)                    1290        
+## ===========================================================================
+## Total params: 235,146
+## Trainable params: 235,146
+## Non-trainable params: 0
+## ___________________________________________________________________________</code></pre>
+</div>
+<div id="compile-" class="section level2">
+<h2>5.compile 模型</h2>
+<p>loss funcion 为 categorical_crossentropy。(loss function 是什么？后续文章再聊)</p>
+<p>optimizer 为 optimizer_rmsprop。(optimizer 是什么？后续文章再聊)</p>
+<p>metrics 为 accuracy。metrics是评估模型的指标。大多数情况都选accuracy。 accuracy=正确预测的个数/总预测个数</p>
+<pre class="r"><code>model %&gt;% compile(
+  loss = &#39;categorical_crossentropy&#39;,
+  optimizer = optimizer_rmsprop(),
+  metrics = c(&#39;accuracy&#39;)
+)</code></pre>
+</div>
+<div class="section level2">
+<h2>6.训练模型</h2>
+<p>一堆数据处理转换。模型设计后 。终于可以开始训练模型了。</p>
+<p>x_train 为训练数据集特征(6万张照片)。y_train 为训练数据集标签(6万个数字)</p>
+<p>每次读入128张图片。重复训练10次。6万张照片80%用来训练。20%用来验证</p>
+<pre class="r"><code>history &lt;- model %&gt;% fit(
+  x_train, y_train, 
+  epochs = 10, batch_size = 128, 
+  validation_split = 0.2
+)</code></pre>
+</div>
+<div class="section level2">
+<h2>7.模型效果</h2>
+<p>可见 经过 10次训练后。最终在验证集的accuracy表现为97%。从图中可见其实经过6次的训练。在验证集的表现以达到97%</p>
+<pre class="r"><code>plot(history)</code></pre>
+<p><img src="/post/2019-06-28-tensorflow-in-r-2-fashion-mnist-image-classification_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+</div>
+<div class="section level2">
+<h2>8.模型对比</h2>
+</div>
+<div class="section level2">
+<h2>总结</h2>
+<p>后续分享</p>
+<p>Tensorflow in R 系列(2) :时装分类 Fashion-MNIST image classification</p>
+<p>Tensorflow in R 系列(3) :猫狗分类 Cats dog image classification with augmentation &amp; drop out</p>
+<p>Tensorflow in R 系列(4) :猫狗分类 Cats dog image classification with TensorBoard</p>
+<p>Tensorflow in R 系列(5) :猫狗分类 Cats dog image classification with hyperparameter tuning</p>
+<p>Tensorflow in R 系列(6) :猫狗分类 Cats dog image classification with Google Cloud Machine Learning Engine</p>
+<p>Tensorflow in R 系列(7) :猫狗分类 Cats dog image classification with Tansfer learning</p>
+<p>Tensorflow in R 系列(8) :猫狗分类 Cats dog image classification with Google vision API</p>
+</div>
+<div id="reference" class="section level2">
+<h2>Reference</h2>
+<p><a href="https://developers.google.com/machine-learning/crash-course/" class="uri">https://developers.google.com/machine-learning/crash-course/</a></p>
+<p><a href="https://www.youtube.com/watch?v=m0pIlLfpXWE" class="uri">https://www.youtube.com/watch?v=m0pIlLfpXWE</a></p>
+</div>

@@ -275,6 +275,12 @@ tensorflow::tf_config() </code></pre>
 <p>查看 keras 版本。</p>
 <pre class="r"><code>keras:::keras_version() </code></pre>
 <pre><code>## [1] &#39;2.2.4&#39;</code></pre>
+<p>安装本文用到的package</p>
+<pre class="r"><code>install.packages(&#39;meme&#39;)
+install.packages(&#39;tidyverse&#39;)
+install.packages(&#39;rpart&#39;)
+install.packages(&#39;meme&#39;)
+install.packages(&#39;randomForest&#39;)</code></pre>
 </div>
 <div class="section level2">
 <h2>1.导入数据</h2>
@@ -307,7 +313,7 @@ for (i in 1:16) {
   image(1:28, 1:28, img, col = gray((0:255)/255), xaxt = &#39;n&#39;, yaxt = &#39;n&#39;,
         main = y_train[i])
 }</code></pre>
-<p><img src="/post/2019-06-25-tensorflow-in-r-1-mnist-image-classification_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="/post/2019-06-25-tensorflow-in-r-1-mnist-image-classification_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 </div>
 <div class="section level2">
 <h2>2.数据探索</h2>
@@ -316,39 +322,55 @@ for (i in 1:16) {
 <pre class="r"><code>img &lt;- x_train[1, , ]
 img &lt;- t(apply(img, 2, rev)) 
 image(1:28, 1:28, img, col = gray((0:255)/255), xaxt = &#39;n&#39;, yaxt = &#39;n&#39;)</code></pre>
-<p><img src="/post/2019-06-25-tensorflow-in-r-1-mnist-image-classification_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<p>第一张图片 数字5 ：0为黑色，255为白色</p>
-<p>x_train: 训练数字图片 为6万张28 × 28 的0-9 数字图片</p>
+<p><img src="/post/2019-06-25-tensorflow-in-r-1-mnist-image-classification_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>x_train,y_train,x_test,y_test 4个数据都是array</p>
+<pre class="r"><code>class(x_train)</code></pre>
+<pre><code>## [1] &quot;array&quot;</code></pre>
+<pre class="r"><code>class(y_train)</code></pre>
+<pre><code>## [1] &quot;array&quot;</code></pre>
+<pre class="r"><code>class(x_test)</code></pre>
+<pre><code>## [1] &quot;array&quot;</code></pre>
+<pre class="r"><code>class(y_test)</code></pre>
+<pre><code>## [1] &quot;array&quot;</code></pre>
+<p>x_train:是 3维array的训练数字图片。第一维是6万张图片。第2，3维是每张28 × 28 的0-9 数字图片。</p>
 <pre class="r"><code>dim(x_train)</code></pre>
 <pre><code>## [1] 60000    28    28</code></pre>
-<p>y_train： 训练数字标签 为6万张数字图片对应的0-9标签</p>
+<p>y_train：是 1维array的训练数字标签。第一维是为6万张数字图片对应的0-9标签。</p>
 <pre class="r"><code>dim(y_train)</code></pre>
 <pre><code>## [1] 60000</code></pre>
-<p>x_test： 测试数字图片 为1万张28 × 28 的0-9 数字图片</p>
+<p>x_test：是 3维array的测试数字图片。第一维是1万张图片。第2，3维是每张28 × 28 的0-9 数字图片。</p>
 <pre class="r"><code>dim(x_test)</code></pre>
 <pre><code>## [1] 10000    28    28</code></pre>
-<p>y_test： 测试数字标签 为1万张数字图片对应的0-9标签</p>
+<p>y_test： 是 1维array的测试数字标签 第一维是1万张数字图片对应的0-9标签。</p>
 <pre class="r"><code>dim(y_test)</code></pre>
 <pre><code>## [1] 10000</code></pre>
 </div>
 <div class="section level2">
 <h2>3.数据处理</h2>
+<div id="reshape" class="section level3">
+<h3>reshape</h3>
 <p>将每个2维的28 × 28 的图片变成1维数据 1× 784 的数据</p>
 <pre class="r"><code># reshape 
 x_train &lt;- array_reshape(x_train, c(nrow(x_train), 784))
 x_test &lt;- array_reshape(x_test, c(nrow(x_test), 784))</code></pre>
-<p>转换后数据为6万行 784 个 0-255的数字</p>
+<p>转换后数据为6万行 784 个 0-255的数字。6万行指6万个图片。每行784个数字代表1个图片</p>
 <pre class="r"><code>dim(x_train)</code></pre>
 <pre><code>## [1] 60000   784</code></pre>
+</div>
+<div id="rescale" class="section level3">
+<h3>rescale</h3>
 <p>将每个由0到255的像素(pixel)转为0到1：原来是0的，现在 0/255=0 。原来是255的，现在255/255=1。原来为200，现在200/255=0.78</p>
-<p>转换后数据为6万行 784 个 0-255的数字</p>
+<p>转换后数据为6万行 784 个 0-1的数字</p>
 <pre class="r"><code># rescale
 x_train &lt;- x_train / 255
 x_test &lt;- x_test / 255</code></pre>
 <p>y_train 如之前所说是 6万个训练数字0-9标签</p>
 <pre class="r"><code>dim(y_train)</code></pre>
 <pre><code>## [1] 60000</code></pre>
-<p>这里对标签作 0-1 embedding 处理。</p>
+</div>
+<div id="embedding" class="section level3">
+<h3>embedding</h3>
+<p>这里对标签作 0,1 embedding 处理。</p>
 <p>处理后 y_train 变成了 6万行 ，每行10 个 0或1 的数据。
 处理后 y_test 变成了 1万行 ，每行10 个 0或1 的数据。</p>
 <pre class="r"><code>y_train &lt;- to_categorical(y_train, 10)
@@ -378,9 +400,11 @@ y_test &lt;- to_categorical(y_test, 10)</code></pre>
 <li><p>y_test： 1万个测试数字0-9标签 10000 * 10 形状的 0或1的数字</p></li>
 </ul>
 </div>
+</div>
 <div class="section level2">
 <h2>4.设计模型</h2>
-<p>建立深度神经网络模型(deep neural network)</p>
+<div id="deep-neural-network" class="section level3">
+<h3>建立深度神经网络模型(deep neural network)</h3>
 <p>网络结构介绍。为容易理解, tensor 约等于 neural 约等于 数字。</p>
 <p>输入层：每个图片的形状为784型状的数字的输入层</p>
 <p>第一层:使用 ‘relu’ 的256个tensor 的隐藏层 (relu 是什么？后续文章再聊)</p>
@@ -391,8 +415,19 @@ model %&gt;%
   layer_dense(units = 256, activation = &#39;relu&#39;, input_shape = c(784)) %&gt;% 
   layer_dense(units = 128, activation = &#39;relu&#39;) %&gt;%
   layer_dense(units = 10, activation = &#39;softmax&#39;)</code></pre>
-<p><em>模型的架构</em>:
-Learnable Parameters: input*output+bias</p>
+</div>
+<div class="section level3">
+<h3>神经网络型图：</h3>
+<p><img src="https://tensorflow.rstudio.com/tensorflow/articles/images/softmax-regression-scalargraph.png" style="width:80.0%" /></p>
+</div>
+<div class="section level3">
+<h3>神经网络公式：</h3>
+<p>公式是我们设计模型的时候定义的。比如图中的模型。W11-W33 9个weight 和 b1-b3 3个bias 经过训练得出。所以模型训练的Learnable Parameters=9+3=12</p>
+<p><img src="https://tensorflow.rstudio.com/tensorflow/articles/images/softmax-regression-vectorequation.png" style="width:80.0%" /></p>
+</div>
+<div class="section level3">
+<h3>模型的架构:</h3>
+<p>Learnable Parameters: input*output+bias</p>
 <p>第一层:使用 ‘relu’ 的256个tensor 的隐藏层：
 Learnable Parameters:200960=784*256 + 256</p>
 <p>第二层:使用 ‘relu’ 的128个tensor 的隐藏层：
@@ -414,6 +449,7 @@ Learnable Parameters :1290=128*10+10</p>
 ## Trainable params: 235,146
 ## Non-trainable params: 0
 ## ___________________________________________________________________________</code></pre>
+</div>
 </div>
 <div id="compile-" class="section level2">
 <h2>5.compile 模型</h2>
@@ -438,26 +474,127 @@ Learnable Parameters :1290=128*10+10</p>
 )</code></pre>
 </div>
 <div class="section level2">
-<h2>7.模型总结</h2>
+<h2>7.模型效果</h2>
 <p>可见 经过 10次训练后。最终在验证集的accuracy表现为97%。从图中可见其实经过6次的训练。在验证集的表现以达到97%</p>
 <pre class="r"><code>plot(history)</code></pre>
-<p><img src="/post/2019-06-25-tensorflow-in-r-1-mnist-image-classification_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p><img src="/post/2019-06-25-tensorflow-in-r-1-mnist-image-classification_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<pre class="r"><code>tensorflow_DNN_score &lt;- model %&gt;% evaluate(x_test,y_test)
+tensorflow_DNN_score</code></pre>
+<pre><code>## $loss
+## [1] 0.09058972
+## 
+## $acc
+## [1] 0.9794</code></pre>
+</div>
+<div class="section level2">
+<h2>8.模型对比</h2>
+<div id="naive-benchmark" class="section level3">
+<h3>Naive benchmark</h3>
+<p>如果我们什么都不知道，瞎猜的话。准确度是10%</p>
+<pre class="r"><code>y_test_final=mnist$test$y
+table(y_test_final)</code></pre>
+<pre><code>## y_test_final
+##    0    1    2    3    4    5    6    7    8    9 
+##  980 1135 1032 1010  982  892  958 1028  974 1009</code></pre>
+<pre class="r"><code>Naive_score=1000/length(y_test_final)
+Naive_score</code></pre>
+<pre><code>## [1] 0.1</code></pre>
+</div>
+<div id="-decision-tree-benchmark" class="section level3">
+<h3>决策树模型 Decision tree benchmark</h3>
+<p>使用决策树模型。准确度是61%</p>
+<pre class="r"><code>library(tidyverse)
+library(keras)
+library(rpart)
+mnist &lt;- dataset_mnist()
+x_train &lt;- mnist$train$x
+y_train &lt;- mnist$train$y
+x_test &lt;- mnist$test$x
+y_test &lt;- mnist$test$y
+
+x_train &lt;- array_reshape(x_train, c(nrow(x_train), 784))
+x_test &lt;- array_reshape(x_test, c(nrow(x_test), 784))
+
+x_train &lt;- x_train / 255
+x_test &lt;- x_test / 255
+
+all_data_test=as.data.frame(cbind(x_test, y_test))
+all_data_train=as.data.frame(cbind(x_train, y_train))
+d_tree &lt;- rpart(y_train ~ .,method=&quot;class&quot;, data=all_data_train)
+
+prediction&lt;- predict(d_tree, newdata = as.data.frame(x_test), type = &quot;class&quot;)
+prediction=as.data.frame(prediction)
+
+all_prediction=as.data.frame(cbind(prediction,y_test))%&gt;%mutate(correct=if_else(prediction==y_test,1,0))
+
+decision_tree_score=sum(all_prediction$correct)/nrow(all_prediction)
+decision_tree_score</code></pre>
+<pre><code>## [1] 0.6196</code></pre>
+</div>
+<div id="-random-forest-benchmark" class="section level3">
+<h3>随机森林模型 random forest benchmark</h3>
+<p>使用随机森林模型。准确度是92%</p>
+<pre class="r"><code>library(tidyverse)
+library(keras)
+library(randomForest)
+mnist &lt;- dataset_mnist()
+x_train &lt;- mnist$train$x
+y_train &lt;- mnist$train$y
+x_test &lt;- mnist$test$x
+y_test &lt;- mnist$test$y
+
+x_train &lt;- array_reshape(x_train, c(nrow(x_train), 784))
+x_test &lt;- array_reshape(x_test, c(nrow(x_test), 784))
+
+x_train &lt;- x_train / 255
+x_test &lt;- x_test / 255
+
+all_data_train=as.data.frame(cbind(x_train, y_train))
+all_data_train$y_train=factor(all_data_train$y_train)
+all_data_test=as.data.frame(cbind(x_test, y_test))
+
+numTrees = 5
+
+rf &lt;- randomForest(y_train ~ .,data=all_data_train,ntree=numTrees,importance = TRUE) 
+
+pred &lt;- predict(rf, x_test)
+randon_forest_score=mean(pred == all_data_test$y_test)  
+randon_forest_score</code></pre>
+<pre><code>## [1] 0.9194</code></pre>
+<p>tensorflow神经网络模型的准确度是97%</p>
+<pre class="r"><code>tensorflow_DNN_score=tensorflow_DNN_score$acc
+tensorflow_DNN_score</code></pre>
+<pre><code>## [1] 0.9794</code></pre>
+<pre class="r"><code>model_score=rbind(Naive_score,decision_tree_score,randon_forest_score,tensorflow_DNN_score)
+  
+model_score  </code></pre>
+<pre><code>##                        [,1]
+## Naive_score          0.1000
+## decision_tree_score  0.6196
+## randon_forest_score  0.9194
+## tensorflow_DNN_score 0.9794</code></pre>
+<pre class="r"><code>model_score_df=as.data.frame(model_score)
+model_score_df$model &lt;- row.names(model_score_df)
+model_score_df=model_score_df %&gt;% arrange(V1) %&gt;%  mutate(model = factor(model, model),Accuray=V1)
+
+gg=ggplot(data=model_score_df,aes(x=model,y=Accuray,fill=model))+geom_bar(stat = &#39;identity&#39;) +geom_text(aes(label=Accuray)) + guides(fill=FALSE)
+gg+theme_bw()</code></pre>
+<p><img src="/post/2019-06-25-tensorflow-in-r-1-mnist-image-classification_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+</div>
 </div>
 <div class="section level2">
 <h2>总结</h2>
-<p>后续分享</p>
-<p>Tensorflow in R 系列(2) :时装分类 Fashion-MNIST image classification</p>
-<p>Tensorflow in R 系列(3) :猫狗分类 Cats dog image classification with drop out</p>
-<p>Tensorflow in R 系列(4) :猫狗分类 Cats dog image classification with TensorBoard</p>
-<p>Tensorflow in R 系列(5) :猫狗分类 Cats dog image classification with hyperparameter tuning</p>
-<p>Tensorflow in R 系列(6) :猫狗分类 Cats dog image classification with Google Cloud Machine Learning Engine</p>
-<p>Tensorflow in R 系列(7) :猫狗分类 Cats dog image classification with Tansfer learning</p>
-<p>Tensorflow in R 系列(8) :猫狗分类 Cats dog image classification with Google vision API</p>
+<p>使用tensorflow 神经网络模型将准确率提高到97%。 可以得到如此高的准确率，主要是图片比较简单。只有0-9的标准数字。对于更加困难的问题。比如在自动驾驶中需要精准的物体识别等问题。将需要更加复杂的神经网络模型。</p>
+<div class="section level3">
+<h3>后续分享</h3>
+<p>Tensorflow in R 系列(2) :时装分类 Fashion-MNIST image classification with CNN</p>
+</div>
 </div>
 <div id="reference" class="section level2">
 <h2>Reference</h2>
 <p><a href="https://developers.google.com/machine-learning/crash-course/" class="uri">https://developers.google.com/machine-learning/crash-course/</a></p>
 <p><a href="https://www.youtube.com/watch?v=m0pIlLfpXWE" class="uri">https://www.youtube.com/watch?v=m0pIlLfpXWE</a></p>
+<p><a href="https://tensorflow.rstudio.com/tensorflow/articles/tutorial_mnist_beginners.html" class="uri">https://tensorflow.rstudio.com/tensorflow/articles/tutorial_mnist_beginners.html</a></p>
 </div>
 
 
