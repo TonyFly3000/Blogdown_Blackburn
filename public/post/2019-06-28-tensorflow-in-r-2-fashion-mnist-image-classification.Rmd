@@ -10,75 +10,47 @@ topics: []
 ---
 
 
-
 ## 开篇
 - Tensorflow in R 系列，将分享如何使用R语言在Tensorflow/Keras 框架中训练深度学习模型。
-- MNIST 全称为 Modified National Institute of Standards and Technology。这个名词一点也不重要。
-
-
-## 安装 R 和 R studio 
-
-此次省略300字。建议使用云计算平台。如Kaggle Kernel/Google Codelab/Google Cloud 等
-
-可参考【在 Google Cloud 安装 R studio server】： https://tduan.netlify.com/post/google-cloud-r-studio-server/
-
-
-## 安装 keras package
-
-
-```{R eval=FALSE}
-install.packages('devtools')
-devtools::install_github("rstudio/keras")
-library(keras)
-install_keras()
-```
-
-查看 tensorflow 版本。使用的是 tensorflow 1.10.0 (有点落后，主要是懒得更新)。python 版本3.6
-
-```{R}
-library(keras)
-library(reticulate) 
-tensorflow::tf_config() 
-```
-查看 keras 版本。
-
-```{R}
-keras:::keras_version() 
-```
+- 上一篇讲了如果使用深度神经网络模型来识别图片中的数字
+- 本文将介绍如何使用卷积神经网络模型（convolutional neural network）来识别图片中的时装分类
 
 
 ## 1.导入数据
 
 导入4个数据集，分别为：
 
-- x_train:  6万张训练数字图片
-- y_train： 6万个训练数字0-9标签
-- x_test：  1万测试数字图片
-- y_test：  1万个测试数字0-9标签
+- x_train:  6万张训练时装图片
+- y_train： 6万个训练时装0-9标签,每个数字代表1种时装
+- x_test：  1万张测试时装图片
+- y_test：  1万个测试时装0-9标签,每个数字代表1种时装
 
 为什么有4个数据集 ?
 
 - 带x的通常为特征(feature)。带y的为标签(label)。
 - 训练数据是用来训练模型。测试数据不参加建模，而是模型建立后是用来测试模型的效果。
 
-```{R}
+```{R message = FALSE,warning = FALSE}
 library(keras)
-mnist <- dataset_mnist()
 
-x_train <- mnist$train$x
-y_train <- mnist$train$y
-x_test <- mnist$test$x
-y_test <- mnist$test$y
+fashion_mnist <- dataset_fashion_mnist()
+
+c(x_train, y_train) %<-% fashion_mnist$train
+c(x_test, y_test) %<-% fashion_mnist$test
+
+
+
 ```
 
 
-这些图片长这个样
+这些图片长这个样.每个数字代表1种时装。比如0是T-shirt。9是Ankle boot。
 
-```{R}
-par(mfcol=c(4,4))
+
+```{R message = FALSE,warning = FALSE}
+par(mfcol=c(2,2))
 par(mar=c(0, 0, 1.5, 0), xaxs='i', yaxs='i')
 
-for (i in 1:16) { 
+for (i in 1:4) { 
   img <- x_train[i, , ]
   img <- t(apply(img, 2, rev)) 
   image(1:28, 1:28, img, col = gray((0:255)/255), xaxt = 'n', yaxt = 'n',
@@ -93,52 +65,61 @@ for (i in 1:16) {
 
 28 × 28=784 的像素(pixel)组成一张图片。而每个彩色的像素是由RBG 3个由0-255 的数字组成。由于这里的像素是黑白的像素，所以一个像素只有1个数字。0-255，数字越大颜色越浅。比如0为黑色，255为白色
 
+```{R message = FALSE,warning = FALSE}
+class_names = c('T-shirt/top',
+                'Trouser',
+                'Pullover',
+                'Dress',
+                'Coat', 
+                'Sandal',
+                'Shirt',
+                'Sneaker',
+                'Bag',
+                'Ankle boot')
+                
+```
 
-```{R}
+```{R message = FALSE,warning = FALSE}
 img <- x_train[1, , ]
 img <- t(apply(img, 2, rev)) 
 image(1:28, 1:28, img, col = gray((0:255)/255), xaxt = 'n', yaxt = 'n')
 ```
 
 x_train,y_train,x_test,y_test 4个数据都是array
-```{R}
+```{R message = FALSE,warning = FALSE}
 class(x_train)
 class(y_train)
 class(x_test)
 class(y_test)
 ```
 
-x_train 是 3维array,第一维是6万张图片。第2，3维为每个图片的大小
-
-y_train 是 1维array,第一维是6万张数字图片的标签
-```{R}
-str(x_train)
-str(y_train)
-```
 
 
-x_train:是 3维array的训练数字图片。第一维是6万张图片。第2，3维是每张28 × 28 的0-9 数字图片。
+x_train:是 3维array的训练图片。第一维是6万张图片。第2，3维是每张28 × 28 的0-9 图片。
 ```{R}
 dim(x_train)
 ```
 
-y_train：是 1维array的训练数字标签。第一维是为6万张数字图片对应的0-9标签。
+y_train：是 1维array的训练数字标签。第一维是为6万张图片对应的0-9标签。
 ```{R}
 dim(y_train)
+table(y_train)
 ```
 
- x_test：是 3维array的测试数字图片。第一维是1万张图片。第2，3维是每张28 × 28 的0-9 数字图片。
+ x_test：是 3维array的测试图片。第一维是1万张图片。第2，3维是每张28 × 28 的0-9 图片。
 ```{R}
 dim(x_test)
 ```
 
-y_test： 是 1维array的测试数字标签 第一维是1万张数字图片对应的0-9标签。
+y_test： 是 1维array的测试数字标签 第一维是1万张图片对应的0-9标签。
 ```{R}
 dim(y_test)
 ```
 
 
 ## 3.数据处理
+
+### reshape
 
 将每个2维的28 × 28 的图片变成1维数据 1× 784 的数据
 
@@ -149,16 +130,17 @@ x_test <- array_reshape(x_test, c(nrow(x_test), 784))
 
 ```
 
-转换后数据为6万行 784 个  0-255的数字
+转换后数据为6万行 784 个  0-255的数字。6万行指6万个图片。每行784个数字代表1个图片
 
 ```{R}
 dim(x_train)
 ```
 
+### rescale
 
 将每个由0到255的像素(pixel)转为0到1：原来是0的，现在 0/255=0 。原来是255的，现在255/255=1。原来为200，现在200/255=0.78
 
-转换后数据为6万行 784 个 0-255的数字
+转换后数据为6万行 784 个 0-1的数字
 
 ```{R}
 # rescale
@@ -168,12 +150,14 @@ x_test <- x_test / 255
 ```
 
 
-y_train 如之前所说是 6万个训练数字0-9标签
+y_train 如之前所说是 6万个训练数据的0-9标签
 ```{R}
 dim(y_train)
 ```
 
-这里对标签作 0-1 embedding 处理。
+### embedding
+
+这里对标签作 0,1 embedding 处理。
 
 处理后 y_train 变成了 6万行 ，每行10 个 0或1 的数据。
 处理后 y_test 变成了 1万行 ，每行10 个 0或1 的数据。
@@ -183,9 +167,9 @@ y_train <- to_categorical(y_train, 10)
 y_test <- to_categorical(y_test, 10)
 ```
 
-比如第1个数字是5。所以第1行 第6列为1，其他列为0。
+比如第1个图片标签为9。所以第1行 第10列为1，其他列为0。
 
-比如第2个数字是0。所以第1行 第1列为1，其他列为0
+比如第2个图片标签为是0。所以第1行 第1列为1，其他列为0
 
 ```{R}
 head(y_train)
@@ -193,29 +177,29 @@ head(y_train)
 
 *数据处理前*
 
-- x_train:  6万张训练数字图片       60000 * 28 * 28 形状的 0-255的数字
+- x_train:  6万张训练图片       60000 * 28 * 28 形状的 0-255的数字
 
-- y_train： 6万个训练数字0-9标签    60000           形状的 0-9的数字
+- y_train： 6万个训练0-9标签    60000           形状的 0-9的数字
 
-- x_test：  1万测试数字图片         10000 * 28 * 28 形状的 0-255的数字
+- x_test：  1万测试图片         10000 * 28 * 28 形状的 0-255的数字
 
-- y_test：  1万个测试数字0-9标签    10000           形状的 0-9的数字
+- y_test：  1万个测试0-9标签    10000           形状的 0-9的数字
 
 
 *数据处理后*
 
-- x_train:  6万张训练数字图片       60000 * 784     形状的 0到1的数字
+- x_train:  6万张训练图片       60000 * 784     形状的 0到1的数字
 
-- y_train： 6万个训练数字0-9标签    60000 * 10      形状的 0或1的数字
+- y_train： 6万个训练0-9标签    60000 * 10      形状的 0或1的数字
 
-- x_test：  1万测试数字图片         10000 * 784     形状的 0到1的数字
+- x_test：  1万测试图片         10000 * 784     形状的 0到1的数字
 
-- y_test：  1万个测试数字0-9标签    10000 * 10      形状的 0或1的数字
+- y_test：  1万个测试0-9标签    10000 * 10      形状的 0或1的数字
 
 
 ## 4.设计模型
 
-建立深度神经网络模型(deep neural network)
+### 建立深度神经网络模型(deep neural network)
 
 网络结构介绍。为容易理解, tensor 约等于 neural 约等于 数字。
 
@@ -235,8 +219,18 @@ model %>%
   layer_dense(units = 10, activation = 'softmax')
 ```
 
+### 神经网络型图：
 
-*模型的架构*:
+![](https://tensorflow.rstudio.com/tensorflow/articles/images/softmax-regression-scalargraph.png){width=80%}
+
+### 神经网络公式：
+
+公式是我们设计模型的时候定义的。比如图中的模型。W11-W33 9个weight 和 b1-b3 3个bias 经过训练得出。所以模型训练的Learnable Parameters=9+3=12
+
+
+![](https://tensorflow.rstudio.com/tensorflow/articles/images/softmax-regression-vectorequation.png){width=80%}
+
+### 模型的架构:
 Learnable Parameters: input*output+bias 
 
 第一层:使用 'relu' 的256个tensor 的隐藏层：
@@ -274,7 +268,7 @@ model %>% compile(
 
 
 
-## 6.训练模型
+## 6.训练模型 
 
 一堆数据处理转换。模型设计后 。终于可以开始训练模型了。
 
@@ -282,7 +276,9 @@ x_train 为训练数据集特征(6万张照片)。y_train 为训练数据集标�
 
 每次读入128张图片。重复训练10次。6万张照片80%用来训练。20%用来验证
 
-```{R}
+结果88%
+
+```{R message = FALSE,warning = FALSE, eval=FALSE}
 history <- model %>% fit(
   x_train, y_train, 
   epochs = 10, batch_size = 128, 
@@ -292,29 +288,142 @@ history <- model %>% fit(
 ```
 
 
-## 7.模型效果
 
-
-可见 经过 10次训练后。最终在验证集的accuracy表现为97%。从图中可见其实经过6次的训练。在验证集的表现以达到97%
-
-
-```{R}
+```{R eval=FALSE}
 plot(history)
 ```
 
 
+### 卷积神经网络模型（convolutional neural network）
+
+
+![](https://cdn-images-1.medium.com/max/1600/1*uAeANQIOQPqWZnnuH-VEyw.jpeg)
+
+
+
+```{R message = FALSE,warning = FALSE, eval=FALSE}
+library(keras)
+
+fashion_mnist <- dataset_fashion_mnist()
+
+c(x_train, y_train) %<-% fashion_mnist$train
+c(x_test, y_test) %<-% fashion_mnist$test
+
+
+x_train <- array_reshape(x_train, c(nrow(x_train), c(28,28,1)))
+x_test <- array_reshape(x_test, c(nrow(x_test), c(28,28,1)))
+
+x_train <- x_train / 255
+x_test <- x_test / 255
+
+
+
+y_train <- to_categorical(y_train, 10)
+y_test <- to_categorical(y_test, 10)
+
+model <- keras_model_sequential() 
+model %>% 
+  ############## 1 convolutional
+  layer_conv_2d(filter = 32, kernel_size = c(5,5), input_shape = c(28,28,1)) %>%
+  layer_activation("relu") %>%
+  layer_max_pooling_2d(pool_size = c(2,2)) %>%
+  #layer_dropout(0.2) %>%
+  ############## 2 convolutional
+  layer_conv_2d(filter = 64, kernel_size = c(5,5)) %>%
+  layer_activation("relu") %>%
+  layer_max_pooling_2d(pool_size = c(2,2)) %>%
+  layer_dropout(0.25) %>%
+  ####################################################
+
+  layer_flatten() %>%
+   layer_dense(units = 256, activation = 'relu') %>%
+    layer_dense(units = 128, activation = 'relu') %>%
+  layer_dropout(0.3) %>%
+
+  layer_dense(units = 10, activation = 'softmax')
+
+
+
+
+model %>% compile(
+  loss = 'categorical_crossentropy',
+  optimizer = optimizer_rmsprop(),
+  metrics = c('accuracy')
+)
+
+history <- model %>% fit(
+  x_train, y_train, 
+  epochs = 10, batch_size = 128, 
+  validation_split = 0.2,
+  verbose=1
+)
+
+
+```
+
+## 7.模型效果
+
+
+可见 经过 10次训练后。最终在验证集的accuracy表现为90%。
+
+```{R eval=FALSE}
+plot(history)
+```
+
+
+```{R message = FALSE,warning = FALSE,eval=FALSE}
+tensorflow_DNN_score <- model %>% evaluate(x_test,y_test)
+tensorflow_DNN_score
+```
+
 ## 8.模型对比
 
 
+### tensorflow DNN 神经网络模型的准确度是84%
+
+```{R eval=FALSE}
+tensorflow_DNN_score=tensorflow_DNN_score$acc
+tensorflow_DNN_score
+```
+
+### tensorflow CNN 卷积神经网络模型的准确度是90%
+
+```{R eval=FALSE}
+tensorflow_CNN_score=tensorflow_DNN_score$acc
+tensorflow_CNN_score
+```
 
 
+
+
+```{R eval=FALSE}
+model_score=rbind(tensorflow_DNN_score，tensorflow_CNN_score)
+  
+model_score  
+```
+
+```{R eval=FALSE}
+model_score_df=as.data.frame(model_score)
+model_score_df$model <- row.names(model_score_df)
+model_score_df=model_score_df %>% arrange(V1) %>%  mutate(model = factor(model, model),Accuray=V1)
+
+gg=ggplot(data=model_score_df,aes(x=model,y=Accuray,fill=model))+geom_bar(stat = 'identity') +geom_text(aes(label=Accuray)) + guides(fill=FALSE)
+gg+theme_bw()
+```
 
 ## 总结
 
-后续分享
+使用tensorflow 神经网络模型将准确率提高到97%。 可以得到如此高的准确率，主要是图片比较简单。只有0-9的标准数字。对于更加困难的问题。比如在自动驾驶中需要精准的物体识别等问题。将需要更加复杂的神经网络模型。
 
-Tensorflow in R 系列(2) :时装分类 Fashion-MNIST image classification
+使用tensorflow CNN 卷积神经网络模型将准确率从84%提高到90%。但从训练图中可以看到训练数据准确度高达96%，验证数据只有90%。这里出现了overfitting的情况。后续将会分享如何解决这种情况。 
 
+
+
+### 后续分享
+
+Tensorflow in R 系列(3) :猫狗分类 Cats dog image classification with augmentation & drop out
+
+```{R eval=FALSE,echo=FALSE}
 Tensorflow in R 系列(3) :猫狗分类 Cats dog image classification with augmentation & drop out
 
 Tensorflow in R 系列(4) :猫狗分类 Cats dog image classification with TensorBoard
@@ -326,6 +435,7 @@ Tensorflow in R 系列(6) :猫狗分类 Cats dog image classification with Googl
 Tensorflow in R 系列(7) :猫狗分类 Cats dog image classification with Tansfer learning
 
 Tensorflow in R 系列(8) :猫狗分类 Cats dog image classification with Google vision API
+```
 
 
 
@@ -336,5 +446,7 @@ Tensorflow in R 系列(8) :猫狗分类 Cats dog image classification with Googl
 https://developers.google.com/machine-learning/crash-course/
 
 https://www.youtube.com/watch?v=m0pIlLfpXWE
+
+https://tensorflow.rstudio.com/keras/articles/tutorial_basic_classification.html
 
 

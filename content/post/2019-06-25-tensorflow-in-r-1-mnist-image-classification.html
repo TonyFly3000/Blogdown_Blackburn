@@ -16,6 +16,7 @@ topics: []
 <ul>
 <li>Tensorflow in R 系列，将分享如何使用R语言在Tensorflow/Keras 框架中训练深度学习模型。</li>
 <li>MNIST 全称为 Modified National Institute of Standards and Technology。这个名词一点也不重要。</li>
+<li>MNIST 数据为 7万张（6万张训练+1万张测试） 0-9的手写数字图片</li>
 </ul>
 </div>
 <div id="-r--r-studio" class="section level2">
@@ -25,6 +26,7 @@ topics: []
 </div>
 <div id="-keras-package" class="section level2">
 <h2>安装 keras package</h2>
+<p>如果你的计算环境有GPU,可以安装GPU版本。install_tensorflow(gpu = T)</p>
 <pre class="r"><code>install.packages(&#39;devtools&#39;)
 devtools::install_github(&quot;rstudio/keras&quot;)
 library(keras)
@@ -33,9 +35,9 @@ install_keras()</code></pre>
 <pre class="r"><code>library(keras)
 library(reticulate) 
 tensorflow::tf_config() </code></pre>
-<pre><code>## TensorFlow v1.10.0 (C:\Users\User\AppData\Local\conda\conda\envs\R-TENS~1\lib\site-packages\keras\__init__.p)
-## Python v3.6 (C:\Users\User\AppData\Local\conda\conda\envs\r-tensorflow\python.exe)</code></pre>
-<p>查看 keras 版本。</p>
+<pre><code>## TensorFlow v1.10.0 (C:\Users\User\ANACON~2\envs\R-TENS~1\lib\site-packages\keras\__init__.p)
+## Python v3.6 (C:\Users\User\Anaconda3\envs\r-tensorflow\python.exe)</code></pre>
+<p>查看 keras 版本为2.2.4</p>
 <pre class="r"><code>keras:::keras_version() </code></pre>
 <pre><code>## [1] &#39;2.2.4&#39;</code></pre>
 <p>安装本文用到的package</p>
@@ -51,7 +53,7 @@ install.packages(&#39;randomForest&#39;)</code></pre>
 <ul>
 <li>x_train: 6万张训练数字图片</li>
 <li>y_train： 6万个训练数字0-9标签</li>
-<li>x_test： 1万测试数字图片</li>
+<li>x_test： 1万张测试数字图片</li>
 <li>y_test： 1万个测试数字0-9标签</li>
 </ul>
 <p>为什么有4个数据集 ?</p>
@@ -101,6 +103,10 @@ image(1:28, 1:28, img, col = gray((0:255)/255), xaxt = &#39;n&#39;, yaxt = &#39;
 <p>y_train：是 1维array的训练数字标签。第一维是为6万张数字图片对应的0-9标签。</p>
 <pre class="r"><code>dim(y_train)</code></pre>
 <pre><code>## [1] 60000</code></pre>
+<pre class="r"><code>table(y_train)</code></pre>
+<pre><code>## y_train
+##    0    1    2    3    4    5    6    7    8    9 
+## 5923 6742 5958 6131 5842 5421 5918 6265 5851 5949</code></pre>
 <p>x_test：是 3维array的测试数字图片。第一维是1万张图片。第2，3维是每张28 × 28 的0-9 数字图片。</p>
 <pre class="r"><code>dim(x_test)</code></pre>
 <pre><code>## [1] 10000    28    28</code></pre>
@@ -230,6 +236,7 @@ Learnable Parameters :1290=128*10+10</p>
 <p>一堆数据处理转换。模型设计后 。终于可以开始训练模型了。</p>
 <p>x_train 为训练数据集特征(6万张照片)。y_train 为训练数据集标签(6万个数字)</p>
 <p>每次读入128张图片。重复训练10次。6万张照片80%用来训练。20%用来验证</p>
+<p>训练时间大概为5分钟。</p>
 <pre class="r"><code>history &lt;- model %&gt;% fit(
   x_train, y_train, 
   epochs = 10, batch_size = 128, 
@@ -244,10 +251,10 @@ Learnable Parameters :1290=128*10+10</p>
 <pre class="r"><code>tensorflow_DNN_score &lt;- model %&gt;% evaluate(x_test,y_test)
 tensorflow_DNN_score</code></pre>
 <pre><code>## $loss
-## [1] 0.09058972
+## [1] 0.1047474
 ## 
 ## $acc
-## [1] 0.9794</code></pre>
+## [1] 0.9754</code></pre>
 </div>
 <div class="section level2">
 <h2>8.模型对比</h2>
@@ -265,7 +272,7 @@ Naive_score</code></pre>
 </div>
 <div id="-decision-tree-benchmark" class="section level3">
 <h3>决策树模型 Decision tree benchmark</h3>
-<p>使用决策树模型。准确度是61%</p>
+<p>使用决策树模型。准确度是61%。训练时间大概为10分钟。</p>
 <pre class="r"><code>library(tidyverse)
 library(keras)
 library(rpart)
@@ -296,7 +303,7 @@ decision_tree_score</code></pre>
 </div>
 <div id="-random-forest-benchmark" class="section level3">
 <h3>随机森林模型 random forest benchmark</h3>
-<p>使用随机森林模型。准确度是92%</p>
+<p>使用随机森林模型。准确度是92%。训练时间大概为15分钟。</p>
 <pre class="r"><code>library(tidyverse)
 library(keras)
 library(randomForest)
@@ -323,19 +330,19 @@ rf &lt;- randomForest(y_train ~ .,data=all_data_train,ntree=numTrees,importance 
 pred &lt;- predict(rf, x_test)
 randon_forest_score=mean(pred == all_data_test$y_test)  
 randon_forest_score</code></pre>
-<pre><code>## [1] 0.9194</code></pre>
+<pre><code>## [1] 0.9238</code></pre>
 <p>tensorflow神经网络模型的准确度是97%</p>
 <pre class="r"><code>tensorflow_DNN_score=tensorflow_DNN_score$acc
 tensorflow_DNN_score</code></pre>
-<pre><code>## [1] 0.9794</code></pre>
+<pre><code>## [1] 0.9754</code></pre>
 <pre class="r"><code>model_score=rbind(Naive_score,decision_tree_score,randon_forest_score,tensorflow_DNN_score)
   
 model_score  </code></pre>
 <pre><code>##                        [,1]
 ## Naive_score          0.1000
 ## decision_tree_score  0.6196
-## randon_forest_score  0.9194
-## tensorflow_DNN_score 0.9794</code></pre>
+## randon_forest_score  0.9238
+## tensorflow_DNN_score 0.9754</code></pre>
 <pre class="r"><code>model_score_df=as.data.frame(model_score)
 model_score_df$model &lt;- row.names(model_score_df)
 model_score_df=model_score_df %&gt;% arrange(V1) %&gt;%  mutate(model = factor(model, model),Accuray=V1)

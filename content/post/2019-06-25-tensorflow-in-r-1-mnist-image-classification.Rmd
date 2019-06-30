@@ -13,7 +13,7 @@ topics: []
 ## 开篇
 - Tensorflow in R 系列，将分享如何使用R语言在Tensorflow/Keras 框架中训练深度学习模型。
 - MNIST 全称为 Modified National Institute of Standards and Technology。这个名词一点也不重要。
-
+- MNIST 数据为 7万张（6万张训练+1万张测试） 0-9的手写数字图片
 
 ## 安装 R 和 R studio 
 
@@ -24,6 +24,7 @@ topics: []
 
 ## 安装 keras package
 
+如果你的计算环境有GPU,可以安装GPU版本。install_tensorflow(gpu = T)
 
 ```{R eval=FALSE}
 install.packages('devtools')
@@ -39,7 +40,7 @@ library(keras)
 library(reticulate) 
 tensorflow::tf_config() 
 ```
-查看 keras 版本。
+查看 keras 版本为2.2.4
 
 ```{R message = FALSE,warning = FALSE}
 keras:::keras_version() 
@@ -61,7 +62,7 @@ install.packages('randomForest')
 
 - x_train:  6万张训练数字图片
 - y_train： 6万个训练数字0-9标签
-- x_test：  1万测试数字图片
+- x_test：  1万张测试数字图片
 - y_test：  1万个测试数字0-9标签
 
 为什么有4个数据集 ?
@@ -126,6 +127,7 @@ dim(x_train)
 y_train：是 1维array的训练数字标签。第一维是为6万张数字图片对应的0-9标签。
 ```{R}
 dim(y_train)
+table(y_train)
 ```
 
  x_test：是 3维array的测试数字图片。第一维是1万张图片。第2，3维是每张28 × 28 的0-9 数字图片。
@@ -298,6 +300,8 @@ x_train 为训练数据集特征(6万张照片)。y_train 为训练数据集标�
 
 每次读入128张图片。重复训练10次。6万张照片80%用来训练。20%用来验证
 
+训练时间大概为5分钟。
+
 ```{R message = FALSE,warning = FALSE}
 history <- model %>% fit(
   x_train, y_train, 
@@ -343,7 +347,7 @@ Naive_score
 
 ### 决策树模型 Decision tree benchmark
 
-使用决策树模型。准确度是61%
+使用决策树模型。准确度是61%。训练时间大概为10分钟。
 
 
 ```{R message = FALSE,warning = FALSE}
@@ -378,7 +382,7 @@ decision_tree_score
 
 ### 随机森林模型 random forest  benchmark
 
-使用随机森林模型。准确度是92%
+使用随机森林模型。准确度是92%。训练时间大概为15分钟。
 
 ```{R message = FALSE,warning = FALSE}
 library(tidyverse)

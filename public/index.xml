@@ -18,11 +18,11 @@
       <pubDate>Tue, 25 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/tensorflow-in-r-1-mnist-image-classification/</guid>
-      <description>开篇Tensorflow in R 系列，将分享如何使用R语言在Tensorflow/Keras 框架中训练深度学习模型。MNIST 全称为 Modified National Institute of Standards and Technology。这个名词一点也不重要。安装 R 和 R studio此次省略300字。建议使用云计算平台。如Kaggle Kernel/Google Codelab/Google Cloud 等
+      <description>开篇Tensorflow in R 系列，将分享如何使用R语言在Tensorflow/Keras 框架中训练深度学习模型。MNIST 全称为 Modified National Institute of Standards and Technology。这个名词一点也不重要。MNIST 数据为 7万张（6万张训练+1万张测试） 0-9的手写数字图片安装 R 和 R studio此次省略300字。建议使用云计算平台。如Kaggle Kernel/Google Codelab/Google Cloud 等
 可参考【在 Google Cloud 安装 R studio server】： https://tduan.netlify.com/post/google-cloud-r-studio-server/
-安装 keras packageinstall.packages(&amp;#39;devtools&amp;#39;)devtools::install_github(&amp;quot;rstudio/keras&amp;quot;)library(keras)install_keras()查看 tensorflow 版本。使用的是 tensorflow 1.10.0 (有点落后，主要是懒得更新)。python 版本3.6
-library(keras)library(reticulate) tensorflow::tf_config() ## TensorFlow v1.10.0 (C:\Users\User\AppData\Local\conda\conda\envs\R-TENS~1\lib\site-packages\keras\__init__.p)## Python v3.6 (C:\Users\User\AppData\Local\conda\conda\envs\r-tensorflow\python.exe)查看 keras 版本。
-keras:::keras_version() ## [1] &amp;#39;2.</description>
+安装 keras package如果你的计算环境有GPU,可以安装GPU版本。install_tensorflow(gpu = T)
+install.packages(&amp;#39;devtools&amp;#39;)devtools::install_github(&amp;quot;rstudio/keras&amp;quot;)library(keras)install_keras()查看 tensorflow 版本。使用的是 tensorflow 1.10.0 (有点落后，主要是懒得更新)。python 版本3.6
+library(keras)library(reticulate) tensorflow::tf_config() ## TensorFlow v1.10.0 (C:\Users\User\ANACON~2\envs\R-TENS~1\lib\site-packages\keras\__init__.p)## Python v3.6 (C:\Users\User\Anaconda3\envs\r-tensorflow\python.exe)查看 keras 版本为2.</description>
     </item>
     
     <item>
@@ -697,11 +697,10 @@ Telegram ID:verytony</description>
       <pubDate>Wed, 28 Jun 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/tensorflow-in-r-2-fashion-mnist-image-classification/</guid>
-      <description>开篇Tensorflow in R 系列，将分享如何使用R语言在Tensorflow/Keras 框架中训练深度学习模型。MNIST 全称为 Modified National Institute of Standards and Technology。这个名词一点也不重要。安装 R 和 R studio此次省略300字。建议使用云计算平台。如Kaggle Kernel/Google Codelab/Google Cloud 等
-可参考【在 Google Cloud 安装 R studio server】： https://tduan.netlify.com/post/google-cloud-r-studio-server/
-安装 keras packageinstall.packages(&amp;#39;devtools&amp;#39;)devtools::install_github(&amp;quot;rstudio/keras&amp;quot;)library(keras)install_keras()查看 tensorflow 版本。使用的是 tensorflow 1.10.0 (有点落后，主要是懒得更新)。python 版本3.6
-library(keras)library(reticulate) tensorflow::tf_config() ## TensorFlow v1.10.0 (C:\Users\User\AppData\Local\conda\conda\envs\R-TENS~1\lib\site-packages\keras\__init__.p)## Python v3.6 (C:\Users\User\AppData\Local\conda\conda\envs\r-tensorflow\python.exe)查看 keras 版本。
-keras:::keras_version() ## [1] &amp;#39;2.</description>
+      <description>开篇Tensorflow in R 系列，将分享如何使用R语言在Tensorflow/Keras 框架中训练深度学习模型。上一篇讲了如果使用深度神经网络模型来识别图片中的数字本文将介绍如何使用卷积神经网络模型（convolutional neural network）来识别图片中的时装分类1.导入数据导入4个数据集，分别为：
+x_train: 6万张训练时装图片y_train： 6万个训练时装0-9标签,每个数字代表1种时装x_test： 1万张测试时装图片y_test： 1万个测试时装0-9标签,每个数字代表1种时装为什么有4个数据集 ?
+带x的通常为特征(feature)。带y的为标签(label)。训练数据是用来训练模型。测试数据不参加建模，而是模型建立后是用来测试模型的效果。library(keras)fashion_mnist &amp;lt;- dataset_fashion_mnist()c(x_train, y_train) %&amp;lt;-% fashion_mnist$trainc(x_test, y_test) %&amp;lt;-% fashion_mnist$test这些图片长这个样.每个数字代表1种时装。比如0是T-shirt。9是Ankle boot。
+par(mfcol=c(2,2))par(mar=c(0, 0, 1.5, 0), xaxs=&amp;#39;i&amp;#39;, yaxs=&amp;#39;i&amp;#39;)for (i in 1:4) { img &amp;lt;- x_train[i, , ]img &amp;lt;- t(apply(img, 2, rev)) image(1:28, 1:28, img, col = gray((0:255)/255), xaxt = &amp;#39;n&amp;#39;, yaxt = &amp;#39;n&amp;#39;,main = y_train[i])}2.</description>
     </item>
     
     <item>
