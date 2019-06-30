@@ -62,6 +62,7 @@ install.packages(&#39;randomForest&#39;)</code></pre>
 <li>训练数据是用来训练模型。测试数据不参加建模，而是模型建立后是用来测试模型的效果。</li>
 </ul>
 <pre class="r"><code>library(keras)
+library(tidyverse)
 mnist &lt;- dataset_mnist()
 
 x_train &lt;- mnist$train$x
@@ -251,10 +252,10 @@ Learnable Parameters :1290=128*10+10</p>
 <pre class="r"><code>tensorflow_DNN_score &lt;- model %&gt;% evaluate(x_test,y_test)
 tensorflow_DNN_score</code></pre>
 <pre><code>## $loss
-## [1] 0.1047474
+## [1] 0.09597981
 ## 
 ## $acc
-## [1] 0.9754</code></pre>
+## [1] 0.9779</code></pre>
 </div>
 <div class="section level2">
 <h2>8.模型对比</h2>
@@ -299,7 +300,6 @@ all_prediction=as.data.frame(cbind(prediction,y_test))%&gt;%mutate(correct=if_el
 
 decision_tree_score=sum(all_prediction$correct)/nrow(all_prediction)
 decision_tree_score</code></pre>
-<pre><code>## [1] 0.6196</code></pre>
 </div>
 <div id="-random-forest-benchmark" class="section level3">
 <h3>随机森林模型 random forest benchmark</h3>
@@ -330,31 +330,31 @@ rf &lt;- randomForest(y_train ~ .,data=all_data_train,ntree=numTrees,importance 
 pred &lt;- predict(rf, x_test)
 randon_forest_score=mean(pred == all_data_test$y_test)  
 randon_forest_score</code></pre>
-<pre><code>## [1] 0.9238</code></pre>
 <p>tensorflow神经网络模型的准确度是97%</p>
 <pre class="r"><code>tensorflow_DNN_score=tensorflow_DNN_score$acc
 tensorflow_DNN_score</code></pre>
-<pre><code>## [1] 0.9754</code></pre>
+<pre><code>## [1] 0.9779</code></pre>
 <pre class="r"><code>model_score=rbind(Naive_score,decision_tree_score,randon_forest_score,tensorflow_DNN_score)
   
 model_score  </code></pre>
 <pre><code>##                        [,1]
 ## Naive_score          0.1000
-## decision_tree_score  0.6196
-## randon_forest_score  0.9238
-## tensorflow_DNN_score 0.9754</code></pre>
+## decision_tree_score  0.6100
+## randon_forest_score  0.9200
+## tensorflow_DNN_score 0.9779</code></pre>
 <pre class="r"><code>model_score_df=as.data.frame(model_score)
 model_score_df$model &lt;- row.names(model_score_df)
 model_score_df=model_score_df %&gt;% arrange(V1) %&gt;%  mutate(model = factor(model, model),Accuray=V1)
 
 gg=ggplot(data=model_score_df,aes(x=model,y=Accuray,fill=model))+geom_bar(stat = &#39;identity&#39;) +geom_text(aes(label=Accuray)) + guides(fill=FALSE)
 gg+theme_bw()</code></pre>
-<p><img src="/post/2019-06-25-tensorflow-in-r-1-mnist-image-classification_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<p><img src="/post/2019-06-25-tensorflow-in-r-1-mnist-image-classification_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
 </div>
 </div>
 <div class="section level2">
 <h2>总结</h2>
 <p>使用tensorflow 神经网络模型将准确率提高到97%。 可以得到如此高的准确率，主要是图片比较简单。只有0-9的标准数字。对于更加困难的问题。比如在自动驾驶中需要精准的物体识别等问题。将需要更加复杂的神经网络模型。</p>
+<p><img src="/post/2019-06-25-tensorflow-in-r-1-mnist-image-classification_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
 <div class="section level3">
 <h3>后续分享</h3>
 <p>Tensorflow in R 系列(2) :时装分类 Fashion-MNIST image classification with CNN</p>

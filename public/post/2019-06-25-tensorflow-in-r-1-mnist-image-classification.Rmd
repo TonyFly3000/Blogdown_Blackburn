@@ -72,6 +72,7 @@ install.packages('randomForest')
 
 ```{R message = FALSE,warning = FALSE}
 library(keras)
+library(tidyverse)
 mnist <- dataset_mnist()
 
 x_train <- mnist$train$x
@@ -350,7 +351,7 @@ Naive_score
 使用决策树模型。准确度是61%。训练时间大概为10分钟。
 
 
-```{R message = FALSE,warning = FALSE}
+```{R message = FALSE,warning = FALSE,eval=FALSE}
 library(tidyverse)
 library(keras)
 library(rpart)
@@ -384,7 +385,7 @@ decision_tree_score
 
 使用随机森林模型。准确度是92%。训练时间大概为15分钟。
 
-```{R message = FALSE,warning = FALSE}
+```{R message = FALSE,warning = FALSE,eval=FALSE}
 library(tidyverse)
 library(keras)
 library(randomForest)
@@ -413,12 +414,19 @@ randon_forest_score=mean(pred == all_data_test$y_test)
 randon_forest_score
 ```
 
+```{R echo=FALSE}
+decision_tree_score=0.61
+randon_forest_score=0.92
+```
+
+
 tensorflow神经网络模型的准确度是97%
 
 ```{R}
 tensorflow_DNN_score=tensorflow_DNN_score$acc
 tensorflow_DNN_score
 ```
+
 
 
 ```{R}
@@ -441,7 +449,21 @@ gg+theme_bw()
 使用tensorflow 神经网络模型将准确率提高到97%。 可以得到如此高的准确率，主要是图片比较简单。只有0-9的标准数字。对于更加困难的问题。比如在自动驾驶中需要精准的物体识别等问题。将需要更加复杂的神经网络模型。
 
 
+```{R message = FALSE,warning = FALSE,echo=FALSE}
 
+if (.Platform$OS.type == "windows") {
+    windowsFonts(
+        Impact = windowsFont("Impact"),
+        Courier = windowsFont("Courier")
+    )
+}
+
+
+library(meme)
+u <- "kid.png"
+x=meme(u, "Tensorflow", "So easy !")
+x
+```
 
 ### 后续分享
 

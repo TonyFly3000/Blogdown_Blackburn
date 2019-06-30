@@ -297,7 +297,7 @@ plot(history)
 ### 卷积神经网络模型（convolutional neural network）
 
 
-![](https://cdn-images-1.medium.com/max/1600/1*uAeANQIOQPqWZnnuH-VEyw.jpeg)
+![](https://cdn-images-1.medium.com/max/1600/1*uAeANQIOQPqWZnnuH-VEyw.jpeg){width=80%}
 
 
 

@@ -449,7 +449,7 @@ gg+theme_bw()
 使用tensorflow 神经网络模型将准确率提高到97%。 可以得到如此高的准确率，主要是图片比较简单。只有0-9的标准数字。对于更加困难的问题。比如在自动驾驶中需要精准的物体识别等问题。将需要更加复杂的神经网络模型。
 
 
-```{R message = FALSE,warning = FALSE}
+```{R message = FALSE,warning = FALSE,echo=FALSE}
 
 if (.Platform$OS.type == "windows") {
     windowsFonts(
@@ -461,7 +461,7 @@ if (.Platform$OS.type == "windows") {
 
 library(meme)
 u <- "kid.png"
-x=meme(u, "Tensorflow", "So easy!")
+x=meme(u, "Tensorflow", "So easy !")
 x
 ```
 
