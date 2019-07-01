@@ -1,0 +1,196 @@
+---
+title: Data structures in R
+author: ''
+date: '2019-07-01'
+slug: data-structures-in-r
+categories: []
+tags: []
+description: 'Data structures in R'
+topics: []
+---
+
+
+
+<div id="introduction-to-data-structures-and-types-in-r" class="section level1">
+<h1>Introduction to Data structures and types in R</h1>
+<p>There are 5 Data structures in R:</p>
+<ul>
+<li>Vector</li>
+<li>Matrix</li>
+<li>Array</li>
+<li>Data frame</li>
+<li>List</li>
+</ul>
+<p>There are 4 data types in R:</p>
+<ul>
+<li>numeric</li>
+<li>character</li>
+<li>logical</li>
+<li>date</li>
+</ul>
+<p><img src="https://devopedia.org/images/article/46/9213.1526125966.png" style="width:80.0%" /></p>
+<hr />
+</div>
+<div id="vector" class="section level1">
+<h1>1. Vector</h1>
+<p>vector is 1 dimension elements.vector can only have one data type. For example all number or all character.</p>
+<div id="vector001-is-numeric-type-and-vector-structure" class="section level2">
+<h2>vector001 is <strong>numeric</strong> type and <strong>Vector</strong> structure</h2>
+<pre class="r"><code>vector001=c(1,2,3,4,5)
+vector001</code></pre>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<pre class="r"><code>class(vector001)</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<pre class="r"><code>is.vector(vector001)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="vector002-is-character-type-and-vector-structure" class="section level2">
+<h2>vector002 is <strong>character</strong> type and <strong>Vector</strong> structure</h2>
+<pre class="r"><code>vector002=c(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;)
+vector002</code></pre>
+<pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
+<pre class="r"><code>class(vector002)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code>is.vector(vector002)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<hr />
+</div>
+<div id="matrix" class="section level2">
+<h2>2. Matrix</h2>
+<p>Matrix is 2 dimension elements.Matrix can only have one data type. For example all number or all character.</p>
+</div>
+<div id="matrix001-is-2-3-numeric-type-and-matrix-structure" class="section level2">
+<h2>matrix001 is 2 * 3 <strong>numeric</strong> type and <strong>Matrix</strong> structure</h2>
+<pre class="r"><code>matrix001=matrix(1:6, ncol = 3, nrow = 2)
+matrix001</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    3    5
+## [2,]    2    4    6</code></pre>
+<pre class="r"><code>class(matrix001)</code></pre>
+<pre><code>## [1] &quot;matrix&quot;</code></pre>
+<pre class="r"><code>dim(matrix001)</code></pre>
+<pre><code>## [1] 2 3</code></pre>
+<pre class="r"><code>is.matrix(matrix001)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="matrix002-is-3-2-character-type-and-matrix-structure" class="section level2">
+<h2>matrix002 is 3 * 2 <strong>character</strong> type and <strong>Matrix</strong> structure</h2>
+<pre class="r"><code>matrix002=matrix(c(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;,&#39;e&#39;,&#39;f&#39;), ncol = 2, nrow = 3)
+matrix002</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,] &quot;a&quot;  &quot;d&quot; 
+## [2,] &quot;b&quot;  &quot;e&quot; 
+## [3,] &quot;c&quot;  &quot;f&quot;</code></pre>
+<pre class="r"><code>class(matrix002)</code></pre>
+<pre><code>## [1] &quot;matrix&quot;</code></pre>
+<pre class="r"><code>dim(matrix002)</code></pre>
+<pre><code>## [1] 3 2</code></pre>
+<pre class="r"><code>is.matrix(matrix002)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<hr />
+</div>
+<div id="array" class="section level2">
+<h2>3. Array</h2>
+<p>Array is 3 or more dimension Array can only have one data type. For example all number or all character.</p>
+</div>
+<div id="array001-is-4-3-2-numeric-type-and-array-structure" class="section level2">
+<h2>Array001 is 4 * 3 * 2 <strong>numeric</strong> type and <strong>Array</strong> structure</h2>
+<pre class="r"><code>Array001=array(c(1:24),dim = c(4,3,2))
+Array001</code></pre>
+<pre><code>## , , 1
+## 
+##      [,1] [,2] [,3]
+## [1,]    1    5    9
+## [2,]    2    6   10
+## [3,]    3    7   11
+## [4,]    4    8   12
+## 
+## , , 2
+## 
+##      [,1] [,2] [,3]
+## [1,]   13   17   21
+## [2,]   14   18   22
+## [3,]   15   19   23
+## [4,]   16   20   24</code></pre>
+<pre class="r"><code>class(Array001)</code></pre>
+<pre><code>## [1] &quot;array&quot;</code></pre>
+<pre class="r"><code>dim(Array001)</code></pre>
+<pre><code>## [1] 4 3 2</code></pre>
+<pre class="r"><code>is.array(Array001)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="array002-is-2-2-2-character-type-and-array-structure" class="section level2">
+<h2>Array002 is 2 * 2 * 2 <strong>character</strong> type and <strong>Array</strong> structure</h2>
+<pre class="r"><code>Array002=array(c(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;,&#39;e&#39;,&#39;f&#39;,&#39;g&#39;,&#39;h&#39;),dim = c(2,2,2))
+Array002</code></pre>
+<pre><code>## , , 1
+## 
+##      [,1] [,2]
+## [1,] &quot;a&quot;  &quot;c&quot; 
+## [2,] &quot;b&quot;  &quot;d&quot; 
+## 
+## , , 2
+## 
+##      [,1] [,2]
+## [1,] &quot;e&quot;  &quot;g&quot; 
+## [2,] &quot;f&quot;  &quot;h&quot;</code></pre>
+<pre class="r"><code>class(Array002)</code></pre>
+<pre><code>## [1] &quot;array&quot;</code></pre>
+<pre class="r"><code>dim(Array002)</code></pre>
+<pre><code>## [1] 2 2 2</code></pre>
+<pre class="r"><code>is.array(Array002)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<hr />
+</div>
+<div id="data-frame" class="section level2">
+<h2>4. Data frame</h2>
+<p>A data frame is a very important data type in R and its most commonly used.</p>
+<p>It can be called as dataset or data table sometimes.It can have different data type.</p>
+<p>For example data_frame001 have character,factor,numeric,logical,date</p>
+<p>data_frame001 is 3 * 5 data frame</p>
+<pre class="r"><code>library(tidyverse)
+
+data_frame001=data.frame(name= c(&#39;pet&#39;,&#39;sue&#39;,&#39;tony&#39;),level=as.factor(c(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;)), x = 1:3, y = c(TRUE,FALSE,TRUE),z=as.Date(c(&#39;2019-01-01&#39;,&#39;2019-01-02&#39;,&#39;2019-01-03&#39;)),
+                         stringsAsFactors = FALSE)
+data_frame001</code></pre>
+<pre><code>##   name level x     y          z
+## 1  pet     a 1  TRUE 2019-01-01
+## 2  sue     b 2 FALSE 2019-01-02
+## 3 tony     c 3  TRUE 2019-01-03</code></pre>
+<pre class="r"><code>class(data_frame001)</code></pre>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<pre class="r"><code>dim(data_frame001)</code></pre>
+<pre><code>## [1] 3 5</code></pre>
+<pre class="r"><code>is.data.frame(data_frame001)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>glimpse(data_frame001)</code></pre>
+<pre><code>## Observations: 3
+## Variables: 5
+## $ name  &lt;chr&gt; &quot;pet&quot;, &quot;sue&quot;, &quot;tony&quot;
+## $ level &lt;fct&gt; a, b, c
+## $ x     &lt;int&gt; 1, 2, 3
+## $ y     &lt;lgl&gt; TRUE, FALSE, TRUE
+## $ z     &lt;date&gt; 2019-01-01, 2019-01-02, 2019-01-03</code></pre>
+<hr />
+</div>
+<div id="list" class="section level2">
+<h2>5. List</h2>
+<p>List is the biggest data structures. It can have anything in it.</p>
+<p>For example List001 first element is a vector and the secound element is a matrix.</p>
+<pre class="r"><code>library(tidyverse)
+
+List001=list(vector001,matrix001)
+List001</code></pre>
+<pre><code>## [[1]]
+## [1] 1 2 3 4 5
+## 
+## [[2]]
+##      [,1] [,2] [,3]
+## [1,]    1    3    5
+## [2,]    2    4    6</code></pre>
+<pre class="r"><code>class(List001)</code></pre>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<pre class="r"><code>is.list(List001)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+</div>

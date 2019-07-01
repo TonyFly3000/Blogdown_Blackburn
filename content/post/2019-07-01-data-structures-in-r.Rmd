@@ -1,0 +1,156 @@
+---
+title: Data structures in R
+author: ''
+date: '2019-07-01'
+slug: data-structures-in-r
+categories: []
+tags: []
+description: 'Data structures in R'
+topics: []
+---
+
+
+# Introduction to Data structures and types in R
+
+There are 5 Data structures in R:
+
+- Vector
+- Matrix
+- Array
+- Data frame
+- List  
+
+
+There are 4 data types in R:
+
+- numeric
+- character
+- logical
+- date
+
+![](https://devopedia.org/images/article/46/9213.1526125966.png){width=80%} 
+
+----------------------------------------------------------------
+
+# 1. Vector
+
+vector is 1 dimension elements.vector can only have one data type. For example all number or all character.
+
+## vector001 is **numeric** type and **Vector** structure
+```{R message = FALSE,warning = FALSE}
+vector001=c(1,2,3,4,5)
+vector001
+class(vector001)
+is.vector(vector001)
+```
+
+## vector002 is **character** type and **Vector** structure
+```{R message = FALSE,warning = FALSE}
+vector002=c('a','b','c')
+vector002
+class(vector002)
+is.vector(vector002)
+```
+
+----------------------------------------------------------------
+
+## 2. Matrix
+
+Matrix is 2 dimension elements.Matrix can only have one data type. For example all number or all character.
+
+## matrix001 is 2 * 3  **numeric** type and **Matrix** structure
+
+```{R message = FALSE,warning = FALSE}
+matrix001=matrix(1:6, ncol = 3, nrow = 2)
+matrix001
+class(matrix001)
+dim(matrix001)
+is.matrix(matrix001)
+```
+
+## matrix002 is  3 * 2 **character** type and **Matrix** structure
+
+```{R message = FALSE,warning = FALSE}
+matrix002=matrix(c('a','b','c','d','e','f'), ncol = 2, nrow = 3)
+matrix002
+class(matrix002)
+dim(matrix002)
+is.matrix(matrix002)
+```
+
+----------------------------------------------------------------
+
+## 3. Array 
+
+Array is 3 or more dimension Array can only have one data type. For example all number or all character.
+
+## Array001 is 4 * 3 * 2  **numeric** type and **Array** structure
+
+```{R message = FALSE,warning = FALSE}
+Array001=array(c(1:24),dim = c(4,3,2))
+Array001
+class(Array001)
+dim(Array001)
+is.array(Array001)
+```
+
+## Array002 is 2 * 2 * 2  **character** type and **Array** structure
+
+```{R message = FALSE,warning = FALSE}
+Array002=array(c('a','b','c','d','e','f','g','h'),dim = c(2,2,2))
+Array002
+class(Array002)
+dim(Array002)
+is.array(Array002)
+```
+
+----------------------------------------------------------------
+
+## 4. Data frame
+
+A data frame is a very important data type in R and its most commonly used.
+
+It can be called as dataset or data table sometimes.It can have different data type.
+
+For example data_frame001 have character,factor,numeric,logical,date
+
+data_frame001 is 3 * 5 data frame
+
+```{R message = FALSE,warning = FALSE}
+library(tidyverse)
+
+data_frame001=data.frame(name= c('pet','sue','tony'),level=as.factor(c('a','b','c')), x = 1:3, y = c(TRUE,FALSE,TRUE),z=as.Date(c('2019-01-01','2019-01-02','2019-01-03')),
+                         stringsAsFactors = FALSE)
+data_frame001
+class(data_frame001)
+
+dim(data_frame001)
+
+is.data.frame(data_frame001)
+
+glimpse(data_frame001)
+
+```
+
+----------------------------------------------------------------
+
+## 5. List
+
+List is the biggest data structures. It can have anything in it.
+
+For example List001 first element is a vector and the secound element is a matrix.
+
+```{R message = FALSE,warning = FALSE}
+library(tidyverse)
+
+List001=list(vector001,matrix001)
+List001
+
+class(List001)
+is.list(List001)
+```
+
+
+
+
+
