@@ -29,6 +29,7 @@ There are 4 data types in R:
 
 ![](https://devopedia.org/images/article/46/9213.1526125966.png){width=80%} 
 
+----------------------------------------------------------------
 
 # 1. Vector
 
@@ -52,8 +53,9 @@ class(vector002)
 is.vector(vector002)
 ```
 
+----------------------------------------------------------------
 
-## Matrix
+## 2. Matrix
 
 Matrix is 2 dimension elements.Matrix can only have one data type. For example all number or all character.
 
@@ -77,7 +79,9 @@ dim(matrix002)
 is.matrix(matrix002)
 ```
 
-## Array 
+----------------------------------------------------------------
+
+## 3. Array 
 
 Array is 3 or more dimension Array can only have one data type. For example all number or all character.
 
@@ -91,7 +95,7 @@ dim(Array001)
 is.array(Array001)
 ```
 
-## Array002 is 4 * 3 * 2  **character** type and **Array** structure
+## Array002 is 2 * 2 * 2  **character** type and **Array** structure
 
 ```{R message = FALSE,warning = FALSE}
 Array002=array(c('a','b','c','d','e','f','g','h'),dim = c(2,2,2))
@@ -101,12 +105,13 @@ dim(Array002)
 is.array(Array002)
 ```
 
+----------------------------------------------------------------
 
-## Data frame
+## 4. Data frame
 
 A data frame is a very important data type in R and its most commonly used.
 
-It can be called as dataset sometimes.It can have different data type.
+It can be called as dataset or data table sometimes.It can have different data type.
 
 For example data_frame001 have character,factor,numeric,logical,date
 
@@ -128,8 +133,9 @@ glimpse(data_frame001)
 
 ```
 
+----------------------------------------------------------------
 
-## List
+## 5. List
 
 List is the biggest data structures. It can have anything in it.
 
