@@ -20,8 +20,7 @@
       <guid>/post/data-structures-and-data-type-in-r/</guid>
       <description>Introduction to Data structures and types in RThere are 5 Data structures in R:
 VectorMatrixArrayData frameListThere are 4 data types in R:
-numericcharacterlogicaldate1. Vectorvector is 1 dimension elements.
-vector can only have one data type. For example all number or all character.
+numericcharacterlogicaldate1. Vectorvector is 1 dimension elements.vector can only have one data type. For example all number or all character.
 vector001 is numeric type and Vector structurevector001=c(1,2,3,4,5)vector001## [1] 1 2 3 4 5class(vector001)## [1] &amp;quot;numeric&amp;quot;is.</description>
     </item>
     

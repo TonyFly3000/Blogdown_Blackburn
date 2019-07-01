@@ -33,9 +33,7 @@ There are 4 data types in R:
 
 # 1. Vector
 
-vector is 1 dimension elements.
-
-vector can only have one data type. For example all number or all character.
+vector is 1 dimension elements.vector can only have one data type. For example all number or all character.
 
 ## vector001 is **numeric** type and **Vector** structure
 ```{R message = FALSE,warning = FALSE}
