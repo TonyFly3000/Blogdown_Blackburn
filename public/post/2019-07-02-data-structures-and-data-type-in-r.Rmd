@@ -63,6 +63,7 @@ Matrix is 2 dimension elements.Matrix can only have one data type. For example a
 matrix001=matrix(1:6, ncol = 3, nrow = 2)
 matrix001
 class(matrix001)
+dim(matrix001)
 is.matrix(matrix001)
 ```
 
@@ -72,6 +73,7 @@ is.matrix(matrix001)
 matrix002=matrix(c('a','b','c','d','e','f'), ncol = 2, nrow = 3)
 matrix002
 class(matrix002)
+dim(matrix002)
 is.matrix(matrix002)
 ```
 
@@ -85,6 +87,7 @@ Array is 3 or more dimension Array can only have one data type. For example all 
 Array001=array(c(1:24),dim = c(4,3,2))
 Array001
 class(Array001)
+dim(Array001)
 is.array(Array001)
 ```
 
@@ -94,6 +97,7 @@ is.array(Array001)
 Array002=array(c('a','b','c','d','e','f','g','h'),dim = c(2,2,2))
 Array002
 class(Array002)
+dim(Array002)
 is.array(Array002)
 ```
 
@@ -106,6 +110,8 @@ It can be called as dataset sometimes.It can have different data type.
 
 For example data_frame001 have character,factor,numeric,logical,date
 
+data_frame001 is 3 * 5 data frame
+
 ```{R message = FALSE,warning = FALSE}
 library(tidyverse)
 
@@ -113,6 +119,9 @@ data_frame001=data.frame(name= c('pet','sue','tony'),level=as.factor(c('a','b','
                          stringsAsFactors = FALSE)
 data_frame001
 class(data_frame001)
+
+dim(data_frame001)
+
 is.data.frame(data_frame001)
 
 glimpse(data_frame001)

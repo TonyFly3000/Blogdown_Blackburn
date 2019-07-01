@@ -304,6 +304,8 @@ matrix001</code></pre>
 ## [2,]    2    4    6</code></pre>
 <pre class="r"><code>class(matrix001)</code></pre>
 <pre><code>## [1] &quot;matrix&quot;</code></pre>
+<pre class="r"><code>dim(matrix001)</code></pre>
+<pre><code>## [1] 2 3</code></pre>
 <pre class="r"><code>is.matrix(matrix001)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
 </div>
@@ -317,6 +319,8 @@ matrix002</code></pre>
 ## [3,] &quot;c&quot;  &quot;f&quot;</code></pre>
 <pre class="r"><code>class(matrix002)</code></pre>
 <pre><code>## [1] &quot;matrix&quot;</code></pre>
+<pre class="r"><code>dim(matrix002)</code></pre>
+<pre><code>## [1] 3 2</code></pre>
 <pre class="r"><code>is.matrix(matrix002)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
 </div>
@@ -345,6 +349,8 @@ Array001</code></pre>
 ## [4,]   16   20   24</code></pre>
 <pre class="r"><code>class(Array001)</code></pre>
 <pre><code>## [1] &quot;array&quot;</code></pre>
+<pre class="r"><code>dim(Array001)</code></pre>
+<pre><code>## [1] 4 3 2</code></pre>
 <pre class="r"><code>is.array(Array001)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
 </div>
@@ -365,6 +371,8 @@ Array002</code></pre>
 ## [2,] &quot;f&quot;  &quot;h&quot;</code></pre>
 <pre class="r"><code>class(Array002)</code></pre>
 <pre><code>## [1] &quot;array&quot;</code></pre>
+<pre class="r"><code>dim(Array002)</code></pre>
+<pre><code>## [1] 2 2 2</code></pre>
 <pre class="r"><code>is.array(Array002)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
 </div>
@@ -373,6 +381,7 @@ Array002</code></pre>
 <p>A data frame is a very important data type in R and its most commonly used.</p>
 <p>It can be called as dataset sometimes.It can have different data type.</p>
 <p>For example data_frame001 have character,factor,numeric,logical,date</p>
+<p>data_frame001 is 3 * 5 data frame</p>
 <pre class="r"><code>library(tidyverse)
 
 data_frame001=data.frame(name= c(&#39;pet&#39;,&#39;sue&#39;,&#39;tony&#39;),level=as.factor(c(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;)), x = 1:3, y = c(TRUE,FALSE,TRUE),z=as.Date(c(&#39;2019-01-01&#39;,&#39;2019-01-02&#39;,&#39;2019-01-03&#39;)),
@@ -384,6 +393,8 @@ data_frame001</code></pre>
 ## 3 tony     c 3  TRUE 2019-01-03</code></pre>
 <pre class="r"><code>class(data_frame001)</code></pre>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<pre class="r"><code>dim(data_frame001)</code></pre>
+<pre><code>## [1] 3 5</code></pre>
 <pre class="r"><code>is.data.frame(data_frame001)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
 <pre class="r"><code>glimpse(data_frame001)</code></pre>
