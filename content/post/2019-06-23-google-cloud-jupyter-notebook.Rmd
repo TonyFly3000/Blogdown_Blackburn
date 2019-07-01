@@ -49,8 +49,6 @@ topics: []
 ![](/post/google-cloud-r-studio-server/AA23-54-17-29.png){width=700px height=400px}
 
 ### Allow default access;Allow HTTP traffic;Allow HTTPS traffic;Network tags:rstudio
-
-
 ![](/post/google-cloud-r-studio-server/AA23-55-17-01.png){width=700px height=400px}
 
 ### 系统选择 Ubuntu 18;disk size 100 GB
@@ -82,13 +80,9 @@ topics: []
 
 ```{R eval=FALSE}
 $ sudo apt-get update
-
 $ sudo apt-get install vim 
-
 $ wget http://repo.continuum.io/archive/Anaconda3-2019.03-Linux-x86_64.sh
-
 $ bash Anaconda3-2019.03-Linux-x86_64.sh
-
 ```
 
 一直按回车 确认。如果有类似以下的问题。都回答yes
@@ -105,11 +99,8 @@ $ source ~/.bashrc
 
 ```{R eval=FALSE}
 $ jupyter notebook --generate-config
-
 $ ls ~/.jupyter/jupyter_notebook_config.py
-
 $ sudo vim  ~/.jupyter/jupyter_notebook_config.py
-
 ```
 
 ### 将这几行代码添加入jupyter_notebook_config.py并保存。
@@ -128,7 +119,6 @@ c.NotebookApp.port = 8123
 开启Jupyer notebook。注意。每次都要先开启才能登录Jupyer notebook。如果想设置自动开启，请关注后续文章。
 ```{R eval=FALSE}
 $ jupyter-notebook --no-browser --port=8123
-
 ```
 
 ![](/post/google-cloud-jupyter-notebook/InkedInkedAA23-53-18-15_LI.jpg){width=700px height=400px}

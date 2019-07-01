@@ -321,25 +321,15 @@
 <div id="-r" class="section level3">
 <h3>安装 R：</h3>
 <pre class="r"><code>$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-
 $ sudo echo &quot;deb http://cran.wustl.edu/bin/linux/ubuntu bionic-cran35/&quot; | sudo tee -a /etc/apt/sources.list
-
 $ sudo apt update
-
 $ sudo apt install r-base r-base-dev
-
 $ sudo apt update
-
 $ sudo apt install libcurl4-openssl-dev libxml2-dev libssl-dev
-
 $ sudo apt install libgit2-dev libssh2-1-dev libmagick++-dev
-
 $ sudo apt-get install libfftw3-3 libfftw3-dev libtiff5-dev
-
 $ sudo apt install vim git
-
 $ sudo apt-get install python3-pip
-
 $ sudo /usr/bin/pip3 install virtualenv</code></pre>
 </div>
 <div id="-r-studio-server" class="section level3">
@@ -386,20 +376,11 @@ $ sudo gdebi rstudio-server-1.2.1335-amd64.deb</code></pre>
 <div id="-nvidia-cuda" class="section level3">
 <h3>安装 nvidia cuda</h3>
 <pre class="r"><code>$ curl -O http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-repo-ubuntu1804_10.0.130-1_amd64.deb
-
 $ sudo dpkg -i cuda-repo-ubuntu1804_10.0.130-1_amd64.deb
-
 $ sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1704/x86_64/7fa2af80.pub
-
-
 $ sudo apt-get update
-
-
 $ sudo apt-get install cuda-10-0
-
-
 $ sudo nvidia-smi -pm 1
-
 $ nvidia-smi</code></pre>
 <pre class="r"><code>$ sudo apt-get install python3-pip
 $ sudo /usr/bin/pip3 install virtualenv</code></pre>

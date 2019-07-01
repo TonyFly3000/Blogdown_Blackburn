@@ -80,27 +80,16 @@ topics: []
 
 ```{R eval=FALSE}
 $ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-
 $ sudo echo "deb http://cran.wustl.edu/bin/linux/ubuntu bionic-cran35/" | sudo tee -a /etc/apt/sources.list
-
 $ sudo apt update
-
 $ sudo apt install r-base r-base-dev
-
 $ sudo apt update
-
 $ sudo apt install libcurl4-openssl-dev libxml2-dev libssl-dev
-
 $ sudo apt install libgit2-dev libssh2-1-dev libmagick++-dev
-
 $ sudo apt-get install libfftw3-3 libfftw3-dev libtiff5-dev
-
 $ sudo apt install vim git
-
 $ sudo apt-get install python3-pip
-
 $ sudo /usr/bin/pip3 install virtualenv
-
 ```
 ### 安装 R studio server：
 
@@ -130,16 +119,11 @@ $ sudo rstudio-server start
 
 输入刚才添加的用户名和密码
 
-
 ![](/post/google-cloud-r-studio-server/AA23-12-18-08.png){width=700px height=400px}
-
 
 ## 成功安装 Rstudio server！
 
 ![](/post/google-cloud-r-studio-server/AA23-12-18-24.png){width=700px height=400px}
-
-
-
 
 ### 暂停 rstudio server
 ```{R eval=FALSE}
@@ -152,35 +136,23 @@ $ sudo rstudio-server restart
 ```
 
 ### 所有正在运行的 rstudio server session
-
 ```{R eval=FALSE}
 $ sudo rstudio-server active-sessions
 ```
 
 ### 终止所有正在运行的 rstudio server session
-
 ```{R eval=FALSE}
 $ sudo rstudio-server suspend-all
 ```
 
 ### 安装 nvidia cuda
-
 ```{R eval=FALSE}
 $ curl -O http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-repo-ubuntu1804_10.0.130-1_amd64.deb
-
 $ sudo dpkg -i cuda-repo-ubuntu1804_10.0.130-1_amd64.deb
-
 $ sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1704/x86_64/7fa2af80.pub
-
-
 $ sudo apt-get update
-
-
 $ sudo apt-get install cuda-10-0
-
-
 $ sudo nvidia-smi -pm 1
-
 $ nvidia-smi
 
 ```

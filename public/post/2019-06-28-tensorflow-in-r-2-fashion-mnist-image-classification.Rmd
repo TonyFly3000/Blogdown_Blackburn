@@ -47,10 +47,10 @@ c(x_test, y_test) %<-% fashion_mnist$test
 
 
 ```{R message = FALSE,warning = FALSE}
-par(mfcol=c(2,2))
+par(mfcol=c(3,3))
 par(mar=c(0, 0, 1.5, 0), xaxs='i', yaxs='i')
 
-for (i in 1:4) { 
+for (i in 1:9) { 
   img <- x_train[i, , ]
   img <- t(apply(img, 2, rev)) 
   image(1:28, 1:28, img, col = gray((0:255)/255), xaxt = 'n', yaxt = 'n',
@@ -272,7 +272,7 @@ model %>% compile(
 
 一堆数据处理转换。模型设计后 。终于可以开始训练模型了。
 
-x_train 为训练数据集特征(6万张照片)。y_train 为训练数据集标签(6万个数字)
+x_train 为训练数据集特征(6万张照片)。y_train 为训练数据集标签(6万个0-9的标签)
 
 每次读入128张图片。重复训练10次。6万张照片80%用来训练。20%用来验证
 
@@ -285,6 +285,10 @@ history <- model %>% fit(
   validation_split = 0.2
 )
 
+# save model
+model %>% save_model_hdf5("fashion_mnist_DNN.h5")
+# load model
+#model <- load_model_hdf5("fashion_mnist_DNN.h5")
 ```
 
 
@@ -334,16 +338,11 @@ model %>%
   layer_max_pooling_2d(pool_size = c(2,2)) %>%
   layer_dropout(0.25) %>%
   ####################################################
-
   layer_flatten() %>%
-   layer_dense(units = 256, activation = 'relu') %>%
-    layer_dense(units = 128, activation = 'relu') %>%
+   layer_dense(units = 32, activation = 'relu') %>%
+    layer_dense(units = 32, activation = 'relu') %>%
   layer_dropout(0.3) %>%
-
   layer_dense(units = 10, activation = 'softmax')
-
-
-
 
 model %>% compile(
   loss = 'categorical_crossentropy',
@@ -358,7 +357,10 @@ history <- model %>% fit(
   verbose=1
 )
 
-
+# save model
+model %>% save_model_hdf5("fashion_mnist_CNN.h5")
+# load model
+#model <- load_model_hdf5("fashion_mnist_CNN.h5")
 ```
 
 ## 7.模型效果
@@ -372,8 +374,8 @@ plot(history)
 
 
 ```{R message = FALSE,warning = FALSE,eval=FALSE}
-tensorflow_DNN_score <- model %>% evaluate(x_test,y_test)
-tensorflow_DNN_score
+tensorflow_CNN_score <- model %>% evaluate(x_test,y_test)
+tensorflow_CNN_score
 ```
 
 ## 8.模型对比
@@ -389,7 +391,7 @@ tensorflow_DNN_score
 ### tensorflow CNN 卷积神经网络模型的准确度是90%
 
 ```{R eval=FALSE}
-tensorflow_CNN_score=tensorflow_DNN_score$acc
+tensorflow_CNN_score=tensorflow_CNN_score$acc
 tensorflow_CNN_score
 ```
 
@@ -413,7 +415,6 @@ gg+theme_bw()
 
 ## 总结
 
-使用tensorflow 神经网络模型将准确率提高到97%。 可以得到如此高的准确率，主要是图片比较简单。只有0-9的标准数字。对于更加困难的问题。比如在自动驾驶中需要精准的物体识别等问题。将需要更加复杂的神经网络模型。
 
 使用tensorflow CNN 卷积神经网络模型将准确率从84%提高到90%。但从训练图中可以看到训练数据准确度高达96%，验证数据只有90%。这里出现了overfitting的情况。后续将会分享如何解决这种情况。 
 

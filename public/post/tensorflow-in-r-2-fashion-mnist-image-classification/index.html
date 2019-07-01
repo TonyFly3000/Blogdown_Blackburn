@@ -277,10 +277,10 @@ fashion_mnist &lt;- dataset_fashion_mnist()
 c(x_train, y_train) %&lt;-% fashion_mnist$train
 c(x_test, y_test) %&lt;-% fashion_mnist$test</code></pre>
 <p>这些图片长这个样.每个数字代表1种时装。比如0是T-shirt。9是Ankle boot。</p>
-<pre class="r"><code>par(mfcol=c(2,2))
+<pre class="r"><code>par(mfcol=c(3,3))
 par(mar=c(0, 0, 1.5, 0), xaxs=&#39;i&#39;, yaxs=&#39;i&#39;)
 
-for (i in 1:4) { 
+for (i in 1:9) { 
   img &lt;- x_train[i, , ]
   img &lt;- t(apply(img, 2, rev)) 
   image(1:28, 1:28, img, col = gray((0:255)/255), xaxt = &#39;n&#39;, yaxt = &#39;n&#39;,
@@ -452,14 +452,19 @@ Learnable Parameters :1290=128*10+10</p>
 <div class="section level2">
 <h2>6.训练模型</h2>
 <p>一堆数据处理转换。模型设计后 。终于可以开始训练模型了。</p>
-<p>x_train 为训练数据集特征(6万张照片)。y_train 为训练数据集标签(6万个数字)</p>
+<p>x_train 为训练数据集特征(6万张照片)。y_train 为训练数据集标签(6万个0-9的标签)</p>
 <p>每次读入128张图片。重复训练10次。6万张照片80%用来训练。20%用来验证</p>
 <p>结果88%</p>
 <pre class="r"><code>history &lt;- model %&gt;% fit(
   x_train, y_train, 
   epochs = 10, batch_size = 128, 
   validation_split = 0.2
-)</code></pre>
+)
+
+# save model
+model %&gt;% save_model_hdf5(&quot;fashion_mnist_DNN.h5&quot;)
+# load model
+#model &lt;- load_model_hdf5(&quot;fashion_mnist_DNN.h5&quot;)</code></pre>
 <pre class="r"><code>plot(history)</code></pre>
 <div id="convolutional-neural-network" class="section level3">
 <h3>卷积神经网络模型（convolutional neural network）</h3>
@@ -496,16 +501,11 @@ model %&gt;%
   layer_max_pooling_2d(pool_size = c(2,2)) %&gt;%
   layer_dropout(0.25) %&gt;%
   ####################################################
-
   layer_flatten() %&gt;%
-   layer_dense(units = 256, activation = &#39;relu&#39;) %&gt;%
-    layer_dense(units = 128, activation = &#39;relu&#39;) %&gt;%
+   layer_dense(units = 32, activation = &#39;relu&#39;) %&gt;%
+    layer_dense(units = 32, activation = &#39;relu&#39;) %&gt;%
   layer_dropout(0.3) %&gt;%
-
   layer_dense(units = 10, activation = &#39;softmax&#39;)
-
-
-
 
 model %&gt;% compile(
   loss = &#39;categorical_crossentropy&#39;,
@@ -518,15 +518,20 @@ history &lt;- model %&gt;% fit(
   epochs = 10, batch_size = 128, 
   validation_split = 0.2,
   verbose=1
-)</code></pre>
+)
+
+# save model
+model %&gt;% save_model_hdf5(&quot;fashion_mnist_CNN.h5&quot;)
+# load model
+#model &lt;- load_model_hdf5(&quot;fashion_mnist_CNN.h5&quot;)</code></pre>
 </div>
 </div>
 <div class="section level2">
 <h2>7.模型效果</h2>
 <p>可见 经过 10次训练后。最终在验证集的accuracy表现为90%。</p>
 <pre class="r"><code>plot(history)</code></pre>
-<pre class="r"><code>tensorflow_DNN_score &lt;- model %&gt;% evaluate(x_test,y_test)
-tensorflow_DNN_score</code></pre>
+<pre class="r"><code>tensorflow_CNN_score &lt;- model %&gt;% evaluate(x_test,y_test)
+tensorflow_CNN_score</code></pre>
 </div>
 <div class="section level2">
 <h2>8.模型对比</h2>
@@ -537,7 +542,7 @@ tensorflow_DNN_score</code></pre>
 </div>
 <div id="tensorflow-cnn-90" class="section level3">
 <h3>tensorflow CNN 卷积神经网络模型的准确度是90%</h3>
-<pre class="r"><code>tensorflow_CNN_score=tensorflow_DNN_score$acc
+<pre class="r"><code>tensorflow_CNN_score=tensorflow_CNN_score$acc
 tensorflow_CNN_score</code></pre>
 <pre class="r"><code>model_score=rbind(tensorflow_DNN_score，tensorflow_CNN_score)
   
@@ -552,7 +557,6 @@ gg+theme_bw()</code></pre>
 </div>
 <div class="section level2">
 <h2>总结</h2>
-<p>使用tensorflow 神经网络模型将准确率提高到97%。 可以得到如此高的准确率，主要是图片比较简单。只有0-9的标准数字。对于更加困难的问题。比如在自动驾驶中需要精准的物体识别等问题。将需要更加复杂的神经网络模型。</p>
 <p>使用tensorflow CNN 卷积神经网络模型将准确率从84%提高到90%。但从训练图中可以看到训练数据准确度高达96%，验证数据只有90%。这里出现了overfitting的情况。后续将会分享如何解决这种情况。</p>
 <div class="section level3">
 <h3>后续分享</h3>

@@ -307,10 +307,10 @@ y_train &lt;- mnist$train$y
 x_test &lt;- mnist$test$x
 y_test &lt;- mnist$test$y</code></pre>
 <p>这些图片长这个样</p>
-<pre class="r"><code>par(mfcol=c(4,4))
+<pre class="r"><code>par(mfcol=c(3,3))
 par(mar=c(0, 0, 1.5, 0), xaxs=&#39;i&#39;, yaxs=&#39;i&#39;)
 
-for (i in 1:16) { 
+for (i in 1:9) { 
   img &lt;- x_train[i, , ]
   img &lt;- t(apply(img, 2, rev)) 
   image(1:28, 1:28, img, col = gray((0:255)/255), xaxt = &#39;n&#39;, yaxt = &#39;n&#39;,
@@ -479,7 +479,11 @@ Learnable Parameters :1290=128*10+10</p>
   x_train, y_train, 
   epochs = 10, batch_size = 128, 
   validation_split = 0.2
-)</code></pre>
+)
+# save model
+model %&gt;% save_model_hdf5(&quot;mnist_DNN.h5&quot;)
+# load model
+#model &lt;- load_model_hdf5(&quot;mnist_DNN.h5&quot;)</code></pre>
 </div>
 <div class="section level2">
 <h2>7.模型效果</h2>
@@ -489,10 +493,10 @@ Learnable Parameters :1290=128*10+10</p>
 <pre class="r"><code>tensorflow_DNN_score &lt;- model %&gt;% evaluate(x_test,y_test)
 tensorflow_DNN_score</code></pre>
 <pre><code>## $loss
-## [1] 0.09597981
+## [1] 0.1005676
 ## 
 ## $acc
-## [1] 0.9779</code></pre>
+## [1] 0.9785</code></pre>
 </div>
 <div class="section level2">
 <h2>8.模型对比</h2>
@@ -530,6 +534,11 @@ all_data_test=as.data.frame(cbind(x_test, y_test))
 all_data_train=as.data.frame(cbind(x_train, y_train))
 d_tree &lt;- rpart(y_train ~ .,method=&quot;class&quot;, data=all_data_train)
 
+# save the model
+saveRDS(d_tree, &quot;./mnist_decision_tree_model.rds&quot;)
+# load the model
+#d_tree &lt;- readRDS(&quot;./mnist_decision_tree_model.rds&quot;)
+
 prediction&lt;- predict(d_tree, newdata = as.data.frame(x_test), type = &quot;class&quot;)
 prediction=as.data.frame(prediction)
 
@@ -564,13 +573,20 @@ numTrees = 5
 
 rf &lt;- randomForest(y_train ~ .,data=all_data_train,ntree=numTrees,importance = TRUE) 
 
+
+# save the model
+saveRDS(rf, &quot;./mnist_random_forest_model.rds&quot;)
+# load the model
+#rf &lt;- readRDS(&quot;./mnist_random_forest_model.rds&quot;)
+
+
 pred &lt;- predict(rf, x_test)
 randon_forest_score=mean(pred == all_data_test$y_test)  
 randon_forest_score</code></pre>
 <p>tensorflow神经网络模型的准确度是97%</p>
 <pre class="r"><code>tensorflow_DNN_score=tensorflow_DNN_score$acc
 tensorflow_DNN_score</code></pre>
-<pre><code>## [1] 0.9779</code></pre>
+<pre><code>## [1] 0.9785</code></pre>
 <pre class="r"><code>model_score=rbind(Naive_score,decision_tree_score,randon_forest_score,tensorflow_DNN_score)
   
 model_score  </code></pre>
@@ -578,7 +594,7 @@ model_score  </code></pre>
 ## Naive_score          0.1000
 ## decision_tree_score  0.6100
 ## randon_forest_score  0.9200
-## tensorflow_DNN_score 0.9779</code></pre>
+## tensorflow_DNN_score 0.9785</code></pre>
 <pre class="r"><code>model_score_df=as.data.frame(model_score)
 model_score_df$model &lt;- row.names(model_score_df)
 model_score_df=model_score_df %&gt;% arrange(V1) %&gt;%  mutate(model = factor(model, model),Accuray=V1)
@@ -624,8 +640,14 @@ gg+theme_bw()</code></pre>
   </div>
   <div class="pure-u-10-24">
     
+    <nav class="next">
+      <a href="/post/data-structures-and-data-type-in-r/">Data structures and types in R</a>
+    </nav>
+    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="/post/data-structures-and-data-type-in-r/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
