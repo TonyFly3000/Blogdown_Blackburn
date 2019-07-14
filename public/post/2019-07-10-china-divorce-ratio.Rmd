@@ -8,6 +8,8 @@ tags: []
 description: 'China divorce ratio'
 topics: []
 ---
+
+
 ## 开篇
 
 ### 他们离了。
@@ -19,11 +21,15 @@ topics: []
 
 ![](/post/china-divorce-ratio/AA14-10-15-04.png){width=400 height=500}
 
+---------------------------------------------------------------
+
 在当今这个物欲横流的社会里是否还存在爱情?
 
 本文通过统计局2009年到2017年各省份的结婚，离婚，人均年收入数据来看中国爱情故事的发展。
 
 注意：文中的离婚比率不等于离婚率。离婚比率高有可能是离婚的人多了也有可能是结婚的人少了。
+
+----------------------------------------------------------------
 
 ## package
 
@@ -113,12 +119,13 @@ gg_plot <- ggplot(data001, aes(x = year, y = annual_income,col=divorce_marriage_
        caption ="统计时间:2017|数据源:中国统计局
        @Tony Duan")+scale_x_continuous(breaks= pretty_breaks())+scale_y_continuous(labels = scales::comma,breaks= pretty_breaks())+
        scale_color_gradient(low="green", high="red")
-plot_gg(gg_plot, height=4, width=5,multicore=TRUE,windowsize = c(1200, 960),zoom = 1, phi = 35, theta = 30, sunangle = 225, soliddepth = -150)
-render_movie('abc.mp4')
+#plot_gg(gg_plot, height=4, width=5,multicore=TRUE,windowsize = c(1200, 960),zoom = 1, phi = 35, theta = 30, sunangle = 225, soliddepth = -150)
+#render_movie('abc.mp4')
 ```
 
-![](/post/china-divorce-ratio/abc.gif){width=900px height=70px}
+![](/post/china-divorce-ratio/abc.gif){width=900px height=700px}
 
+--------------------------------------------------------------
 
 ###  2. 2009年到2017年各省结婚人数和离婚人数的变化
 
@@ -142,6 +149,9 @@ gg_plot <- ggplot(data001, aes(x = marriage_couple, y = divorce_couple)) +
        @Tony Duan")+ggtitle("{frame_time}") + transition_time(year) 
 animate(gg_plot)
 ```
+
+--------------------------------------------------------------
+
 
 ###  3. 2009年到2017年 各省份离婚比变化
 
@@ -167,6 +177,7 @@ gg_plot <- ggplot(data001, aes(x = area, y = divorce_marriage_ratio,fill=area)) 
 gg_plot
 ```
 
+--------------------------------------------------------------
 
 ###  4. 2009年到2017年各省离婚比率的变化
 

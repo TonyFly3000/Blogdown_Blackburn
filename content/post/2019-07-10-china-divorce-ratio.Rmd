@@ -21,7 +21,7 @@ topics: []
 
 ![](/post/china-divorce-ratio/AA14-10-15-04.png){width=400 height=500}
 
-----------------------------------------------------------------
+---------------------------------------------------------------
 
 在当今这个物欲横流的社会里是否还存在爱情?
 
@@ -119,8 +119,8 @@ gg_plot <- ggplot(data001, aes(x = year, y = annual_income,col=divorce_marriage_
        caption ="统计时间:2017|数据源:中国统计局
        @Tony Duan")+scale_x_continuous(breaks= pretty_breaks())+scale_y_continuous(labels = scales::comma,breaks= pretty_breaks())+
        scale_color_gradient(low="green", high="red")
-plot_gg(gg_plot, height=4, width=5,multicore=TRUE,windowsize = c(1200, 960),zoom = 1, phi = 35, theta = 30, sunangle = 225, soliddepth = -150)
-render_movie('abc.mp4')
+#plot_gg(gg_plot, height=4, width=5,multicore=TRUE,windowsize = c(1200, 960),zoom = 1, phi = 35, theta = 30, sunangle = 225, soliddepth = -150)
+#render_movie('abc.mp4')
 ```
 
 ![](/post/china-divorce-ratio/abc.gif){width=900px height=700px}
