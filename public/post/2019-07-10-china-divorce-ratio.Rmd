@@ -1,0 +1,209 @@
+---
+title: Data Discovery:China divorce ratio
+author: ''
+date: '2019-07-14'
+slug: china-divorce-ratio
+categories: []
+tags: []
+description: 'China divorce ratio'
+topics: []
+---
+## 开篇
+
+### 他们离了。
+
+![](/post/china-divorce-ratio/AA14-22-16-31.png){width=400px height=250px}
+
+
+### 他们也离了。
+
+![](/post/china-divorce-ratio/AA14-10-15-04.png){width=400 height=500}
+
+在当今这个物欲横流的社会里是否还存在爱情?
+
+本文通过统计局2009年到2017年各省份的结婚，离婚，人均年收入数据来看中国爱情故事的发展。
+
+注意：文中的离婚比率不等于离婚率。离婚比率高有可能是离婚的人多了也有可能是结婚的人少了。
+
+## package
+
+```{r include = FALSE}
+Sys.setlocale(locale = "Chinese")
+```
+
+```{r warning=FALSE,message=FALSE}
+library(tidyverse)
+library(dplyr)
+library(scales)
+library(ggplot2)
+library(readr)
+library(janitor)
+library(ggthemes)
+library(readxl)
+library(rayshader)
+library(sqldf)
+theme_set(theme_light())
+```
+
+
+## 导入数据
+
+数据源: 中国统计局
+
+http://data.stats.gov.cn/
+
+https://www.kaggle.com/tduan007/china-marriage-and-divorce-data
+
+```{r warning=FALSE,message=FALSE}
+marriage001=read_csv('marriage.csv')
+divorce001=read_csv('divorce.csv')
+income001=read_excel('income.xls')
+```
+
+
+```{r warning=FALSE,message=FALSE}
+head(marriage001)
+```
+
+
+## 数据处理
+
+使用tidyr中的gather将'宽数据'转换成'长数据'
+
+```{r warning=FALSE,message=FALSE}
+marriage002=marriage001 %>% gather(year,marriage_couple, '2017':'2009')
+divorce002=divorce001 %>% gather(year,divorce_couple, '2017':'2009')
+income002=income001 %>% gather(year,annual_income, '2017':'2009')
+head(marriage002)
+```
+
+使用sqldf,将结婚，离婚，人均年收入数据结合起来
+
+```{r warning=FALSE,message=FALSE}
+data001=sqldf('select t1.*,t2.divorce_couple,t3.annual_income 
+              from marriage002 t1 
+              left join divorce002 t2 
+              on t1.area=t2.area and t1.year=t2.year
+              left join income002 t3 
+              on t1.area=t3.area and t1.year=t3.year')
+data001$year=as.integer(data001$year)
+data001$divorce_marriage_ratio=round(data001$divorce_couple/data001$marriage_couple,2)
+head(data001)
+```
+
+## 作图
+
+
+### 1. 2009年到2017年各省离婚比率与人均年收入的变化
+
+各省人均年收入每年快速上涨。人均年收入高的省份离婚比率也相对较高。
+
+西藏是个例外。人均年收入高且离婚比率低。或许真爱在西藏？
+
+```{r warning=FALSE,message=FALSE}
+
+gg_plot <- ggplot(data001, aes(x = year, y = annual_income,col=divorce_marriage_ratio)) +
+  theme_minimal() +
+  geom_point() +
+  labs(y="人均年收入",
+       x='',
+       colour = "离婚比率",
+       title = "2009到2017年各省离婚比率与",
+       subtitle = "与各省人均年收入的关系",
+       caption ="统计时间:2017|数据源:中国统计局
+       @Tony Duan")+scale_x_continuous(breaks= pretty_breaks())+scale_y_continuous(labels = scales::comma,breaks= pretty_breaks())+
+       scale_color_gradient(low="green", high="red")
+par(mfrow = c(1, 1))
+plot_gg(gg_plot, height=8, width=7,multicore=TRUE, pointcontract = 0.6, soliddepth=-100,windowsize = c(1200, 960))
+render_snapshot(clear = TRUE)
+```
+
+
+
+
+###  2. 2009年到2017年各省结婚人数和离婚人数的变化
+
+河南省，山东省，江苏省每年结婚人数最多。但到2013年后开始有逐年减少的趋势。
+
+四川省每年离婚人数最多。从2009年以来各省的离婚人数都在增加。
+
+```{r warning=FALSE,message=FALSE}
+library(ggplot2)
+library(gganimate)
+gg_plot <- ggplot(data001, aes(x = marriage_couple, y = divorce_couple)) +
+  theme_minimal() +
+  geom_point() +
+  geom_text(aes(label = area), size=4,vjust = 1, hjust = 1, check_overlap = TRUE)+
+    geom_text(aes(label = paste0(as.character(divorce_marriage_ratio*100),'%')), size=5,vjust = -1, hjust = 1, check_overlap = TRUE)+
+   labs(x = "结婚人数(万对)",
+       y = "离婚人数(万对)",
+       title = "各省每年结婚人数与离婚人数",
+       subtitle = "离婚比率=当年离婚人数除以结婚人数",
+       caption ="统计时间:2009-2017|数据源:中国统计局
+       @Tony Duan")+ggtitle("{frame_time}") + transition_time(year) 
+animate(gg_plot)
+```
+
+###  3. 2009年到2017年 各省份离婚比变化
+
+各省的离婚比率基本都在逐年上升。
+
+```{r warning=FALSE,message=FALSE}
+library(ggplot2)
+library(gganimate)
+data001=data001 %>% arrange()
+gg_plot <- ggplot(data001, aes(x = area, y = divorce_marriage_ratio,fill=area)) +
+  theme_minimal() +
+  geom_bar(stat="identity") +
+  geom_text(aes(label = area), size=2.5,vjust = 0, hjust = 1)+
+  geom_text(aes(label = paste0(as.character(divorce_marriage_ratio*100),'%')), size=3,vjust = 0, hjust = -1)+
+  theme(legend.position="none",axis.title.y=element_blank(),axis.text.y=element_blank())+
+  labs(y="离婚比率",
+       title = "2017年各省离婚比率",
+       subtitle = "2009到2017年各省离婚比率",
+       caption ="统计时间:2017|数据源:中国统计局
+       @Tony Duan")+ coord_flip()+
+  ggtitle("{frame_time}") +transition_time(year) 
+
+gg_plot
+```
+
+
+###  4. 2009年到2017年各省离婚比率的变化
+
+2017年离婚比率最高的3个省份与最低的3个省份的历史离婚比率趋势。
+
+```{r warning=FALSE,message=FALSE}
+library(ggplot2)
+library(gganimate)
+data002=data001 %>% filter(year==2017) %>% arrange(divorce_marriage_ratio)
+data003=rbind(head(data002,3),tail(data002,3))
+data004=data001 %>% filter(area %in% data003$area)
+data004=data004 %>% arrange(year,area)
+gg_plot =data004 %>% ggplot(aes(x = year, divorce_marriage_ratio ,col=area)) +
+  theme_minimal() +
+  geom_line(size=3)+
+  labs(y="离婚比率",
+      colour = "省份",
+       title = "最高和最低省份离婚比率",
+       subtitle = "离婚比率=当年离婚人数除以结婚人数",
+       caption ="统计时间:2009-2017|数据源:中国统计局
+       @Tony Duan")+ scale_x_continuous(breaks=seq(2009,2017,1))
+gg_plot+ geom_point(aes(group = seq_along(year)))+transition_reveal(year)
+```
+
+
+### 5.结论
+
+尽管各省份的离婚人数越来越多。结婚人数越来越少。但我们仍然要相信爱情。
+
+做到马列心中留,资本穿耳过。诱惑终不移，真爱恒不变。 
+
+### Reference
+
+https://www.kaggle.com/tduan007/china-marriage-and-divorce-data
+
+https://github.com/tylermorganwall/rayshader
+
+
+

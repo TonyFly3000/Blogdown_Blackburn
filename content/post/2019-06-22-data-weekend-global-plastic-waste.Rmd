@@ -1,5 +1,5 @@
 ---
-title: Data weekend:Global Plastic Waste
+title: Data Discovery:Global Plastic Waste
 author: ''
 date: '2019-06-22'
 slug: data-weekend-global-plastic-waste

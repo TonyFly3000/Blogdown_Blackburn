@@ -7,10 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 03 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 14 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Data Discovery:China divorce ratio</title>
+      <link>/post/china-divorce-ratio/</link>
+      <pubDate>Sun, 14 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/china-divorce-ratio/</guid>
+      <description>开篇他们离了。他们也离了。在当今这个物欲横流的社会里是否还存在爱情?
+本文通过统计局2009年到2017年各省份的结婚，离婚，人均年收入数据来看中国爱情故事的发展。
+注意：文中的离婚比率不等于离婚率。离婚比率高有可能是离婚的人多了也有可能是结婚的人少了。
+packagelibrary(tidyverse)library(dplyr)library(scales)library(ggplot2)library(readr)library(janitor)library(ggthemes)library(readxl)library(rayshader)library(sqldf)theme_set(theme_light())导入数据数据源: 中国统计局
+http://data.stats.gov.cn/
+https://www.kaggle.com/tduan007/china-marriage-and-divorce-data
+marriage001=read_csv(&amp;#39;marriage.csv&amp;#39;)divorce001=read_csv(&amp;#39;divorce.csv&amp;#39;)income001=read_excel(&amp;#39;income.xls&amp;#39;)head(marriage001)## # A tibble: 6 x 10## area `2017` `2016` `2015` `2014` `2013` `2012` `2011` `2010` `2009`## &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;## 1 北京市 15.2 16.6 16.6 17 16.4 17.4 17.3 13.</description>
+    </item>
     
     <item>
       <title>Shanghai Summer</title>
@@ -72,7 +87,7 @@ IAM &amp;amp; admin - &amp;gt; Quotas选GPUEDIT QUOTA加GPU QUOTA -&amp;gt
     </item>
     
     <item>
-      <title>Data weekend:Global Plastic Waste</title>
+      <title>Data Discovery:Global Plastic Waste</title>
       <link>/post/data-weekend-global-plastic-waste/</link>
       <pubDate>Sat, 22 Jun 2019 00:00:00 +0000</pubDate>
       
