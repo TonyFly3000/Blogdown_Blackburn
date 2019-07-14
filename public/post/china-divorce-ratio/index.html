@@ -248,7 +248,20 @@
 
 </div>
 
-  <div class="section level2">
+  ---
+title: Data Discovery:China divorce ratio
+author: ''
+date: '2019-07-14'
+slug: china-divorce-ratio
+categories: []
+tags: []
+description: 'China divorce ratio'
+topics: []
+---
+
+
+
+<div class="section level2">
 <h2>开篇</h2>
 <div class="section level3">
 <h3>他们离了。</h3>
@@ -348,15 +361,15 @@ head(data001)</code></pre>
   labs(y=&quot;人均年收入&quot;,
        x=&#39;&#39;,
        colour = &quot;离婚比率&quot;,
-       title = &quot;2009到2017年各省离婚比率与&quot;,
+       title = &quot;2009到2017年各省离婚比率&quot;,
        subtitle = &quot;与各省人均年收入的关系&quot;,
        caption =&quot;统计时间:2017|数据源:中国统计局
        @Tony Duan&quot;)+scale_x_continuous(breaks= pretty_breaks())+scale_y_continuous(labels = scales::comma,breaks= pretty_breaks())+
        scale_color_gradient(low=&quot;green&quot;, high=&quot;red&quot;)
-par(mfrow = c(1, 1))
-plot_gg(gg_plot, height=8, width=7,multicore=TRUE, pointcontract = 0.6, soliddepth=-100,windowsize = c(1200, 960))
-render_snapshot(clear = TRUE)</code></pre>
-<p><img src="/post/2019-07-10-china-divorce-ratio_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+plot_gg(gg_plot, height=6, width=7,multicore=TRUE,windowsize = c(1200, 960),zoom = 1, phi = 35, theta = 30, sunangle = 225, soliddepth = -150)
+render_movie(&#39;abc.mp4&#39;)</code></pre>
+<pre><code>## [1] &quot;C:\\Users\\User\\Desktop\\Mission\\R\\Blogdown_Blackburn\\content\\post\\abc.mp4&quot;</code></pre>
+<p><img src="/post/china-divorce-ratio/abc.gif" width="700" height="550" /></p>
 </div>
 <div id="2017" class="section level3">
 <h3>2. 2009年到2017年各省结婚人数和离婚人数的变化</h3>

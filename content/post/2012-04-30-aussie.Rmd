@@ -31,3 +31,6 @@ topics: []
 
 
 ![](/post/aussie/1917100_174320319081_5431351_n.jpg){width=700px height=550px}
+
+
+![](/post/aussie/abc.mp4){width=700px height=550px}

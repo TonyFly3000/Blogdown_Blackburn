@@ -8,6 +8,8 @@ tags: []
 description: 'China divorce ratio'
 topics: []
 ---
+
+
 ## 开篇
 
 ### 他们离了。
@@ -108,17 +110,16 @@ gg_plot <- ggplot(data001, aes(x = year, y = annual_income,col=divorce_marriage_
   labs(y="人均年收入",
        x='',
        colour = "离婚比率",
-       title = "2009到2017年各省离婚比率与",
+       title = "2009到2017年各省离婚比率",
        subtitle = "与各省人均年收入的关系",
        caption ="统计时间:2017|数据源:中国统计局
        @Tony Duan")+scale_x_continuous(breaks= pretty_breaks())+scale_y_continuous(labels = scales::comma,breaks= pretty_breaks())+
        scale_color_gradient(low="green", high="red")
-par(mfrow = c(1, 1))
-plot_gg(gg_plot, height=8, width=7,multicore=TRUE, pointcontract = 0.6, soliddepth=-100,windowsize = c(1200, 960))
-render_snapshot(clear = TRUE)
+plot_gg(gg_plot, height=4, width=5,multicore=TRUE,windowsize = c(1200, 960),zoom = 1, phi = 35, theta = 30, sunangle = 225, soliddepth = -150)
+render_movie('abc.mp4')
 ```
 
-
+![](/post/china-divorce-ratio/abc.gif){width=900px height=70px}
 
 
 ###  2. 2009年到2017年各省结婚人数和离婚人数的变化
