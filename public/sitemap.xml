@@ -3,8 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/post/introduction-to-shell-for-data-science/</loc>
+    <lastmod>2019-07-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/china-divorce-ratio/</loc>
     <lastmod>2019-07-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/user-2019/</loc>
+    <lastmod>2019-07-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -248,6 +258,11 @@
   </url>
   
   <url>
+    <loc>/post/tensorflow-in-r-3-boston-housing-price/</loc>
+    <lastmod>2018-07-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/seoul/</loc>
     <lastmod>2018-05-03T00:00:00+00:00</lastmod>
   </url>
@@ -379,7 +394,7 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2019-07-14T00:00:00+00:00</lastmod>
+    <lastmod>2019-07-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -415,7 +430,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-07-14T00:00:00+00:00</lastmod>
+    <lastmod>2019-07-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

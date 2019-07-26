@@ -1,0 +1,111 @@
+---
+title: useR! 2019
+author: ''
+date: '2019-07-09'
+slug: user-2019
+categories: []
+tags: []
+description: 'useR! 2019'
+topics: []
+---
+
+"Scientists build to learn;Engineers learn to build" by Fred Brooks
+
+useR! 2019 take place on Toulouse France during July 9-12 2019
+http://www.user2019.fr/
+
+
+<style>
+div.blue pre { background-color:lightblue; }
+div.blue pre.r { background-color:blue; }
+</style>
+
+<div class = "blue">
+```{r warning=FALSE,message=FALSE,eval=FALSE}
+library(shiny)
+library(shinymeta)
+
+ui <- fluidPage(
+  selectInput("var", label = "Choose a variable", choices = names(cars)),
+  verbatimTextOutput("Summary"),
+  verbatimTextOutput("code")
+)
+
+```
+</div>
+
+-------------------------------------------------------
+
+## Visualize:
+
+[shinymeta by Joe Cheng](https://www.youtube.com/watch?v=5KByRC6eqC8)
+
+shinymeta is a new package to enhance shinyapp with interactive & reproducibility
+
+https://github.com/rstudio/shinymeta
+
+
+### Three ways to view the Shiny R code and result at shiny
+- 1.View an R snippet
+
+- 2.Download .Rmd
+
+- 3.Download .zip with R code ,data and report
+
+
+### With shinymeta, the output will be the reproducibility R code
+
+There are two type of Shinyapp code:Domain logic and Reactive structure
+
+The reproducibility result we want is the Domain logic
+
+### New code in shinymeta:
+
+#### ui.R
+
+nothing change with shinymeta
+```{r warning=FALSE,message=FALSE,eval=FALSE}
+library(shiny)
+library(shinymeta)
+
+ui <- fluidPage(
+  selectInput("var", label = "Choose a variable", choices = names(cars)),
+  verbatimTextOutput("Summary"),
+  verbatimTextOutput("code")
+)
+
+```
+
+
+#### server.R
+
+- metaReactive insteal of reactive
+
+- !!input\$var insteal of input\$var
+
+- expandChain(output$Summary()) will output the reproducibility R code
+
+```{r warning=FALSE,message=FALSE,eval=FALSE}
+library(shiny)
+library(shinymeta)
+
+server <- function(input, output) {
+  
+  var <- metaReactive({
+    cars[[!!input$var]]
+  })
+  
+  output$Summary <- metaRender(renderPrint, {
+    summary(!!var())
+  })
+  output$code <- renderPrint({
+    expandChain(output$Summary())
+  })
+}
+```
+
+
+---------------------------------------------------
+
+
+

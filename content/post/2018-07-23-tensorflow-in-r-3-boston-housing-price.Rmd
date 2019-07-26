@@ -1,0 +1,468 @@
+---
+title: 'Tensorflow in R 系列(3) : 房价预测 Boston housing price '
+author: ''
+date: '2018-07-23'
+slug: tensorflow-in-r-3-boston-housing-price
+categories: []
+tags: []
+description: 'Tensorflow in R 系列(3) : 房价预测 Boston housing price'
+topics: []
+---
+
+
+## 开篇
+- Tensorflow in R 系列，将分享如何使用R语言在Tensorflow/Keras 框架中训练深度学习模型。
+- 上一篇讲了如果使用深度神经网络模型来识别图片中的数字
+- 本文将介绍如何使用卷积神经网络模型（convolutional neural network）来识别图片中的时装分类
+
+## Load package
+
+```{R message = FALSE,warning = FALSE}
+library(keras)
+library(tidyverse)
+library(tibble)
+library(ggplot2)
+library(tfestimators)
+library(ggcorrplot)
+
+```
+
+
+## 1.导入数据
+
+导入4个数据集，分别为：
+
+- x_train:  6万张训练时装图片
+- y_train： 6万个训练时装0-9标签,每个数字代表1种时装
+- x_test：  1万张测试时装图片
+- y_test：  1万个测试时装0-9标签,每个数字代表1种时装
+
+
+```{R message = FALSE,warning = FALSE}
+boston_housing <- dataset_boston_housing()
+
+c(train_data, train_labels) %<-% boston_housing$train
+c(test_data, test_labels) %<-% boston_housing$test
+
+```
+
+## 2.数据探索
+
+```{R message = FALSE,warning = FALSE}
+
+library(tibble)
+
+column_names <- c('CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 
+                  'DIS', 'RAD', 'TAX', 'PTRATIO', 'B', 'LSTAT')
+train_df <- as_tibble(train_data)
+colnames(train_df) <- column_names
+train_df
+
+```
+
+```{R message = FALSE,warning = FALSE}
+mean(train_labels)
+```
+```{R message = FALSE,warning = FALSE}
+ggplot(data=as.data.frame(train_labels),aes(x=train_labels))+geom_histogram()
+```
+
+
+```{R message = FALSE,warning = FALSE}
+all_train_data=cbind(train_data,train_labels)
+all_train_data=as.data.frame(all_train_data)
+
+corr <- round(cor(all_train_data), 1)
+```
+
+```{R message = FALSE,warning = FALSE}
+ggcorrplot(corr, hc.order = TRUE, type = "upper",
+     outline.col = "white")
+```    
+
+## 3.数据处理
+
+
+
+```{R message = FALSE,warning = FALSE}
+# Normalize training data
+train_data <- scale(train_data) 
+
+# Use means and standard deviations from training set to normalize test set
+col_means_train <- attr(train_data, "scaled:center") 
+col_stddevs_train <- attr(train_data, "scaled:scale")
+test_data <- scale(test_data, center = col_means_train, scale = col_stddevs_train)
+```
+
+```{R message = FALSE,warning = FALSE}
+all_train_data=cbind(train_data,train_labels)
+all_test_data=cbind(test_data,test_labels)
+
+all_train_data=as.data.frame(all_train_data)
+all_test_data=as.data.frame(all_test_data)
+all_test_data=all_test_data %>% rename(train_labels=test_labels)
+
+```
+
+
+## 4.模型  
+
+----------------------------------------------------------------------------
+
+### 模型1:linear regression in R with lm() function
+
+```{R message = FALSE,warning = FALSE}
+lm_model = lm(train_labels~., data = all_train_data) #Create the linear regression
+summary(lm_model) #Review the results
+```
+
+```{R message = FALSE,warning = FALSE}
+
+all_test_data$test_Pred <- predict(lm_model, all_test_data) 
+```
+
+平均误差3464
+
+```{R message = FALSE,warning = FALSE}
+all_test_data$diff=all_test_data$test_Pred-all_test_data$train_labels
+
+# mae in test with lm()
+round(mean(abs(all_test_data$diff))*1000)
+```
+
+----------------------------------------------------------------------------
+
+### 模型2:tensorflow linear regression estimator 
+```{R message = FALSE,warning = FALSE}
+boston_housing <- dataset_boston_housing()
+c(train_data, train_labels) %<-% boston_housing$train
+c(test_data, test_labels) %<-% boston_housing$test
+
+
+# Normalize training data
+#train_data <- scale(train_data) 
+
+# Use means and standard deviations from training set to normalize test set
+#col_means_train <- attr(train_data, "scaled:center") 
+#col_stddevs_train <- attr(train_data, "scaled:scale")
+#test_data <- scale(test_data, center = col_means_train, scale = col_stddevs_train)
+
+all_train_data=cbind(train_data,train_labels)
+all_test_data=cbind(test_data,test_labels)
+
+all_train_data=as.data.frame(all_train_data)
+all_test_data=as.data.frame(all_test_data)
+all_test_data=all_test_data %>% rename(train_labels=test_labels)
+```
+
+```{R message = FALSE,warning = FALSE}
+
+lr_input_fn  <- function(data, num_epochs = 1) {
+  input_fn(data, 
+           features = c('V1' ,'V2', 'V3', 'V4', 'V5', 'V6', 'V7', 'V8' ,'V9', 'V10', 'V11', 'V12', 'V13'),
+           response = 'train_labels',
+           batch_size = 32,
+           num_epochs = num_epochs)
+}
+
+cols <- feature_columns( 
+  column_numeric('V1' ,'V2', 'V3', 'V4', 'V5', 'V6', 'V7', 'V8' ,'V9', 'V10', 'V11', 'V12', 'V13')
+)
+
+lr_estimator_model <- linear_regressor(feature_columns = cols)
+
+# train the model
+lr_estimator_model %>% train(lr_input_fn(all_train_data, num_epochs = 100))
+
+```
+
+
+平均误差 4935
+
+```{R message = FALSE,warning = FALSE}
+lr_estimator_test=lr_estimator_model %>% predict(lr_input_fn(all_test_data))
+all_test_data$lr_estimator_test_pred=unlist(lr_estimator_test)
+all_test_data$diff=all_test_data$lr_estimator_test_pred-all_test_data$train_labels
+
+# mae in test with lm()
+round(mean(abs(all_test_data$diff))*1000)
+```
+
+----------------------------------------------------------------------------
+
+### 模型3:tensorflow DNN
+
+```{R message = FALSE,warning = FALSE}
+boston_housing <- dataset_boston_housing()
+
+c(train_data, train_labels) %<-% boston_housing$train
+c(test_data, test_labels) %<-% boston_housing$test
+
+# Normalize training data
+train_data <- scale(train_data) 
+
+# Use means and standard deviations from training set to normalize test set
+col_means_train <- attr(train_data, "scaled:center") 
+col_stddevs_train <- attr(train_data, "scaled:scale")
+test_data <- scale(test_data, center = col_means_train, scale = col_stddevs_train)
+
+
+
+model <- keras_model_sequential() %>%
+    layer_dense(units = 64, activation = "relu",
+                input_shape = dim(train_data)[2]) %>%
+    layer_dense(units = 64, activation = "relu") %>%
+    layer_dense(units = 1)
+
+model %>% compile(
+    loss = "mse",
+    optimizer = optimizer_rmsprop(),
+    metrics = list("mean_absolute_error")
+  )
+  
+model %>% summary()
+
+# Display training progress by printing a single dot for each completed epoch.
+print_dot_callback <- callback_lambda(
+  on_epoch_end = function(epoch, logs) {
+    if (epoch %% 80 == 0) cat("\n")
+    cat(".")
+  }
+)    
+
+epochs <- 500
+
+# Fit the model and store training stats
+history <- model %>% fit(
+  train_data,
+  train_labels,
+  epochs = epochs,
+  validation_split = 0.2,
+  verbose = 0,
+  callbacks = list(print_dot_callback)
+)
+
+```
+
+
+```{R message = FALSE,warning = FALSE}
+plot(history, metrics = "mean_absolute_error", smooth = FALSE) +
+  coord_cartesian(ylim = c(0, 8))
+```
+
+
+
+
+  
+```{R message = FALSE,warning = FALSE}  
+
+boston_housing <- dataset_boston_housing()
+c(train_data, train_labels) %<-% boston_housing$train
+c(test_data, test_labels) %<-% boston_housing$test
+
+# Normalize training data
+train_data <- scale(train_data) 
+
+# Use means and standard deviations from training set to normalize test set
+col_means_train <- attr(train_data, "scaled:center") 
+col_stddevs_train <- attr(train_data, "scaled:scale")
+test_data <- scale(test_data, center = col_means_train, scale = col_stddevs_train)
+
+train_data[1, ] # First training sample, normalized
+early_stop <- callback_early_stopping(monitor = "val_loss", patience = 20)
+
+
+model <- keras_model_sequential() %>%
+    layer_dense(units = 64, activation = "relu",
+                input_shape = dim(train_data)[2]) %>%
+    layer_dense(units = 64, activation = "relu") %>%
+    layer_dense(units = 1)
+
+
+model %>% compile(
+    loss = "mse",
+    optimizer = optimizer_rmsprop(),
+    metrics = list("mean_absolute_error")
+  )
+
+
+
+history <- model %>% fit(
+  train_data,
+  train_labels,
+  epochs = epochs,
+  validation_split = 0.2,
+  verbose = 0,
+  callbacks = list(early_stop, print_dot_callback)
+)  
+
+
+```
+
+
+```{R message = FALSE,warning = FALSE}
+plot(history, metrics = "mean_absolute_error", smooth = FALSE) +
+  coord_cartesian(xlim = c(0, 100), ylim = c(0, 8))
+ 
+``` 
+
+```{R message = FALSE,warning = FALSE}
+history
+```
+
+平均误差 3040
+
+```{R message = FALSE,warning = FALSE}
+# Predict
+test_predictions <- model %>% predict(test_data)
+
+
+all_test_data$DNN_test_pred=test_predictions
+
+all_test_data$diff=all_test_data$DNN_test_pred-all_test_data$train_labels
+
+# mae in test with lm()
+round(mean(abs(all_test_data$diff))*1000)
+```
+
+----------------------------------------------------------------------------
+
+### 模型4:tensorflow DNN estimator(Deep Neural Networks) 
+
+
+```{R message = FALSE,warning = FALSE}
+
+boston_housing <- dataset_boston_housing()
+c(train_data, train_labels) %<-% boston_housing$train
+c(test_data, test_labels) %<-% boston_housing$test
+
+all_train_data=cbind(train_data,train_labels)
+all_test_data=cbind(test_data,test_labels)
+
+all_train_data=as.data.frame(all_train_data)
+all_test_data=as.data.frame(all_test_data)
+all_test_data=all_test_data %>% rename(train_labels=test_labels)
+
+
+dnn_estimator_input_fn  <- function(data, num_epochs = 1) {
+  input_fn(data, 
+           features = c('V1' ,'V2', 'V3', 'V4', 'V5', 'V6', 'V7', 'V8' ,'V9', 'V10', 'V11', 'V12', 'V13'),
+           response = 'train_labels',
+           batch_size = 32,
+           num_epochs = num_epochs)
+}
+
+
+cols <- feature_columns( 
+  column_numeric('V1' ,'V2', 'V3', 'V4', 'V5', 'V6', 'V7', 'V8' ,'V9', 'V10', 'V11', 'V12', 'V13')
+)
+
+
+model <- dnn_regressor(
+  feature_columns = cols,
+  hidden_units = c(10, 20, 10)
+  
+)
+
+
+# train the model
+model %>% train(dnn_estimator_input_fn(all_train_data, num_epochs = 20))
+```
+
+
+
+```{R message = FALSE,warning = FALSE}
+dnn_estimator_test=model %>% predict(dnn_estimator_input_fn(all_test_data))
+```
+
+
+
+```{R message = FALSE,warning = FALSE}
+all_test_data$lr_estimator_test_pred=unlist(dnn_estimator_test)
+```
+
+平均误差 5572
+
+```{R message = FALSE,warning = FALSE}
+all_test_data$diff=all_test_data$lr_estimator_test_pred-all_test_data$train_labels
+
+# mae in test with lm()
+round(mean(abs(all_test_data$diff))*1000)
+```
+
+----------------------------------------------------------------------------
+
+### 模型5:tensorflow DNN estimator(Linear Combined Deep Neural Networks|wide and deep) 
+
+
+```{R message = FALSE,warning = FALSE,eval=FALSE}
+
+# generate classifier
+classifier <-
+    dnn_linear_combined_classifier(
+      linear_feature_columns = linear_feature_columns,
+      dnn_feature_columns = dnn_feature_columns,
+      dnn_hidden_units = c(3, 3),
+      dnn_optimizer = "Adagrad"
+    )
+
+cols <- feature_columns( 
+  column_numeric('V1' ,'V2', 'V3', 'V4', 'V5', 'V6', 'V7', 'V8' ,'V9', 'V10', 'V11', 'V12', 'V13')
+)
+
+
+model <- linear_regressor(feature_columns = cols)
+
+# train the model
+model %>% train(lr_input_fn(all_train_data, num_epochs = 100))
+
+
+obs <- all_test_data[1:3, ]
+obs
+model %>% predict(lr_input_fn(obs))
+
+```
+
+
+
+## 8.模型对比
+
+
+
+## 总结
+
+
+
+
+### 后续分享
+
+
+
+```{R eval=FALSE,echo=FALSE}
+Tensorflow in R 系列(3) :猫狗分类 Cats dog image classification with augmentation & drop out
+
+Tensorflow in R 系列(4) :猫狗分类 Cats dog image classification with TensorBoard
+
+Tensorflow in R 系列(5) :猫狗分类 Cats dog image classification with hyperparameter tuning
+
+Tensorflow in R 系列(6) :猫狗分类 Cats dog image classification with Google Cloud Machine Learning Engine 
+
+Tensorflow in R 系列(7) :猫狗分类 Cats dog image classification with Tansfer learning
+
+Tensorflow in R 系列(8) :猫狗分类 Cats dog image classification with Google vision API
+```
+
+
+
+
+## Reference
+
+https://keras.io/datasets/
+
+https://tensorflow.rstudio.com/tfestimators/
+
+https://tensorflow.rstudio.com/tfestimators/articles/estimator_basics.html
+
+https://tensorflow.rstudio.com/tfestimators/articles/examples/wide_and_deep.html
+
+https://tensorflow.rstudio.com/keras/articles/tutorial_basic_regression.html

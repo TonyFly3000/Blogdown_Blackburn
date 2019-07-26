@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tensorflow in R 系列(3) : 房价预测 Boston housing price">
+  <meta name="generator" content="Hugo 0.48" />
+
+  <title>Tensorflow in R 系列(3) : 房价预测 Boston housing price  &middot; Tony Duan</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="/">Tony Duan.R</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/post/"><i class='fa fa-list fa-fw'></i>Blog</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/book/"><i class='fa fa-tasks fa-fw'></i>Book</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/project/"><i class='fa fa-tasks fa-fw'></i>Project</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/about/"><i class='fa fa-user fa-fw'></i>About me</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/contact/"><i class='fa fa-at fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://facebook.com/tony.j.fly" target="_blank"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/tony-jc-duan-005b601a" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/*" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2019. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://github.com/rstudio/rmarkdown" target="_blank">Blogdown</a></small><br>
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Tensorflow in R 系列(3) : 房价预测 Boston housing price </h1>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>23 Jul 2018, 00:00</time>
+  </div>
+
+  
+
+  
+  
+  
+  
+
+  
+  
+  
+  
+
+</div>
+
+  <div class="section level2">
+<h2>开篇</h2>
+<ul>
+<li>Tensorflow in R 系列，将分享如何使用R语言在Tensorflow/Keras 框架中训练深度学习模型。</li>
+<li>上一篇讲了如果使用深度神经网络模型来识别图片中的数字</li>
+<li>本文将介绍如何使用卷积神经网络模型（convolutional neural network）来识别图片中的时装分类</li>
+</ul>
+</div>
+<div id="load-package" class="section level2">
+<h2>Load package</h2>
+<pre class="r"><code>library(keras)
+library(tidyverse)
+library(tibble)
+library(ggplot2)
+library(tfestimators)
+library(ggcorrplot)</code></pre>
+</div>
+<div class="section level2">
+<h2>1.导入数据</h2>
+<p>导入4个数据集，分别为：</p>
+<ul>
+<li>x_train: 6万张训练时装图片</li>
+<li>y_train： 6万个训练时装0-9标签,每个数字代表1种时装</li>
+<li>x_test： 1万张测试时装图片</li>
+<li>y_test： 1万个测试时装0-9标签,每个数字代表1种时装</li>
+</ul>
+<pre class="r"><code>boston_housing &lt;- dataset_boston_housing()
+
+c(train_data, train_labels) %&lt;-% boston_housing$train
+c(test_data, test_labels) %&lt;-% boston_housing$test</code></pre>
+</div>
+<div class="section level2">
+<h2>2.数据探索</h2>
+<pre class="r"><code>library(tibble)
+
+column_names &lt;- c(&#39;CRIM&#39;, &#39;ZN&#39;, &#39;INDUS&#39;, &#39;CHAS&#39;, &#39;NOX&#39;, &#39;RM&#39;, &#39;AGE&#39;, 
+                  &#39;DIS&#39;, &#39;RAD&#39;, &#39;TAX&#39;, &#39;PTRATIO&#39;, &#39;B&#39;, &#39;LSTAT&#39;)
+train_df &lt;- as_tibble(train_data)
+colnames(train_df) &lt;- column_names
+train_df</code></pre>
+<pre><code>## # A tibble: 404 x 13
+##      CRIM    ZN INDUS  CHAS   NOX    RM   AGE   DIS   RAD   TAX PTRATIO
+##     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+##  1 1.23     0    8.14     0 0.538  6.14  91.7  3.98     4   307    21  
+##  2 0.0218  82.5  2.03     0 0.415  7.61  15.7  6.27     2   348    14.7
+##  3 4.90     0   18.1      0 0.631  4.97 100    1.33    24   666    20.2
+##  4 0.0396   0    5.19     0 0.515  6.04  34.5  5.99     5   224    20.2
+##  5 3.69     0   18.1      0 0.713  6.38  88.4  2.57    24   666    20.2
+##  6 0.284    0    7.38     0 0.493  5.71  74.3  4.72     5   287    19.6
+##  7 9.19     0   18.1      0 0.7    5.54 100    1.58    24   666    20.2
+##  8 4.10     0   19.6      0 0.871  5.47 100    1.41     5   403    14.7
+##  9 2.16     0   19.6      0 0.871  5.63 100    1.52     5   403    14.7
+## 10 1.63     0   21.9      0 0.624  5.02 100    1.44     4   437    21.2
+## # ... with 394 more rows, and 2 more variables: B &lt;dbl&gt;, LSTAT &lt;dbl&gt;</code></pre>
+<pre class="r"><code>mean(train_labels)</code></pre>
+<pre><code>## [1] 22.39505</code></pre>
+<pre class="r"><code>ggplot(data=as.data.frame(train_labels),aes(x=train_labels))+geom_histogram()</code></pre>
+<p><img src="/post/2018-07-23-tensorflow-in-r-3-boston-housing-price_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<pre class="r"><code>all_train_data=cbind(train_data,train_labels)
+all_train_data=as.data.frame(all_train_data)
+
+corr &lt;- round(cor(all_train_data), 1)</code></pre>
+<pre class="r"><code>ggcorrplot(corr, hc.order = TRUE, type = &quot;upper&quot;,
+     outline.col = &quot;white&quot;)</code></pre>
+<p><img src="/post/2018-07-23-tensorflow-in-r-3-boston-housing-price_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div class="section level2">
+<h2>3.数据处理</h2>
+<pre class="r"><code># Normalize training data
+train_data &lt;- scale(train_data) 
+
+# Use means and standard deviations from training set to normalize test set
+col_means_train &lt;- attr(train_data, &quot;scaled:center&quot;) 
+col_stddevs_train &lt;- attr(train_data, &quot;scaled:scale&quot;)
+test_data &lt;- scale(test_data, center = col_means_train, scale = col_stddevs_train)</code></pre>
+<pre class="r"><code>all_train_data=cbind(train_data,train_labels)
+all_test_data=cbind(test_data,test_labels)
+
+all_train_data=as.data.frame(all_train_data)
+all_test_data=as.data.frame(all_test_data)
+all_test_data=all_test_data %&gt;% rename(train_labels=test_labels)</code></pre>
+</div>
+<div class="section level2">
+<h2>4.模型</h2>
+<hr />
+<div id="1linear-regression-in-r-with-lm-function" class="section level3">
+<h3>模型1:linear regression in R with lm() function</h3>
+<pre class="r"><code>lm_model = lm(train_labels~., data = all_train_data) #Create the linear regression
+summary(lm_model) #Review the results</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = train_labels ~ ., data = all_train_data)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -10.6457  -3.0082  -0.5798   1.7944  24.4582 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 22.39505    0.23753  94.281  &lt; 2e-16 ***
+## V1          -1.10887    0.31139  -3.561 0.000415 ***
+## V2           1.35477    0.35869   3.777 0.000184 ***
+## V3           0.02713    0.46785   0.058 0.953779    
+## V4           0.99559    0.24467   4.069 5.71e-05 ***
+## V5          -2.40454    0.50927  -4.722 3.27e-06 ***
+## V6           2.39926    0.33120   7.244 2.34e-12 ***
+## V7           0.21146    0.42813   0.494 0.621648    
+## V8          -3.47552    0.48215  -7.208 2.96e-12 ***
+## V9           2.91175    0.68341   4.261 2.56e-05 ***
+## V10         -1.95985    0.74161  -2.643 0.008556 ** 
+## V11         -1.98544    0.31953  -6.214 1.33e-09 ***
+## V12          0.82057    0.28241   2.906 0.003875 ** 
+## V13         -4.03238    0.39637 -10.173  &lt; 2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4.774 on 390 degrees of freedom
+## Multiple R-squared:   0.74,  Adjusted R-squared:  0.7313 
+## F-statistic: 85.37 on 13 and 390 DF,  p-value: &lt; 2.2e-16</code></pre>
+<pre class="r"><code>all_test_data$test_Pred &lt;- predict(lm_model, all_test_data) </code></pre>
+<p>平均误差3464</p>
+<pre class="r"><code>all_test_data$diff=all_test_data$test_Pred-all_test_data$train_labels
+
+# mae in test with lm()
+round(mean(abs(all_test_data$diff))*1000)</code></pre>
+<pre><code>## [1] 3464</code></pre>
+<hr />
+</div>
+<div id="2tensorflow-linear-regression-estimator" class="section level3">
+<h3>模型2:tensorflow linear regression estimator</h3>
+<pre class="r"><code>boston_housing &lt;- dataset_boston_housing()
+c(train_data, train_labels) %&lt;-% boston_housing$train
+c(test_data, test_labels) %&lt;-% boston_housing$test
+
+
+# Normalize training data
+#train_data &lt;- scale(train_data) 
+
+# Use means and standard deviations from training set to normalize test set
+#col_means_train &lt;- attr(train_data, &quot;scaled:center&quot;) 
+#col_stddevs_train &lt;- attr(train_data, &quot;scaled:scale&quot;)
+#test_data &lt;- scale(test_data, center = col_means_train, scale = col_stddevs_train)
+
+all_train_data=cbind(train_data,train_labels)
+all_test_data=cbind(test_data,test_labels)
+
+all_train_data=as.data.frame(all_train_data)
+all_test_data=as.data.frame(all_test_data)
+all_test_data=all_test_data %&gt;% rename(train_labels=test_labels)</code></pre>
+<pre class="r"><code>lr_input_fn  &lt;- function(data, num_epochs = 1) {
+  input_fn(data, 
+           features = c(&#39;V1&#39; ,&#39;V2&#39;, &#39;V3&#39;, &#39;V4&#39;, &#39;V5&#39;, &#39;V6&#39;, &#39;V7&#39;, &#39;V8&#39; ,&#39;V9&#39;, &#39;V10&#39;, &#39;V11&#39;, &#39;V12&#39;, &#39;V13&#39;),
+           response = &#39;train_labels&#39;,
+           batch_size = 32,
+           num_epochs = num_epochs)
+}
+
+cols &lt;- feature_columns( 
+  column_numeric(&#39;V1&#39; ,&#39;V2&#39;, &#39;V3&#39;, &#39;V4&#39;, &#39;V5&#39;, &#39;V6&#39;, &#39;V7&#39;, &#39;V8&#39; ,&#39;V9&#39;, &#39;V10&#39;, &#39;V11&#39;, &#39;V12&#39;, &#39;V13&#39;)
+)
+
+lr_estimator_model &lt;- linear_regressor(feature_columns = cols)
+
+# train the model
+lr_estimator_model %&gt;% train(lr_input_fn(all_train_data, num_epochs = 100))</code></pre>
+<p>平均误差 4935</p>
+<pre class="r"><code>lr_estimator_test=lr_estimator_model %&gt;% predict(lr_input_fn(all_test_data))
+all_test_data$lr_estimator_test_pred=unlist(lr_estimator_test)
+all_test_data$diff=all_test_data$lr_estimator_test_pred-all_test_data$train_labels
+
+# mae in test with lm()
+round(mean(abs(all_test_data$diff))*1000)</code></pre>
+<pre><code>## [1] 5026</code></pre>
+<hr />
+</div>
+<div id="3tensorflow-dnn" class="section level3">
+<h3>模型3:tensorflow DNN</h3>
+<pre class="r"><code>boston_housing &lt;- dataset_boston_housing()
+
+c(train_data, train_labels) %&lt;-% boston_housing$train
+c(test_data, test_labels) %&lt;-% boston_housing$test
+
+# Normalize training data
+train_data &lt;- scale(train_data) 
+
+# Use means and standard deviations from training set to normalize test set
+col_means_train &lt;- attr(train_data, &quot;scaled:center&quot;) 
+col_stddevs_train &lt;- attr(train_data, &quot;scaled:scale&quot;)
+test_data &lt;- scale(test_data, center = col_means_train, scale = col_stddevs_train)
+
+
+
+model &lt;- keras_model_sequential() %&gt;%
+    layer_dense(units = 64, activation = &quot;relu&quot;,
+                input_shape = dim(train_data)[2]) %&gt;%
+    layer_dense(units = 64, activation = &quot;relu&quot;) %&gt;%
+    layer_dense(units = 1)
+
+model %&gt;% compile(
+    loss = &quot;mse&quot;,
+    optimizer = optimizer_rmsprop(),
+    metrics = list(&quot;mean_absolute_error&quot;)
+  )
+  
+model %&gt;% summary()</code></pre>
+<pre><code>## ___________________________________________________________________________
+## Layer (type)                     Output Shape                  Param #     
+## ===========================================================================
+## dense_1 (Dense)                  (None, 64)                    896         
+## ___________________________________________________________________________
+## dense_2 (Dense)                  (None, 64)                    4160        
+## ___________________________________________________________________________
+## dense_3 (Dense)                  (None, 1)                     65          
+## ===========================================================================
+## Total params: 5,121
+## Trainable params: 5,121
+## Non-trainable params: 0
+## ___________________________________________________________________________</code></pre>
+<pre class="r"><code># Display training progress by printing a single dot for each completed epoch.
+print_dot_callback &lt;- callback_lambda(
+  on_epoch_end = function(epoch, logs) {
+    if (epoch %% 80 == 0) cat(&quot;\n&quot;)
+    cat(&quot;.&quot;)
+  }
+)    
+
+epochs &lt;- 500
+
+# Fit the model and store training stats
+history &lt;- model %&gt;% fit(
+  train_data,
+  train_labels,
+  epochs = epochs,
+  validation_split = 0.2,
+  verbose = 0,
+  callbacks = list(print_dot_callback)
+)</code></pre>
+<pre><code>## 
+## ................................................................................
+## ................................................................................
+## ................................................................................
+## ................................................................................
+## ................................................................................
+## ................................................................................
+## ....................</code></pre>
+<pre class="r"><code>plot(history, metrics = &quot;mean_absolute_error&quot;, smooth = FALSE) +
+  coord_cartesian(ylim = c(0, 8))</code></pre>
+<p><img src="/post/2018-07-23-tensorflow-in-r-3-boston-housing-price_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<pre class="r"><code>boston_housing &lt;- dataset_boston_housing()
+c(train_data, train_labels) %&lt;-% boston_housing$train
+c(test_data, test_labels) %&lt;-% boston_housing$test
+
+# Normalize training data
+train_data &lt;- scale(train_data) 
+
+# Use means and standard deviations from training set to normalize test set
+col_means_train &lt;- attr(train_data, &quot;scaled:center&quot;) 
+col_stddevs_train &lt;- attr(train_data, &quot;scaled:scale&quot;)
+test_data &lt;- scale(test_data, center = col_means_train, scale = col_stddevs_train)
+
+train_data[1, ] # First training sample, normalized</code></pre>
+<pre><code>##  [1] -0.2719092 -0.4830166 -0.4352220 -0.2565147 -0.1650220 -0.1762241
+##  [7]  0.8120550  0.1165538 -0.6254735 -0.5944330  1.1470781  0.4475222
+## [13]  0.8241983</code></pre>
+<pre class="r"><code>early_stop &lt;- callback_early_stopping(monitor = &quot;val_loss&quot;, patience = 20)
+
+
+model &lt;- keras_model_sequential() %&gt;%
+    layer_dense(units = 64, activation = &quot;relu&quot;,
+                input_shape = dim(train_data)[2]) %&gt;%
+    layer_dense(units = 64, activation = &quot;relu&quot;) %&gt;%
+    layer_dense(units = 1)
+
+
+model %&gt;% compile(
+    loss = &quot;mse&quot;,
+    optimizer = optimizer_rmsprop(),
+    metrics = list(&quot;mean_absolute_error&quot;)
+  )
+
+
+
+history &lt;- model %&gt;% fit(
+  train_data,
+  train_labels,
+  epochs = epochs,
+  validation_split = 0.2,
+  verbose = 0,
+  callbacks = list(early_stop, print_dot_callback)
+)  </code></pre>
+<pre><code>## 
+## .........................................................................</code></pre>
+<pre class="r"><code>plot(history, metrics = &quot;mean_absolute_error&quot;, smooth = FALSE) +
+  coord_cartesian(xlim = c(0, 100), ylim = c(0, 8))</code></pre>
+<p><img src="/post/2018-07-23-tensorflow-in-r-3-boston-housing-price_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<pre class="r"><code>history</code></pre>
+<pre><code>## Trained on 323 samples, validated on 81 samples (batch_size=32, epochs=73)
+## Final epoch (plot to see history):
+##                val_loss: 12.8
+## val_mean_absolute_error: 2.54
+##                    loss: 7.385
+##     mean_absolute_error: 1.892</code></pre>
+<p>平均误差 3040</p>
+<pre class="r"><code># Predict
+test_predictions &lt;- model %&gt;% predict(test_data)
+
+
+all_test_data$DNN_test_pred=test_predictions
+
+all_test_data$diff=all_test_data$DNN_test_pred-all_test_data$train_labels
+
+# mae in test with lm()
+round(mean(abs(all_test_data$diff))*1000)</code></pre>
+<pre><code>## [1] 3035</code></pre>
+<hr />
+</div>
+<div id="4tensorflow-dnn-estimatordeep-neural-networks" class="section level3">
+<h3>模型4:tensorflow DNN estimator(Deep Neural Networks)</h3>
+<pre class="r"><code>boston_housing &lt;- dataset_boston_housing()
+c(train_data, train_labels) %&lt;-% boston_housing$train
+c(test_data, test_labels) %&lt;-% boston_housing$test
+
+all_train_data=cbind(train_data,train_labels)
+all_test_data=cbind(test_data,test_labels)
+
+all_train_data=as.data.frame(all_train_data)
+all_test_data=as.data.frame(all_test_data)
+all_test_data=all_test_data %&gt;% rename(train_labels=test_labels)
+
+
+dnn_estimator_input_fn  &lt;- function(data, num_epochs = 1) {
+  input_fn(data, 
+           features = c(&#39;V1&#39; ,&#39;V2&#39;, &#39;V3&#39;, &#39;V4&#39;, &#39;V5&#39;, &#39;V6&#39;, &#39;V7&#39;, &#39;V8&#39; ,&#39;V9&#39;, &#39;V10&#39;, &#39;V11&#39;, &#39;V12&#39;, &#39;V13&#39;),
+           response = &#39;train_labels&#39;,
+           batch_size = 32,
+           num_epochs = num_epochs)
+}
+
+
+cols &lt;- feature_columns( 
+  column_numeric(&#39;V1&#39; ,&#39;V2&#39;, &#39;V3&#39;, &#39;V4&#39;, &#39;V5&#39;, &#39;V6&#39;, &#39;V7&#39;, &#39;V8&#39; ,&#39;V9&#39;, &#39;V10&#39;, &#39;V11&#39;, &#39;V12&#39;, &#39;V13&#39;)
+)
+
+
+model &lt;- dnn_regressor(
+  feature_columns = cols,
+  hidden_units = c(10, 20, 10)
+  
+)
+
+
+# train the model
+model %&gt;% train(dnn_estimator_input_fn(all_train_data, num_epochs = 20))</code></pre>
+<pre class="r"><code>dnn_estimator_test=model %&gt;% predict(dnn_estimator_input_fn(all_test_data))</code></pre>
+<pre class="r"><code>all_test_data$lr_estimator_test_pred=unlist(dnn_estimator_test)</code></pre>
+<p>平均误差 5572</p>
+<pre class="r"><code>all_test_data$diff=all_test_data$lr_estimator_test_pred-all_test_data$train_labels
+
+# mae in test with lm()
+round(mean(abs(all_test_data$diff))*1000)</code></pre>
+<pre><code>## [1] 6280</code></pre>
+<hr />
+</div>
+<div id="5tensorflow-dnn-estimatorlinear-combined-deep-neural-networkswide-and-deep" class="section level3">
+<h3>模型5:tensorflow DNN estimator(Linear Combined Deep Neural Networks|wide and deep)</h3>
+<pre class="r"><code># generate classifier
+classifier &lt;-
+    dnn_linear_combined_classifier(
+      linear_feature_columns = linear_feature_columns,
+      dnn_feature_columns = dnn_feature_columns,
+      dnn_hidden_units = c(3, 3),
+      dnn_optimizer = &quot;Adagrad&quot;
+    )
+
+cols &lt;- feature_columns( 
+  column_numeric(&#39;V1&#39; ,&#39;V2&#39;, &#39;V3&#39;, &#39;V4&#39;, &#39;V5&#39;, &#39;V6&#39;, &#39;V7&#39;, &#39;V8&#39; ,&#39;V9&#39;, &#39;V10&#39;, &#39;V11&#39;, &#39;V12&#39;, &#39;V13&#39;)
+)
+
+
+model &lt;- linear_regressor(feature_columns = cols)
+
+# train the model
+model %&gt;% train(lr_input_fn(all_train_data, num_epochs = 100))
+
+
+obs &lt;- all_test_data[1:3, ]
+obs
+model %&gt;% predict(lr_input_fn(obs))</code></pre>
+</div>
+</div>
+<div class="section level2">
+<h2>8.模型对比</h2>
+</div>
+<div class="section level2">
+<h2>总结</h2>
+<div class="section level3">
+<h3>后续分享</h3>
+</div>
+</div>
+<div id="reference" class="section level2">
+<h2>Reference</h2>
+<p><a href="https://keras.io/datasets/" class="uri">https://keras.io/datasets/</a></p>
+<p><a href="https://tensorflow.rstudio.com/tfestimators/" class="uri">https://tensorflow.rstudio.com/tfestimators/</a></p>
+<p><a href="https://tensorflow.rstudio.com/tfestimators/articles/estimator_basics.html" class="uri">https://tensorflow.rstudio.com/tfestimators/articles/estimator_basics.html</a></p>
+<p><a href="https://tensorflow.rstudio.com/tfestimators/articles/examples/wide_and_deep.html" class="uri">https://tensorflow.rstudio.com/tfestimators/articles/examples/wide_and_deep.html</a></p>
+<p><a href="https://tensorflow.rstudio.com/keras/articles/tutorial_basic_regression.html" class="uri">https://tensorflow.rstudio.com/keras/articles/tutorial_basic_regression.html</a></p>
+</div>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="/post/seoul/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="/post/seoul/">서울 | Seoul</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="/post/how-overnight-shipping-works/">How Overnight Shipping Works</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="/post/how-overnight-shipping-works/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+
+
+</body>
+</html>
+

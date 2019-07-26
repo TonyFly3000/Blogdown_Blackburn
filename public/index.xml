@@ -7,10 +7,30 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 14 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 27 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Introduction to shell for data science</title>
+      <link>/post/introduction-to-shell-for-data-science/</link>
+      <pubDate>Sat, 27 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/introduction-to-shell-for-data-science/</guid>
+      <description>开篇厌倦了点击鼠标？想批量处理文件/数据。本文或许可以帮到你。会了脚本语言shell也就会了linux中的基本操作。
+Part 1 : 使用shell处理文件展示当前位置
+pwd 列出当前位置的所有文件
+ls 列出文件夹 input_folder 中的所有文件
+ls input_folder 进入文件夹 input_folder,然后展示当前位置
+cd input_folderpwd 返回上一级
+cd .. 复制文件 test.txt 为2个文件并命名为 duplicate001.txt/duplicate002.txt。然后列出当前位置的所有文件
+cp test.txt duplicate001.txtcp test.txt duplicate002.txtls 将2个文件 duplicate001.txt/duplicate002.txt 放到 文件夹input_folder 中
+mv duplicate001.txt duplicate002.txt input_folder  将文件 test.txt 改名为 new_test.txt
+mv test.txt new_test.txt 删除文件 new_test.txt
+rm new_test.txt 删除文件夹 backup
+rmdir backup 生成新文件 filename.</description>
+    </item>
     
     <item>
       <title>Data Discovery:China divorce ratio</title>
@@ -25,6 +45,19 @@
 http://data.stats.gov.cn/
 https://www.kaggle.com/tduan007/china-marriage-and-divorce-data
 marriage001=read_csv(&amp;#39;marriage.csv&amp;#39;)divorce001=read_csv(&amp;#39;divorce.csv&amp;#39;)income001=read_excel(&amp;#39;income.xls&amp;#39;)head(marriage001)## # A tibble: 6 x 10## area `2017` `2016` `2015` `2014` `2013` `2012` `2011` `2010` `2009`## &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;## 1 北京市 15.2 16.6 16.6 17 16.4 17.4 17.3 13.</description>
+    </item>
+    
+    <item>
+      <title>useR! 2019</title>
+      <link>/post/user-2019/</link>
+      <pubDate>Tue, 09 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/user-2019/</guid>
+      <description>“Scientists build to learn;Engineers learn to build” by Fred Brooks
+useR! 2019 take place on Toulouse France during July 9-12 2019http://www.user2019.fr/
+div.blue pre { background-color:lightblue; }div.blue pre.r { background-color:blue; }library(shiny)library(shinymeta)ui &amp;lt;- fluidPage(selectInput(&amp;quot;var&amp;quot;, label = &amp;quot;Choose a variable&amp;quot;, choices = names(cars)),verbatimTextOutput(&amp;quot;Summary&amp;quot;),verbatimTextOutput(&amp;quot;code&amp;quot;))Visualize:shinymeta by Joe Cheng
+shinymeta is a new package to enhance shinyapp with interactive &amp;amp; reproducibility
+https://github.com/rstudio/shinymeta</description>
     </item>
     
     <item>
@@ -612,6 +645,16 @@ print (iris.feature_names) # metadata: names of the features## [&amp;#39;sepal 
       
       <guid>/post/how-overnight-shipping-works/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>Tensorflow in R 系列(3) : 房价预测 Boston housing price </title>
+      <link>/post/tensorflow-in-r-3-boston-housing-price/</link>
+      <pubDate>Mon, 23 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tensorflow-in-r-3-boston-housing-price/</guid>
+      <description>开篇Tensorflow in R 系列，将分享如何使用R语言在Tensorflow/Keras 框架中训练深度学习模型。上一篇讲了如果使用深度神经网络模型来识别图片中的数字本文将介绍如何使用卷积神经网络模型（convolutional neural network）来识别图片中的时装分类Load packagelibrary(keras)library(tidyverse)library(tibble)library(ggplot2)library(tfestimators)library(ggcorrplot)1.导入数据导入4个数据集，分别为：
+x_train: 6万张训练时装图片y_train： 6万个训练时装0-9标签,每个数字代表1种时装x_test： 1万张测试时装图片y_test： 1万个测试时装0-9标签,每个数字代表1种时装boston_housing &amp;lt;- dataset_boston_housing()c(train_data, train_labels) %&amp;lt;-% boston_housing$trainc(test_data, test_labels) %&amp;lt;-% boston_housing$test2.数据探索library(tibble)column_names &amp;lt;- c(&amp;#39;CRIM&amp;#39;, &amp;#39;ZN&amp;#39;, &amp;#39;INDUS&amp;#39;, &amp;#39;CHAS&amp;#39;, &amp;#39;NOX&amp;#39;, &amp;#39;RM&amp;#39;, &amp;#39;AGE&amp;#39;, &amp;#39;DIS&amp;#39;, &amp;#39;RAD&amp;#39;, &amp;#39;TAX&amp;#39;, &amp;#39;PTRATIO&amp;#39;, &amp;#39;B&amp;#39;, &amp;#39;LSTAT&amp;#39;)train_df &amp;lt;- as_tibble(train_data)colnames(train_df) &amp;lt;- column_namestrain_df## # A tibble: 404 x 13## CRIM ZN INDUS CHAS NOX RM AGE DIS RAD TAX PTRATIO## &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;## 1 1.</description>
     </item>
     
     <item>

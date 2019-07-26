@@ -1,0 +1,126 @@
+---
+title: Introduction to shell for data science
+author: ''
+date: '2019-07-27'
+slug: introduction-to-shell-for-data-science
+categories: []
+tags: []
+description: ' Introduction to shell for data science'
+topics: []
+---
+
+
+## 开篇
+
+厌倦了点击鼠标？想批量处理文件/数据。本文或许可以帮到你。会了脚本语言shell也就会了linux中的基本操作。
+
+
+![](https://media.giphy.com/media/XreQmk7ETCak0/giphy.gif)
+
+
+
+## Part 1 : 使用shell处理文件
+
+展示当前位置
+```{r,engine='sh',eval=FALSE}
+pwd
+```
+&nbsp;
+
+列出当前位置的所有文件
+```{r,engine='sh',eval=FALSE}
+ls
+```
+&nbsp;
+
+列出文件夹 input_folder 中的所有文件
+```{r,engine='sh',eval=FALSE}
+ls input_folder
+```
+&nbsp;
+
+进入文件夹 input_folder,然后展示当前位置
+```{r,engine='sh',eval=FALSE}
+cd input_folder
+pwd
+```
+&nbsp;
+
+返回上一级
+```{r,engine='sh',eval=FALSE}
+cd ..
+```
+&nbsp;
+
+
+复制文件 test.txt 为2个文件并命名为 duplicate001.txt/duplicate002.txt。然后列出当前位置的所有文件
+```{r,engine='sh',eval=FALSE}
+cp test.txt duplicate001.txt
+cp test.txt duplicate002.txt
+ls
+```
+&nbsp;
+
+
+将2个文件 duplicate001.txt/duplicate002.txt 放到 文件夹input_folder 中
+```{r,engine='sh',eval=FALSE}
+mv duplicate001.txt duplicate002.txt input_folder 
+```
+&nbsp;
+
+将文件 test.txt 改名为 new_test.txt
+```{r,engine='sh',eval=FALSE}
+mv test.txt new_test.txt
+```
+&nbsp;
+
+
+删除文件 new_test.txt 
+```{r,engine='sh',eval=FALSE}
+rm new_test.txt
+```
+&nbsp;
+
+删除文件夹 backup
+```{r,engine='sh',eval=FALSE}
+rmdir backup
+```
+&nbsp;
+
+
+生成新文件 filename.txt
+```{r,engine='sh',eval=FALSE}
+touch filename.txt
+```
+&nbsp;
+
+
+生成新文件夹 new_folder
+```{r,engine='sh',eval=FALSE}
+mkdir new_folder
+```
+&nbsp;
+
+返回最上层目录
+```{r,engine='sh',eval=FALSE}
+cd ~
+```
+
+
+## Part 2 Manipulating data
+
+
+## Part 3 Combining tools
+
+
+## Part 4 Batch processing
+
+## Part 5 Creating new tools
+
+
+
+## 参考
+
+https://www.datacamp.com/courses/introduction-to-shell-for-data-science
+
+https://swcarpentry.github.io/shell-novice/reference/

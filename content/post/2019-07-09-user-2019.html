@@ -1,0 +1,90 @@
+---
+title: useR! 2019
+author: ''
+date: '2019-07-09'
+slug: user-2019
+categories: []
+tags: []
+description: 'useR! 2019'
+topics: []
+---
+
+
+
+<p>“Scientists build to learn;Engineers learn to build” by Fred Brooks</p>
+<p>useR! 2019 take place on Toulouse France during July 9-12 2019
+<a href="http://www.user2019.fr/" class="uri">http://www.user2019.fr/</a></p>
+<style>
+div.blue pre { background-color:lightblue; }
+div.blue pre.r { background-color:blue; }
+</style>
+<div class="blue">
+<pre class="r"><code>library(shiny)
+library(shinymeta)
+
+ui &lt;- fluidPage(
+  selectInput(&quot;var&quot;, label = &quot;Choose a variable&quot;, choices = names(cars)),
+  verbatimTextOutput(&quot;Summary&quot;),
+  verbatimTextOutput(&quot;code&quot;)
+)</code></pre>
+</div>
+<hr />
+<div id="visualize" class="section level2">
+<h2>Visualize:</h2>
+<p><a href="https://www.youtube.com/watch?v=5KByRC6eqC8">shinymeta by Joe Cheng</a></p>
+<p>shinymeta is a new package to enhance shinyapp with interactive &amp; reproducibility</p>
+<p><a href="https://github.com/rstudio/shinymeta" class="uri">https://github.com/rstudio/shinymeta</a></p>
+<div id="three-ways-to-view-the-shiny-r-code-and-result-at-shiny" class="section level3">
+<h3>Three ways to view the Shiny R code and result at shiny</h3>
+<ul>
+<li><p>1.View an R snippet</p></li>
+<li><p>2.Download .Rmd</p></li>
+<li><p>3.Download .zip with R code ,data and report</p></li>
+</ul>
+</div>
+<div id="with-shinymeta-the-output-will-be-the-reproducibility-r-code" class="section level3">
+<h3>With shinymeta, the output will be the reproducibility R code</h3>
+<p>There are two type of Shinyapp code:Domain logic and Reactive structure</p>
+<p>The reproducibility result we want is the Domain logic</p>
+</div>
+<div id="new-code-in-shinymeta" class="section level3">
+<h3>New code in shinymeta:</h3>
+<div id="ui.r" class="section level4">
+<h4>ui.R</h4>
+<p>nothing change with shinymeta</p>
+<pre class="r"><code>library(shiny)
+library(shinymeta)
+
+ui &lt;- fluidPage(
+  selectInput(&quot;var&quot;, label = &quot;Choose a variable&quot;, choices = names(cars)),
+  verbatimTextOutput(&quot;Summary&quot;),
+  verbatimTextOutput(&quot;code&quot;)
+)</code></pre>
+</div>
+<div id="server.r" class="section level4">
+<h4>server.R</h4>
+<ul>
+<li><p>metaReactive insteal of reactive</p></li>
+<li><p>!!input$var insteal of input$var</p></li>
+<li><p>expandChain(output$Summary()) will output the reproducibility R code</p></li>
+</ul>
+<pre class="r"><code>library(shiny)
+library(shinymeta)
+
+server &lt;- function(input, output) {
+  
+  var &lt;- metaReactive({
+    cars[[!!input$var]]
+  })
+  
+  output$Summary &lt;- metaRender(renderPrint, {
+    summary(!!var())
+  })
+  output$code &lt;- renderPrint({
+    expandChain(output$Summary())
+  })
+}</code></pre>
+<hr />
+</div>
+</div>
+</div>

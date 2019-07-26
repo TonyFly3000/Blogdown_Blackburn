@@ -1,0 +1,79 @@
+---
+title: Introduction to shell for data science
+author: ''
+date: '2019-07-27'
+slug: introduction-to-shell-for-data-science
+categories: []
+tags: []
+description: ' Introduction to shell for data science'
+topics: []
+---
+
+
+
+<div class="section level2">
+<h2>开篇</h2>
+<p>厌倦了点击鼠标？想批量处理文件/数据。本文或许可以帮到你。会了脚本语言shell也就会了linux中的基本操作。</p>
+<p><img src="https://media.giphy.com/media/XreQmk7ETCak0/giphy.gif" /></p>
+</div>
+<div id="part-1-shell" class="section level2">
+<h2>Part 1 : 使用shell处理文件</h2>
+<p>展示当前位置</p>
+<pre class="sh"><code>pwd</code></pre>
+<p> </p>
+<p>列出当前位置的所有文件</p>
+<pre class="sh"><code>ls</code></pre>
+<p> </p>
+<p>列出文件夹 input_folder 中的所有文件</p>
+<pre class="sh"><code>ls input_folder</code></pre>
+<p> </p>
+<p>进入文件夹 input_folder,然后展示当前位置</p>
+<pre class="sh"><code>cd input_folder
+pwd</code></pre>
+<p> </p>
+<p>返回上一级</p>
+<pre class="sh"><code>cd ..</code></pre>
+<p> </p>
+<p>复制文件 test.txt 为2个文件并命名为 duplicate001.txt/duplicate002.txt。然后列出当前位置的所有文件</p>
+<pre class="sh"><code>cp test.txt duplicate001.txt
+cp test.txt duplicate002.txt
+ls</code></pre>
+<p> </p>
+<p>将2个文件 duplicate001.txt/duplicate002.txt 放到 文件夹input_folder 中</p>
+<pre class="sh"><code>mv duplicate001.txt duplicate002.txt input_folder </code></pre>
+<p> </p>
+<p>将文件 test.txt 改名为 new_test.txt</p>
+<pre class="sh"><code>mv test.txt new_test.txt</code></pre>
+<p> </p>
+<p>删除文件 new_test.txt</p>
+<pre class="sh"><code>rm new_test.txt</code></pre>
+<p> </p>
+<p>删除文件夹 backup</p>
+<pre class="sh"><code>rmdir backup</code></pre>
+<p> </p>
+<p>生成新文件 filename.txt</p>
+<pre class="sh"><code>touch filename.txt</code></pre>
+<p> </p>
+<p>生成新文件夹 new_folder</p>
+<pre class="sh"><code>mkdir new_folder</code></pre>
+<p> </p>
+<p>返回最上层目录</p>
+<pre class="sh"><code>cd ~</code></pre>
+</div>
+<div id="part-2-manipulating-data" class="section level2">
+<h2>Part 2 Manipulating data</h2>
+</div>
+<div id="part-3-combining-tools" class="section level2">
+<h2>Part 3 Combining tools</h2>
+</div>
+<div id="part-4-batch-processing" class="section level2">
+<h2>Part 4 Batch processing</h2>
+</div>
+<div id="part-5-creating-new-tools" class="section level2">
+<h2>Part 5 Creating new tools</h2>
+</div>
+<div class="section level2">
+<h2>参考</h2>
+<p><a href="https://www.datacamp.com/courses/introduction-to-shell-for-data-science" class="uri">https://www.datacamp.com/courses/introduction-to-shell-for-data-science</a></p>
+<p><a href="https://swcarpentry.github.io/shell-novice/reference/" class="uri">https://swcarpentry.github.io/shell-novice/reference/</a></p>
+</div>
