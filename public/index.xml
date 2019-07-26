@@ -48,19 +48,6 @@ marriage001=read_csv(&amp;#39;marriage.csv&amp;#39;)divorce001=read_csv(&amp;#3
     </item>
     
     <item>
-      <title>useR! 2019</title>
-      <link>/post/user-2019/</link>
-      <pubDate>Tue, 09 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/user-2019/</guid>
-      <description>“Scientists build to learn;Engineers learn to build” by Fred Brooks
-useR! 2019 take place on Toulouse France during July 9-12 2019http://www.user2019.fr/
-div.blue pre { background-color:lightblue; }div.blue pre.r { background-color:blue; }library(shiny)library(shinymeta)ui &amp;lt;- fluidPage(selectInput(&amp;quot;var&amp;quot;, label = &amp;quot;Choose a variable&amp;quot;, choices = names(cars)),verbatimTextOutput(&amp;quot;Summary&amp;quot;),verbatimTextOutput(&amp;quot;code&amp;quot;))Visualize:shinymeta by Joe Cheng
-shinymeta is a new package to enhance shinyapp with interactive &amp;amp; reproducibility
-https://github.com/rstudio/shinymeta</description>
-    </item>
-    
-    <item>
       <title>Shanghai Summer</title>
       <link>/post/shanghai-summer/</link>
       <pubDate>Wed, 03 Jul 2019 00:00:00 +0000</pubDate>
@@ -833,6 +820,19 @@ https://www.youtube.com/watch?v=4n1AHvDvVvw
       
       <guid>/post/aussie/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>useR! 2019</title>
+      <link>/post/user-2019/</link>
+      <pubDate>Thu, 09 Jul 2009 00:00:00 +0000</pubDate>
+      
+      <guid>/post/user-2019/</guid>
+      <description>“Scientists build to learn;Engineers learn to build” by Fred Brooks
+useR! 2019 take place on Toulouse France during July 9-12 2019http://www.user2019.fr/
+div.blue pre { background-color:lightblue; }div.blue pre.r { background-color:blue; }library(shiny)library(shinymeta)ui &amp;lt;- fluidPage(selectInput(&amp;quot;var&amp;quot;, label = &amp;quot;Choose a variable&amp;quot;, choices = names(cars)),verbatimTextOutput(&amp;quot;Summary&amp;quot;),verbatimTextOutput(&amp;quot;code&amp;quot;))Visualize:shinymeta by Joe Cheng
+shinymeta is a new package to enhance shinyapp with interactive &amp;amp; reproducibility
+https://github.com/rstudio/shinymeta</description>
     </item>
     
     <item>
