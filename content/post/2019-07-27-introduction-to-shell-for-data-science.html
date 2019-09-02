@@ -16,8 +16,8 @@ topics: []
 <p>厌倦了点击鼠标？想批量处理文件/数据。本文或许可以帮到你。会了脚本语言shell也就会了linux中的基本操作。</p>
 <p><img src="https://media.giphy.com/media/XreQmk7ETCak0/giphy.gif" /></p>
 </div>
-<div id="part-1-shell" class="section level2">
-<h2>Part 1 : 使用shell处理文件</h2>
+<div id="part-1-shellmanipulating-files-and-data" class="section level2">
+<h2>Part 1 : 使用shell处理文件(Manipulating files and data)</h2>
 <p>展示当前位置</p>
 <pre class="sh"><code>pwd</code></pre>
 <p> </p>
@@ -62,6 +62,32 @@ ls</code></pre>
 </div>
 <div id="part-2-manipulating-data" class="section level2">
 <h2>Part 2 Manipulating data</h2>
+<p>读 aa.txt 文件内容</p>
+<pre class="sh"><code>cat aa.txt</code></pre>
+<p> </p>
+<p>读 b001.csv 前10行</p>
+<pre class="sh"><code>head b001.csv</code></pre>
+<p> </p>
+<p>读 b001.csv 前3行</p>
+<pre class="sh"><code>head -n 3 b001.csv</code></pre>
+<p> </p>
+<p>读 b001.csv 前1列</p>
+<pre class="sh"><code>cut -f 1 -d, b001.csv</code></pre>
+<p> </p>
+<p>读 b001.csv 中带有‘124’ 的行</p>
+<pre class="sh"><code>grep 124 b001.csv</code></pre>
+<p> </p>
+<p>读 b001.csv 中有多少行带有‘124’</p>
+<pre class="sh"><code>grep -c  124 b001.csv</code></pre>
+<p> </p>
+<p>打印出之前用过的所有command</p>
+<pre class="sh"><code>history</code></pre>
+<p> </p>
+<p>运行第前15个command</p>
+<pre class="sh"><code>!15</code></pre>
+<p> </p>
+<p>运行前一次用关于head的command</p>
+<pre class="sh"><code>!head</code></pre>
 </div>
 <div id="part-3-combining-tools" class="section level2">
 <h2>Part 3 Combining tools</h2>

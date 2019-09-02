@@ -19,7 +19,7 @@ topics: []
 
 
 
-## Part 1 : 使用shell处理文件
+## Part 1 : 使用shell处理文件(Manipulating files and data)
 
 展示当前位置
 ```{r,engine='sh',eval=FALSE}
@@ -109,8 +109,65 @@ cd ~
 
 ## Part 2 Manipulating data
 
+读 aa.txt 文件内容
+```{r,engine='sh',eval=FALSE}
+cat aa.txt
+```
+&nbsp;
+
+读 b001.csv 前10行
+```{r,engine='sh',eval=FALSE}
+head b001.csv
+```
+&nbsp;
+
+读 b001.csv 前3行
+```{r,engine='sh',eval=FALSE}
+head -n 3 b001.csv
+```
+&nbsp;
+
+读 b001.csv 前1列
+```{r,engine='sh',eval=FALSE}
+cut -f 1 -d, b001.csv
+```
+&nbsp;
+
+读 b001.csv 中带有‘124’ 的行
+```{r,engine='sh',eval=FALSE}
+grep 124 b001.csv
+```
+&nbsp;
+
+读 b001.csv 中有多少行带有‘124’
+```{r,engine='sh',eval=FALSE}
+grep -c  124 b001.csv
+```
+&nbsp;
+
+打印出之前用过的所有command
+```{r,engine='sh',eval=FALSE}
+history
+```
+&nbsp;
+
+运行第前15个command
+```{r,engine='sh',eval=FALSE}
+!15
+```
+&nbsp;
+
+运行前一次用关于head的command
+```{r,engine='sh',eval=FALSE}
+!head
+```
+
+
 
 ## Part 3 Combining tools
+
+
+
 
 
 ## Part 4 Batch processing

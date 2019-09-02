@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tensorflow in Python系列(1) :数字图片分类 MNIST image">
+  <meta name="generator" content="Hugo 0.48" />
+
+  <title>Tensorflow in Python系列(1) :数字图片分类 MNIST image classification &middot; Tony Duan</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="/">Tony Duan.R</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/post/"><i class='fa fa-list fa-fw'></i>Blog</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/book/"><i class='fa fa-tasks fa-fw'></i>Book</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/project/"><i class='fa fa-tasks fa-fw'></i>Project</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/about/"><i class='fa fa-user fa-fw'></i>About me</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/contact/"><i class='fa fa-at fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://facebook.com/tony.j.fly" target="_blank"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/tony-jc-duan-005b601a" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/*" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2019. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://github.com/rstudio/rmarkdown" target="_blank">Blogdown</a></small><br>
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Tensorflow in Python系列(1) :数字图片分类 MNIST image classification</h1>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>30 Jul 2018, 00:00</time>
+  </div>
+
+  
+
+  
+  
+  
+  
+
+  
+  
+  
+  
+
+</div>
+
+  <div class="section level2">
+<h2>开篇</h2>
+<ul>
+<li>Tensorflow in Python 系列，将分享如何使用Python语言在Tensorflow/Keras 框架中训练深度学习模型。</li>
+<li>MNIST 全称为 Modified National Institute of Standards and Technology。这个名词一点也不重要。</li>
+<li>MNIST 数据为 7万张（6万张训练+1万张测试） 0-9的手写数字图片</li>
+</ul>
+</div>
+<div id="-python--anaconda" class="section level2">
+<h2>安装 Python 和 Anaconda</h2>
+<p>此次省略300字。建议使用云计算平台。如Kaggle Kernel/Google Codelab/Google Cloud 等</p>
+<p>可参考【在 Google Cloud 安装 jupyter notebook】： <a href="https://tduan.netlify.com/post/google-cloud-jupyter-notebook/" class="uri">https://tduan.netlify.com/post/google-cloud-jupyter-notebook/</a></p>
+</div>
+<div id="-tensorflowkeras-package" class="section level2">
+<h2>安装 tensorflow/keras package</h2>
+<p>如果你的计算环境有GPU,可以安装GPU版本(tensorflow-gpu==2.0.0-beta1)</p>
+<pre class="r"><code>!pip install tensorflow==2.0.0-beta1</code></pre>
+<p>查看 tensorflow 版本。</p>
+<pre class="r"><code>!pip install tensorflow==2.0.0-beta1
+import tensorflow as tf
+from tensorflow import keras
+print(tf.__version__)</code></pre>
+</div>
+<div class="section level2">
+<h2>1.导入数据</h2>
+<p>导入4个数据集，分别为：</p>
+<ul>
+<li>x_train: 6万张训练数字图片</li>
+<li>y_train： 6万个训练数字0-9标签</li>
+<li>x_test： 1万张测试数字图片</li>
+<li>y_test： 1万个测试数字0-9标签</li>
+</ul>
+<p>为什么有4个数据集 ?</p>
+<ul>
+<li>带x的通常为特征(feature)。带y的为标签(label)。</li>
+<li>训练数据是用来训练模型。测试数据不参加建模，而是模型建立后是用来测试模型的效果。</li>
+</ul>
+<pre class="r"><code># input data
+(x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data()</code></pre>
+<p>这些图片长这个样</p>
+<pre class="r"><code>plt.figure()
+plt.imshow(x_train[0])
+plt.colorbar()
+plt.grid(False)
+plt.show()</code></pre>
+</div>
+<div class="section level2">
+<h2>2.数据探索</h2>
+<p>图片原理：</p>
+<p>28 × 28=784 的像素(pixel)组成一张图片。而每个彩色的像素是由RBG 3个由0-255 的数字组成。由于这里的像素是黑白的像素，所以一个像素只有1个数字。0-255，数字越大颜色越浅。比如0为黑色，255为白色</p>
+<pre class="r"><code>x_train.shape
+x_test.shape
+
+y_train.shape
+y_test.shape</code></pre>
+</div>
+<div class="section level2">
+<h2>3.数据处理</h2>
+<pre class="r"><code>x_train = x_train / 255.0
+
+x_test = x_test/ 255.0</code></pre>
+</div>
+<div class="section level2">
+<h2>4.设计模型</h2>
+<div id="deep-neural-network" class="section level3">
+<h3>建立深度神经网络模型(deep neural network)</h3>
+<p>网络结构介绍。为容易理解, tensor 约等于 neural 约等于 数字。</p>
+<p>输入层：每个图片的形状为784型状的数字的输入层</p>
+<p>第一层:使用 ‘relu’ 的256个tensor 的隐藏层 (relu 是什么？后续文章再聊)</p>
+<p>第二层:使用 ‘relu’ 的128个tensor 的隐藏层</p>
+<p>输出层:使用 ‘softmax’ 的 10个 加总为1 的 0到1的概率 的 输出层 (softmax 是什么？后续文章再聊)</p>
+<pre class="r"><code>model = keras.Sequential([
+    keras.layers.Flatten(input_shape=(28, 28)),
+    keras.layers.Dense(256, activation=tf.nn.relu),
+    keras.layers.Dense(128, activation=tf.nn.relu),
+    keras.layers.Dense(10, activation=tf.nn.softmax)
+])</code></pre>
+</div>
+<div class="section level3">
+<h3>神经网络型图：</h3>
+<p><img src="https://tensorflow.rstudio.com/tensorflow/articles/images/softmax-regression-scalargraph.png" style="width:80.0%" /></p>
+</div>
+<div class="section level3">
+<h3>神经网络公式：</h3>
+<p>公式是我们设计模型的时候定义的。比如图中的模型。W11-W33 9个weight 和 b1-b3 3个bias 经过训练得出。所以模型训练的Learnable Parameters=9+3=12</p>
+<p><img src="https://tensorflow.rstudio.com/tensorflow/articles/images/softmax-regression-vectorequation.png" style="width:80.0%" /></p>
+</div>
+<div class="section level3">
+<h3>模型的架构:</h3>
+<p>Learnable Parameters: input*output+bias</p>
+<p>第一层:使用 ‘relu’ 的256个tensor 的隐藏层：
+Learnable Parameters:200960=784*256 + 256</p>
+<p>第二层:使用 ‘relu’ 的128个tensor 的隐藏层：
+Learnable Parameters:32896=256*128+128</p>
+<p>输出层:使用 ‘softmax’ 的 10个 0到1的概率 的 输出层:
+Learnable Parameters :1290=128*10+10</p>
+<p>总Learnable Parameters :235146=200960+32896+1290</p>
+<pre class="python"><code>model.summary()</code></pre>
+</div>
+</div>
+<div id="compile-" class="section level2">
+<h2>5.compile 模型</h2>
+<pre class="r"><code>model.compile(optimizer=&#39;adam&#39;,
+              loss=&#39;sparse_categorical_crossentropy&#39;,
+              metrics=[&quot;accuracy&quot;]</code></pre>
+</div>
+<div class="section level2">
+<h2>6.训练模型</h2>
+<p>一堆数据处理转换。模型设计后 。终于可以开始训练模型了。</p>
+<p>x_train 为训练数据集特征(6万张照片)。y_train 为训练数据集标签(6万个0-9的标签)</p>
+<p>每次读入128张图片。重复训练10次。6万张照片80%用来训练。20%用来验证</p>
+<p>结果88%</p>
+<pre class="python"><code>history = model.fit(x_train, y_train,
+                    batch_size=64,
+                    epochs=10,
+                    #validation_split=0.25,
+                    validation_data=(x_test, y_test),
+                    verbose=1
+                    )
+# save model</code></pre>
+<pre class="r"><code>plt.plot(history.history[&#39;accuracy&#39;])
+plt.plot(history.history[&#39;val_accuracy&#39;])
+plt.title(&#39;Model accuracy&#39;)
+plt.ylabel(&#39;Accuracy&#39;)
+plt.xlabel(&#39;Epoch&#39;)
+plt.legend([&#39;Train&#39;, &#39;Test&#39;], loc=&#39;upper left&#39;)
+plt.show()</code></pre>
+</div>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="/post/tensorflow-in-r-3-boston-housing-price/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="/post/tensorflow-in-r-3-boston-housing-price/">Tensorflow in R 系列(3) : 房价预测 Boston housing price </a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="/post/how-overnight-shipping-works/">How Overnight Shipping Works</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="/post/how-overnight-shipping-works/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+
+
+</body>
+</html>
+

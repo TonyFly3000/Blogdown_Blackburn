@@ -7,18 +7,36 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 27 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 31 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>test001</title>
-      <link>/post/test001/</link>
-      <pubDate>Sat, 27 Jul 2019 00:00:00 +0000</pubDate>
+      <title>UFC Shenzhen</title>
+      <link>/post/ufc-shenzhen/</link>
+      <pubDate>Sat, 31 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/test001/</guid>
-      <description></description>
+      <guid>/post/ufc-shenzhen/</guid>
+      <description>The New UFC champion Zhang Weili 张伟丽Monster energy drinkShenzhen Universiade Center Arena</description>
+    </item>
+    
+    <item>
+      <title>Kuala Lumpur &amp; Singapore</title>
+      <link>/post/kuala-lumpur-singapore/</link>
+      <pubDate>Mon, 12 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/kuala-lumpur-singapore/</guid>
+      <description>All about Durian Musang KingNasi Lamak ,Prawn noodel &amp;amp; Roti tissueBah-Kut-Teh , Roti Prata and icecream sandwishNew Shopping mall Jade @ Changi Airport</description>
+    </item>
+    
+    <item>
+      <title>One Day in Chengdu</title>
+      <link>/post/one-night-in-chengdu/</link>
+      <pubDate>Fri, 02 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/one-night-in-chengdu/</guid>
+      <description>无早 CafeHot pot</description>
     </item>
     
     <item>
@@ -28,7 +46,7 @@
       
       <guid>/post/introduction-to-shell-for-data-science/</guid>
       <description>开篇厌倦了点击鼠标？想批量处理文件/数据。本文或许可以帮到你。会了脚本语言shell也就会了linux中的基本操作。
-Part 1 : 使用shell处理文件展示当前位置
+Part 1 : 使用shell处理文件(Manipulating files and data)展示当前位置
 pwd 列出当前位置的所有文件
 ls 列出文件夹 input_folder 中的所有文件
 ls input_folder 进入文件夹 input_folder,然后展示当前位置
@@ -37,8 +55,7 @@ cd .. 复制文件 test.txt 为2个文件并命名为 duplicate001.txt/duplica
 cp test.txt duplicate001.txtcp test.txt duplicate002.txtls 将2个文件 duplicate001.txt/duplicate002.txt 放到 文件夹input_folder 中
 mv duplicate001.txt duplicate002.txt input_folder  将文件 test.txt 改名为 new_test.txt
 mv test.txt new_test.txt 删除文件 new_test.txt
-rm new_test.txt 删除文件夹 backup
-rmdir backup 生成新文件 filename.</description>
+rm new_test.txt 删除文件夹 backup</description>
     </item>
     
     <item>
@@ -644,6 +661,20 @@ print (iris.feature_names) # metadata: names of the features## [&amp;#39;sepal 
     </item>
     
     <item>
+      <title>Tensorflow in Python系列(1) :数字图片分类 MNIST image classification</title>
+      <link>/post/tensorflow-in-python-1-mnist-image-classification/</link>
+      <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tensorflow-in-python-1-mnist-image-classification/</guid>
+      <description>开篇Tensorflow in Python 系列，将分享如何使用Python语言在Tensorflow/Keras 框架中训练深度学习模型。MNIST 全称为 Modified National Institute of Standards and Technology。这个名词一点也不重要。MNIST 数据为 7万张（6万张训练+1万张测试） 0-9的手写数字图片安装 Python 和 Anaconda此次省略300字。建议使用云计算平台。如Kaggle Kernel/Google Codelab/Google Cloud 等
+可参考【在 Google Cloud 安装 jupyter notebook】： https://tduan.netlify.com/post/google-cloud-jupyter-notebook/
+安装 tensorflow/keras package如果你的计算环境有GPU,可以安装GPU版本(tensorflow-gpu==2.0.0-beta1)
+!pip install tensorflow==2.0.0-beta1查看 tensorflow 版本。
+!pip install tensorflow==2.0.0-beta1import tensorflow as tffrom tensorflow import kerasprint(tf.__version__)1.导入数据导入4个数据集，分别为：
+x_train: 6万张训练数字图片y_train： 6万个训练数字0-9标签x_test： 1万张测试数字图片y_test： 1万个测试数字0-9标签为什么有4个数据集 ?</description>
+    </item>
+    
+    <item>
       <title>Tensorflow in R 系列(3) : 房价预测 Boston housing price </title>
       <link>/post/tensorflow-in-r-3-boston-housing-price/</link>
       <pubDate>Mon, 23 Jul 2018 00:00:00 +0000</pubDate>
@@ -880,6 +911,22 @@ glimpse(ramen_ratings)## Observations: 3,180## Variables: 6## $ review_number
  Developed interactive cloud based dashboard for external and internal user
  leveraging up to day and open source analytic skill to tackle daily business problem (R server/R shiny/Alaction/Tableau/Git)
   Senior Analytic Consultant, Ernst&amp;amp;Young, Performance Improvement  Improve and standardize dashboard report for a leading Chinese commercial bank .</description>
+    </item>
+    
+    <item>
+      <title>Introduction to Git for Data Science</title>
+      <link>/post/introduction-to-git-for-data-science/</link>
+      <pubDate>Mon, 27 Jul 0201 00:00:00 +0000</pubDate>
+      
+      <guid>/post/introduction-to-git-for-data-science/</guid>
+      <description>开篇Part 1 Basic workflow.git 保存 文件里的变动
+git status
+git diff
+git diff data/northern.csv
+git add report.txt
+git status
+Part 2 RepositoriesPart 3 UndoPart 4 Working with branchesPart 5 Collaborating参考https://www.datacamp.com/courses/introduction-to-git-for-data-science
+</description>
     </item>
     
   </channel>

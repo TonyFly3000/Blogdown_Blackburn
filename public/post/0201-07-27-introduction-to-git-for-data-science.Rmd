@@ -1,0 +1,48 @@
+---
+title: Introduction to Git for Data Science
+author: ''
+date: '0201-07-27'
+slug: introduction-to-git-for-data-science
+categories: []
+tags: []
+description: ''
+topics: []
+---
+
+## 开篇
+
+
+## Part 1 Basic workflow
+
+.git 保存 文件里的变动
+
+
+git status
+
+git diff
+
+git diff data/northern.csv
+
+git add report.txt
+
+git status
+
+
+
+## Part 2 Repositories
+
+
+## Part 3 Undo
+
+
+## Part 4 Working with branches
+
+
+## Part 5 Collaborating
+
+
+
+## 参考
+
+https://www.datacamp.com/courses/introduction-to-git-for-data-science
+

@@ -1,0 +1,26 @@
+---
+title: UFC Shenzhen
+author: ''
+date: '2019-08-31'
+slug: ufc-shenzhen
+categories: []
+tags: []
+description: 'UFC Shenzhen'
+topics: []
+---
+
+## The New UFC champion Zhang Weili 张伟丽
+
+<video width="760" height="465" controls>
+  <source src="/post/ufc-shenzhen/IMG_2805.mp4" type="video/mp4">
+</video>
+
+## Monster energy drink
+
+![](/post/ufc-shenzhen/IMG_2793.jpeg){width=700px height=500px}
+
+
+## Shenzhen Universiade Center Arena 
+
+![](/post/ufc-shenzhen/IMG_2795.jpeg){width=700px height=500px}
+
