@@ -1,0 +1,28 @@
+---
+title: Tech day - machine learning
+author: ''
+date: '2019-09-21'
+slug: tech-day-machine-learning
+categories: []
+tags: []
+description: 'Tech day - machine learning'
+topics: []
+---
+
+https://www.huodongxing.com/event/9508822785400
+
+
+
+
+
+![](/post/tech-day-machine-learning/IMG_2866.jpeg){width=730px height=500px}
+
+![](/post/tech-day-machine-learning/IMG_2872.jpeg){width=730px height=500px}
+
+
+
+![](/post/tech-day-machine-learning/IMG_2865.jpeg){width=500px height=600px}
+
+
+
+![](/post/tech-day-machine-learning/IMG_2873.jpeg){width=730px height=500px}

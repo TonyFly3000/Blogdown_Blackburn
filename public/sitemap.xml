@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/post/tech-day-machine-learning/</loc>
+    <lastmod>2019-09-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/ebay-connect/</loc>
+    <lastmod>2019-09-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/family-day/</loc>
+    <lastmod>2019-09-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/best-wish-to-megan/</loc>
     <lastmod>2019-09-05T00:00:00+00:00</lastmod>
   </url>
@@ -10,6 +25,11 @@
   <url>
     <loc>/post/ufc-shenzhen/</loc>
     <lastmod>2019-08-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/aws-e-commerce-day/</loc>
+    <lastmod>2019-08-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -424,7 +444,7 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2019-09-05T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -460,7 +480,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-09-05T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
