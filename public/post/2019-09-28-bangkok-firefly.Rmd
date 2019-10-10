@@ -1,5 +1,5 @@
 ---
-title: Bangkok Firefly
+title: Bangkok Firefly 寻找萤火虫的故事
 author: ''
 date: '2019-09-28'
 slug: bangkok-firefly
