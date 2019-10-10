@@ -1,0 +1,14 @@
+---
+title: Bangkok Firefly
+author: ''
+date: '2019-09-28'
+slug: bangkok-firefly
+categories: []
+tags: []
+description: 'Bangkok Firefly'
+topics: []
+---
+
+<video width="760" height="465" controls>
+  <source src="https://media.qyer.com/inspire/source/20180416/yinghuochong.mp4" type="video/mp4">
+</video>

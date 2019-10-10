@@ -7,10 +7,30 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 21 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 28 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Bangkok Firefly</title>
+      <link>/post/bangkok-firefly/</link>
+      <pubDate>Sat, 28 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/bangkok-firefly/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Machine Learning APIs by Google Cloud Training</title>
+      <link>/post/machine-learning-apis-by-google-cloud-training/</link>
+      <pubDate>Fri, 27 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/machine-learning-apis-by-google-cloud-training/</guid>
+      <description>https://google.qwiklabs.com/quests/32
+Introduction to APIs in GoogleThe GET request method is used by a client to fetch data from a server. If the requested resource is found on the server, it will then be sent back to the client.
+The PUT method replaces existing data or creates data if it does not exist. If you use PUT many times, it will have no effect — there will only be one copy of the dataset on the server.</description>
+    </item>
     
     <item>
       <title>Tech day - machine learning</title>

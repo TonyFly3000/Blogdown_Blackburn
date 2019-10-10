@@ -1,0 +1,71 @@
+---
+title: Machine Learning APIs by Google Cloud Training
+author: ''
+date: '2019-09-27'
+slug: machine-learning-apis-by-google-cloud-training
+categories: []
+tags: []
+description: 'Machine Learning APIs by Google Cloud Training'
+topics: []
+---
+
+https://google.qwiklabs.com/quests/32
+
+
+# Introduction to APIs in Google
+The *GET* request method is used by a client to fetch data from a server. If the requested resource is found on the server, it will then be sent back to the client.
+
+
+The *PUT* method replaces existing data or creates data if it does not exist. If you use PUT many times, it will have no effect — there will only be one copy of the dataset on the server.
+
+
+The *POST* method is used primarily to create new resources. Using POST many times will add data in multiple places on the server. It is recommended to use PUT to update resources and POST to create new resources.
+
+The *DELETE* method will remove data or resources specified by the client on a server.
+
+
+RESTful APIs use either XML or JSON (JavaScript Object Notation) as file formats for data held in the body of an HTTP request method.
+
+
+
+JSON example
+{
+	"Name": "Julie",
+	"Hometown": "Los Angeles, CA",
+	"Age": 28
+	"food":["apple:,"fish"]
+}
+
+https://jsonlint.com/ can vaild your JSON file
+
+
+# Extract, Analyze, and Translate Text from Images with the Cloud ML APIs
+
+
+# Classify Text into Categories with the Natural Language API
+
+
+# Detect Labels, Faces, and Landmarks in Images with the Cloud Vision API
+
+
+# Entity and Sentiment Analysis with the Natural Language API
+
+
+
+# Awwvision: Cloud Vision API from a Kubernetes Cluster
+
+
+# Classify Images of Clouds in the Cloud with AutoML Vision
+
+
+
+# Implementing an AI Chatbot with Dialogflow
+
+
+
+# Cloud ML Engine: Qwik Start
+
+
+
+
+
