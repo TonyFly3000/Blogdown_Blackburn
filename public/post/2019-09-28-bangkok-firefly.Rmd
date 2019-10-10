@@ -9,6 +9,9 @@ description: 'Bangkok Firefly'
 topics: []
 ---
 
+
+
 <video width="760" height="465" controls>
-  <source src="https://media.qyer.com/inspire/source/20180416/yinghuochong.mp4" type="video/mp4">
+  <source src="/post/bangkok-firefly/firefly.mp4" type="video/mp4">
 </video>
+
