@@ -1,7 +1,7 @@
 ---
 title: Bangkok Firefly2
 author: ''
-date: '2019-09-30'
+date: '2019-12-30'
 slug: bangkok-firefly2
 categories: []
 tags: []
