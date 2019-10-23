@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 13 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 18 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>2019 Kaggle day China</title>
+      <link>/post/2019-kaggle-day-china/</link>
+      <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019-kaggle-day-china/</guid>
+      <description>2019 Kaggle day China @ BeijingYufeng Guo from Google Cloud. His AI Adventures channel:
+https://www.youtube.com/playlist?list=PLIivdWyY5sqJxnwJhe3etaK7utrBiPBQ2
+Lesson from Kaggle GrandmasterCompetition:Aim for the stars! Predict which astronomical photos depict starsFirst place soluction :https://github.com/okotaku/kaggle_days_china
+</description>
+    </item>
     
     <item>
       <title>2019 ebay outing XIAN  西安</title>
