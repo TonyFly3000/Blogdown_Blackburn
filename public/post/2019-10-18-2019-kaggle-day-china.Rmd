@@ -28,6 +28,9 @@ https://www.youtube.com/playlist?list=PLIivdWyY5sqJxnwJhe3etaK7utrBiPBQ2
 
 # Lesson from Kaggle Grandmaster
 
+![](/post/2019-kaggle-day-china/IMG_3086.JPEG){width=700px height=550px}
+
+
 
 ![](/post/2019-kaggle-day-china/IMG_3091.JPEG){width=700px height=550px}
 
@@ -54,5 +57,9 @@ First place soluction :
 https://github.com/okotaku/kaggle_days_china
 
 
+# Beijing Food
+
+![](/post/2019-kaggle-day-china/IMG_3082.jpeg){width=700px height=500px}
 
 
+![](/post/2019-kaggle-day-china/IMG_3128.JPEG){width=700px height=500px}
