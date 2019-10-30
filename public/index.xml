@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 18 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 28 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tensorflow course by Udacity</title>
+      <link>/post/tensorflow-course-by-udacity/</link>
+      <pubDate>Mon, 28 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tensorflow-course-by-udacity/</guid>
+      <description>ContentIntro
+Introduction to Machine Learning
+Fashion MNIST
+Introduction to CNNs
+Going Further With CNNs
+Transfer Learning
+Saving and Loading Models
+Time Series Forecasting
+Appendix
+1) Intro2) Introduction to Machine Learningfrom __future__ import absolute_import, division, print_function, unicode_literalsimport tensorflow as tfimport numpy as npimport logginglogger = tf.get_logger()logger.setLevel(logging.ERROR)# datacelsius_q = np.array([-40, -10, 0, 8, 15, 22, 38], dtype=float)fahrenheit_a = np.</description>
+    </item>
     
     <item>
       <title>2019 Kaggle day China</title>
