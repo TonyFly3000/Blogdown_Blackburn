@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 18 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 04 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>One click update all R package </title>
+      <link>/post/one-click-update-all-r-package/</link>
+      <pubDate>Mon, 04 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/one-click-update-all-r-package/</guid>
+      <description>Thanks to Professor GuangchuangYu’s [https://github.com/GuangchuangYu] Package.
+check which mirror is the fastest to download fromIt may take 5-10 mins since its testing around all 100 mirrors speed.
+devtools::install_github(&amp;quot;GuangchuangYu/mirrorselect&amp;quot;)mirror_list=utils::getCRANmirrors()$URLmirror_speed &amp;lt;- mirrorselect(mirror_list)head(mirror_speed)download one package with fastest mirrorinstall.packages(&amp;#39;RMySQL&amp;#39;, repos=&amp;#39;https://cloud.r-project.org&amp;#39;)set fastest mirror for all package downloadoptions(repos = &amp;quot;https://cloud.r-project.org&amp;quot;)one click update all R packagedevtools::install_github(&amp;quot;GuangchuangYu/rvcheck&amp;quot;)library(rvcheck)update_all()Check installed R package location, The first one is the default path</description>
+    </item>
     
     <item>
       <title>2019 Kaggle day China</title>

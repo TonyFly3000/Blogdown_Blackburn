@@ -1,0 +1,60 @@
+---
+title: 'One click update all R package '
+author: ''
+date: '2019-11-04'
+slug: one-click-update-all-r-package
+categories: []
+tags: []
+description: 'One click update all R package'
+topics: []
+---
+
+Thanks to Professor GuangchuangYu's [https://github.com/GuangchuangYu] Package.
+
+
+# check which mirror is the fastest to download from
+
+It may take 5-10 mins since its testing around all 100 mirrors speed.
+```{R message=FALSE ,eval = FALSE}
+devtools::install_github("GuangchuangYu/mirrorselect")
+mirror_list=utils::getCRANmirrors()$URL
+
+mirror_speed <- mirrorselect(mirror_list)
+head(mirror_speed)
+```
+
+
+# download one package with fastest mirror
+
+```{R message=FALSE ,eval = FALSE}
+install.packages('RMySQL', repos='https://cloud.r-project.org')
+```
+
+
+# set fastest mirror for all package download 
+
+```{R message=FALSE ,warning = FALSE}
+options(repos = "https://cloud.r-project.org")
+
+```
+
+# one click update all R package
+
+```{R message=FALSE ,eval = FALSE}
+
+devtools::install_github("GuangchuangYu/rvcheck")
+library(rvcheck)
+update_all()
+```
+
+Check installed R package location, The first one is the default path
+
+```{R message=FALSE ,eval = FALSE}
+.libPaths()
+```
+
+list installed R package folder
+```{R message=FALSE ,eval = FALSE}
+head(list.files(.libPaths()))
+```
+

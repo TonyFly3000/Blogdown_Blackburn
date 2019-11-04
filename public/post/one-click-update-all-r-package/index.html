@@ -4,10 +4,10 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="2019 Kaggle day China">
+  <meta name="description" content="One click update all R package">
   <meta name="generator" content="Hugo 0.51" />
 
-  <title>2019 Kaggle day China &middot; Tony Duan</title>
+  <title>One click update all R package  &middot; Tony Duan</title>
 
   
   
@@ -223,7 +223,7 @@
 
 
 <div class="header">
-  <h1>2019 Kaggle day China</h1>
+  <h1>One click update all R package </h1>
 </div>
 <div class="content">
 
@@ -231,7 +231,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>18 Oct 2019, 00:00</time>
+    <time>04 Nov 2019, 00:00</time>
   </div>
 
   
@@ -251,35 +251,33 @@
   
 
 
-<div id="kaggle-day-china-beijing" class="section level1">
-<h1>2019 Kaggle day China @ Beijing</h1>
-<p><img src="/post/2019-kaggle-day-china/IMG_3087.JPEG" width="700" height="550" /></p>
-<p><img src="/post/2019-kaggle-day-china/IMG_3089.JPEG" width="700" height="550" /></p>
-<p><img src="/post/2019-kaggle-day-china/IMG_3124.JPEG" width="700" height="550" /></p>
-<p>Yufeng Guo from Google Cloud. His AI Adventures channel:</p>
-<p><a href="https://www.youtube.com/playlist?list=PLIivdWyY5sqJxnwJhe3etaK7utrBiPBQ2" class="uri">https://www.youtube.com/playlist?list=PLIivdWyY5sqJxnwJhe3etaK7utrBiPBQ2</a></p>
-<p><img src="/post/2019-kaggle-day-china/IMG_3126.JPEG" width="700" height="550" /></p>
+<p>Thanks to Professor GuangchuangYu’s [<a href="https://github.com/GuangchuangYu" class="uri">https://github.com/GuangchuangYu</a>] Package.</p>
+<div id="check-which-mirror-is-the-fastest-to-download-from" class="section level1">
+<h1>check which mirror is the fastest to download from</h1>
+<p>It may take 5-10 mins since its testing around all 100 mirrors speed.</p>
+<pre class="r"><code>devtools::install_github(&quot;GuangchuangYu/mirrorselect&quot;)
+mirror_list=utils::getCRANmirrors()$URL
+
+mirror_speed &lt;- mirrorselect(mirror_list)
+head(mirror_speed)</code></pre>
 </div>
-<div id="lesson-from-kaggle-grandmaster" class="section level1">
-<h1>Lesson from Kaggle Grandmaster</h1>
-<p><img src="/post/2019-kaggle-day-china/IMG_3086.JPEG" width="700" height="550" /></p>
-<p><img src="/post/2019-kaggle-day-china/IMG_3091.JPEG" width="700" height="550" /></p>
-<p><img src="/post/2019-kaggle-day-china/IMG_3108.JPEG" width="700" height="550" /></p>
-<p><img src="/post/2019-kaggle-day-china/IMG_3113.JPEG" width="700" height="550" /></p>
-<p><img src="/post/2019-kaggle-day-china/IMG_3114.JPEG" width="700" height="550" /></p>
-<p><img src="/post/2019-kaggle-day-china/IMG_3120.JPG" width="700" height="550" /></p>
-<p><img src="/post/2019-kaggle-day-china/IMG_3098.JPEG" width="700" height="550" /></p>
-<p><img src="/post/2019-kaggle-day-china/IMG_3136.JPG" width="700" height="500" /></p>
+<div id="download-one-package-with-fastest-mirror" class="section level1">
+<h1>download one package with fastest mirror</h1>
+<pre class="r"><code>install.packages(&#39;RMySQL&#39;, repos=&#39;https://cloud.r-project.org&#39;)</code></pre>
 </div>
-<div id="competitionaim-for-the-stars-predict-which-astronomical-photos-depict-stars" class="section level1">
-<h1>Competition:Aim for the stars! Predict which astronomical photos depict stars</h1>
-<p>First place soluction :
-<a href="https://github.com/okotaku/kaggle_days_china" class="uri">https://github.com/okotaku/kaggle_days_china</a></p>
+<div id="set-fastest-mirror-for-all-package-download" class="section level1">
+<h1>set fastest mirror for all package download</h1>
+<pre class="r"><code>options(repos = &quot;https://cloud.r-project.org&quot;)</code></pre>
 </div>
-<div id="beijing-food" class="section level1">
-<h1>Beijing Food</h1>
-<p><img src="/post/2019-kaggle-day-china/IMG_3082.jpeg" width="700" height="500" /></p>
-<p><img src="/post/2019-kaggle-day-china/IMG_3128.JPEG" width="700" height="500" /></p>
+<div id="one-click-update-all-r-package" class="section level1">
+<h1>one click update all R package</h1>
+<pre class="r"><code>devtools::install_github(&quot;GuangchuangYu/rvcheck&quot;)
+library(rvcheck)
+update_all()</code></pre>
+<p>Check installed R package location, The first one is the default path</p>
+<pre class="r"><code>.libPaths()</code></pre>
+<p>list installed R package folder</p>
+<pre class="r"><code>head(list.files(.libPaths()))</code></pre>
 </div>
 
 
@@ -287,13 +285,13 @@
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="/post/2019-ebay-outing-xian/"><i class="fa fa-chevron-left"></i></a>
+    <a href="/post/2019-kaggle-day-china/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="/post/2019-ebay-outing-xian/">2019 ebay outing XIAN  西安</a>
+      <a href="/post/2019-kaggle-day-china/">2019 Kaggle day China</a>
     </nav>
     
   </div>
@@ -302,14 +300,8 @@
   </div>
   <div class="pure-u-10-24">
     
-    <nav class="next">
-      <a href="/post/one-click-update-all-r-package/">One click update all R package </a>
-    </nav>
-    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="/post/one-click-update-all-r-package/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
