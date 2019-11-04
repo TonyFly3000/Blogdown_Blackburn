@@ -12,7 +12,7 @@ topics: []
 Thanks to Professor GuangchuangYu's [https://github.com/GuangchuangYu] Package.
 
 
-# check which mirror is the fastest to download from
+# 1.check which mirror is the fastest to download from
 
 It may take 5-10 mins since its testing around all 100 mirrors speed.
 ```{R message=FALSE ,eval = FALSE}
@@ -24,21 +24,21 @@ head(mirror_speed)
 ```
 
 
-# download one package with fastest mirror
+# 2.download one package with fastest mirror
 
 ```{R message=FALSE ,eval = FALSE}
 install.packages('RMySQL', repos='https://cloud.r-project.org')
 ```
 
 
-# set fastest mirror for all package download 
+# 3.set fastest mirror for all package download 
 
 ```{R message=FALSE ,warning = FALSE}
 options(repos = "https://cloud.r-project.org")
 
 ```
 
-# one click update all R package
+# 4.one click update all R package
 
 ```{R message=FALSE ,eval = FALSE}
 

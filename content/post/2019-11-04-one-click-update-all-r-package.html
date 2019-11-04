@@ -13,7 +13,7 @@ topics: []
 
 <p>Thanks to Professor GuangchuangYu’s [<a href="https://github.com/GuangchuangYu" class="uri">https://github.com/GuangchuangYu</a>] Package.</p>
 <div id="check-which-mirror-is-the-fastest-to-download-from" class="section level1">
-<h1>check which mirror is the fastest to download from</h1>
+<h1>1.check which mirror is the fastest to download from</h1>
 <p>It may take 5-10 mins since its testing around all 100 mirrors speed.</p>
 <pre class="r"><code>devtools::install_github(&quot;GuangchuangYu/mirrorselect&quot;)
 mirror_list=utils::getCRANmirrors()$URL
@@ -22,15 +22,15 @@ mirror_speed &lt;- mirrorselect(mirror_list)
 head(mirror_speed)</code></pre>
 </div>
 <div id="download-one-package-with-fastest-mirror" class="section level1">
-<h1>download one package with fastest mirror</h1>
+<h1>2.download one package with fastest mirror</h1>
 <pre class="r"><code>install.packages(&#39;RMySQL&#39;, repos=&#39;https://cloud.r-project.org&#39;)</code></pre>
 </div>
 <div id="set-fastest-mirror-for-all-package-download" class="section level1">
-<h1>set fastest mirror for all package download</h1>
+<h1>3.set fastest mirror for all package download</h1>
 <pre class="r"><code>options(repos = &quot;https://cloud.r-project.org&quot;)</code></pre>
 </div>
 <div id="one-click-update-all-r-package" class="section level1">
-<h1>one click update all R package</h1>
+<h1>4.one click update all R package</h1>
 <pre class="r"><code>devtools::install_github(&quot;GuangchuangYu/rvcheck&quot;)
 library(rvcheck)
 update_all()</code></pre>

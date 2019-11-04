@@ -19,8 +19,8 @@
       
       <guid>/post/one-click-update-all-r-package/</guid>
       <description>Thanks to Professor GuangchuangYu’s [https://github.com/GuangchuangYu] Package.
-check which mirror is the fastest to download fromIt may take 5-10 mins since its testing around all 100 mirrors speed.
-devtools::install_github(&amp;quot;GuangchuangYu/mirrorselect&amp;quot;)mirror_list=utils::getCRANmirrors()$URLmirror_speed &amp;lt;- mirrorselect(mirror_list)head(mirror_speed)download one package with fastest mirrorinstall.packages(&amp;#39;RMySQL&amp;#39;, repos=&amp;#39;https://cloud.r-project.org&amp;#39;)set fastest mirror for all package downloadoptions(repos = &amp;quot;https://cloud.r-project.org&amp;quot;)one click update all R packagedevtools::install_github(&amp;quot;GuangchuangYu/rvcheck&amp;quot;)library(rvcheck)update_all()Check installed R package location, The first one is the default path</description>
+1.check which mirror is the fastest to download fromIt may take 5-10 mins since its testing around all 100 mirrors speed.
+devtools::install_github(&amp;quot;GuangchuangYu/mirrorselect&amp;quot;)mirror_list=utils::getCRANmirrors()$URLmirror_speed &amp;lt;- mirrorselect(mirror_list)head(mirror_speed)2.download one package with fastest mirrorinstall.packages(&amp;#39;RMySQL&amp;#39;, repos=&amp;#39;https://cloud.r-project.org&amp;#39;)3.set fastest mirror for all package downloadoptions(repos = &amp;quot;https://cloud.r-project.org&amp;quot;)4.one click update all R packagedevtools::install_github(&amp;quot;GuangchuangYu/rvcheck&amp;quot;)library(rvcheck)update_all()Check installed R package location, The first one is the default path</description>
     </item>
     
     <item>
@@ -29,7 +29,7 @@ devtools::install_github(&amp;quot;GuangchuangYu/mirrorselect&amp;quot;)mirror_
       <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019-kaggle-day-china/</guid>
-      <description>2019 Kaggle day China @ BeijingYufeng Guo from Google Cloud. His AI Adventures channel:
+      <description>2019 Kaggle day China @ BeijingYufeng Guo from Google Cloud. His AI Adventures channel:
 https://www.youtube.com/playlist?list=PLIivdWyY5sqJxnwJhe3etaK7utrBiPBQ2
 Lesson from Kaggle GrandmasterCompetition:Aim for the stars! Predict which astronomical photos depict starsFirst place soluction :https://github.com/okotaku/kaggle_days_china
 Beijing Food</description>
@@ -41,7 +41,7 @@ https://www.youtube.com/playlist?list=PLIivdWyY5sqJxnwJhe3etaK7utrBiPBQ2
       <pubDate>Sun, 13 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019-ebay-outing-xian/</guid>
-      <description>2019 ebay Annual dinnerXiAn CityPreparation</description>
+      <description>2019 ebay Annual dinnerXiAn CityPreparation</description>
     </item>
     
     <item>
@@ -69,7 +69,7 @@ https://www.youtube.com/playlist?list=PLIivdWyY5sqJxnwJhe3etaK7utrBiPBQ2
       <pubDate>Sun, 29 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/bangkok-firefly/</guid>
-      <description></description>
+      <description></description>
     </item>
     
     <item>
@@ -87,7 +87,7 @@ https://www.youtube.com/playlist?list=PLIivdWyY5sqJxnwJhe3etaK7utrBiPBQ2
       <pubDate>Thu, 19 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/ebay-connect/</guid>
-      <description>BBQ Pork rice with chicken wing and sunny egg from God of Cookery香港金牌茶餐厅
+      <description>BBQ Pork rice with chicken wing and sunny egg from God of Cookery香港金牌茶餐厅
 地址:深圳华强北振华路109号
 Iron Cow Taiwanese Beef Noodles鐵牛台灣牛肉麵
 地址:旺角彌敦道688號旺角中心1期地庫A舖
@@ -100,7 +100,7 @@ https://www.youtube.com/playlist?list=PLIivdWyY5sqJxnwJhe3etaK7utrBiPBQ2
       <pubDate>Sun, 15 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/family-day/</guid>
-      <description>Yum chababy boom</description>
+      <description>Yum chababy boom</description>
     </item>
     
     <item>
@@ -119,7 +119,7 @@ Cant believe one year just past by. Wish time can go a little slower.</descripti
       <pubDate>Sat, 31 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/ufc-shenzhen/</guid>
-      <description>The New UFC champion Zhang Weili 张伟丽Monster energy drinkShenzhen Universiade Center Arena</description>
+      <description>The New UFC champion Zhang Weili 张伟丽Monster energy drinkShenzhen Universiade Center Arena</description>
     </item>
     
     <item>
@@ -137,7 +137,7 @@ Cant believe one year just past by. Wish time can go a little slower.</descripti
       <pubDate>Mon, 12 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/kuala-lumpur-singapore/</guid>
-      <description>All about Durian Musang KingNasi Lamak ,Prawn noodel &amp;amp; Roti tissueBah-Kut-Teh , Roti Prata and icecream sandwishNew Shopping mall Jade @ Changi Airport</description>
+      <description>All about Durian Musang KingNasi Lamak ,Prawn noodel &amp;amp; Roti tissueBah-Kut-Teh , Roti Prata and icecream sandwishNew Shopping mall Jade @ Changi Airport</description>
     </item>
     
     <item>
@@ -146,7 +146,7 @@ Cant believe one year just past by. Wish time can go a little slower.</descripti
       <pubDate>Fri, 02 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/one-night-in-chengdu/</guid>
-      <description>无早 CafeHot pot</description>
+      <description>无早 CafeHot pot</description>
     </item>
     
     <item>
@@ -180,7 +180,7 @@ rm new_test.txt 删除文件夹 backup</description>
 packagelibrary(tidyverse)library(dplyr)library(scales)library(ggplot2)library(readr)library(janitor)library(ggthemes)library(readxl)library(rayshader)library(sqldf)theme_set(theme_light())导入数据数据源: 中国统计局
 http://data.stats.gov.cn/
 https://www.kaggle.com/tduan007/china-marriage-and-divorce-data
-marriage001=read_csv(&amp;#39;marriage.csv&amp;#39;)divorce001=read_csv(&amp;#39;divorce.csv&amp;#39;)income001=read_excel(&amp;#39;income.xls&amp;#39;)head(marriage001)## # A tibble: 6 x 10## area `2017` `2016` `2015` `2014` `2013` `2012` `2011` `2010` `2009`## &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;## 1 北京市 15.2 16.6 16.6 17 16.4 17.4 17.</description>
+marriage001=read_csv(&amp;#39;marriage.csv&amp;#39;)divorce001=read_csv(&amp;#39;divorce.csv&amp;#39;)income001=read_excel(&amp;#39;income.xls&amp;#39;)head(marriage001)## # A tibble: 6 x 10## area `2017` `2016` `2015` `2014` `2013` `2012` `2011` `2010` `2009`## &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;## 1 北京市 15.2 16.6 16.6 17 16.4 17.4 17.3 13.</description>
     </item>
     
     <item>
@@ -189,7 +189,7 @@ marriage001=read_csv(&amp;#39;marriage.csv&amp;#39;)divorce001=read_csv(&amp;#3
       <pubDate>Wed, 03 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/shanghai-summer/</guid>
-      <description>Run into Youtuber Thomas 阿福Youtube channel:https://www.youtube.com/channel/UC689uDf0ryZniKpuSK9ESTw/videos
+      <description>Run into Youtuber Thomas 阿福Youtube channel:https://www.youtube.com/channel/UC689uDf0ryZniKpuSK9ESTw/videos
 bilibili Channel:https://space.bilibili.com/25807917
 favorite cafe : Jamaica Blue地址:上海九江路700号南新雅大酒店1楼
 One man GymOne man Hot potThe Bund from a new angle</description>
@@ -217,7 +217,7 @@ vector001 is numeric type and Vector structurevector001=c(1,2,3,4,5)vector001
 可参考【在 Google Cloud 安装 R studio server】： https://tduan.netlify.com/post/google-cloud-r-studio-server/
 安装 keras package如果你的计算环境有GPU,可以安装GPU版本。install_tensorflow(gpu = T)
 install.packages(&amp;#39;devtools&amp;#39;)devtools::install_github(&amp;quot;rstudio/keras&amp;quot;)library(keras)install_keras()查看 tensorflow 版本。使用的是 tensorflow 1.10.0 (有点落后，主要是懒得更新)。python 版本3.6
-library(keras)library(reticulate) tensorflow::tf_config() ## TensorFlow v1.10.0 (C:\Users\User\ANACON~2\envs\R-TENS~1\lib\site-packages\keras\__init__.p)## Python v3.6 (C:\Users\User\Anaconda3\envs\r-tensorflow\python.</description>
+library(keras)library(reticulate) tensorflow::tf_config() ## TensorFlow v1.10.0 (C:\Users\User\ANACON~2\envs\R-TENS~1\lib\site-packages\keras\__init__.p)## Python v3.6 (C:\Users\User\Anaconda3\envs\r-tensorflow\python.exe)查看 keras 版本为2.</description>
     </item>
     
     <item>
@@ -261,7 +261,7 @@ IAM &amp;amp; admin - &amp;gt; Quotas选GPUEDIT QUOTA加GPU QUOTA -&amp;gt
       <pubDate>Fri, 21 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/ebay-baseball/</guid>
-      <description></description>
+      <description></description>
     </item>
     
     <item>
@@ -282,7 +282,7 @@ PPT:https://github.com/JayYip/deep-learning-nlp-notes/blob/master/colab-talk-she
       <pubDate>Fri, 31 May 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/google-cloud-platform-gcp-trainning-by-gdg/</guid>
-      <description>GCP Fundamentals:Core Infrastructure Traininghttps://www.huodongxing.com/event/4490855305500
+      <description>GCP Fundamentals:Core Infrastructure Traininghttps://www.huodongxing.com/event/4490855305500
 By Eefy LinGCP launchAlways good food at GDGCompletedCourse Slice:0_Course_Intro.pdf
 1_Introducing_Google_Cloud_Platform.pdf
 2_Getting_started_with_Google_Cloud_Platform.pdf
@@ -302,7 +302,7 @@ By Eefy LinGCP launchAlways good food at GDGCompletedCourse Slice:0_Co
       <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019-q2-ebay-seller-seimnar-guangzhou-shenzhen/</guid>
-      <description>2019 Q2 ebay Seller Seimnar @ Guangzhou and Shenzhen.jpg Coffee</description>
+      <description>2019 Q2 ebay Seller Seimnar @ Guangzhou and Shenzhen.jpg Coffee</description>
     </item>
     
     <item>
@@ -311,7 +311,7 @@ By Eefy LinGCP launchAlways good food at GDGCompletedCourse Slice:0_Co
       <pubDate>Sat, 18 May 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/ai-from-the-data-center-to-the-edge-training-by-intel/</guid>
-      <description>AI From the Data Center to the Edge workshop by IntelStolen Car model Data set:http://vmmrdb.cecsresearch.org/
+      <description>AI From the Data Center to the Edge workshop by IntelStolen Car model Data set:http://vmmrdb.cecsresearch.org/
 jupyter notebook:Part1-Exploratory_Data_Analysis
 Part2-Training_InceptionV3
 Part3-Model_Analysis
@@ -329,7 +329,7 @@ P0.ipynb
       <pubDate>Thu, 02 May 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/kyoto/</guid>
-      <description>Location:library(leaflet)library(ggmap)location=geocode(&amp;quot;Kyoto&amp;quot;, source = &amp;quot;dsk&amp;quot;)lon=location$lonlat=location$latm &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=lon, lat=lat, zoom = 08) %&amp;gt;%addMarkers(lng=lon, lat=lat, popup=&amp;quot;Kyoto&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[35.02107,135.75385,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;Kyoto&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[35.02107,135.75385],8,[]],&#34;limits&#34;:{&#34;lat&#34;:[35.02107,35.02107],&#34;lng&#34;:[135.75385,135.75385]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}@ 千本鸟居
+      <description>Location:library(leaflet)library(ggmap)location=geocode(&amp;quot;Kyoto&amp;quot;, source = &amp;quot;dsk&amp;quot;)lon=location$lonlat=location$latm &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=lon, lat=lat, zoom = 08) %&amp;gt;%addMarkers(lng=lon, lat=lat, popup=&amp;quot;Kyoto&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[35.02107,135.75385,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;Kyoto&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[35.02107,135.75385],8,[]],&#34;limits&#34;:{&#34;lat&#34;:[35.02107,35.02107],&#34;lng&#34;:[135.75385,135.75385]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}@ 千本鸟居
 @ 伏見稻荷大社
 黑毛和牛丼 @ Red Rock 地址:京都府京都市中京區鬆ケ枝町
 白烧鳗鱼饭 @ 祇をん松乃 地址:京都府京都市東山区四条南座東4軒目
@@ -342,7 +342,7 @@ P0.ipynb
       <pubDate>Wed, 01 May 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/osaka-food-blog/</guid>
-      <description>Location:library(leaflet)library(ggmap)location=geocode(&amp;quot;Osaka&amp;quot;, source = &amp;quot;dsk&amp;quot;)lon=location$lonlat=location$latm &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=lon, lat=lat, zoom = 08) %&amp;gt;%addMarkers(lng=lon, lat=lat, popup=&amp;quot;Osaka&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[null,null,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;Osaka&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[null,null],8,[]],&#34;limits&#34;:[]},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}双重幸福拉面 @ 花丸軒地址：大阪府大阪市中央区難波1-2-1
+      <description>Location:library(leaflet)library(ggmap)location=geocode(&amp;quot;Osaka&amp;quot;, source = &amp;quot;dsk&amp;quot;)lon=location$lonlat=location$latm &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=lon, lat=lat, zoom = 08) %&amp;gt;%addMarkers(lng=lon, lat=lat, popup=&amp;quot;Osaka&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[null,null,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;Osaka&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[null,null],8,[]],&#34;limits&#34;:[]},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}双重幸福拉面 @ 花丸軒地址：大阪府大阪市中央区難波1-2-1
 寿司 @ 天下の台所 大起水産 地址： 大阪府大阪市中央區難波 5-1-60
 烤和牛饭@ 肉劇場 地址：大阪府大阪市中央区道頓堀2-2-2
 手冲咖啡 @ 星乃珈琲店 地址：大阪府大阪市中央区南船場3-10-11 D+北心斎橋 2F
@@ -355,7 +355,7 @@ P0.ipynb
       <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/wuyi-mountains/</guid>
-      <description>Location:library(leaflet)library(ggmap)location=geocode(&amp;quot;WUYI&amp;quot;, source = &amp;quot;dsk&amp;quot;)lon=location$lonlat=location$latm &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=lon, lat=lat, zoom = 08) %&amp;gt;%addMarkers(lng=lon, lat=lat, popup=&amp;quot;WUYI mountains&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[27.70167,117.98917,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;WUYI mountains&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[27.70167,117.98917],8,[]],&#34;limits&#34;:{&#34;lat&#34;:[27.70167,27.70167],&#34;lng&#34;:[117.98917,117.98917]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}</description>
+      <description>Location:library(leaflet)library(ggmap)location=geocode(&amp;quot;WUYI&amp;quot;, source = &amp;quot;dsk&amp;quot;)lon=location$lonlat=location$latm &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=lon, lat=lat, zoom = 08) %&amp;gt;%addMarkers(lng=lon, lat=lat, popup=&amp;quot;WUYI mountains&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[27.70167,117.98917,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;WUYI mountains&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[27.70167,117.98917],8,[]],&#34;limits&#34;:{&#34;lat&#34;:[27.70167,27.70167],&#34;lng&#34;:[117.98917,117.98917]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}</description>
     </item>
     
     <item>
@@ -364,7 +364,7 @@ P0.ipynb
       <pubDate>Thu, 21 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/bodypump-bodycombat/</guid>
-      <description></description>
+      <description></description>
     </item>
     
     <item>
@@ -385,7 +385,7 @@ P0.ipynb
       <pubDate>Tue, 12 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/2019q1-seller-seimnar/</guid>
-      <description>2019 Q1 ebay Seller Seimnar @ Guangzhou and Shenzhen&amp;amp; coffee</description>
+      <description>2019 Q1 ebay Seller Seimnar @ Guangzhou and Shenzhen&amp;amp; coffee</description>
     </item>
     
     <item>
@@ -394,7 +394,7 @@ P0.ipynb
       <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/pydata-hk-meetup-feb2019/</guid>
-      <description>https://www.meetup.com/PyData-Hong-Kong/events/258897818/
+      <description>https://www.meetup.com/PyData-Hong-Kong/events/258897818/
 Making the Big Data ecosystem work together with Python: Apache Arrow, Spark, Flink, Beam, and Dask by Holden Karau
 Cheess toastCheess noddle</description>
     </item>
@@ -405,7 +405,7 @@ Cheess toastCheess noddle</description>
       <pubDate>Mon, 04 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/happy-chinese-new-year-2019-the-year-of-pig/</guid>
-      <description>HometownUpper Hill Shenzhen</description>
+      <description>HometownUpper Hill Shenzhen</description>
     </item>
     
     <item>
@@ -414,7 +414,7 @@ Cheess toastCheess noddle</description>
       <pubDate>Sat, 19 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/a-b-testing-with-google-analytics-meetup/</guid>
-      <description>A/B testing with Google Analytics and OptimiseHost by 55 analytic and Aftership@Techtemple.meetup:http://www.huodongxing.com/event/8474882293500
+      <description>A/B testing with Google Analytics and OptimiseHost by 55 analytic and Aftership@Techtemple.meetup:http://www.huodongxing.com/event/8474882293500
 Summary:
 Company should provide tailor made content to increase customer satisfaction,engagement and ROI
 data value: opportunity-&amp;gt; data-&amp;gt; informaction-&amp;gt; solution-&amp;gt; decision
@@ -427,7 +427,7 @@ Summary:
       <pubDate>Fri, 18 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/mr-basketball-team/</guid>
-      <description>Mr Basketball team first game first win2019 target: Speed &amp;amp; Skill &amp;amp; Strength
+      <description>Mr Basketball team first game first win2019 target: Speed &amp;amp; Skill &amp;amp; Strength
 Mr Basketball team annual dinner</description>
     </item>
     
@@ -464,7 +464,7 @@ JSON API data from https://cranlogs.r-pkg.org/
       <pubDate>Tue, 25 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/christmas-2018/</guid>
-      <description>Christmas party @ShenzhenChristmas party @ShanghaiChristmas gift@Jamaica Blue</description>
+      <description>Christmas party @ShenzhenChristmas party @ShanghaiChristmas gift@Jamaica Blue</description>
     </item>
     
     <item>
@@ -497,7 +497,7 @@ JSON API data from https://cranlogs.r-pkg.org/
       <pubDate>Tue, 04 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/different-between-male-and-female/</guid>
-      <description>TED talk:
+      <description>TED talk:
 male create serotonin(血清素) 52% faster then female which relate to emotion,motivation ,memory and sleep. That why male are easier to forget unhappy thing.
 on average , each day female speak 20K words and male speak 7k words. Along with the growth of the age, female even speak more and male even speak less.
 </description>
@@ -509,7 +509,7 @@ JSON API data from https://cranlogs.r-pkg.org/
       <pubDate>Fri, 30 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/cailan-painting/</guid>
-      <description>雙鬢斑斑不悔今生狂妄欲上青天攬明月From 蔡瀾Blog：https://bobostory.wordpress.com/
+      <description>雙鬢斑斑不悔今生狂妄欲上青天攬明月From 蔡瀾Blog：https://bobostory.wordpress.com/
 </description>
     </item>
     
@@ -519,7 +519,7 @@ JSON API data from https://cranlogs.r-pkg.org/
       <pubDate>Thu, 29 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/hadoop-and-relational-database-video/</guid>
-      <description>SQL vs NO SQLUnderstanding MongoDBRDBMS vs Hadoop</description>
+      <description>SQL vs NO SQLUnderstanding MongoDBRDBMS vs Hadoop</description>
     </item>
     
     <item>
@@ -528,7 +528,7 @@ JSON API data from https://cranlogs.r-pkg.org/
       <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/r-conference-gz/</guid>
-      <description>R conference Guangzhou @ SUN YAT-SEN UNIVERSITYBack to school:
+      <description>R conference Guangzhou @ SUN YAT-SEN UNIVERSITYBack to school:
 topic:
 1.data visilztion2.AI in fintech3.Shiny development4.R package development
 Guangzhou : the capital of delicious foodat A 60+ year old Guangzhou style Rice noodle roll shop (@ 银记)：
@@ -542,7 +542,7 @@ Chaozhou fish ball noodles,all self make fish ball/beef ball/fish slices/fish du
       <pubDate>Sat, 24 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/talk-data-to-your-organization/</guid>
-      <description>Talk Data to your Organization by Ben Shields at MIT Sloan Sports Analytics Conference
+      <description>Talk Data to your Organization by Ben Shields at MIT Sloan Sports Analytics Conference
 Part 1Part 21.Define your objectiveWhat action do you want your audiences to talk?
 2.Analyze your audiencesCredibiltyFamiliarityBiaswhat in it for them
 3.Strucure your messageBottom linerationalecall to action
@@ -577,7 +577,7 @@ Part 1Part 21.Define your objectiveWhat action do you want your audiences 
 Saving and Loading Models
 Time Series Forecasting
 Appendix
-1) Intro2) Introduction to Machine Learningfrom __future__ import absolute_import, division, print_function, unicode_literalsimport tensorflow as tfimport numpy as npimport logginglogger = tf.get_logger()logger.setLevel(logging.ERROR)# datacelsius_q = np.</description>
+1) Intro2) Introduction to Machine Learningfrom __future__ import absolute_import, division, print_function, unicode_literalsimport tensorflow as tfimport numpy as npimport logginglogger = tf.get_logger()logger.setLevel(logging.ERROR)# datacelsius_q = np.array([-40, -10, 0, 8, 15, 22, 38], dtype=float)fahrenheit_a = np.</description>
     </item>
     
     <item>
@@ -596,7 +596,7 @@ http://cn.pycon.org/2018/en/city_shenzhen.html</description>
       <pubDate>Thu, 25 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/pydata-hk-meetup-oct/</guid>
-      <description>Second Pydata meetup @The Hong Kong Polytechnic University Z409:Hands-on with Data Visuzliation by Mr. Darren Chiu (https://www.linkedin.com/in/darrenchiu/)
+      <description>Second Pydata meetup @The Hong Kong Polytechnic University Z409:Hands-on with Data Visuzliation by Mr. Darren Chiu (https://www.linkedin.com/in/darrenchiu/)
 How can we know that a machine learning algorithm classifies and detects faults well? by Dr. Howard Cheung (https://www.linkedin.com/in/howard-cheung-energy-research/)
 https://www.meetup.com/PyData-Hong-Kong/events/255545312/
 </description>
@@ -608,7 +608,7 @@ http://cn.pycon.org/2018/en/city_shenzhen.html</description>
       <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/sanya/</guid>
-      <description>Location:library(leaflet)library(ggmap)location=geocode(&amp;quot;Sanya&amp;quot;, source = &amp;quot;dsk&amp;quot;)lon=location$lonlat=location$latm &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=lon, lat=lat, zoom = 05) %&amp;gt;%addMarkers(lng=lon, lat=lat, popup=&amp;quot;Sanya&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[18.24306,109.505,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;Sanya&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[18.24306,109.505],5,[]],&#34;limits&#34;:{&#34;lat&#34;:[18.24306,18.24306],&#34;lng&#34;:[109.505,109.505]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}ebay 3rd outingmusic</description>
+      <description>Location:library(leaflet)library(ggmap)location=geocode(&amp;quot;Sanya&amp;quot;, source = &amp;quot;dsk&amp;quot;)lon=location$lonlat=location$latm &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=lon, lat=lat, zoom = 05) %&amp;gt;%addMarkers(lng=lon, lat=lat, popup=&amp;quot;Sanya&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[18.24306,109.505,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;Sanya&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[18.24306,109.505],5,[]],&#34;limits&#34;:{&#34;lat&#34;:[18.24306,18.24306],&#34;lng&#34;:[109.505,109.505]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}ebay 3rd outingmusic</description>
     </item>
     
     <item>
@@ -617,7 +617,7 @@ http://cn.pycon.org/2018/en/city_shenzhen.html</description>
       <pubDate>Thu, 20 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/pydata-hk-meetup/</guid>
-      <description>My first Pydata meetup @The Hong Kong Polytechnic University:Event:https://www.meetup.com/PyData-Hong-Kong/events/254406736/
+      <description>My first Pydata meetup @The Hong Kong Polytechnic University:Event:https://www.meetup.com/PyData-Hong-Kong/events/254406736/
 Discovering Frequent Patterns in Time Series through Unsupervised Data Mining Techniques: the Case of the Energy Profiling in Buildings by Engineer Marco Savino Piscitelli
 Write Better Python Code by Mr. Anthony Chiu
 </description>
@@ -629,7 +629,7 @@ Discovering Frequent Patterns in Time Series through Unsupervised Data Mining Te
       <pubDate>Sun, 09 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/shanghai-seller-seminar-conference/</guid>
-      <description>Capital of statistic meetup at Shanghaihttp://2018shanghaisalon-5.eventdove.com/
+      <description>Capital of statistic meetup at Shanghaihttp://2018shanghaisalon-5.eventdove.com/
 Topic:
 1.Spark
 2.Genetic algorithm
@@ -652,7 +652,7 @@ Topic:
       <pubDate>Sun, 02 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/how-ai-can-save-our-humanity-by-kai-fu-lee/</guid>
-      <description>Kai-Fu Lee presented TED talk at Aug13 2018.
+      <description>Kai-Fu Lee presented TED talk at Aug13 2018.
 US invent and China applyChina 2017 18 Trillon USD transaction was made by mobile payment bigger than total China 2017 GDP ,13 Trillon.</description>
     </item>
     
@@ -683,7 +683,7 @@ print (iris.feature_names) # metadata: names of the features## [&amp;#39;sepal 
       <pubDate>Thu, 02 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/machine-learning-over-coffee-with-josh-gordon/</guid>
-      <description></description>
+      <description></description>
     </item>
     
     <item>
@@ -692,7 +692,7 @@ print (iris.feature_names) # metadata: names of the features## [&amp;#39;sepal 
       <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/how-overnight-shipping-works/</guid>
-      <description></description>
+      <description></description>
     </item>
     
     <item>
@@ -725,7 +725,7 @@ print (iris.feature_names) # metadata: names of the features## [&amp;#39;sepal 
       <pubDate>Thu, 03 May 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/seoul/</guid>
-      <description>Location:library(leaflet)library(ggmap)#location=geocode( &amp;quot;Seoul&amp;quot; )lon=127.00175lat=37.53555m &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=lon, lat=lat, zoom = 05) %&amp;gt;%addMarkers(lng=lon, lat=lat, popup=&amp;quot;Seoul&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[37.53555,127.00175,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;Seoul&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[37.53555,127.00175],5,[]],&#34;limits&#34;:{&#34;lat&#34;:[37.53555,37.53555],&#34;lng&#34;:[127.00175,127.00175]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}K POP at the AirportGinseng Chicken SoupA TWOSOME PLACEvery nice coffee shop.
+      <description>Location:library(leaflet)library(ggmap)#location=geocode( &amp;quot;Seoul&amp;quot; )lon=127.00175lat=37.53555m &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=lon, lat=lat, zoom = 05) %&amp;gt;%addMarkers(lng=lon, lat=lat, popup=&amp;quot;Seoul&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[37.53555,127.00175,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;Seoul&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[37.53555,127.00175],5,[]],&#34;limits&#34;:{&#34;lat&#34;:[37.53555,37.53555],&#34;lng&#34;:[127.00175,127.00175]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}K POP at the AirportGinseng Chicken SoupA TWOSOME PLACEvery nice coffee shop.
 Korean BBQ beefShake Shack</description>
     </item>
     
@@ -735,7 +735,7 @@ print (iris.feature_names) # metadata: names of the features## [&amp;#39;sepal 
       <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/taipei/</guid>
-      <description>Location:library(leaflet)library(ggmap)#location=geocode( &amp;quot;Taipei&amp;quot; )lon=121.53363 lat=25.01801m &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=lon, lat=lat, zoom = 05) %&amp;gt;%addMarkers(lng=lon, lat=lat, popup=&amp;quot;Taipei&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[25.01801,121.53363,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;Taipei&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[25.01801,121.53363],5,[]],&#34;limits&#34;:{&#34;lat&#34;:[25.01801,25.01801],&#34;lng&#34;:[121.53363,121.53363]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}ArrivalOn the License Plate, it say Taiwan provinceThe Best beef noodleNationalist Party of China</description>
+      <description>Location:library(leaflet)library(ggmap)#location=geocode( &amp;quot;Taipei&amp;quot; )lon=121.53363 lat=25.01801m &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=lon, lat=lat, zoom = 05) %&amp;gt;%addMarkers(lng=lon, lat=lat, popup=&amp;quot;Taipei&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[25.01801,121.53363,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;Taipei&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[25.01801,121.53363],5,[]],&#34;limits&#34;:{&#34;lat&#34;:[25.01801,25.01801],&#34;lng&#34;:[121.53363,121.53363]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}ArrivalOn the License Plate, it say Taiwan provinceThe Best beef noodleNationalist Party of China</description>
     </item>
     
     <item>
@@ -744,7 +744,7 @@ print (iris.feature_names) # metadata: names of the features## [&amp;#39;sepal 
       <pubDate>Fri, 30 Mar 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/tensorflow-dev-summit-2018/</guid>
-      <description>TensorFlow Dev Summit 2018Full playlist:
+      <description>TensorFlow Dev Summit 2018Full playlist:
 https://www.youtube.com/playlist?list=PLQY2H8rRoyvxjVx3zfw4vA4cvlKogyLNN
 </description>
     </item>
@@ -755,7 +755,7 @@ https://www.youtube.com/playlist?list=PLQY2H8rRoyvxjVx3zfw4vA4cvlKogyLNN
       <pubDate>Fri, 02 Feb 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/rstudio-conf-2018/</guid>
-      <description>I segment the talk into following groups:Get,clean,visualize,model,present,other
+      <description>I segment the talk into following groups:Get,clean,visualize,model,present,other
 Rstudio conference 2018 hosted during January 15 - 18 in Austin, TX
 Get:Clean:Visualize:Model:Machine Learning with R and TensorFlow - J.J. ALLAIREReinforcement learning in Minecraft with CNTK-R – Ali-Kazim ZaidiPresent:Other:</description>
     </item>
@@ -766,7 +766,7 @@ Get:Clean:Visualize:Model:Machine Learning with R and TensorFlow - J.J. A
       <pubDate>Fri, 12 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/singapore/</guid>
-      <description>Location:library(leaflet)library(ggmap)#location=geocode( &amp;quot;Singapore&amp;quot; )lon=103.81984lat=1.35208m &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=lon, lat=lat, zoom = 05) %&amp;gt;%addMarkers(lng=lon, lat=lat, popup=&amp;quot;Singapore&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[1.35208,103.81984,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;Singapore&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[1.35208,103.81984],5,[]],&#34;limits&#34;:{&#34;lat&#34;:[1.35208,1.35208],&#34;lng&#34;:[103.81984,103.81984]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}Andrews Wedding:</description>
+      <description>Location:library(leaflet)library(ggmap)#location=geocode( &amp;quot;Singapore&amp;quot; )lon=103.81984lat=1.35208m &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=lon, lat=lat, zoom = 05) %&amp;gt;%addMarkers(lng=lon, lat=lat, popup=&amp;quot;Singapore&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[1.35208,103.81984,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;Singapore&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[1.35208,103.81984],5,[]],&#34;limits&#34;:{&#34;lat&#34;:[1.35208,1.35208],&#34;lng&#34;:[103.81984,103.81984]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}Andrews Wedding:</description>
     </item>
     
     <item>
@@ -775,7 +775,7 @@ Get:Clean:Visualize:Model:Machine Learning with R and TensorFlow - J.J. A
       <pubDate>Thu, 30 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/tokyo/</guid>
-      <description>Location:library(leaflet)library(ggmap)#location=geocode( &amp;quot;Tokyo&amp;quot; )lon=139.29477lat=34.22558m &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=lon, lat=lat, zoom = 05) %&amp;gt;%addMarkers(lng=lon, lat=lat, popup=&amp;quot;Tokyo&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[34.22558,139.29477,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;Tokyo&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[34.22558,139.29477],5,[]],&#34;limits&#34;:{&#34;lat&#34;:[34.22558,34.22558],&#34;lng&#34;:[139.29477,139.29477]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}</description>
+      <description>Location:library(leaflet)library(ggmap)#location=geocode( &amp;quot;Tokyo&amp;quot; )lon=139.29477lat=34.22558m &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=lon, lat=lat, zoom = 05) %&amp;gt;%addMarkers(lng=lon, lat=lat, popup=&amp;quot;Tokyo&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[34.22558,139.29477,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;Tokyo&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[34.22558,139.29477],5,[]],&#34;limits&#34;:{&#34;lat&#34;:[34.22558,34.22558],&#34;lng&#34;:[139.29477,139.29477]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}</description>
     </item>
     
     <item>
@@ -784,7 +784,7 @@ Get:Clean:Visualize:Model:Machine Learning with R and TensorFlow - J.J. A
       <pubDate>Thu, 26 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/chongqing/</guid>
-      <description>Location:library(leaflet)library(ggmap)#location=geocode( &amp;quot;ChongQing&amp;quot; )lon=106.54793lat=29.55513m &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=lon, lat=lat, zoom = 05) %&amp;gt;%addMarkers(lng=lon, lat=lat, popup=&amp;quot;2017 ebay outing ChongQing&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[29.55513,106.54793,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;2017 ebay outing ChongQing&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[29.55513,106.54793],5,[]],&#34;limits&#34;:{&#34;lat&#34;:[29.55513,29.55513],&#34;lng&#34;:[106.54793,106.54793]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}My Second group photo in ebay family:</description>
+      <description>Location:library(leaflet)library(ggmap)#location=geocode( &amp;quot;ChongQing&amp;quot; )lon=106.54793lat=29.55513m &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=lon, lat=lat, zoom = 05) %&amp;gt;%addMarkers(lng=lon, lat=lat, popup=&amp;quot;2017 ebay outing ChongQing&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[29.55513,106.54793,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;2017 ebay outing ChongQing&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[29.55513,106.54793],5,[]],&#34;limits&#34;:{&#34;lat&#34;:[29.55513,29.55513],&#34;lng&#34;:[106.54793,106.54793]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}My Second group photo in ebay family:</description>
     </item>
     
     <item>
@@ -815,7 +815,7 @@ par(mfcol=c(3,3))par(mar=c(0, 0, 1.5, 0), xaxs=&amp;#39;i&amp;#39;, yaxs=&amp;#
       <pubDate>Wed, 15 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/tensorflow-dev-summit-2017/</guid>
-      <description>TensorFlow Dev Summit 2017Tensorflow 1.0 launchTensorflow support board ML .for exameple,K-means,SVM,Random Forestevent:https://events.withgoogle.com/tensorflow-dev-summit/
+      <description>TensorFlow Dev Summit 2017Tensorflow 1.0 launchTensorflow support board ML .for exameple,K-means,SVM,Random Forestevent:https://events.withgoogle.com/tensorflow-dev-summit/
 Full playlist:
 https://www.youtube.com/watch?v=4n1AHvDvVvw
 </description>
@@ -827,7 +827,7 @@ https://www.youtube.com/watch?v=4n1AHvDvVvw
       <pubDate>Sun, 25 Sep 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/jeju-island/</guid>
-      <description>Location:library(leaflet)library(ggmap)#location=geocode( &amp;quot;Jeju Island&amp;quot; )lon=126.52431 lat=33.49478m &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=lon, lat=lat, zoom = 05) %&amp;gt;%addMarkers(lng=lon, lat=lat, popup=&amp;quot;2016 ebay outing Jeju Island&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[33.49478,126.52431,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;2016 ebay outing Jeju Island&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[33.49478,126.52431],5,[]],&#34;limits&#34;:{&#34;lat&#34;:[33.49478,33.49478],&#34;lng&#34;:[126.52431,126.52431]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}My first group photo in ebay family:</description>
+      <description>Location:library(leaflet)library(ggmap)#location=geocode( &amp;quot;Jeju Island&amp;quot; )lon=126.52431 lat=33.49478m &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=lon, lat=lat, zoom = 05) %&amp;gt;%addMarkers(lng=lon, lat=lat, popup=&amp;quot;2016 ebay outing Jeju Island&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[33.49478,126.52431,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;2016 ebay outing Jeju Island&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[33.49478,126.52431],5,[]],&#34;limits&#34;:{&#34;lat&#34;:[33.49478,33.49478],&#34;lng&#34;:[126.52431,126.52431]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}My first group photo in ebay family:</description>
     </item>
     
     <item>
@@ -836,7 +836,7 @@ https://www.youtube.com/watch?v=4n1AHvDvVvw
       <pubDate>Sat, 20 Aug 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/beijing/</guid>
-      <description>Location:library(leaflet)library(ggmap)location=geocode(&amp;quot;Beijing&amp;quot;, source = &amp;quot;dsk&amp;quot;)lon=location$lonlat=location$latm &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=lon, lat=lat, zoom = 05) %&amp;gt;%addMarkers(lng=lon, lat=lat, popup=&amp;quot;Beijing&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[39.9075,116.39723,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;Beijing&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[39.9075,116.39723],5,[]],&#34;limits&#34;:{&#34;lat&#34;:[39.9075,39.9075],&#34;lng&#34;:[116.39723,116.39723]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}Beijng in winter:Sunshine Insurance Product recommedation Project:Sebastian</description>
+      <description>Location:library(leaflet)library(ggmap)location=geocode(&amp;quot;Beijing&amp;quot;, source = &amp;quot;dsk&amp;quot;)lon=location$lonlat=location$latm &amp;lt;- leaflet()%&amp;gt;%addTiles() %&amp;gt;% # Add default OpenStreetMap map tilessetView(lng=lon, lat=lat, zoom = 05) %&amp;gt;%addMarkers(lng=lon, lat=lat, popup=&amp;quot;Beijing&amp;quot;)m{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; OpenStreetMap contributors, CC-BY-SA&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[39.9075,116.39723,null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;Beijing&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;setView&#34;:[[39.9075,116.39723],5,[]],&#34;limits&#34;:{&#34;lat&#34;:[39.9075,39.9075],&#34;lng&#34;:[116.39723,116.39723]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}Beijng in winter:Sunshine Insurance Product recommedation Project:Sebastian</description>
     </item>
     
     <item>
@@ -856,7 +856,7 @@ https://www.youtube.com/watch?v=4n1AHvDvVvw
       <pubDate>Mon, 30 Apr 2012 00:00:00 +0000</pubDate>
       
       <guid>/post/aussie/</guid>
-      <description></description>
+      <description></description>
     </item>
     
     <item>
@@ -879,7 +879,8 @@ The PUT method replaces existing data or creates data if it does not exist. If y
       <description>“Scientists build to learn;Engineers learn to build” by Fred Brooks
 useR! 2019 take place on Toulouse France during July 9-12 2019http://www.user2019.fr/
 div.blue pre { background-color:lightblue; }div.blue pre.r { background-color:blue; }library(shiny)library(shinymeta)ui &amp;lt;- fluidPage(selectInput(&amp;quot;var&amp;quot;, label = &amp;quot;Choose a variable&amp;quot;, choices = names(cars)),verbatimTextOutput(&amp;quot;Summary&amp;quot;),verbatimTextOutput(&amp;quot;code&amp;quot;))Visualize:shinymeta by Joe Cheng
-shinymeta is a new package to enhance shinyapp with interactive &amp;amp; reproducibility</description>
+shinymeta is a new package to enhance shinyapp with interactive &amp;amp; reproducibility
+https://github.com/rstudio/shinymeta</description>
     </item>
     
     <item>
@@ -914,7 +915,7 @@ glimpse(ramen_ratings)## Observations: 3,180## Variables: 6## $ review_number
       <pubDate>Mon, 27 Jul 0201 00:00:00 +0000</pubDate>
       
       <guid>/post/introduction-to-git-for-data-science/</guid>
-      <description>开篇Part 1 Basic workflow.git 保存 文件里的变动
+      <description>开篇Part 1 Basic workflow.git 保存 文件里的变动
 git status
 git diff
 git diff data/northern.csv
