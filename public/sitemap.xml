@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/post/spartan-race-shenzhen-2019/</loc>
+    <lastmod>2019-11-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/one-click-update-all-r-package/</loc>
     <lastmod>2019-11-04T00:00:00+00:00</lastmod>
   </url>
@@ -484,7 +489,7 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2019-11-04T00:00:00+00:00</lastmod>
+    <lastmod>2019-11-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -520,7 +525,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-11-04T00:00:00+00:00</lastmod>
+    <lastmod>2019-11-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
