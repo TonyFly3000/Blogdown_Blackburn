@@ -18,13 +18,8 @@ topics: []
 
 
 # First time Spartan Race Volunteer
-![](/post/spartan-race-shenzhen-2019/IMG_3203.JPEG){width=700px height=550px}
 
-
-![](/post/spartan-race-shenzhen-2019/IMG_3211.JPEG){width=500px height=800px}
-
-
-![](/post/spartan-race-shenzhen-2019/IMG_3215.JPEG){width=500px height=600px}
+![](/post/spartan-race-shenzhen-2019/IMG_3215.JPEG){width=700px height=700px}
 
 
 # Elite Group Start 
