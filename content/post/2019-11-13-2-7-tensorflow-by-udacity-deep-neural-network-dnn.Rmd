@@ -10,6 +10,15 @@ topics: []
 ---
 
 
+```{r include = FALSE ,message=FALSE, warning = FALSE}
+library(reticulate)
+py_run_string("import os as os")
+py_run_string("os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = 'C:/Users/User/Anaconda3/Library/plugins/platforms'")
+```
+
+
+
+
 ```{python message=FALSE}
 print('hello')
 

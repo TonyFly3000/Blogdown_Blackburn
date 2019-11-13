@@ -11,14 +11,13 @@ topics: []
 
 
 
-
-
-
-```{python message=FALSE}
-import os
-os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = 'C:/Users/tduan/AppData/Local/Continuum/anaconda3/Library/plugins/platforms'
-
+```{r include = FALSE ,message=FALSE, warning = FALSE}
+library(reticulate)
+py_run_string("import os as os")
+py_run_string("os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = 'C:/Users/User/Anaconda3/Library/plugins/platforms'")
 ```
+
+
 
 
 
