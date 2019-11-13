@@ -572,6 +572,35 @@ Part 1Part 21.Define your objectiveWhat action do you want your audiences 
     </item>
     
     <item>
+      <title>(1/7)TensorFlow by Udacity:Introduction</title>
+      <link>/post/intro-to-tensorflow-for-deep-learning-by-udacity/</link>
+      <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/intro-to-tensorflow-for-deep-learning-by-udacity/</guid>
+      <description>1 Introhttps://www.udacity.com/course/intro-to-tensorflow-for-deep-learning--ud187
+https://www.kaggle.com/tduan007/tensorflow-by-udacity
+2 Introduction to Machine Learningimport tensorflow as tfimport numpy as np# datacelsius_q = np.array([-40, -10, 0, 8, 15, 22, 38], dtype=float)fahrenheit_a = np.array([-40, 14, 32, 46, 59, 72, 100], dtype=float)for i,c in enumerate(celsius_q):print(&amp;quot;{} degrees Celsius = {} degrees Fahrenheit&amp;quot;.format(c, fahrenheit_a[i]))## -40.0 degrees Celsius = -40.0 degrees Fahrenheit## -10.0 degrees Celsius = 14.0 degrees Fahrenheit## 0.</description>
+    </item>
+    
+    <item>
+      <title>Object detection in Shiny</title>
+      <link>/post/object-detection-in-shiny/</link>
+      <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/object-detection-in-shiny/</guid>
+      <description>Object detection in Shiny.
+Host in shinyapp.io
+Model:
+Cat vs Dog CNN model
+VGG16 transfer learning Cat vs Dog CNN model
+VGG16 transfer learning Cat vs Dog CNN model
+mobilenet model
+Restnet50 model
+tiny Yolo model
+</description>
+    </item>
+    
+    <item>
       <title>Tensorflow course by Udacity</title>
       <link>/post/tensorflow-course-by-udacity/</link>
       <pubDate>Sun, 28 Oct 2018 00:00:00 +0000</pubDate>

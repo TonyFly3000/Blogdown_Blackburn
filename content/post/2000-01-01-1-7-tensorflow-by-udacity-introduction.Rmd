@@ -1,0 +1,107 @@
+---
+title: (1/7)TensorFlow by Udacity:introduciton
+author: ''
+date: '2000-01-01'
+slug: 1-7-tensorflow-by-udacity-introduction
+categories: [R]
+tags: [R]
+description: '(1/7)TensorFlow by Udacity:introduciton'
+topics: []
+---
+
+
+
+
+
+
+```{python message=FALSE}
+import os
+os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = 'C:/Users/tduan/AppData/Local/Continuum/anaconda3/Library/plugins/platforms'
+
+```
+
+
+
+```{python message=FALSE}
+import tensorflow as tf
+
+import numpy as np
+
+```
+
+
+
+
+```{python message=FALSE}
+import tensorflow as tf
+print(tf.__version__)
+
+```
+
+
+
+```{python message=FALSE}
+
+# data
+celsius_q    = np.array([-40, -10,  0,  8, 15, 22,  38],  dtype=float)
+fahrenheit_a = np.array([-40,  14, 32, 46, 59, 72, 100],  dtype=float)
+
+for i,c in enumerate(celsius_q):
+  print("{} degrees Celsius = {} degrees Fahrenheit".format(c, fahrenheit_a[i]))
+```
+
+
+
+```{python message=FALSE}
+# model
+l0 = tf.keras.layers.Dense(units=1, input_shape=[1])
+model = tf.keras.Sequential([l0])
+model = tf.keras.Sequential([
+  tf.keras.layers.Dense(units=1, input_shape=[1])
+])
+
+model.compile(loss='mean_squared_error',
+              optimizer=tf.keras.optimizers.Adam(0.1))
+
+```
+
+
+
+```{python message=FALSE}
+# trainning 
+history = model.fit(celsius_q, fahrenheit_a, epochs=500, verbose=False)
+print("Finished training the model")
+```
+
+
+
+
+
+```{python message=FALSE}
+
+# training statistics
+#import matplotlib.pyplot as plt
+#plt.xlabel('Epoch Number')
+#plt.ylabel("Loss Magnitude")
+#plt.plot(history.history['loss'])
+
+```
+
+
+
+```{python message=FALSE}
+# predict
+print(model.predict([100.0]))
+
+```
+
+
+
+```{python message=FALSE}
+# model weight
+print("These are the layer variables: {}".format(l0.get_weights()))
+
+```
+
+
+

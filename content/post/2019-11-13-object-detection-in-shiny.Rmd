@@ -1,0 +1,38 @@
+---
+title: Object detection in Shiny
+author: ''
+date: '2018-11-13'
+slug: object-detection-in-shiny
+categories: [R]
+tags: [R]
+description: 'Object detection in Shiny'
+topics: []
+---
+
+
+Object detection in Shiny. 
+
+Host in shinyapp.io
+
+Model:
+
+- Cat vs Dog CNN model
+
+- VGG16 transfer learning Cat vs Dog CNN model
+
+- VGG16 transfer learning Cat vs Dog CNN model
+
+- mobilenet model
+
+
+- Restnet50 model
+
+
+- tiny Yolo model
+
+
+
+
+
+
+

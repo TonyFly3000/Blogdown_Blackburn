@@ -1,0 +1,92 @@
+---
+title: (1/7)TensorFlow by Udacity:Introduction
+author: ''
+date: '2018-11-13'
+slug: intro-to-tensorflow-for-deep-learning-by-udacity
+categories: [R]
+tags: [R]
+description: '(1/7)TensorFlow by Udacity:Introduction'
+topics: []
+---
+
+
+
+<div id="intro" class="section level1">
+<h1>1 Intro</h1>
+<p><a href="https://www.udacity.com/course/intro-to-tensorflow-for-deep-learning--ud187" class="uri">https://www.udacity.com/course/intro-to-tensorflow-for-deep-learning--ud187</a></p>
+<p><a href="https://www.kaggle.com/tduan007/tensorflow-by-udacity" class="uri">https://www.kaggle.com/tduan007/tensorflow-by-udacity</a></p>
+</div>
+<div id="introduction-to-machine-learning" class="section level1">
+<h1>2 Introduction to Machine Learning</h1>
+<pre class="python"><code>
+import tensorflow as tf
+import numpy as np</code></pre>
+<pre class="python"><code># data
+celsius_q    = np.array([-40, -10,  0,  8, 15, 22,  38],  dtype=float)
+fahrenheit_a = np.array([-40,  14, 32, 46, 59, 72, 100],  dtype=float)
+
+for i,c in enumerate(celsius_q):
+  print(&quot;{} degrees Celsius = {} degrees Fahrenheit&quot;.format(c, fahrenheit_a[i]))
+</code></pre>
+<pre><code>## -40.0 degrees Celsius = -40.0 degrees Fahrenheit
+## -10.0 degrees Celsius = 14.0 degrees Fahrenheit
+## 0.0 degrees Celsius = 32.0 degrees Fahrenheit
+## 8.0 degrees Celsius = 46.0 degrees Fahrenheit
+## 15.0 degrees Celsius = 59.0 degrees Fahrenheit
+## 22.0 degrees Celsius = 72.0 degrees Fahrenheit
+## 38.0 degrees Celsius = 100.0 degrees Fahrenheit</code></pre>
+<pre class="python"><code># model
+l0 = tf.keras.layers.Dense(units=1, input_shape=[1])
+model = tf.keras.Sequential([l0])
+model = tf.keras.Sequential([
+  tf.keras.layers.Dense(units=1, input_shape=[1])
+])
+
+model.compile(loss=&#39;mean_squared_error&#39;,
+              optimizer=tf.keras.optimizers.Adam(0.1))</code></pre>
+<pre class="python"><code># trainning 
+history = model.fit(celsius_q, fahrenheit_a, epochs=500, verbose=False)
+print(&quot;Finished training the model&quot;)</code></pre>
+<pre><code>## Finished training the model</code></pre>
+<pre class="python"><code>import matplotlib.pyplot as plt
+plt.xlabel(&#39;Epoch Number&#39;)
+plt.ylabel(&quot;Loss Magnitude&quot;)
+plt.plot(history.history[&#39;loss&#39;])</code></pre>
+<p><img src="/post/2018-11-13-intro-to-tensorflow-for-deep-learning-by-udacity_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<pre class="python"><code># predict
+print(model.predict([100.0]))</code></pre>
+<pre><code>## [[211.33679]]</code></pre>
+<pre class="python"><code># model weight
+print(&quot;These are the layer variables: {}&quot;.format(l0.get_weights()))</code></pre>
+<pre><code>## These are the layer variables: [array([[0.46951687]], dtype=float32), array([0.], dtype=float32)]</code></pre>
+<pre class="python"><code># The first variable is close to ~1.8 and the second to ~32. These values (1.8 and 32) are the actual variables in the real conversion formula.
+
+l0 = tf.keras.layers.Dense(units=4, input_shape=[1])
+l1 = tf.keras.layers.Dense(units=4)
+l2 = tf.keras.layers.Dense(units=1)
+model = tf.keras.Sequential([l0, l1, l2])
+model.compile(loss=&#39;mean_squared_error&#39;, optimizer=tf.keras.optimizers.Adam(0.1))
+model.fit(celsius_q, fahrenheit_a, epochs=500, verbose=False)</code></pre>
+<pre><code>## &lt;tensorflow.python.keras.callbacks.History object at 0x0000000055A2E208&gt;</code></pre>
+<pre class="python"><code>print(&quot;Finished training the model&quot;)</code></pre>
+<pre><code>## Finished training the model</code></pre>
+<pre class="python"><code>print(model.predict([100.0]))</code></pre>
+<pre><code>## [[211.74744]]</code></pre>
+<pre class="python"><code>print(&quot;Model predicts that 100 degrees Celsius is: {} degrees Fahrenheit&quot;.format(model.predict([100.0])))</code></pre>
+<pre><code>## Model predicts that 100 degrees Celsius is: [[211.74744]] degrees Fahrenheit</code></pre>
+<pre class="python"><code>print(&quot;These are the l0 variables: {}&quot;.format(l0.get_weights()))</code></pre>
+<pre><code>## These are the l0 variables: [array([[-0.22746746, -0.5452237 ,  0.3883945 ,  0.2510561 ]],
+##       dtype=float32), array([-3.828024 , -3.8583148,  3.8900938,  3.5051243], dtype=float32)]</code></pre>
+<pre class="python"><code>print(&quot;These are the l1 variables: {}&quot;.format(l1.get_weights()))</code></pre>
+<pre><code>## These are the l1 variables: [array([[-0.33483055, -0.53672546, -0.5946221 , -1.4735287 ],
+##        [ 0.08465491,  0.65309113, -0.61907935, -0.78364617],
+##        [-0.13373408, -0.10562633,  0.8757022 ,  0.94776917],
+##        [-1.4000471 ,  1.1240149 , -0.029963  ,  0.08067834]],
+##       dtype=float32), array([-3.2209969,  1.4286207,  3.4845467,  3.9103267], dtype=float32)]</code></pre>
+<pre class="python"><code>print(&quot;These are the l2 variables: {}&quot;.format(l2.get_weights()))
+</code></pre>
+<pre><code>## These are the l2 variables: [array([[-0.67263764],
+##        [ 0.23666117],
+##        [ 0.5009767 ],
+##        [ 0.9919927 ]], dtype=float32), array([3.5660117], dtype=float32)]</code></pre>
+</div>

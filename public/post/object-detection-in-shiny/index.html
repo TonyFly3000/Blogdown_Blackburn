@@ -4,10 +4,10 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Tensorflow course by Udacity">
+  <meta name="description" content="Object detection in Shiny">
   <meta name="generator" content="Hugo 0.51" />
 
-  <title>Tensorflow course by Udacity &middot; Tony Duan</title>
+  <title>Object detection in Shiny &middot; Tony Duan</title>
 
   
   
@@ -223,7 +223,7 @@
 
 
 <div class="header">
-  <h1>Tensorflow course by Udacity</h1>
+  <h1>Object detection in Shiny</h1>
 </div>
 <div class="content">
 
@@ -231,7 +231,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>28 Oct 2018, 00:00</time>
+    <time>13 Nov 2018, 00:00</time>
   </div>
 
   
@@ -244,6 +244,13 @@
   
   
   
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="/tags/r">R</a>
+    
+  </div>
+  
   
 
 </div>
@@ -251,106 +258,30 @@
   
 
 
-<div id="content" class="section level1">
-<h1>Content</h1>
-<ol style="list-style-type: decimal">
-<li><p>Intro</p></li>
-<li><p>Introduction to Machine Learning</p></li>
-<li><p>Fashion MNIST</p></li>
-<li><p>Introduction to CNNs</p></li>
-<li><p>Going Further With CNNs</p></li>
-<li><p>Transfer Learning</p></li>
-<li><p>Saving and Loading Models</p></li>
-<li><p>Time Series Forecasting</p></li>
-<li><p>Appendix</p></li>
-</ol>
-</div>
-<div id="intro" class="section level1">
-<h1>1) Intro</h1>
-</div>
-<div id="introduction-to-machine-learning" class="section level1">
-<h1>2) Introduction to Machine Learning</h1>
-<pre class="python"><code>from __future__ import absolute_import, division, print_function, unicode_literals
-import tensorflow as tf
-import numpy as np
-import logging
-logger = tf.get_logger()
-logger.setLevel(logging.ERROR)</code></pre>
-<pre class="python"><code># data
-celsius_q    = np.array([-40, -10,  0,  8, 15, 22,  38],  dtype=float)
-fahrenheit_a = np.array([-40,  14, 32, 46, 59, 72, 100],  dtype=float)
-for i,c in enumerate(celsius_q):
-  print(&quot;{} degrees Celsius = {} degrees Fahrenheit&quot;.format(c, fahrenheit_a[i]))</code></pre>
-<pre><code>## -40.0 degrees Celsius = -40.0 degrees Fahrenheit
-## -10.0 degrees Celsius = 14.0 degrees Fahrenheit
-## 0.0 degrees Celsius = 32.0 degrees Fahrenheit
-## 8.0 degrees Celsius = 46.0 degrees Fahrenheit
-## 15.0 degrees Celsius = 59.0 degrees Fahrenheit
-## 22.0 degrees Celsius = 72.0 degrees Fahrenheit
-## 38.0 degrees Celsius = 100.0 degrees Fahrenheit</code></pre>
-<pre class="python"><code># model
-l0 = tf.keras.layers.Dense(units=1, input_shape=[1])
-model = tf.keras.Sequential([l0])
-model = tf.keras.Sequential([
-  tf.keras.layers.Dense(units=1, input_shape=[1])
-])
-model.compile(loss=&#39;mean_squared_error&#39;,
-              optimizer=tf.keras.optimizers.Adam(0.1))</code></pre>
-<pre class="python"><code># trainning 
-history = model.fit(celsius_q, fahrenheit_a, epochs=500, verbose=False)
-print(&quot;Finished training the model&quot;)</code></pre>
-<pre><code>## Finished training the model</code></pre>
-<pre class="python"><code># training statistics
-import matplotlib.pyplot as plt
-plt.xlabel(&#39;Epoch Number&#39;)
-plt.ylabel(&quot;Loss Magnitude&quot;)
-plt.plot(history.history[&#39;loss&#39;])
-plt.show()</code></pre>
-<p><img src="/post/2019-10-28-tensorflow-course-by-udacity_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<pre class="python"><code># predict
-print(model.predict([100.0]))</code></pre>
-<pre><code>## [[211.27687]]</code></pre>
-<pre class="python"><code># model weight
-print(&quot;These are the layer variables: {}&quot;.format(l0.get_weights()))</code></pre>
-<pre><code>## These are the layer variables: [array([[-1.400964]], dtype=float32), array([0.], dtype=float32)]</code></pre>
-</div>
-<div id="fashion-mnist" class="section level1">
-<h1>3) Fashion MNIST</h1>
-</div>
-<div id="introduction-to-cnns" class="section level1">
-<h1>4) Introduction to CNNs</h1>
-</div>
-<div id="going-further-with-cnns" class="section level1">
-<h1>5) Going Further With CNNs</h1>
-</div>
-<div id="transfer-learning" class="section level1">
-<h1>6) Transfer Learning</h1>
-</div>
-<div id="saving-and-loading-models" class="section level1">
-<h1>7) Saving and Loading Models</h1>
-</div>
-<div id="time-series-forecasting" class="section level1">
-<h1>8) Time Series Forecasting</h1>
-</div>
-<div id="appendix" class="section level1">
-<h1>9) Appendix</h1>
-<p><a href="https://classroom.udacity.com/courses/ud187" class="uri">https://classroom.udacity.com/courses/ud187</a></p>
-<p><a href="https://github.com/tensorflow/examples/tree/master/courses/udacity_intro_to_tensorflow_for_deep_learning" class="uri">https://github.com/tensorflow/examples/tree/master/courses/udacity_intro_to_tensorflow_for_deep_learning</a></p>
-<p><a href="https://www.kaggle.com/tduan007/tensorflow-by-udacity" class="uri">https://www.kaggle.com/tduan007/tensorflow-by-udacity</a></p>
-</div>
+<p>Object detection in Shiny.</p>
+<p>Host in shinyapp.io</p>
+<p>Model:</p>
+<ul>
+<li><p>Cat vs Dog CNN model</p></li>
+<li><p>VGG16 transfer learning Cat vs Dog CNN model</p></li>
+<li><p>VGG16 transfer learning Cat vs Dog CNN model</p></li>
+<li><p>mobilenet model</p></li>
+<li><p>Restnet50 model</p></li>
+<li><p>tiny Yolo model</p></li>
+</ul>
 
 
   
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="/post/pycon-china-shenzhen-2018/"><i class="fa fa-chevron-left"></i></a>
+    <a href="/post/tensorflow-course-by-udacity/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="/post/pycon-china-shenzhen-2018/">Pycon China Shenzhen 2018</a>
+      <a href="/post/tensorflow-course-by-udacity/">Tensorflow course by Udacity</a>
     </nav>
     
   </div>
@@ -360,13 +291,13 @@ print(&quot;These are the layer variables: {}&quot;.format(l0.get_weights()))</c
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="/post/object-detection-in-shiny/">Object detection in Shiny</a>
+      <a href="/post/intro-to-tensorflow-for-deep-learning-by-udacity/">(1/7)TensorFlow by Udacity:Introduction</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="/post/object-detection-in-shiny/"><i class="fa fa-chevron-right"></i></a>
+    <a href="/post/intro-to-tensorflow-for-deep-learning-by-udacity/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
