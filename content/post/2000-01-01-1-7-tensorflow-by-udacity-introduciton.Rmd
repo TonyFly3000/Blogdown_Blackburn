@@ -2,7 +2,7 @@
 title: (1/7)TensorFlow by Udacity:introduciton
 author: ''
 date: '2000-01-01'
-slug: 1-7-tensorflow-by-udacity-introduction
+slug: 1-7-tensorflow-by-udacity-introduciton
 categories: [R]
 tags: [R]
 description: '(1/7)TensorFlow by Udacity:introduciton'
@@ -79,10 +79,10 @@ print("Finished training the model")
 ```{python message=FALSE}
 
 # training statistics
-#import matplotlib.pyplot as plt
-#plt.xlabel('Epoch Number')
-#plt.ylabel("Loss Magnitude")
-#plt.plot(history.history['loss'])
+import matplotlib.pyplot as plt
+plt.xlabel('Epoch Number')
+plt.ylabel("Loss Magnitude")
+plt.plot(history.history['loss'])
 
 ```
 

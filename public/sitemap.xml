@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/post/tensorflow-course-by-udacity/</loc>
+    <lastmod>2019-11-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/spartan-race-shenzhen-2019/</loc>
     <lastmod>2019-11-10T00:00:00+00:00</lastmod>
   </url>
@@ -273,18 +278,8 @@
   </url>
   
   <url>
-    <loc>/post/intro-to-tensorflow-for-deep-learning-by-udacity/</loc>
-    <lastmod>2018-11-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/post/object-detection-in-shiny/</loc>
     <lastmod>2018-11-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/tensorflow-course-by-udacity/</loc>
-    <lastmod>2018-10-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -453,6 +448,21 @@
   </url>
   
   <url>
+    <loc>/post/1-7-tensorflow-by-udacity-introduciton/</loc>
+    <lastmod>2000-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2-7-tensorflow-by-udacity-deep-neural-network-dnn/</loc>
+    <lastmod>2000-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/3-7-tensorflow-by-udacity-conversational-neural-network-cnn/</loc>
+    <lastmod>2000-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/visit-record/</loc>
     <lastmod>1997-01-01T00:00:00+00:00</lastmod>
   </url>
@@ -499,7 +509,7 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2019-11-10T00:00:00+00:00</lastmod>
+    <lastmod>2019-11-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -511,7 +521,7 @@
   
   <url>
     <loc>/tags/r/</loc>
-    <lastmod>2019-01-15T00:00:00+00:00</lastmod>
+    <lastmod>2019-11-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -535,7 +545,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-11-10T00:00:00+00:00</lastmod>
+    <lastmod>2019-11-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -2,7 +2,7 @@
 title: (2/7)TensorFlow by Udacity:Deep neural network(DNN)
 author: ''
 date: '2000-01-01'
-slug: 1-7-tensorflow-by-udacity-introduction
+slug: 2-7-tensorflow-by-udacity-deep-neural-network-dnn
 categories: [R]
 tags: [R]
 description: '(2/7)TensorFlow by Udacity:Deep neural network(DNN)'
@@ -18,21 +18,13 @@ py_run_string("os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = 'C:/Users/User/Anacon
 
 
 
-
-```{python message=FALSE}
-print('hello')
-
-```
-
-
-
 ```{python message=FALSE}
 import tensorflow as tf
 import tensorflow_datasets as tfds
 import math
 import numpy as np
 import matplotlib.pyplot as plt
-
+tfds.disable_progress_bar()
 ```
 
 
@@ -47,17 +39,16 @@ print(tf.__version__)
 
 
 ```{python message=FALSE}
-
-
-# first time download data run following:
-# dataset, metadata = tfds.load('fashion_mnist',as_supervised=True, with_info=True)
-
-
-dataset, metadata = tfds.load('fashion_mnist',  data_dir='C:/Users/tduan/tensorflow_datasets',as_supervised=True, with_info=True)
+dataset, metadata = tfds.load('fashion_mnist',as_supervised=True, with_info=True)
 train_dataset, test_dataset = dataset['train'], dataset['test']
 ```
 
 
+```{python message=FALSE}
+class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
+               'Sandal',      'Shirt',   'Sneaker',  'Bag',   'Ankle boot']
+
+```
 
 ```{python message=FALSE}
 num_train_examples = metadata.splits['train'].num_examples
@@ -142,7 +133,7 @@ model.compile(optimizer='adam',
 
 
 
-```{python message=FALSE}
+```{python message=FALSE,results='hide'}
 # trainning
 BATCH_SIZE = 32
 train_dataset = train_dataset.repeat().shuffle(num_train_examples).batch(BATCH_SIZE)
@@ -152,7 +143,7 @@ model.fit(train_dataset, epochs=5, steps_per_epoch=math.ceil(num_train_examples/
 ```
 
 
-```{python message=FALSE}
+```{python message=FALSE,warning = FALSE,echo=FALSE}
 # model result
 test_loss, test_accuracy = model.evaluate(test_dataset, steps=math.ceil(num_test_examples/32))
 print('Accuracy on test dataset:', test_accuracy)
@@ -172,6 +163,7 @@ predictions[0]
 np.argmax(predictions[0])
 test_labels[0]
 ```
+
 
 
 

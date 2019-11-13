@@ -1,0 +1,126 @@
+---
+title: (2/7)TensorFlow by Udacity:Deep neural network(DNN)
+author: ''
+date: '2000-01-01'
+slug: 2-7-tensorflow-by-udacity-deep-neural-network-dnn
+categories: [R]
+tags: [R]
+description: '(2/7)TensorFlow by Udacity:Deep neural network(DNN)'
+topics: []
+---
+
+
+
+<pre class="python"><code>import tensorflow as tf
+import tensorflow_datasets as tfds
+import math
+import numpy as np
+import matplotlib.pyplot as plt
+tfds.disable_progress_bar()</code></pre>
+<pre class="python"><code>import tensorflow as tf
+print(tf.__version__)</code></pre>
+<pre><code>## 2.0.0</code></pre>
+<pre class="python"><code>dataset, metadata = tfds.load(&#39;fashion_mnist&#39;,as_supervised=True, with_info=True)
+train_dataset, test_dataset = dataset[&#39;train&#39;], dataset[&#39;test&#39;]</code></pre>
+<pre class="python"><code>class_names = [&#39;T-shirt/top&#39;, &#39;Trouser&#39;, &#39;Pullover&#39;, &#39;Dress&#39;, &#39;Coat&#39;,
+               &#39;Sandal&#39;,      &#39;Shirt&#39;,   &#39;Sneaker&#39;,  &#39;Bag&#39;,   &#39;Ankle boot&#39;]</code></pre>
+<pre class="python"><code>num_train_examples = metadata.splits[&#39;train&#39;].num_examples
+num_test_examples = metadata.splits[&#39;test&#39;].num_examples
+print(&quot;Number of training examples: {}&quot;.format(num_train_examples))</code></pre>
+<pre><code>## Number of training examples: 60000</code></pre>
+<pre class="python"><code>print(&quot;Number of test examples:     {}&quot;.format(num_test_examples))</code></pre>
+<pre><code>## Number of test examples:     10000</code></pre>
+<pre class="python"><code># data processing
+def normalize(images, labels):
+  images = tf.cast(images, tf.float32)
+  images /= 255
+  return images, labels
+# The map function applies the normalize function to each element in the train
+# and test datasets
+train_dataset =  train_dataset.map(normalize)
+test_dataset  =  test_dataset.map(normalize)
+# The first time you use the dataset, the images will be loaded from disk
+# Caching will keep them in memory, making training faster
+train_dataset =  train_dataset.cache()
+test_dataset  =  test_dataset.cache()</code></pre>
+<pre class="python"><code># Take a single image, and remove the color dimension by reshaping
+for image, label in test_dataset.take(1):
+  break
+image = image.numpy().reshape((28,28))
+# Plot the image - voila a piece of fashion clothing
+plt.figure()
+plt.imshow(image, cmap=plt.cm.binary)
+plt.colorbar()
+plt.grid(False)
+plt.show()</code></pre>
+<p><img src="/post/2000-01-01-2-7-tensorflow-by-udacity-deep-neural-network-dnn_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<pre class="python"><code># Take a single image, and remove the color dimension by reshaping
+plt.figure(figsize=(10,10))
+i = 0
+for (image, label) in test_dataset.take(25):
+    image = image.numpy().reshape((28,28))
+    plt.subplot(5,5,i+1)
+    plt.xticks([])
+    plt.yticks([])
+    plt.grid(False)
+    plt.imshow(image, cmap=plt.cm.binary)
+    plt.xlabel(class_names[label])
+    i += 1
+plt.show()</code></pre>
+<p><img src="/post/2000-01-01-2-7-tensorflow-by-udacity-deep-neural-network-dnn_files/figure-html/unnamed-chunk-9-1.png" width="960" /></p>
+<pre class="python"><code># model 
+model = tf.keras.Sequential([
+    tf.keras.layers.Flatten(input_shape=(28, 28, 1)),
+    tf.keras.layers.Dense(128, activation=tf.nn.relu),
+    tf.keras.layers.Dense(10,  activation=tf.nn.softmax)
+])
+model.compile(optimizer=&#39;adam&#39;,
+              loss=&#39;sparse_categorical_crossentropy&#39;,
+              metrics=[&#39;accuracy&#39;])</code></pre>
+<pre class="python"><code># trainning
+BATCH_SIZE = 32
+train_dataset = train_dataset.repeat().shuffle(num_train_examples).batch(BATCH_SIZE)
+test_dataset = test_dataset.batch(BATCH_SIZE)
+model.fit(train_dataset, epochs=5, steps_per_epoch=math.ceil(num_train_examples/BATCH_SIZE),verbose=False)</code></pre>
+<pre><code>## 
+##   1/313 [..............................] - ETA: 40s - loss: 0.2230 - accuracy: 0.9375
+##  13/313 [&gt;.............................] - ETA: 4s - loss: 0.2880 - accuracy: 0.8966 
+##  23/313 [=&gt;............................] - ETA: 3s - loss: 0.2823 - accuracy: 0.8927
+##  34/313 [==&gt;...........................] - ETA: 2s - loss: 0.3376 - accuracy: 0.8713
+##  46/313 [===&gt;..........................] - ETA: 2s - loss: 0.3260 - accuracy: 0.8811
+##  57/313 [====&gt;.........................] - ETA: 1s - loss: 0.3440 - accuracy: 0.8755
+##  66/313 [=====&gt;........................] - ETA: 1s - loss: 0.3357 - accuracy: 0.8802
+##  79/313 [======&gt;.......................] - ETA: 1s - loss: 0.3353 - accuracy: 0.8813
+##  91/313 [=======&gt;......................] - ETA: 1s - loss: 0.3273 - accuracy: 0.8832
+##  99/313 [========&gt;.....................] - ETA: 1s - loss: 0.3311 - accuracy: 0.8829
+## 110/313 [=========&gt;....................] - ETA: 1s - loss: 0.3310 - accuracy: 0.8827
+## 120/313 [==========&gt;...................] - ETA: 1s - loss: 0.3322 - accuracy: 0.8826
+## 127/313 [===========&gt;..................] - ETA: 1s - loss: 0.3344 - accuracy: 0.8816
+## 135/313 [===========&gt;..................] - ETA: 1s - loss: 0.3360 - accuracy: 0.8810
+## 145/313 [============&gt;.................] - ETA: 1s - loss: 0.3343 - accuracy: 0.8810
+## 154/313 [=============&gt;................] - ETA: 1s - loss: 0.3339 - accuracy: 0.8821
+## 166/313 [==============&gt;...............] - ETA: 0s - loss: 0.3326 - accuracy: 0.8831
+## 176/313 [===============&gt;..............] - ETA: 0s - loss: 0.3332 - accuracy: 0.8821
+## 186/313 [================&gt;.............] - ETA: 0s - loss: 0.3295 - accuracy: 0.8839
+## 191/313 [=================&gt;............] - ETA: 0s - loss: 0.3317 - accuracy: 0.8840
+## 204/313 [==================&gt;...........] - ETA: 0s - loss: 0.3354 - accuracy: 0.8828
+## 218/313 [===================&gt;..........] - ETA: 0s - loss: 0.3346 - accuracy: 0.8833
+## 227/313 [====================&gt;.........] - ETA: 0s - loss: 0.3403 - accuracy: 0.8811
+## 238/313 [=====================&gt;........] - ETA: 0s - loss: 0.3409 - accuracy: 0.8806
+## 250/313 [======================&gt;.......] - ETA: 0s - loss: 0.3467 - accuracy: 0.8792
+## 258/313 [=======================&gt;......] - ETA: 0s - loss: 0.3455 - accuracy: 0.8794
+## 273/313 [=========================&gt;....] - ETA: 0s - loss: 0.3481 - accuracy: 0.8783
+## 285/313 [==========================&gt;...] - ETA: 0s - loss: 0.3475 - accuracy: 0.8794
+## 298/313 [===========================&gt;..] - ETA: 0s - loss: 0.3467 - accuracy: 0.8796
+## 310/313 [============================&gt;.] - ETA: 0s - loss: 0.3473 - accuracy: 0.8786
+## 313/313 [==============================] - 2s 6ms/step - loss: 0.3476 - accuracy: 0.8785</code></pre>
+<pre><code>## Accuracy on test dataset: 0.8785</code></pre>
+<pre class="python"><code># predict
+for test_images, test_labels in test_dataset.take(1):
+  test_images = test_images.numpy()
+  test_labels = test_labels.numpy()
+  predictions = model.predict(test_images)
+predictions.shape
+predictions[0]
+np.argmax(predictions[0])
+test_labels[0]</code></pre>

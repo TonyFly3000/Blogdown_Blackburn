@@ -1,43 +1,52 @@
 ---
-title: (2/7)TensorFlow by Udacity:Introduction
+title: (1/7)TensorFlow by Udacity:introduciton
 author: ''
 date: '2000-01-01'
-slug: intro-to-tensorflow-for-deep-learning-by-udacity
+slug: 1-7-tensorflow-by-udacity-introduciton
 categories: [R]
 tags: [R]
-description: '(1/7)TensorFlow by Udacity:Introduction'
+description: '(1/7)TensorFlow by Udacity:introduciton'
 topics: []
 ---
 
 
-# 1 Intro
 
-https://www.udacity.com/course/intro-to-tensorflow-for-deep-learning--ud187
+```{r include = FALSE ,message=FALSE, warning = FALSE}
+library(reticulate)
+py_run_string("import os as os")
+py_run_string("os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = 'C:/Users/User/Anaconda3/Library/plugins/platforms'")
+```
 
 
-https://www.kaggle.com/tduan007/tensorflow-by-udacity
 
-
-# 2 Introduction to Machine Learning
 
 
 ```{python message=FALSE}
-
 import tensorflow as tf
+
 import numpy as np
 
 ```
 
 
+
+
 ```{python message=FALSE}
+import tensorflow as tf
+print(tf.__version__)
+
+```
+
+
+
+```{python message=FALSE}
+
 # data
 celsius_q    = np.array([-40, -10,  0,  8, 15, 22,  38],  dtype=float)
 fahrenheit_a = np.array([-40,  14, 32, 46, 59, 72, 100],  dtype=float)
 
 for i,c in enumerate(celsius_q):
   print("{} degrees Celsius = {} degrees Fahrenheit".format(c, fahrenheit_a[i]))
-
-
 ```
 
 
@@ -55,15 +64,21 @@ model.compile(loss='mean_squared_error',
 
 ```
 
+
+
 ```{python message=FALSE}
 # trainning 
 history = model.fit(celsius_q, fahrenheit_a, epochs=500, verbose=False)
 print("Finished training the model")
-
 ```
 
 
+
+
+
 ```{python message=FALSE}
+
+# training statistics
 import matplotlib.pyplot as plt
 plt.xlabel('Epoch Number')
 plt.ylabel("Loss Magnitude")
@@ -72,35 +87,20 @@ plt.plot(history.history['loss'])
 ```
 
 
+
 ```{python message=FALSE}
 # predict
 print(model.predict([100.0]))
+
 ```
+
 
 
 ```{python message=FALSE}
 # model weight
 print("These are the layer variables: {}".format(l0.get_weights()))
-```
-
-
-```{python message=FALSE}
-# The first variable is close to ~1.8 and the second to ~32. These values (1.8 and 32) are the actual variables in the real conversion formula.
-
-l0 = tf.keras.layers.Dense(units=4, input_shape=[1])
-l1 = tf.keras.layers.Dense(units=4)
-l2 = tf.keras.layers.Dense(units=1)
-model = tf.keras.Sequential([l0, l1, l2])
-model.compile(loss='mean_squared_error', optimizer=tf.keras.optimizers.Adam(0.1))
-model.fit(celsius_q, fahrenheit_a, epochs=500, verbose=False)
-print("Finished training the model")
-print(model.predict([100.0]))
-print("Model predicts that 100 degrees Celsius is: {} degrees Fahrenheit".format(model.predict([100.0])))
-print("These are the l0 variables: {}".format(l0.get_weights()))
-print("These are the l1 variables: {}".format(l1.get_weights()))
-print("These are the l2 variables: {}".format(l2.get_weights()))
-
-
-
 
 ```
+
+
+

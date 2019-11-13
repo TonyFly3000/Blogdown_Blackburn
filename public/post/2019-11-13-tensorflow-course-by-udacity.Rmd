@@ -1,0 +1,72 @@
+---
+title: Tensorflow course by Udacity
+author: ''
+date: '2019-11-13'
+slug: tensorflow-course-by-udacity
+categories: [R]
+tags: [R]
+description: 'Tensorflow course by Udacity'
+topics: []
+---
+
+
+
+# Content
+
+1) Intro
+
+2) Introduction to Machine Learning
+
+3) Fashion MNIST
+
+4) Introduction to CNNs
+
+5) Going Further With CNNs
+
+6) Transfer Learning
+
+7) Saving and Loading Models
+
+8) Time Series Forecasting 
+
+9) Appendix
+
+# 1) Intro
+
+
+# 2) Introduction to Machine Learning
+
+
+# 3) Fashion MNIST
+
+
+
+# 4) Introduction to CNNs
+
+
+
+
+# 5) Going Further With CNNs
+
+
+
+# 6) Transfer Learning
+
+
+
+# 7) Saving and Loading Models
+
+
+
+
+# 8) Time Series Forecasting 
+
+
+# 9) Appendix
+
+https://www.udacity.com/course/intro-to-tensorflow-for-deep-learning--ud187
+
+https://github.com/tensorflow/examples/tree/master/courses/udacity_intro_to_tensorflow_for_deep_learning
+
+https://www.kaggle.com/tduan007/tensorflow-by-udacity
+

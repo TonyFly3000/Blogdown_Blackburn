@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="(3/7)TensorFlow by Udacity:Conversational neural network(CNN)">
+  <meta name="generator" content="Hugo 0.48" />
+
+  <title>(3/7)TensorFlow by Udacity:Conversational neural network(CNN) &middot; Tony Duan</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="/">Tony Duan.R</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/post/"><i class='fa fa-list fa-fw'></i>Blog</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/book/"><i class='fa fa-tasks fa-fw'></i>Book</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/project/"><i class='fa fa-tasks fa-fw'></i>Project</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/about/"><i class='fa fa-user fa-fw'></i>About me</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/contact/"><i class='fa fa-at fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://facebook.com/tony.j.fly" target="_blank"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/tony-jc-duan-005b601a" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/*" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2019. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://github.com/rstudio/rmarkdown" target="_blank">Blogdown</a></small><br>
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>(3/7)TensorFlow by Udacity:Conversational neural network(CNN)</h1>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 2000, 00:00</time>
+  </div>
+
+  
+
+  
+  
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="/tags/r">R</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  <pre class="python"><code>import tensorflow_datasets as tfds
+tfds.disable_progress_bar()
+# Helper libraries
+import math
+import numpy as np
+import matplotlib.pyplot as plt
+import tensorflow as tf</code></pre>
+<pre class="python"><code>import tensorflow as tf
+print(tf.__version__)</code></pre>
+<pre><code>## 2.0.0</code></pre>
+<pre class="python"><code># data
+dataset, metadata = tfds.load(&#39;fashion_mnist&#39;, as_supervised=True, with_info=True)
+train_dataset, test_dataset = dataset[&#39;train&#39;], dataset[&#39;test&#39;]</code></pre>
+<pre class="python"><code>class_names = [&#39;T-shirt/top&#39;, &#39;Trouser&#39;, &#39;Pullover&#39;, &#39;Dress&#39;, &#39;Coat&#39;,
+               &#39;Sandal&#39;,      &#39;Shirt&#39;,   &#39;Sneaker&#39;,  &#39;Bag&#39;,   &#39;Ankle boot&#39;]</code></pre>
+<pre class="python"><code>num_train_examples = metadata.splits[&#39;train&#39;].num_examples
+num_test_examples = metadata.splits[&#39;test&#39;].num_examples
+print(&quot;Number of training examples: {}&quot;.format(num_train_examples))</code></pre>
+<pre><code>## Number of training examples: 60000</code></pre>
+<pre class="python"><code>print(&quot;Number of test examples:     {}&quot;.format(num_test_examples))</code></pre>
+<pre><code>## Number of test examples:     10000</code></pre>
+<pre class="python"><code>def normalize(images, labels):
+  images = tf.cast(images, tf.float32)
+  images /= 255
+  return images, labels
+# The map function applies the normalize function to each element in the train
+# and test datasets
+train_dataset =  train_dataset.map(normalize)
+test_dataset  =  test_dataset.map(normalize)
+# The first time you use the dataset, the images will be loaded from disk
+# Caching will keep them in memory, making training faster
+train_dataset =  train_dataset.cache()
+test_dataset  =  test_dataset.cache()</code></pre>
+<pre class="python"><code># model
+model = tf.keras.Sequential([
+    tf.keras.layers.Conv2D(32, (3,3), padding=&#39;same&#39;, activation=tf.nn.relu,
+                           input_shape=(28, 28, 1)),
+    tf.keras.layers.MaxPooling2D((2, 2), strides=2),
+    tf.keras.layers.Conv2D(64, (3,3), padding=&#39;same&#39;, activation=tf.nn.relu),
+    tf.keras.layers.MaxPooling2D((2, 2), strides=2),
+    tf.keras.layers.Flatten(),
+    tf.keras.layers.Dense(128, activation=tf.nn.relu),
+    tf.keras.layers.Dense(10,  activation=tf.nn.softmax)
+])
+model.compile(optimizer=&#39;adam&#39;,
+              loss=&#39;sparse_categorical_crossentropy&#39;,
+              metrics=[&#39;accuracy&#39;])</code></pre>
+<pre class="python"><code># traninning
+BATCH_SIZE = 32
+train_dataset = train_dataset.repeat().shuffle(num_train_examples).batch(BATCH_SIZE)
+test_dataset = test_dataset.batch(BATCH_SIZE)
+model.fit(train_dataset, epochs=3, steps_per_epoch=math.ceil(num_train_examples/BATCH_SIZE))</code></pre>
+<pre class="python"><code># result
+test_loss, test_accuracy = model.evaluate(test_dataset, steps=math.ceil(num_test_examples/32))</code></pre>
+<pre><code>## 
+##   1/313 [..............................] - ETA: 1:41 - loss: 0.1215 - accuracy: 0.9375
+##   5/313 [..............................] - ETA: 23s - loss: 0.1557 - accuracy: 0.9187 
+##   8/313 [..............................] - ETA: 16s - loss: 0.1915 - accuracy: 0.9180
+##  12/313 [&gt;.............................] - ETA: 12s - loss: 0.2109 - accuracy: 0.9115
+##  16/313 [&gt;.............................] - ETA: 10s - loss: 0.1825 - accuracy: 0.9238
+##  20/313 [&gt;.............................] - ETA: 9s - loss: 0.1804 - accuracy: 0.9203 
+##  23/313 [=&gt;............................] - ETA: 8s - loss: 0.2015 - accuracy: 0.9158
+##  27/313 [=&gt;............................] - ETA: 7s - loss: 0.2321 - accuracy: 0.9051
+##  31/313 [=&gt;............................] - ETA: 7s - loss: 0.2402 - accuracy: 0.9052
+##  34/313 [==&gt;...........................] - ETA: 7s - loss: 0.2429 - accuracy: 0.9026
+##  37/313 [==&gt;...........................] - ETA: 6s - loss: 0.2393 - accuracy: 0.9037
+##  40/313 [==&gt;...........................] - ETA: 6s - loss: 0.2358 - accuracy: 0.9055
+##  44/313 [===&gt;..........................] - ETA: 6s - loss: 0.2329 - accuracy: 0.9070
+##  48/313 [===&gt;..........................] - ETA: 6s - loss: 0.2391 - accuracy: 0.9056
+##  52/313 [===&gt;..........................] - ETA: 5s - loss: 0.2489 - accuracy: 0.9020
+##  55/313 [====&gt;.........................] - ETA: 5s - loss: 0.2543 - accuracy: 0.8989
+##  58/313 [====&gt;.........................] - ETA: 5s - loss: 0.2469 - accuracy: 0.9019
+##  61/313 [====&gt;.........................] - ETA: 5s - loss: 0.2488 - accuracy: 0.9011
+##  65/313 [=====&gt;........................] - ETA: 5s - loss: 0.2446 - accuracy: 0.9024
+##  68/313 [=====&gt;........................] - ETA: 5s - loss: 0.2484 - accuracy: 0.9003
+##  72/313 [=====&gt;........................] - ETA: 5s - loss: 0.2437 - accuracy: 0.9032
+##  76/313 [======&gt;.......................] - ETA: 4s - loss: 0.2493 - accuracy: 0.9009
+##  80/313 [======&gt;.......................] - ETA: 4s - loss: 0.2511 - accuracy: 0.9016
+##  84/313 [=======&gt;......................] - ETA: 4s - loss: 0.2452 - accuracy: 0.9040
+##  88/313 [=======&gt;......................] - ETA: 4s - loss: 0.2476 - accuracy: 0.9048
+##  92/313 [=======&gt;......................] - ETA: 4s - loss: 0.2456 - accuracy: 0.9059
+##  96/313 [========&gt;.....................] - ETA: 4s - loss: 0.2449 - accuracy: 0.9059
+##  99/313 [========&gt;.....................] - ETA: 4s - loss: 0.2431 - accuracy: 0.9066
+## 103/313 [========&gt;.....................] - ETA: 4s - loss: 0.2478 - accuracy: 0.9050
+## 107/313 [=========&gt;....................] - ETA: 3s - loss: 0.2449 - accuracy: 0.9062
+## 111/313 [=========&gt;....................] - ETA: 3s - loss: 0.2453 - accuracy: 0.9048
+## 115/313 [==========&gt;...................] - ETA: 3s - loss: 0.2447 - accuracy: 0.9054
+## 119/313 [==========&gt;...................] - ETA: 3s - loss: 0.2450 - accuracy: 0.9049
+## 122/313 [==========&gt;...................] - ETA: 3s - loss: 0.2495 - accuracy: 0.9052
+## 126/313 [===========&gt;..................] - ETA: 3s - loss: 0.2505 - accuracy: 0.9043
+## 130/313 [===========&gt;..................] - ETA: 3s - loss: 0.2533 - accuracy: 0.9036
+## 134/313 [===========&gt;..................] - ETA: 3s - loss: 0.2521 - accuracy: 0.9032
+## 137/313 [============&gt;.................] - ETA: 3s - loss: 0.2508 - accuracy: 0.9040
+## 140/313 [============&gt;.................] - ETA: 3s - loss: 0.2487 - accuracy: 0.9045
+## 144/313 [============&gt;.................] - ETA: 3s - loss: 0.2493 - accuracy: 0.9043
+## 148/313 [=============&gt;................] - ETA: 3s - loss: 0.2472 - accuracy: 0.9048
+## 152/313 [=============&gt;................] - ETA: 2s - loss: 0.2465 - accuracy: 0.9050
+## 156/313 [=============&gt;................] - ETA: 2s - loss: 0.2479 - accuracy: 0.9044
+## 158/313 [==============&gt;...............] - ETA: 2s - loss: 0.2473 - accuracy: 0.9047
+## 161/313 [==============&gt;...............] - ETA: 2s - loss: 0.2458 - accuracy: 0.9049
+## 164/313 [==============&gt;...............] - ETA: 2s - loss: 0.2453 - accuracy: 0.9053
+## 167/313 [===============&gt;..............] - ETA: 2s - loss: 0.2476 - accuracy: 0.9049
+## 171/313 [===============&gt;..............] - ETA: 2s - loss: 0.2474 - accuracy: 0.9055
+## 175/313 [===============&gt;..............] - ETA: 2s - loss: 0.2453 - accuracy: 0.9059
+## 179/313 [================&gt;.............] - ETA: 2s - loss: 0.2439 - accuracy: 0.9057
+## 183/313 [================&gt;.............] - ETA: 2s - loss: 0.2433 - accuracy: 0.9056
+## 187/313 [================&gt;.............] - ETA: 2s - loss: 0.2422 - accuracy: 0.9057
+## 191/313 [=================&gt;............] - ETA: 2s - loss: 0.2425 - accuracy: 0.9059
+## 195/313 [=================&gt;............] - ETA: 2s - loss: 0.2460 - accuracy: 0.9051
+## 199/313 [==================&gt;...........] - ETA: 2s - loss: 0.2473 - accuracy: 0.9048
+## 204/313 [==================&gt;...........] - ETA: 1s - loss: 0.2460 - accuracy: 0.9053
+## 208/313 [==================&gt;...........] - ETA: 1s - loss: 0.2462 - accuracy: 0.9053
+## 211/313 [===================&gt;..........] - ETA: 1s - loss: 0.2457 - accuracy: 0.9057
+## 215/313 [===================&gt;..........] - ETA: 1s - loss: 0.2451 - accuracy: 0.9060
+## 218/313 [===================&gt;..........] - ETA: 1s - loss: 0.2455 - accuracy: 0.9062
+## 220/313 [====================&gt;.........] - ETA: 1s - loss: 0.2455 - accuracy: 0.9061
+## 223/313 [====================&gt;.........] - ETA: 1s - loss: 0.2458 - accuracy: 0.9057
+## 227/313 [====================&gt;.........] - ETA: 1s - loss: 0.2478 - accuracy: 0.9051
+## 231/313 [=====================&gt;........] - ETA: 1s - loss: 0.2469 - accuracy: 0.9056
+## 235/313 [=====================&gt;........] - ETA: 1s - loss: 0.2468 - accuracy: 0.9055
+## 238/313 [=====================&gt;........] - ETA: 1s - loss: 0.2454 - accuracy: 0.9061
+## 242/313 [======================&gt;.......] - ETA: 1s - loss: 0.2465 - accuracy: 0.9062
+## 245/313 [======================&gt;.......] - ETA: 1s - loss: 0.2462 - accuracy: 0.9068
+## 249/313 [======================&gt;.......] - ETA: 1s - loss: 0.2470 - accuracy: 0.9066
+## 253/313 [=======================&gt;......] - ETA: 1s - loss: 0.2458 - accuracy: 0.9071
+## 257/313 [=======================&gt;......] - ETA: 0s - loss: 0.2460 - accuracy: 0.9071
+## 260/313 [=======================&gt;......] - ETA: 0s - loss: 0.2459 - accuracy: 0.9073
+## 264/313 [========================&gt;.....] - ETA: 0s - loss: 0.2473 - accuracy: 0.9070
+## 268/313 [========================&gt;.....] - ETA: 0s - loss: 0.2473 - accuracy: 0.9071
+## 271/313 [========================&gt;.....] - ETA: 0s - loss: 0.2482 - accuracy: 0.9072
+## 275/313 [=========================&gt;....] - ETA: 0s - loss: 0.2476 - accuracy: 0.9073
+## 279/313 [=========================&gt;....] - ETA: 0s - loss: 0.2469 - accuracy: 0.9076
+## 281/313 [=========================&gt;....] - ETA: 0s - loss: 0.2473 - accuracy: 0.9076
+## 285/313 [==========================&gt;...] - ETA: 0s - loss: 0.2488 - accuracy: 0.9075
+## 289/313 [==========================&gt;...] - ETA: 0s - loss: 0.2480 - accuracy: 0.9077
+## 293/313 [===========================&gt;..] - ETA: 0s - loss: 0.2488 - accuracy: 0.9074
+## 297/313 [===========================&gt;..] - ETA: 0s - loss: 0.2474 - accuracy: 0.9081
+## 301/313 [===========================&gt;..] - ETA: 0s - loss: 0.2491 - accuracy: 0.9081
+## 304/313 [============================&gt;.] - ETA: 0s - loss: 0.2489 - accuracy: 0.9081
+## 308/313 [============================&gt;.] - ETA: 0s - loss: 0.2488 - accuracy: 0.9083
+## 312/313 [============================&gt;.] - ETA: 0s - loss: 0.2485 - accuracy: 0.9083
+## 313/313 [==============================] - 5s 17ms/step - loss: 0.2485 - accuracy: 0.9083</code></pre>
+<pre class="python"><code>print(&#39;Accuracy on test dataset:&#39;, test_accuracy)</code></pre>
+<pre><code>## Accuracy on test dataset: 0.9083</code></pre>
+<pre class="python"><code>for test_images, test_labels in test_dataset.take(1):
+  test_images = test_images.numpy()
+  test_labels = test_labels.numpy()
+  predictions = model.predict(test_images)</code></pre>
+<pre class="python"><code>predictions.shape
+predictions[0]
+np.argmax(predictions[0])
+test_labels[0]</code></pre>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="/post/visit-record/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="/post/visit-record/">Visit_record</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="/post/2-7-tensorflow-by-udacity-deep-neural-network-dnn/">(2/7)TensorFlow by Udacity:Deep neural network(DNN)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="/post/2-7-tensorflow-by-udacity-deep-neural-network-dnn/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+
+
+</body>
+</html>
+

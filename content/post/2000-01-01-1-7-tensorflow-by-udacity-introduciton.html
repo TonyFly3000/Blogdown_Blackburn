@@ -2,7 +2,7 @@
 title: (1/7)TensorFlow by Udacity:introduciton
 author: ''
 date: '2000-01-01'
-slug: 1-7-tensorflow-by-udacity-introduction
+slug: 1-7-tensorflow-by-udacity-introduciton
 categories: [R]
 tags: [R]
 description: '(1/7)TensorFlow by Udacity:introduciton'
@@ -11,19 +11,14 @@ topics: []
 
 
 
-<pre class="python"><code>import os
-os.environ[&#39;QT_QPA_PLATFORM_PLUGIN_PATH&#39;] = &#39;C:/Users/tduan/AppData/Local/Continuum/anaconda3/Library/plugins/platforms&#39;</code></pre>
 <pre class="python"><code>import tensorflow as tf
-
 import numpy as np</code></pre>
 <pre class="python"><code>import tensorflow as tf
 print(tf.__version__)</code></pre>
 <pre><code>## 2.0.0</code></pre>
-<pre class="python"><code>
-# data
+<pre class="python"><code># data
 celsius_q    = np.array([-40, -10,  0,  8, 15, 22,  38],  dtype=float)
 fahrenheit_a = np.array([-40,  14, 32, 46, 59, 72, 100],  dtype=float)
-
 for i,c in enumerate(celsius_q):
   print(&quot;{} degrees Celsius = {} degrees Fahrenheit&quot;.format(c, fahrenheit_a[i]))</code></pre>
 <pre><code>## -40.0 degrees Celsius = -40.0 degrees Fahrenheit
@@ -39,22 +34,20 @@ model = tf.keras.Sequential([l0])
 model = tf.keras.Sequential([
   tf.keras.layers.Dense(units=1, input_shape=[1])
 ])
-
 model.compile(loss=&#39;mean_squared_error&#39;,
               optimizer=tf.keras.optimizers.Adam(0.1))</code></pre>
 <pre class="python"><code># trainning 
 history = model.fit(celsius_q, fahrenheit_a, epochs=500, verbose=False)
 print(&quot;Finished training the model&quot;)</code></pre>
 <pre><code>## Finished training the model</code></pre>
-<pre class="python"><code>
-# training statistics
-#import matplotlib.pyplot as plt
-#plt.xlabel(&#39;Epoch Number&#39;)
-#plt.ylabel(&quot;Loss Magnitude&quot;)
-#plt.plot(history.history[&#39;loss&#39;])</code></pre>
+<pre class="python"><code># training statistics
+import matplotlib.pyplot as plt
+plt.xlabel(&#39;Epoch Number&#39;)
+plt.ylabel(&quot;Loss Magnitude&quot;)
+plt.plot(history.history[&#39;loss&#39;])</code></pre>
 <pre class="python"><code># predict
 print(model.predict([100.0]))</code></pre>
-<pre><code>## [[211.28343]]</code></pre>
+<pre><code>## [[211.30373]]</code></pre>
 <pre class="python"><code># model weight
 print(&quot;These are the layer variables: {}&quot;.format(l0.get_weights()))</code></pre>
-<pre><code>## These are the layer variables: [array([[0.92206633]], dtype=float32), array([0.], dtype=float32)]</code></pre>
+<pre><code>## These are the layer variables: [array([[0.6343497]], dtype=float32), array([0.], dtype=float32)]</code></pre>

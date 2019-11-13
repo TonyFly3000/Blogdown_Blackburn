@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 15 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 13 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tensorflow course by Udacity</title>
+      <link>/post/tensorflow-course-by-udacity/</link>
+      <pubDate>Wed, 13 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tensorflow-course-by-udacity/</guid>
+      <description>ContentIntro
+Introduction to Machine Learning
+Fashion MNIST
+Introduction to CNNs
+Going Further With CNNs
+Transfer Learning
+Saving and Loading Models
+Time Series Forecasting
+Appendix
+1) Intro2) Introduction to Machine Learning3) Fashion MNIST4) Introduction to CNNs5) Going Further With CNNs6) Transfer Learning7) Saving and Loading Models8) Time Series Forecasting9) Appendixhttps://www.</description>
+    </item>
     
     <item>
       <title>rstudio::conf 2019</title>
@@ -64,23 +82,12 @@ JSON API data from https://cranlogs.r-pkg.org/
     </item>
     
     <item>
-      <title>(1/7)TensorFlow by Udacity:Introduction</title>
-      <link>/post/intro-to-tensorflow-for-deep-learning-by-udacity/</link>
-      <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/intro-to-tensorflow-for-deep-learning-by-udacity/</guid>
-      <description>1 Introhttps://www.udacity.com/course/intro-to-tensorflow-for-deep-learning--ud187
-https://www.kaggle.com/tduan007/tensorflow-by-udacity
-2 Introduction to Machine Learningimport tensorflow as tfimport numpy as np# datacelsius_q = np.array([-40, -10, 0, 8, 15, 22, 38], dtype=float)fahrenheit_a = np.array([-40, 14, 32, 46, 59, 72, 100], dtype=float)for i,c in enumerate(celsius_q):print(&amp;quot;{} degrees Celsius = {} degrees Fahrenheit&amp;quot;.format(c, fahrenheit_a[i]))## -40.0 degrees Celsius = -40.0 degrees Fahrenheit## -10.0 degrees Celsius = 14.0 degrees Fahrenheit## 0.</description>
-    </item>
-    
-    <item>
       <title>Object detection in Shiny</title>
       <link>/post/object-detection-in-shiny/</link>
       <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/object-detection-in-shiny/</guid>
-      <description>Object detection in Shiny.
+      <description>Object detection in Shiny.
 Host in shinyapp.io
 Model:
 Cat vs Dog CNN model
@@ -98,9 +105,36 @@ Model:
       <pubDate>Fri, 02 Feb 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/rstudio-conf-2018/</guid>
-      <description>I segment the talk into following groups:Get,clean,visualize,model,present,other
+      <description>I segment the talk into following groups:Get,clean,visualize,model,present,other
 Rstudio conference 2018 hosted during January 15 - 18 in Austin, TX
 Get:Clean:Visualize:Model:Machine Learning with R and TensorFlow - J.J. ALLAIREReinforcement learning in Minecraft with CNTK-R – Ali-Kazim ZaidiPresent:Other:</description>
+    </item>
+    
+    <item>
+      <title>(1/7)TensorFlow by Udacity:introduciton</title>
+      <link>/post/1-7-tensorflow-by-udacity-introduciton/</link>
+      <pubDate>Sat, 01 Jan 2000 00:00:00 +0000</pubDate>
+      
+      <guid>/post/1-7-tensorflow-by-udacity-introduciton/</guid>
+      <description>import tensorflow as tfimport numpy as npimport tensorflow as tfprint(tf.__version__)## 2.0.0# datacelsius_q = np.array([-40, -10, 0, 8, 15, 22, 38], dtype=float)fahrenheit_a = np.array([-40, 14, 32, 46, 59, 72, 100], dtype=float)for i,c in enumerate(celsius_q):print(&amp;quot;{} degrees Celsius = {} degrees Fahrenheit&amp;quot;.format(c, fahrenheit_a[i]))## -40.0 degrees Celsius = -40.0 degrees Fahrenheit## -10.0 degrees Celsius = 14.0 degrees Fahrenheit## 0.0 degrees Celsius = 32.</description>
+    </item>
+    
+    <item>
+      <title>(2/7)TensorFlow by Udacity:Deep neural network(DNN)</title>
+      <link>/post/2-7-tensorflow-by-udacity-deep-neural-network-dnn/</link>
+      <pubDate>Sat, 01 Jan 2000 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2-7-tensorflow-by-udacity-deep-neural-network-dnn/</guid>
+      <description>import tensorflow as tfimport tensorflow_datasets as tfdsimport mathimport numpy as npimport matplotlib.pyplot as plttfds.disable_progress_bar()import tensorflow as tfprint(tf.__version__)## 2.0.0dataset, metadata = tfds.load(&amp;#39;fashion_mnist&amp;#39;,as_supervised=True, with_info=True)train_dataset, test_dataset = dataset[&amp;#39;train&amp;#39;], dataset[&amp;#39;test&amp;#39;]class_names = [&amp;#39;T-shirt/top&amp;#39;, &amp;#39;Trouser&amp;#39;, &amp;#39;Pullover&amp;#39;, &amp;#39;Dress&amp;#39;, &amp;#39;Coat&amp;#39;,&amp;#39;Sandal&amp;#39;, &amp;#39;Shirt&amp;#39;, &amp;#39;Sneaker&amp;#39;, &amp;#39;Bag&amp;#39;, &amp;#39;Ankle boot&amp;#39;]num_train_examples = metadata.splits[&amp;#39;train&amp;#39;].num_examplesnum_test_examples = metadata.splits[&amp;#39;test&amp;#39;].num_examplesprint(&amp;quot;Number of training examples: {}&amp;quot;.format(num_train_examples))## Number of training examples: 60000print(&amp;quot;Number of test examples: {}&amp;quot;.</description>
+    </item>
+    
+    <item>
+      <title>(3/7)TensorFlow by Udacity:Conversational neural network(CNN)</title>
+      <link>/post/3-7-tensorflow-by-udacity-conversational-neural-network-cnn/</link>
+      <pubDate>Sat, 01 Jan 2000 00:00:00 +0000</pubDate>
+      
+      <guid>/post/3-7-tensorflow-by-udacity-conversational-neural-network-cnn/</guid>
+      <description>import tensorflow_datasets as tfdstfds.disable_progress_bar()# Helper librariesimport mathimport numpy as npimport matplotlib.pyplot as pltimport tensorflow as tfimport tensorflow as tfprint(tf.__version__)## 2.0.0# datadataset, metadata = tfds.load(&amp;#39;fashion_mnist&amp;#39;, as_supervised=True, with_info=True)train_dataset, test_dataset = dataset[&amp;#39;train&amp;#39;], dataset[&amp;#39;test&amp;#39;]class_names = [&amp;#39;T-shirt/top&amp;#39;, &amp;#39;Trouser&amp;#39;, &amp;#39;Pullover&amp;#39;, &amp;#39;Dress&amp;#39;, &amp;#39;Coat&amp;#39;,&amp;#39;Sandal&amp;#39;, &amp;#39;Shirt&amp;#39;, &amp;#39;Sneaker&amp;#39;, &amp;#39;Bag&amp;#39;, &amp;#39;Ankle boot&amp;#39;]num_train_examples = metadata.splits[&amp;#39;train&amp;#39;].num_examplesnum_test_examples = metadata.splits[&amp;#39;test&amp;#39;].num_examplesprint(&amp;quot;Number of training examples: {}&amp;quot;.format(num_train_examples))## Number of training examples: 60000print(&amp;quot;Number of test examples: {}&amp;quot;.</description>
     </item>
     
   </channel>

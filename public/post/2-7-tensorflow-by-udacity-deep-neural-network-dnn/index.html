@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="(2/7)TensorFlow by Udacity:Deep neural network(DNN)">
+  <meta name="generator" content="Hugo 0.48" />
+
+  <title>(2/7)TensorFlow by Udacity:Deep neural network(DNN) &middot; Tony Duan</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="/">Tony Duan.R</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/post/"><i class='fa fa-list fa-fw'></i>Blog</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/book/"><i class='fa fa-tasks fa-fw'></i>Book</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/project/"><i class='fa fa-tasks fa-fw'></i>Project</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/about/"><i class='fa fa-user fa-fw'></i>About me</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="/contact/"><i class='fa fa-at fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://facebook.com/tony.j.fly" target="_blank"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/tony-jc-duan-005b601a" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/*" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2019. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://github.com/rstudio/rmarkdown" target="_blank">Blogdown</a></small><br>
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>(2/7)TensorFlow by Udacity:Deep neural network(DNN)</h1>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>01 Jan 2000, 00:00</time>
+  </div>
+
+  
+
+  
+  
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="/tags/r">R</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  <pre class="python"><code>import tensorflow as tf
+import tensorflow_datasets as tfds
+import math
+import numpy as np
+import matplotlib.pyplot as plt
+tfds.disable_progress_bar()</code></pre>
+<pre class="python"><code>import tensorflow as tf
+print(tf.__version__)</code></pre>
+<pre><code>## 2.0.0</code></pre>
+<pre class="python"><code>dataset, metadata = tfds.load(&#39;fashion_mnist&#39;,as_supervised=True, with_info=True)
+train_dataset, test_dataset = dataset[&#39;train&#39;], dataset[&#39;test&#39;]</code></pre>
+<pre class="python"><code>class_names = [&#39;T-shirt/top&#39;, &#39;Trouser&#39;, &#39;Pullover&#39;, &#39;Dress&#39;, &#39;Coat&#39;,
+               &#39;Sandal&#39;,      &#39;Shirt&#39;,   &#39;Sneaker&#39;,  &#39;Bag&#39;,   &#39;Ankle boot&#39;]</code></pre>
+<pre class="python"><code>num_train_examples = metadata.splits[&#39;train&#39;].num_examples
+num_test_examples = metadata.splits[&#39;test&#39;].num_examples
+print(&quot;Number of training examples: {}&quot;.format(num_train_examples))</code></pre>
+<pre><code>## Number of training examples: 60000</code></pre>
+<pre class="python"><code>print(&quot;Number of test examples:     {}&quot;.format(num_test_examples))</code></pre>
+<pre><code>## Number of test examples:     10000</code></pre>
+<pre class="python"><code># data processing
+def normalize(images, labels):
+  images = tf.cast(images, tf.float32)
+  images /= 255
+  return images, labels
+# The map function applies the normalize function to each element in the train
+# and test datasets
+train_dataset =  train_dataset.map(normalize)
+test_dataset  =  test_dataset.map(normalize)
+# The first time you use the dataset, the images will be loaded from disk
+# Caching will keep them in memory, making training faster
+train_dataset =  train_dataset.cache()
+test_dataset  =  test_dataset.cache()</code></pre>
+<pre class="python"><code># Take a single image, and remove the color dimension by reshaping
+for image, label in test_dataset.take(1):
+  break
+image = image.numpy().reshape((28,28))
+# Plot the image - voila a piece of fashion clothing
+plt.figure()
+plt.imshow(image, cmap=plt.cm.binary)
+plt.colorbar()
+plt.grid(False)
+plt.show()</code></pre>
+<p><img src="/post/2000-01-01-2-7-tensorflow-by-udacity-deep-neural-network-dnn_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<pre class="python"><code># Take a single image, and remove the color dimension by reshaping
+plt.figure(figsize=(10,10))
+i = 0
+for (image, label) in test_dataset.take(25):
+    image = image.numpy().reshape((28,28))
+    plt.subplot(5,5,i+1)
+    plt.xticks([])
+    plt.yticks([])
+    plt.grid(False)
+    plt.imshow(image, cmap=plt.cm.binary)
+    plt.xlabel(class_names[label])
+    i += 1
+plt.show()</code></pre>
+<p><img src="/post/2000-01-01-2-7-tensorflow-by-udacity-deep-neural-network-dnn_files/figure-html/unnamed-chunk-9-1.png" width="960" /></p>
+<pre class="python"><code># model 
+model = tf.keras.Sequential([
+    tf.keras.layers.Flatten(input_shape=(28, 28, 1)),
+    tf.keras.layers.Dense(128, activation=tf.nn.relu),
+    tf.keras.layers.Dense(10,  activation=tf.nn.softmax)
+])
+model.compile(optimizer=&#39;adam&#39;,
+              loss=&#39;sparse_categorical_crossentropy&#39;,
+              metrics=[&#39;accuracy&#39;])</code></pre>
+<pre class="python"><code># trainning
+BATCH_SIZE = 32
+train_dataset = train_dataset.repeat().shuffle(num_train_examples).batch(BATCH_SIZE)
+test_dataset = test_dataset.batch(BATCH_SIZE)
+model.fit(train_dataset, epochs=5, steps_per_epoch=math.ceil(num_train_examples/BATCH_SIZE),verbose=False)</code></pre>
+<pre><code>## 
+##   1/313 [..............................] - ETA: 40s - loss: 0.2230 - accuracy: 0.9375
+##  13/313 [&gt;.............................] - ETA: 4s - loss: 0.2880 - accuracy: 0.8966 
+##  23/313 [=&gt;............................] - ETA: 3s - loss: 0.2823 - accuracy: 0.8927
+##  34/313 [==&gt;...........................] - ETA: 2s - loss: 0.3376 - accuracy: 0.8713
+##  46/313 [===&gt;..........................] - ETA: 2s - loss: 0.3260 - accuracy: 0.8811
+##  57/313 [====&gt;.........................] - ETA: 1s - loss: 0.3440 - accuracy: 0.8755
+##  66/313 [=====&gt;........................] - ETA: 1s - loss: 0.3357 - accuracy: 0.8802
+##  79/313 [======&gt;.......................] - ETA: 1s - loss: 0.3353 - accuracy: 0.8813
+##  91/313 [=======&gt;......................] - ETA: 1s - loss: 0.3273 - accuracy: 0.8832
+##  99/313 [========&gt;.....................] - ETA: 1s - loss: 0.3311 - accuracy: 0.8829
+## 110/313 [=========&gt;....................] - ETA: 1s - loss: 0.3310 - accuracy: 0.8827
+## 120/313 [==========&gt;...................] - ETA: 1s - loss: 0.3322 - accuracy: 0.8826
+## 127/313 [===========&gt;..................] - ETA: 1s - loss: 0.3344 - accuracy: 0.8816
+## 135/313 [===========&gt;..................] - ETA: 1s - loss: 0.3360 - accuracy: 0.8810
+## 145/313 [============&gt;.................] - ETA: 1s - loss: 0.3343 - accuracy: 0.8810
+## 154/313 [=============&gt;................] - ETA: 1s - loss: 0.3339 - accuracy: 0.8821
+## 166/313 [==============&gt;...............] - ETA: 0s - loss: 0.3326 - accuracy: 0.8831
+## 176/313 [===============&gt;..............] - ETA: 0s - loss: 0.3332 - accuracy: 0.8821
+## 186/313 [================&gt;.............] - ETA: 0s - loss: 0.3295 - accuracy: 0.8839
+## 191/313 [=================&gt;............] - ETA: 0s - loss: 0.3317 - accuracy: 0.8840
+## 204/313 [==================&gt;...........] - ETA: 0s - loss: 0.3354 - accuracy: 0.8828
+## 218/313 [===================&gt;..........] - ETA: 0s - loss: 0.3346 - accuracy: 0.8833
+## 227/313 [====================&gt;.........] - ETA: 0s - loss: 0.3403 - accuracy: 0.8811
+## 238/313 [=====================&gt;........] - ETA: 0s - loss: 0.3409 - accuracy: 0.8806
+## 250/313 [======================&gt;.......] - ETA: 0s - loss: 0.3467 - accuracy: 0.8792
+## 258/313 [=======================&gt;......] - ETA: 0s - loss: 0.3455 - accuracy: 0.8794
+## 273/313 [=========================&gt;....] - ETA: 0s - loss: 0.3481 - accuracy: 0.8783
+## 285/313 [==========================&gt;...] - ETA: 0s - loss: 0.3475 - accuracy: 0.8794
+## 298/313 [===========================&gt;..] - ETA: 0s - loss: 0.3467 - accuracy: 0.8796
+## 310/313 [============================&gt;.] - ETA: 0s - loss: 0.3473 - accuracy: 0.8786
+## 313/313 [==============================] - 2s 6ms/step - loss: 0.3476 - accuracy: 0.8785</code></pre>
+<pre><code>## Accuracy on test dataset: 0.8785</code></pre>
+<pre class="python"><code># predict
+for test_images, test_labels in test_dataset.take(1):
+  test_images = test_images.numpy()
+  test_labels = test_labels.numpy()
+  predictions = model.predict(test_images)
+predictions.shape
+predictions[0]
+np.argmax(predictions[0])
+test_labels[0]</code></pre>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="/post/3-7-tensorflow-by-udacity-conversational-neural-network-cnn/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="/post/3-7-tensorflow-by-udacity-conversational-neural-network-cnn/">(3/7)TensorFlow by Udacity:Conversational neural network(CNN)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="/post/1-7-tensorflow-by-udacity-introduciton/">(1/7)TensorFlow by Udacity:introduciton</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="/post/1-7-tensorflow-by-udacity-introduciton/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your Google Analytics tracking ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+
+
+</body>
+</html>
+
