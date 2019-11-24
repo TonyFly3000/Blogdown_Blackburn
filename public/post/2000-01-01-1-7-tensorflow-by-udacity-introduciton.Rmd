@@ -11,7 +11,7 @@ topics: []
 
 
 
-```{r include = FALSE ,message=FALSE, warning = FALSE}
+```{r include = FALSE ,message=FALSE, warning = FALSE,eval=FALSE}
 library(reticulate)
 py_run_string("import os as os")
 py_run_string("os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = 'C:/Users/User/Anaconda3/Library/plugins/platforms'")
@@ -21,7 +21,7 @@ py_run_string("os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = 'C:/Users/User/Anacon
 
 
 
-```{python message=FALSE}
+```{python message=FALSE,eval=FALSE}
 import tensorflow as tf
 
 import numpy as np
@@ -31,7 +31,7 @@ import numpy as np
 
 
 
-```{python message=FALSE}
+```{python message=FALSE,eval=FALSE}
 import tensorflow as tf
 print(tf.__version__)
 
@@ -39,7 +39,7 @@ print(tf.__version__)
 
 
 
-```{python message=FALSE}
+```{python message=FALSE,eval=FALSE}
 
 # data
 celsius_q    = np.array([-40, -10,  0,  8, 15, 22,  38],  dtype=float)
@@ -51,7 +51,7 @@ for i,c in enumerate(celsius_q):
 
 
 
-```{python message=FALSE}
+```{python message=FALSE,eval=FALSE}
 # model
 l0 = tf.keras.layers.Dense(units=1, input_shape=[1])
 model = tf.keras.Sequential([l0])
@@ -66,7 +66,7 @@ model.compile(loss='mean_squared_error',
 
 
 
-```{python message=FALSE}
+```{python message=FALSE,eval=FALSE}
 # trainning 
 history = model.fit(celsius_q, fahrenheit_a, epochs=500, verbose=False)
 print("Finished training the model")
@@ -76,7 +76,7 @@ print("Finished training the model")
 
 
 
-```{python message=FALSE}
+```{python message=FALSE,eval=FALSE}
 
 # training statistics
 import matplotlib.pyplot as plt
@@ -88,7 +88,7 @@ plt.plot(history.history['loss'])
 
 
 
-```{python message=FALSE}
+```{python message=FALSE,eval=FALSE}
 # predict
 print(model.predict([100.0]))
 
@@ -96,7 +96,7 @@ print(model.predict([100.0]))
 
 
 
-```{python message=FALSE}
+```{python message=FALSE,eval=FALSE}
 # model weight
 print("These are the layer variables: {}".format(l0.get_weights()))
 

@@ -1,0 +1,359 @@
+---
+title: (4/7)TensorFlow by Udacity:Conversational neural network(CNN) part 2
+author: ''
+date: '2000-11-14'
+slug: 4-7-tensorflow-by-udacity-conversational-neural-network-cnn-part-2
+categories: [R]
+tags: [R]
+description: '(4/7)TensorFlow by Udacity:Conversational neural network(CNN) part 2'
+topics: []
+---
+
+
+
+<pre class="python"><code>import tensorflow_datasets as tfds
+tfds.disable_progress_bar()
+
+# Helper libraries
+import math
+import numpy as np
+import matplotlib.pyplot as plt
+import tensorflow as tf</code></pre>
+<pre class="python"><code>import tensorflow as tf
+print(tf.__version__)</code></pre>
+<pre class="python"><code># data
+_URL = &#39;https://storage.googleapis.com/mledu-datasets/cats_and_dogs_filtered.zip&#39;
+zip_dir = tf.keras.utils.get_file(&#39;cats_and_dogs_filterted.zip&#39;, origin=_URL, extract=True)</code></pre>
+<pre class="python"><code>zip_dir_base = os.path.dirname(zip_dir)
+!find $zip_dir_base -type d -print</code></pre>
+<pre class="python"><code>train_dir = os.path.join(base_dir, &#39;train&#39;)
+validation_dir = os.path.join(base_dir, &#39;validation&#39;)
+
+train_cats_dir = os.path.join(train_dir, &#39;cats&#39;)  # directory with our training cat pictures
+train_dogs_dir = os.path.join(train_dir, &#39;dogs&#39;)  # directory with our training dog pictures
+validation_cats_dir = os.path.join(validation_dir, &#39;cats&#39;)  # directory with our validation cat pictures
+validation_dogs_dir = os.path.join(validation_dir, &#39;dogs&#39;)  # directory with our validation dog pictures</code></pre>
+<pre class="python"><code>num_cats_tr = len(os.listdir(train_cats_dir))
+num_dogs_tr = len(os.listdir(train_dogs_dir))
+
+num_cats_val = len(os.listdir(validation_cats_dir))
+num_dogs_val = len(os.listdir(validation_dogs_dir))
+
+total_train = num_cats_tr + num_dogs_tr
+total_val = num_cats_val + num_dogs_val</code></pre>
+<pre class="python"><code>print(&#39;total training cat images:&#39;, num_cats_tr)
+print(&#39;total training dog images:&#39;, num_dogs_tr)
+
+print(&#39;total validation cat images:&#39;, num_cats_val)
+print(&#39;total validation dog images:&#39;, num_dogs_val)
+print(&quot;--&quot;)
+print(&quot;Total training images:&quot;, total_train)
+print(&quot;Total validation images:&quot;, total_val)</code></pre>
+<pre class="python"><code>BATCH_SIZE = 100  # Number of training examples to process before updating our models variables
+IMG_SHAPE  = 150  # Our training data consists of images with width of 150 pixels and height of 150 pixels</code></pre>
+<pre class="python"><code># Data Processing
+
+train_image_generator      = ImageDataGenerator(rescale=1./255)  # Generator for our training data
+validation_image_generator = ImageDataGenerator(rescale=1./255)  # Generator for our validation data
+
+train_data_gen = train_image_generator.flow_from_directory(batch_size=BATCH_SIZE,
+                                                           directory=train_dir,
+                                                           shuffle=True,
+                                                           target_size=(IMG_SHAPE,IMG_SHAPE), #(150,150)
+                                                           class_mode=&#39;binary&#39;)
+
+
+val_data_gen = validation_image_generator.flow_from_directory(batch_size=BATCH_SIZE,
+                                                              directory=validation_dir,
+                                                              shuffle=False,
+                                                              target_size=(IMG_SHAPE,IMG_SHAPE), #(150,150)
+                                                              class_mode=&#39;binary&#39;)</code></pre>
+<pre class="python"><code>sample_training_images, _ = next(train_data_gen)</code></pre>
+<pre class="python"><code># This function will plot images in the form of a grid with 1 row and 5 columns where images are placed in each column.
+def plotImages(images_arr):
+    fig, axes = plt.subplots(1, 5, figsize=(20,20))
+    axes = axes.flatten()
+    for img, ax in zip(images_arr, axes):
+        ax.imshow(img)
+    plt.tight_layout()
+    plt.show()
+
+plotImages(sample_training_images[:5])  # Plot images 0-4</code></pre>
+<pre class="python"><code># model
+
+model = tf.keras.models.Sequential([
+    tf.keras.layers.Conv2D(32, (3,3), activation=&#39;relu&#39;, input_shape=(150, 150, 3)),
+    tf.keras.layers.MaxPooling2D(2, 2),
+
+    tf.keras.layers.Conv2D(64, (3,3), activation=&#39;relu&#39;),
+    tf.keras.layers.MaxPooling2D(2,2),
+    
+    tf.keras.layers.Conv2D(128, (3,3), activation=&#39;relu&#39;),
+    tf.keras.layers.MaxPooling2D(2,2),
+    
+    tf.keras.layers.Conv2D(128, (3,3), activation=&#39;relu&#39;),
+    tf.keras.layers.MaxPooling2D(2,2),
+    
+    tf.keras.layers.Flatten(),
+    tf.keras.layers.Dense(512, activation=&#39;relu&#39;),
+    tf.keras.layers.Dense(2, activation=&#39;softmax&#39;)
+])
+
+model.compile(optimizer=&#39;adam&#39;,
+              loss=&#39;sparse_categorical_crossentropy&#39;,
+              metrics=[&#39;accuracy&#39;])
+model.summary()</code></pre>
+<pre class="python"><code># trainning
+EPOCHS = 3
+history = model.fit_generator(
+    train_data_gen,
+    steps_per_epoch=int(np.ceil(total_train / float(BATCH_SIZE))),
+    epochs=EPOCHS,
+    validation_data=val_data_gen,
+    validation_steps=int(np.ceil(total_val / float(BATCH_SIZE))),verbose=False
+)</code></pre>
+<pre class="python"><code># model result
+acc = history.history[&#39;accuracy&#39;]
+val_acc = history.history[&#39;val_accuracy&#39;]
+
+loss = history.history[&#39;loss&#39;]
+val_loss = history.history[&#39;val_loss&#39;]
+
+epochs_range = range(EPOCHS)
+
+plt.figure(figsize=(8, 8))
+plt.subplot(2, 1, 1)
+plt.plot(epochs_range, acc, label=&#39;Training Accuracy&#39;)
+plt.plot(epochs_range, val_acc, label=&#39;Validation Accuracy&#39;)
+plt.legend(loc=&#39;lower right&#39;)
+plt.title(&#39;Training and Validation Accuracy&#39;)
+
+plt.subplot(2, 1, 2)
+plt.plot(epochs_range, loss, label=&#39;Training Loss&#39;)
+plt.plot(epochs_range, val_loss, label=&#39;Validation Loss&#39;)
+plt.legend(loc=&#39;upper right&#39;)
+plt.title(&#39;Training and Validation Loss&#39;)
+plt.savefig(&#39;./foo.png&#39;)
+plt.show()</code></pre>
+<div id="dogs_vs_cats_with_augmentation" class="section level1">
+<h1>dogs_vs_cats_with_augmentation</h1>
+<pre class="python"><code>image_gen_train = ImageDataGenerator(
+      rescale=1./255,
+      rotation_range=40,
+      width_shift_range=0.2,
+      height_shift_range=0.2,
+      shear_range=0.2,
+      zoom_range=0.2,
+      horizontal_flip=True,
+      fill_mode=&#39;nearest&#39;)
+
+train_data_gen = image_gen_train.flow_from_directory(batch_size=BATCH_SIZE,
+                                                     directory=train_dir,
+                                                     shuffle=True,
+                                                     target_size=(IMG_SHAPE,IMG_SHAPE),
+                                                     class_mode=&#39;binary&#39;)</code></pre>
+<pre class="python"><code>augmented_images = [train_data_gen[0][0][0] for i in range(5)]
+plotImages(augmented_images)</code></pre>
+<pre class="python"><code>image_gen_val = ImageDataGenerator(rescale=1./255)
+
+val_data_gen = image_gen_val.flow_from_directory(batch_size=BATCH_SIZE,
+                                                 directory=validation_dir,
+                                                 target_size=(IMG_SHAPE, IMG_SHAPE),
+                                                 class_mode=&#39;binary&#39;)</code></pre>
+<pre class="python"><code># model
+model = tf.keras.models.Sequential([
+    tf.keras.layers.Conv2D(32, (3,3), activation=&#39;relu&#39;, input_shape=(150, 150, 3)),
+    tf.keras.layers.MaxPooling2D(2, 2),
+
+    tf.keras.layers.Conv2D(64, (3,3), activation=&#39;relu&#39;),
+    tf.keras.layers.MaxPooling2D(2,2),
+
+    tf.keras.layers.Conv2D(128, (3,3), activation=&#39;relu&#39;),
+    tf.keras.layers.MaxPooling2D(2,2),
+
+    tf.keras.layers.Conv2D(128, (3,3), activation=&#39;relu&#39;),
+    tf.keras.layers.MaxPooling2D(2,2),
+
+    tf.keras.layers.Dropout(0.5),
+    tf.keras.layers.Flatten(),
+    tf.keras.layers.Dense(512, activation=&#39;relu&#39;),
+    tf.keras.layers.Dense(2, activation=&#39;softmax&#39;)
+])
+model.compile(optimizer=&#39;adam&#39;,
+              loss=&#39;sparse_categorical_crossentropy&#39;,
+              metrics=[&#39;accuracy&#39;])
+model.summary()</code></pre>
+<pre class="python"><code># trainning
+epochs=3
+history = model.fit_generator(
+    train_data_gen,
+    steps_per_epoch=int(np.ceil(total_train / float(BATCH_SIZE))),
+    epochs=epochs,
+    validation_data=val_data_gen,
+    validation_steps=int(np.ceil(total_val / float(BATCH_SIZE)))
+)</code></pre>
+<pre class="python"><code># model result
+acc = history.history[&#39;accuracy&#39;]
+val_acc = history.history[&#39;val_accuracy&#39;]
+
+loss = history.history[&#39;loss&#39;]
+val_loss = history.history[&#39;val_loss&#39;]
+
+epochs_range = range(epochs)
+
+plt.figure(figsize=(8, 8))
+plt.subplot(1, 2, 1)
+plt.plot(epochs_range, acc, label=&#39;Training Accuracy&#39;)
+plt.plot(epochs_range, val_acc, label=&#39;Validation Accuracy&#39;)
+plt.legend(loc=&#39;lower right&#39;)
+plt.title(&#39;Training and Validation Accuracy&#39;)
+
+plt.subplot(1, 2, 2)
+plt.plot(epochs_range, loss, label=&#39;Training Loss&#39;)
+plt.plot(epochs_range, val_loss, label=&#39;Validation Loss&#39;)
+plt.legend(loc=&#39;upper right&#39;)
+plt.title(&#39;Training and Validation Loss&#39;)
+plt.show()</code></pre>
+</div>
+<div id="flowers_with_data_augmentation" class="section level1">
+<h1>flowers_with_data_augmentation</h1>
+<pre class="python"><code>from __future__ import absolute_import, division, print_function, unicode_literals
+
+import os
+import numpy as np
+import glob
+import shutil
+import matplotlib.pyplot as plt
+import tensorflow as tf
+
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Conv2D, Flatten, Dropout, MaxPooling2D
+from tensorflow.keras.preprocessing.image import ImageDataGenerator</code></pre>
+<pre class="python"><code># data
+_URL = &quot;https://storage.googleapis.com/download.tensorflow.org/example_images/flower_photos.tgz&quot;
+
+zip_file = tf.keras.utils.get_file(origin=_URL,
+                                   fname=&quot;flower_photos.tgz&quot;,
+                                   extract=True)
+
+base_dir = os.path.join(os.path.dirname(zip_file), &#39;flower_photos&#39;)</code></pre>
+<pre class="python"><code>classes = [&#39;roses&#39;, &#39;daisy&#39;, &#39;dandelion&#39;, &#39;sunflowers&#39;, &#39;tulips&#39;]
+
+
+for cl in classes:
+  img_path = os.path.join(base_dir, cl)
+  images = glob.glob(img_path + &#39;/*.jpg&#39;)
+  print(&quot;{}: {} Images&quot;.format(cl, len(images)))
+  num_train = int(round(len(images)*0.8))
+  train, val = images[:num_train], images[num_train:]
+
+  for t in train:
+    if not os.path.exists(os.path.join(base_dir, &#39;train&#39;, cl)):
+      os.makedirs(os.path.join(base_dir, &#39;train&#39;, cl))
+    shutil.move(t, os.path.join(base_dir, &#39;train&#39;, cl))
+
+  for v in val:
+    if not os.path.exists(os.path.join(base_dir, &#39;val&#39;, cl)):
+      os.makedirs(os.path.join(base_dir, &#39;val&#39;, cl))
+    shutil.move(v, os.path.join(base_dir, &#39;val&#39;, cl))
+
+round(len(images)*0.8)
+
+train_dir = os.path.join(base_dir, &#39;train&#39;)
+val_dir = os.path.join(base_dir, &#39;val&#39;)</code></pre>
+<pre class="python"><code>batch_size = 100
+IMG_SHAPE = 150
+
+
+image_gen_train = ImageDataGenerator(
+                    rescale=1./255,
+                    rotation_range=45,
+                    width_shift_range=.15,
+                    height_shift_range=.15,
+                    horizontal_flip=True,
+                    zoom_range=0.5
+                    )
+
+
+train_data_gen = image_gen_train.flow_from_directory(
+                                                batch_size=batch_size,
+                                                directory=train_dir,
+                                                shuffle=True,
+                                                target_size=(IMG_SHAPE,IMG_SHAPE),
+                                                class_mode=&#39;sparse&#39;
+                                                )
+
+image_gen_val = ImageDataGenerator(rescale=1./255)
+
+val_data_gen = image_gen_val.flow_from_directory(batch_size=batch_size,
+                                                 directory=val_dir,
+                                                 target_size=(IMG_SHAPE, IMG_SHAPE),
+                                                 class_mode=&#39;sparse&#39;)</code></pre>
+<pre class="python"><code>def plotImages(images_arr):
+    fig, axes = plt.subplots(1, 5, figsize=(20,20))
+    axes = axes.flatten()
+    for img, ax in zip( images_arr, axes):
+        ax.imshow(img)
+    plt.tight_layout()
+    plt.show()
+
+
+augmented_images = [train_data_gen[0][0][0] for i in range(5)]
+plotImages(augmented_images)</code></pre>
+<pre class="python"><code># model
+model = Sequential()
+
+model.add(Conv2D(16, 3, padding=&#39;same&#39;, activation=&#39;relu&#39;, input_shape=(IMG_SHAPE,IMG_SHAPE, 3)))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+
+model.add(Conv2D(32, 3, padding=&#39;same&#39;, activation=&#39;relu&#39;))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+
+model.add(Conv2D(64, 3, padding=&#39;same&#39;, activation=&#39;relu&#39;))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+
+model.add(Flatten())
+model.add(Dropout(0.2))
+model.add(Dense(512, activation=&#39;relu&#39;))
+
+model.add(Dropout(0.2))
+model.add(Dense(5, activation=&#39;softmax&#39;))
+
+
+model.compile(optimizer=&#39;adam&#39;,
+              loss=&#39;sparse_categorical_crossentropy&#39;,
+              metrics=[&#39;accuracy&#39;])</code></pre>
+<pre class="python"><code># trainning
+epochs = 3
+
+history = model.fit_generator(
+    train_data_gen,
+    steps_per_epoch=int(np.ceil(train_data_gen.n / float(batch_size))),
+    epochs=epochs,
+    validation_data=val_data_gen,
+    validation_steps=int(np.ceil(val_data_gen.n / float(batch_size)))
+    ,verbose=False
+)</code></pre>
+<pre class="python"><code># model result
+acc = history.history[&#39;accuracy&#39;]
+val_acc = history.history[&#39;val_accuracy&#39;]
+
+loss = history.history[&#39;loss&#39;]
+val_loss = history.history[&#39;val_loss&#39;]
+
+epochs_range = range(epochs)
+
+plt.figure(figsize=(8, 8))
+plt.subplot(1, 2, 1)
+plt.plot(epochs_range, acc, label=&#39;Training Accuracy&#39;)
+plt.plot(epochs_range, val_acc, label=&#39;Validation Accuracy&#39;)
+plt.legend(loc=&#39;lower right&#39;)
+plt.title(&#39;Training and Validation Accuracy&#39;)
+
+plt.subplot(1, 2, 2)
+plt.plot(epochs_range, loss, label=&#39;Training Loss&#39;)
+plt.plot(epochs_range, val_loss, label=&#39;Validation Loss&#39;)
+plt.legend(loc=&#39;upper right&#39;)
+plt.title(&#39;Training and Validation Loss&#39;)
+plt.show()</code></pre>
+</div>

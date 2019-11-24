@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="(1/7)TensorFlow by Udacity:introduciton">
-  <meta name="generator" content="Hugo 0.51" />
+  <meta name="generator" content="Hugo 0.48" />
 
   <title>(1/7)TensorFlow by Udacity:introduciton &middot; Tony Duan</title>
 
@@ -255,38 +255,29 @@
 
 </div>
 
-  
+  <pre class="python"><code>import tensorflow as tf
 
-
-<pre class="python"><code>import tensorflow as tf
 import numpy as np</code></pre>
 <pre class="python"><code>import tensorflow as tf
 print(tf.__version__)</code></pre>
-<pre><code>## 2.0.0</code></pre>
 <pre class="python"><code># data
 celsius_q    = np.array([-40, -10,  0,  8, 15, 22,  38],  dtype=float)
 fahrenheit_a = np.array([-40,  14, 32, 46, 59, 72, 100],  dtype=float)
+
 for i,c in enumerate(celsius_q):
   print(&quot;{} degrees Celsius = {} degrees Fahrenheit&quot;.format(c, fahrenheit_a[i]))</code></pre>
-<pre><code>## -40.0 degrees Celsius = -40.0 degrees Fahrenheit
-## -10.0 degrees Celsius = 14.0 degrees Fahrenheit
-## 0.0 degrees Celsius = 32.0 degrees Fahrenheit
-## 8.0 degrees Celsius = 46.0 degrees Fahrenheit
-## 15.0 degrees Celsius = 59.0 degrees Fahrenheit
-## 22.0 degrees Celsius = 72.0 degrees Fahrenheit
-## 38.0 degrees Celsius = 100.0 degrees Fahrenheit</code></pre>
 <pre class="python"><code># model
 l0 = tf.keras.layers.Dense(units=1, input_shape=[1])
 model = tf.keras.Sequential([l0])
 model = tf.keras.Sequential([
   tf.keras.layers.Dense(units=1, input_shape=[1])
 ])
+
 model.compile(loss=&#39;mean_squared_error&#39;,
               optimizer=tf.keras.optimizers.Adam(0.1))</code></pre>
 <pre class="python"><code># trainning 
 history = model.fit(celsius_q, fahrenheit_a, epochs=500, verbose=False)
 print(&quot;Finished training the model&quot;)</code></pre>
-<pre><code>## Finished training the model</code></pre>
 <pre class="python"><code># training statistics
 import matplotlib.pyplot as plt
 plt.xlabel(&#39;Epoch Number&#39;)
@@ -294,10 +285,8 @@ plt.ylabel(&quot;Loss Magnitude&quot;)
 plt.plot(history.history[&#39;loss&#39;])</code></pre>
 <pre class="python"><code># predict
 print(model.predict([100.0]))</code></pre>
-<pre><code>## [[211.30373]]</code></pre>
 <pre class="python"><code># model weight
 print(&quot;These are the layer variables: {}&quot;.format(l0.get_weights()))</code></pre>
-<pre><code>## These are the layer variables: [array([[0.6343497]], dtype=float32), array([0.], dtype=float32)]</code></pre>
 
 
   
@@ -320,13 +309,13 @@ print(&quot;These are the layer variables: {}&quot;.format(l0.get_weights()))</c
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="/post/kaggle-kernelramen-ratings/">kaggle kernel系列:方便面</a>
+      <a href="/post/tensorflow-course-by-udacity/">Tensorflow course by Udacity</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="/post/kaggle-kernelramen-ratings/"><i class="fa fa-chevron-right"></i></a>
+    <a href="/post/tensorflow-course-by-udacity/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>

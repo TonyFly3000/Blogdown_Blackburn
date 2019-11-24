@@ -10,7 +10,7 @@ topics: []
 ---
 
 
-```{r include = FALSE ,message=FALSE, warning = FALSE}
+```{r include = FALSE ,message=FALSE, warning = FALSE,eval=FALSE}
 library(reticulate)
 py_run_string("import os as os")
 py_run_string("os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = 'C:/Users/User/Anaconda3/Library/plugins/platforms'")
@@ -18,7 +18,7 @@ py_run_string("os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = 'C:/Users/User/Anacon
 
 
 
-```{python message=FALSE}
+```{python message=FALSE,eval=FALSE}
 import tensorflow as tf
 import tensorflow_datasets as tfds
 import math
@@ -30,7 +30,7 @@ tfds.disable_progress_bar()
 
 
 
-```{python message=FALSE}
+```{python message=FALSE,eval=FALSE}
 import tensorflow as tf
 print(tf.__version__)
 
@@ -38,19 +38,19 @@ print(tf.__version__)
 
 
 
-```{python message=FALSE}
+```{python message=FALSE,eval=FALSE}
 dataset, metadata = tfds.load('fashion_mnist',as_supervised=True, with_info=True)
 train_dataset, test_dataset = dataset['train'], dataset['test']
 ```
 
 
-```{python message=FALSE}
+```{python message=FALSE,eval=FALSE}
 class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
                'Sandal',      'Shirt',   'Sneaker',  'Bag',   'Ankle boot']
 
 ```
 
-```{python message=FALSE}
+```{python message=FALSE,eval=FALSE}
 num_train_examples = metadata.splits['train'].num_examples
 num_test_examples = metadata.splits['test'].num_examples
 print("Number of training examples: {}".format(num_train_examples))
@@ -60,7 +60,7 @@ print("Number of test examples:     {}".format(num_test_examples))
 
 
 
-```{python message=FALSE}
+```{python message=FALSE,eval=FALSE}
 # data processing
 def normalize(images, labels):
   images = tf.cast(images, tf.float32)
@@ -81,7 +81,7 @@ test_dataset  =  test_dataset.cache()
 
 
 
-```{python message=FALSE}
+```{python message=FALSE,eval=FALSE}
 # Take a single image, and remove the color dimension by reshaping
 for image, label in test_dataset.take(1):
   break
@@ -98,7 +98,7 @@ plt.show()
 
 
 
-```{python message=FALSE}
+```{python message=FALSE,eval=FALSE}
 # Take a single image, and remove the color dimension by reshaping
 plt.figure(figsize=(10,10))
 i = 0
@@ -117,7 +117,7 @@ plt.show()
 
 
 
-```{python message=FALSE}
+```{python message=FALSE,eval=FALSE}
 # model 
 model = tf.keras.Sequential([
     tf.keras.layers.Flatten(input_shape=(28, 28, 1)),
@@ -133,7 +133,7 @@ model.compile(optimizer='adam',
 
 
 
-```{python message=FALSE,results='hide'}
+```{python message=FALSE,results='hide',eval=FALSE}
 # trainning
 BATCH_SIZE = 32
 train_dataset = train_dataset.repeat().shuffle(num_train_examples).batch(BATCH_SIZE)
@@ -143,7 +143,7 @@ model.fit(train_dataset, epochs=5, steps_per_epoch=math.ceil(num_train_examples/
 ```
 
 
-```{python message=FALSE,warning = FALSE,echo=FALSE}
+```{python message=FALSE,warning = FALSE,echo=FALSE,eval=FALSE}
 # model result
 test_loss, test_accuracy = model.evaluate(test_dataset, steps=math.ceil(num_test_examples/32))
 print('Accuracy on test dataset:', test_accuracy)
@@ -151,7 +151,7 @@ print('Accuracy on test dataset:', test_accuracy)
 ```
 
 
-```{python message=FALSE}
+```{python message=FALSE,eval=FALSE}
 # predict
 for test_images, test_labels in test_dataset.take(1):
   test_images = test_images.numpy()

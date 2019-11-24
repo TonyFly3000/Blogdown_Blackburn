@@ -1,0 +1,276 @@
+---
+title: (5/7)TensorFlow by Udacity:Transfer learning
+author: ''
+date: '2000-11-14'
+slug: 5-7-tensorflow-by-udacity-transfer-learning
+categories: []
+tags: []
+description: '(5/7)TensorFlow by Udacity:Transfer learning'
+topics: []
+---
+
+
+
+<pre class="python"><code>from __future__ import absolute_import, division, print_function, unicode_literals
+import tensorflow as tf
+import matplotlib.pylab as plt
+
+import tensorflow_hub as hub
+import tensorflow_datasets as tfds
+
+from tensorflow.keras import layers</code></pre>
+<pre class="python"><code># download model
+CLASSIFIER_URL =&quot;https://tfhub.dev/google/tf2-preview/mobilenet_v2/classification/2&quot;
+IMAGE_RES = 224
+
+model = tf.keras.Sequential([
+    hub.KerasLayer(CLASSIFIER_URL, input_shape=(IMAGE_RES, IMAGE_RES, 3))
+])</code></pre>
+<pre class="python"><code>import numpy as np
+import PIL.Image as Image
+
+grace_hopper = tf.keras.utils.get_file(&#39;image.jpg&#39;,&#39;https://storage.googleapis.com/download.tensorflow.org/example_images/grace_hopper.jpg&#39;)
+grace_hopper = Image.open(grace_hopper).resize((IMAGE_RES, IMAGE_RES))
+grace_hopper</code></pre>
+<pre class="python"><code>grace_hopper = np.array(grace_hopper)/255.0
+grace_hopper.shape</code></pre>
+<pre class="python"><code>result = model.predict(grace_hopper[np.newaxis, ...])
+result.shape</code></pre>
+<pre class="python"><code>predicted_class = np.argmax(result[0], axis=-1)
+predicted_class</code></pre>
+<pre class="python"><code># Decode the predictions
+labels_path = tf.keras.utils.get_file(&#39;ImageNetLabels.txt&#39;,&#39;https://storage.googleapis.com/download.tensorflow.org/data/ImageNetLabels.txt&#39;)
+imagenet_labels = np.array(open(labels_path).read().splitlines())
+
+
+predicted_class_name = imagenet_labels[predicted_class]
+predicted_class_name</code></pre>
+<pre class="python"><code># Decode the predictions
+labels_path = tf.keras.utils.get_file(&#39;ImageNetLabels.txt&#39;,&#39;https://storage.googleapis.com/download.tensorflow.org/data/ImageNetLabels.txt&#39;)
+imagenet_labels = np.array(open(labels_path).read().splitlines())
+
+plt.imshow(grace_hopper)
+plt.axis(&#39;off&#39;)
+predicted_class_name = imagenet_labels[predicted_class]
+_ = plt.title(&quot;Prediction: &quot; + predicted_class_name.title())</code></pre>
+<div id="cat-dog-transfer-learning" class="section level1">
+<h1>cat dog transfer learning</h1>
+<pre class="python"><code># data
+splits = tfds.Split.ALL.subsplit(weighted=(80, 20))
+
+splits, info = tfds.load(&#39;cats_vs_dogs&#39;, with_info=True, as_supervised=True, split = splits)
+
+(train_examples, validation_examples) = splits
+
+num_examples = info.splits[&#39;train&#39;].num_examples
+num_classes = info.features[&#39;label&#39;].num_classes</code></pre>
+<pre class="python"><code>for i, example_image in enumerate(train_examples.take(3)):
+  print(&quot;Image {} shape: {}&quot;.format(i+1, example_image[0].shape))</code></pre>
+<pre class="python"><code>def format_image(image, label):
+  image = tf.image.resize(image, (IMAGE_RES, IMAGE_RES))/255.0
+  return image, label
+
+BATCH_SIZE = 32
+
+train_batches      = train_examples.shuffle(num_examples//4).map(format_image).batch(BATCH_SIZE).prefetch(1)
+validation_batches = validation_examples.map(format_image).batch(BATCH_SIZE).prefetch(1)</code></pre>
+<pre class="python"><code>image_batch, label_batch = next(iter(train_batches.take(1)))
+image_batch = image_batch.numpy()
+label_batch = label_batch.numpy()
+
+result_batch = model.predict(image_batch)
+
+predicted_class_names = imagenet_labels[np.argmax(result_batch, axis=-1)]
+predicted_class_names</code></pre>
+<pre class="python"><code>plt.figure(figsize=(10,9))
+for n in range(30):
+  plt.subplot(6,5,n+1)
+  plt.subplots_adjust(hspace = 0.3)
+  plt.imshow(image_batch[n])
+  plt.title(predicted_class_names[n])
+  plt.axis(&#39;off&#39;)
+_ = plt.suptitle(&quot;ImageNet predictions&quot;)</code></pre>
+<pre class="python"><code># mobilenet_v2
+URL = &quot;https://tfhub.dev/google/tf2-preview/mobilenet_v2/feature_vector/2&quot;
+feature_extractor = hub.KerasLayer(URL,
+                                   input_shape=(IMAGE_RES, IMAGE_RES,3))</code></pre>
+<pre class="python"><code>feature_batch = feature_extractor(image_batch)
+print(feature_batch.shape)</code></pre>
+<pre class="python"><code>feature_extractor.trainable = False</code></pre>
+<pre class="python"><code># model
+model = tf.keras.Sequential([
+  feature_extractor,
+  layers.Dense(2, activation=&#39;softmax&#39;)
+])
+
+model.summary()</code></pre>
+<pre class="python"><code># trainning
+model.compile(
+  optimizer=&#39;adam&#39;,
+  loss=&#39;sparse_categorical_crossentropy&#39;,
+  metrics=[&#39;accuracy&#39;])
+
+EPOCHS = 3
+history = model.fit(train_batches,
+                    epochs=EPOCHS,
+                    validation_data=validation_batches)</code></pre>
+<pre class="python"><code># model result
+acc = history.history[&#39;accuracy&#39;]
+val_acc = history.history[&#39;val_accuracy&#39;]
+
+loss = history.history[&#39;loss&#39;]
+val_loss = history.history[&#39;val_loss&#39;]
+
+epochs_range = range(EPOCHS)
+
+plt.figure(figsize=(8, 8))
+plt.subplot(1, 2, 1)
+plt.plot(epochs_range, acc, label=&#39;Training Accuracy&#39;)
+plt.plot(epochs_range, val_acc, label=&#39;Validation Accuracy&#39;)
+plt.legend(loc=&#39;lower right&#39;)
+plt.title(&#39;Training and Validation Accuracy&#39;)
+
+plt.subplot(1, 2, 2)
+plt.plot(epochs_range, loss, label=&#39;Training Loss&#39;)
+plt.plot(epochs_range, val_loss, label=&#39;Validation Loss&#39;)
+plt.legend(loc=&#39;upper right&#39;)
+plt.title(&#39;Training and Validation Loss&#39;)
+plt.show()</code></pre>
+<pre class="python"><code># Predict
+class_names = np.array(info.features[&#39;label&#39;].names)
+class_names
+predicted_batch = model.predict(image_batch)
+predicted_batch = tf.squeeze(predicted_batch).numpy()
+predicted_ids = np.argmax(predicted_batch, axis=-1)
+predicted_class_names = class_names[predicted_ids]
+predicted_class_names</code></pre>
+<pre class="python"><code>print(&quot;Labels: &quot;, label_batch)
+print(&quot;Predicted labels: &quot;, predicted_ids)</code></pre>
+<pre class="python"><code>plt.figure(figsize=(10,9))
+for n in range(30):
+  plt.subplot(6,5,n+1)
+  plt.subplots_adjust(hspace = 0.3)
+  plt.imshow(image_batch[n])
+  color = &quot;blue&quot; if predicted_ids[n] == label_batch[n] else &quot;red&quot;
+  plt.title(predicted_class_names[n].title(), color=color)
+  plt.axis(&#39;off&#39;)
+_ = plt.suptitle(&quot;Model predictions (blue: correct, red: incorrect)&quot;)</code></pre>
+</div>
+<div id="flower-with-transfer-leanring" class="section level1">
+<h1>flower with transfer leanring</h1>
+<pre class="python"><code>import tensorflow as tf
+import numpy as np
+import matplotlib.pyplot as plt
+
+import tensorflow_hub as hub
+import tensorflow_datasets as tfds
+
+from tensorflow.keras import layers</code></pre>
+<pre class="python"><code># data
+splits = tfds.Split.TRAIN.subsplit([70, 30])
+
+(training_set, validation_set), dataset_info = tfds.load(&#39;tf_flowers&#39;, with_info=True, as_supervised=True, split=splits)</code></pre>
+<pre class="python"><code>num_classes = dataset_info.features[&#39;label&#39;].num_classes
+
+num_training_examples = 0
+num_validation_examples = 0
+
+for example in training_set:
+  num_training_examples += 1
+
+for example in validation_set:
+  num_validation_examples += 1
+
+print(&#39;Total Number of Classes: {}&#39;.format(num_classes))
+print(&#39;Total Number of Training Images: {}&#39;.format(num_training_examples))
+print(&#39;Total Number of Validation Images: {} \n&#39;.format(num_validation_examples))
+
+for i, example in enumerate(training_set.take(5)):
+  print(&#39;Image {} shape: {} label: {}&#39;.format(i+1, example[0].shape, example[1]))</code></pre>
+<pre class="python"><code>IMAGE_RES = 224
+
+def format_image(image, label):
+  image = tf.image.resize(image, (IMAGE_RES, IMAGE_RES))/255.0
+  return image, label
+
+BATCH_SIZE = 32
+
+train_batches = training_set.shuffle(num_training_examples//4).map(format_image).batch(BATCH_SIZE).prefetch(1)
+
+validation_batches = validation_set.map(format_image).batch(BATCH_SIZE).prefetch(1)</code></pre>
+<pre class="python"><code># transfer model
+
+URL = &quot;https://tfhub.dev/google/tf2-preview/mobilenet_v2/feature_vector/4&quot;
+feature_extractor = hub.KerasLayer(URL,
+                                   input_shape=(IMAGE_RES, IMAGE_RES, 3))
+
+feature_extractor.trainable = False</code></pre>
+<pre class="python"><code># model
+model = tf.keras.Sequential([
+  feature_extractor,
+  layers.Dense(num_classes, activation=&#39;softmax&#39;)
+])
+
+model.summary()</code></pre>
+<pre class="python"><code># trainning
+model.compile(
+  optimizer=&#39;adam&#39;,
+  loss=&#39;sparse_categorical_crossentropy&#39;,
+  metrics=[&#39;accuracy&#39;])
+
+EPOCHS = 6
+
+history = model.fit(train_batches,
+                    epochs=EPOCHS,
+                    validation_data=validation_batches)</code></pre>
+<pre class="python"><code># model result
+acc = history.history[&#39;accuracy&#39;]
+val_acc = history.history[&#39;val_accuracy&#39;]
+
+loss = history.history[&#39;loss&#39;]
+val_loss = history.history[&#39;val_loss&#39;]
+
+epochs_range = range(EPOCHS)
+
+plt.figure(figsize=(8, 8))
+plt.subplot(1, 2, 1)
+plt.plot(epochs_range, acc, label=&#39;Training Accuracy&#39;)
+plt.plot(epochs_range, val_acc, label=&#39;Validation Accuracy&#39;)
+plt.legend(loc=&#39;lower right&#39;)
+plt.title(&#39;Training and Validation Accuracy&#39;)
+
+plt.subplot(1, 2, 2)
+plt.plot(epochs_range, loss, label=&#39;Training Loss&#39;)
+plt.plot(epochs_range, val_loss, label=&#39;Validation Loss&#39;)
+plt.legend(loc=&#39;upper right&#39;)
+plt.title(&#39;Training and Validation Loss&#39;)
+plt.show()</code></pre>
+<pre class="python"><code># predict
+
+class_names = np.array(dataset_info.features[&#39;label&#39;].names)
+
+print(class_names)</code></pre>
+<pre class="python"><code>image_batch, label_batch = next(iter(train_batches))
+
+image_batch = image_batch.numpy()
+label_batch = label_batch.numpy()
+
+predicted_batch = model.predict(image_batch)
+predicted_batch = tf.squeeze(predicted_batch).numpy()
+
+predicted_ids = np.argmax(predicted_batch, axis=-1)
+predicted_class_names = class_names[predicted_ids]
+
+print(predicted_class_names)</code></pre>
+<pre class="python"><code>print(&quot;Labels:           &quot;, label_batch)
+print(&quot;Predicted labels: &quot;, predicted_ids)</code></pre>
+<pre class="python"><code>plt.figure(figsize=(10,9))
+for n in range(30):
+  plt.subplot(6,5,n+1)
+  plt.subplots_adjust(hspace = 0.3)
+  plt.imshow(image_batch[n])
+  color = &quot;blue&quot; if predicted_ids[n] == label_batch[n] else &quot;red&quot;
+  plt.title(predicted_class_names[n].title(), color=color)
+  plt.axis(&#39;off&#39;)
+_ = plt.suptitle(&quot;Model predictions (blue: correct, red: incorrect)&quot;)</code></pre>
+</div>
