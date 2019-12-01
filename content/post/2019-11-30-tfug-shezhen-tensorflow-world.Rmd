@@ -1,0 +1,57 @@
+---
+title: TFUG Shezhen Tensorflow World extend 2019 Dec meetup
+author: ''
+date: '2019-11-30'
+slug: tfug-shezhen-tensorflow-world
+categories: []
+tags: []
+description: 'TFUG Shezhen Tensorflow World extend 2019 Dec meetup'
+topics: []
+---
+
+活动行：https://www.huodongxing.com/event/5520553987900
+
+# 1. Tensorflow World opening by 叶俊鹏:
+
+![](/post/tfug-shezhen-tensorflow-world/1.jpg){width=700px height=550px}
+![](/post/tfug-shezhen-tensorflow-world/2.jpg){width=700px height=550px}
+
+TensorFlow World 2019 Keynote by Jeff Dean:
+https://www.youtube.com/watch?v=MunFeX-0MD8
+
+Introduction to TensorFlow 2.0 by Josh Gordon:
+https://www.youtube.com/watch?v=5ECD8J3dvDQ
+
+# 2. Coffee break
+![](/post/tfug-shezhen-tensorflow-world/3.jpg){width=700px height=550px}
+
+# 3. AI落地漫谈 by 孙明亭
+[PPT](/post/tfug-shezhen-tensorflow-world/AI落地漫谈.pptx)
+
+
+![](/post/tfug-shezhen-tensorflow-world/4.jpg){width=700px height=550px}
+
+
+# 4. Code lab: Object detection with Shiny by Tony Duan(me)
+
+Link:https://github.com/TonyFly3000/Object_detection_shiny
+
+![](/post/tfug-shezhen-tensorflow-world/5.jpg){width=700px height=550px}
+
+![](/post/tfug-shezhen-tensorflow-world/6.jpg){width=700px height=550px}
+
+![](/post/tfug-shezhen-tensorflow-world/7.jpg){width=700px height=550px}
+
+![](/post/tfug-shezhen-tensorflow-world/8.jpg){width=700px height=550px}
+
+
+![](/post/tfug-shezhen-tensorflow-world/9.png){width=700px height=550px}
+
+
+## Object detection with shiny demo:
+
+![](/post/tfug-shezhen-tensorflow-world/object_detection.gif){width=300px height=500px}
+
+
+
+

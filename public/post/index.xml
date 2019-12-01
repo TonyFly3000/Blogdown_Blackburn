@@ -7,10 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 10 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 30 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>TFUG Shezhen Tensorflow World extend 2019 Dec meetup</title>
+      <link>/post/tfug-shezhen-tensorflow-world/</link>
+      <pubDate>Sat, 30 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tfug-shezhen-tensorflow-world/</guid>
+      <description>活动行：https://www.huodongxing.com/event/5520553987900
+1. Tensorflow World opening by 叶俊鹏:TensorFlow World 2019 Keynote by Jeff Dean:https://www.youtube.com/watch?v=MunFeX-0MD8
+Introduction to TensorFlow 2.0 by Josh Gordon:https://www.youtube.com/watch?v=5ECD8J3dvDQ
+2. Coffee break3. AI落地漫谈 by 孙明亭PPT
+4. Code lab: Object detection with Shiny by Tony Duan(me)Link:https://github.com/TonyFly3000/Object_detection_shiny
+Object detection with shiny demo:</description>
+    </item>
     
     <item>
       <title>Spartan race shenzhen 2019</title>
