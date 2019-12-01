@@ -26,7 +26,7 @@ https://www.youtube.com/watch?v=5ECD8J3dvDQ
 ![](/post/tfug-shezhen-tensorflow-world/3.jpg){width=700px height=550px}
 
 # 3. AI落地漫谈 by 孙明亭
-[PPT](/post/tfug-shezhen-tensorflow-world/AI落地漫谈.pptx)
+[PPT](/post/tfug-shezhen-tensorflow-world/AI_PPT.pptx)
 
 
 ![](/post/tfug-shezhen-tensorflow-world/4.jpg){width=700px height=550px}
