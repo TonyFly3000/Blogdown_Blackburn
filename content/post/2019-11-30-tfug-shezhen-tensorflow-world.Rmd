@@ -11,6 +11,9 @@ topics: []
 
 活动行：https://www.huodongxing.com/event/5520553987900
 
+
+
+
 # 1. Tensorflow World opening by 叶俊鹏:
 
 ![](/post/tfug-shezhen-tensorflow-world/1.jpg){width=700px height=550px}
@@ -53,5 +56,11 @@ Link:https://github.com/TonyFly3000/Object_detection_shiny
 ![](/post/tfug-shezhen-tensorflow-world/object_detection.gif){width=300px height=500px}
 
 
+<html>
+<audio controls>
+  <source src="/post/tfug-shezhen-tensorflow-world/yes_test001.wav" type="audio/wav">
+</audio></html>
 
 
+
+---  <audio controls autoplay loop>
