@@ -5,7 +5,12 @@ date: '2019-10-01'
 slug: muay-thai-boxing
 categories: []
 tags: []
-description: ''
+description: 'Muay thai boxing'
 topics: []
 ---
 
+
+<html>
+<audio controls autoplay loop>
+  <source src="/post/tfug-shezhen-tensorflow-world/Hampton.mp3" type="audio/mp3">
+</audio></html>
