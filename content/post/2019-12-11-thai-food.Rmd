@@ -53,11 +53,6 @@ topics: []
 
 ![](/post/thai-food/97.png){width=700px height=550px}
 
-奶茶妹
-<video width="760" height="465" controls>
-  <source src="/post/thai-food/DJI_0387.MP4" type="video/mp4">
-</video>
-
 ![](/post/thai-food/93.JPEG){width=700px height=550px}
 
 
@@ -70,13 +65,6 @@ Loving the vibe. It's so chill ,like lemon lime in summer time.
 
 <video width="760" height="465" controls>
   <source src="/post/thai-food/IMG_3515.mp4" type="video/mp4">
-</video>
-
-
-# Thai boat
-
-<video width="760" height="465" controls>
-  <source src="/post/thai-food/DJI_0390.MP4" type="video/mp4">
 </video>
 
 
