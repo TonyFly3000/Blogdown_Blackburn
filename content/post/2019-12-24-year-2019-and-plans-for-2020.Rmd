@@ -1,0 +1,80 @@
+---
+title: Year 2019 and plans for 2020
+author: ''
+date: '2019-12-24'
+slug: year-2019-and-plans-for-2020
+categories: []
+tags: []
+description: 'Year 2019 and plans for 2020'
+topics: []
+---
+
+
+This seem like a good time for a year end summary at christmas eve.
+This post inspired by Marcelo:https://www.msperlin.com/blog/post/2019-12-15-looking-back-2019/.
+
+
+# Summary for 2019 and plan for 2020
+
+1. Finished course [TensorFlow in Practice](https://www.coursera.org/account/accomplishments/specialization/certificate/7HWVLBEQS62E) at 2019
+[(code)](https://www.kaggle.com/tduan007/01-intro-to-tensorflow-by-coursera-in-python)And continues to finish another course [TensorFlow: Data and Deployment](https://www.coursera.org/specializations/tensorflow-data-and-deployment) at 2020
+
+
+2. Continues to enable voice, video at detection with shiny
+[App](https://tduan.shinyapps.io/object_detection_shiny/) [Code]('https://github.com/TonyFly3000/Object_detection_shiny')
+
+
+3. Host 3 tensorflow user meet up at 2019 and will continues at 2020 with first kaggle day meet up at Q1 2020
+
+
+4. Start 2 book:Get R and Get python at 2019 (https://tduan.netlify.com/book/). Target to finish both at 2020
+
+
+
+# My blog posts in 2019
+
+```{R message=FALSE ,warning = FALSE}
+my.blog.folder <- getwd()
+post.files <- list.files(path = my.blog.folder, pattern = '.Rmd')
+post.files
+```
+
+```{R message=FALSE ,warning = FALSE}
+#install.packages('tidyverse')
+library(tidyverse)
+read_blog_files <- function(f.in) {
+  
+  my.front.matter <- rmarkdown::yaml_front_matter(f.in)
+
+  df.out <- data_frame(post.title = my.front.matter$title,
+                       post.date = lubridate::ymd(my.front.matter$date),
+                       post.month = as.Date(format(post.date, '%Y-%m-01')),
+                       tags = paste0(my.front.matter$tags, collapse = ';'),
+                       categories = paste0(my.front.matter$categories, collapse = ';'),
+                       content = paste0(read_lines(f.in), collapse = ' '))
+
+  return(df.out)
+}
+
+df.posts <- dplyr::bind_rows(purrr::map(post.files, read_blog_files))
+```
+
+I have 45 posts at 2019.
+
+
+```{R message=FALSE ,warning = FALSE}
+df.posts <- df.posts %>%
+  filter(post.date >= as.Date('2019-01-01'), 
+         post.date <= as.Date('2020-01-01'))
+
+nrow(df.posts)
+
+print( ggplot(df.posts, aes(x = post.month)) + geom_histogram(stat='count') +
+         theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+         labs(y = 'Number of posts', x = ''))
+
+
+```
+
+
+

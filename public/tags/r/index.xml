@@ -69,7 +69,7 @@ JSON API data from https://cranlogs.r-pkg.org/
       <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/object-detection-in-shiny/</guid>
-      <description>Object detection in Shiny.
+      <description>Object detection in Shiny.
 Host in shinyapp.io
 Model:
 Cat vs Dog CNN model
@@ -87,7 +87,7 @@ Model:
       <pubDate>Fri, 02 Feb 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/rstudio-conf-2018/</guid>
-      <description>I segment the talk into following groups:Get,clean,visualize,model,present,other
+      <description>I segment the talk into following groups:Get,clean,visualize,model,present,other
 Rstudio conference 2018 hosted during January 15 - 18 in Austin, TX
 Get:Clean:Visualize:Model:Machine Learning with R and TensorFlow - J.J. ALLAIREReinforcement learning in Minecraft with CNTK-R – Ali-Kazim ZaidiPresent:Other:</description>
     </item>

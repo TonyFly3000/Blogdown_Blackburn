@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/post/year-2019-and-plans-for-2020/</loc>
+    <lastmod>2019-12-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/thai-food/</loc>
+    <lastmod>2019-12-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/happy-christmas-2019/</loc>
     <lastmod>2019-12-06T00:00:00+00:00</lastmod>
   </url>
@@ -539,7 +549,7 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2019-12-06T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -575,7 +585,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-12-06T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
