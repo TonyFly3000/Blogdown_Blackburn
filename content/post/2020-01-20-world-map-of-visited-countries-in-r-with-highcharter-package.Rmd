@@ -1,7 +1,7 @@
 ---
 title: World map of visited  in R with highcharter package
 author: ''
-date: '2020-01-20'
+date: '2018-01-20'
 slug: world-map-of-visited--in-r-with-highcharter-package
 categories: []
 tags: []
@@ -25,11 +25,10 @@ dat <- iso3166
 dat <- rename(dat, "iso-a3" = a3)
 
 countries_regoin_visited<- c('Australia', 'China' ,'Japan','Republic of Korea','Thailand','Vietnam','Malaysia','Singapore','Hong Kong','Taiwan')
-countries_regoin_visited
 
 dat= dat %>% mutate(visited=ifelse(ISOname %in% countries_regoin_visited, 1, 0))     
 
-sum(dat$visited)
+
 ```
 
 
@@ -38,7 +37,7 @@ sum(dat$visited)
 
 ```{r warning=FALSE ,message=FALSE}
 hcmap(
-  map = "custom/world-highres3", # high resolution world map
+  map = "custom/world-palestine-highres", # high resolution world map
   data = dat, # name of dataset
   joinBy = "iso-a3",
   value = "visited",
@@ -49,6 +48,9 @@ hcmap(
   hc_mapNavigation(enabled = FALSE) %>%
   hc_legend("none") %>%
   hc_title(text = "World map") # title
+
+
+
 ```
 
 

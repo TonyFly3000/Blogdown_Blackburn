@@ -7,20 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 20 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>World map of visited  in R with highcharter package</title>
-      <link>/post/world-map-of-visited-in-r-with-highcharter-package/</link>
-      <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/world-map-of-visited-in-r-with-highcharter-package/</guid>
-      <description>Code from Antoine Soeteweyhttps://www.statsandr.com/blog/world-map-of-visited-countries-in-r/
-library(highcharter)library(dplyr)library(maps)dat &amp;lt;- iso3166dat &amp;lt;- rename(dat, &amp;quot;iso-a3&amp;quot; = a3)countries_regoin_visited&amp;lt;- c(&amp;#39;Australia&amp;#39;, &amp;#39;China&amp;#39; ,&amp;#39;Japan&amp;#39;,&amp;#39;Republic of Korea&amp;#39;,&amp;#39;Thailand&amp;#39;,&amp;#39;Vietnam&amp;#39;,&amp;#39;Malaysia&amp;#39;,&amp;#39;Singapore&amp;#39;,&amp;#39;Hong Kong&amp;#39;,&amp;#39;Taiwan&amp;#39;)countries_regoin_visited## [1] &amp;quot;Australia&amp;quot; &amp;quot;China&amp;quot; &amp;quot;Japan&amp;quot; ## [4] &amp;quot;Republic of Korea&amp;quot; &amp;quot;Thailand&amp;quot; &amp;quot;Vietnam&amp;quot; ## [7] &amp;quot;Malaysia&amp;quot; &amp;quot;Singapore&amp;quot; &amp;quot;Hong Kong&amp;quot; ## [10] &amp;quot;Taiwan&amp;quot;dat= dat %&amp;gt;% mutate(visited=ifelse(ISOname %in% countries_regoin_visited, 1, 0)) sum(dat$visited)## [1] 10Coutry,region I have visited:hcmap(map = &amp;quot;custom/world-highres3&amp;quot;, # high resolution world mapdata = dat, # name of datasetjoinBy = &amp;quot;iso-a3&amp;quot;,value = &amp;quot;visited&amp;quot;,showInLegend = FALSE, # hide legendnullColor = &amp;quot;#DADADA&amp;quot;,download_map_data = TRUE) %&amp;gt;%hc_mapNavigation(enabled = FALSE) %&amp;gt;%hc_legend(&amp;quot;none&amp;quot;) %&amp;gt;%hc_title(text = &amp;quot;World map&amp;quot;) # title{&#34;</description>
-    </item>
     
     <item>
       <title>Year 2019 and plans for 2020</title>
@@ -848,6 +838,16 @@ https://www.youtube.com/playlist?list=PLQY2H8rRoyvxjVx3zfw4vA4cvlKogyLNN
       <description>I segment the talk into following groups:Get,clean,visualize,model,present,other
 Rstudio conference 2018 hosted during January 15 - 18 in Austin, TX
 Get:Clean:Visualize:Model:Machine Learning with R and TensorFlow - J.J. ALLAIREReinforcement learning in Minecraft with CNTK-R – Ali-Kazim ZaidiPresent:Other:</description>
+    </item>
+    
+    <item>
+      <title>World map of visited  in R with highcharter package</title>
+      <link>/post/world-map-of-visited-in-r-with-highcharter-package/</link>
+      <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/world-map-of-visited-in-r-with-highcharter-package/</guid>
+      <description>Code from Antoine Soeteweyhttps://www.statsandr.com/blog/world-map-of-visited-countries-in-r/
+library(highcharter)library(dplyr)library(maps)dat &amp;lt;- iso3166dat &amp;lt;- rename(dat, &amp;quot;iso-a3&amp;quot; = a3)countries_regoin_visited&amp;lt;- c(&amp;#39;Australia&amp;#39;, &amp;#39;China&amp;#39; ,&amp;#39;Japan&amp;#39;,&amp;#39;Republic of Korea&amp;#39;,&amp;#39;Thailand&amp;#39;,&amp;#39;Vietnam&amp;#39;,&amp;#39;Malaysia&amp;#39;,&amp;#39;Singapore&amp;#39;,&amp;#39;Hong Kong&amp;#39;,&amp;#39;Taiwan&amp;#39;)dat= dat %&amp;gt;% mutate(visited=ifelse(ISOname %in% countries_regoin_visited, 1, 0)) Coutry,region I have visited:hcmap(map = &amp;quot;custom/world-palestine-highres&amp;quot;, # high resolution world mapdata = dat, # name of datasetjoinBy = &amp;quot;iso-a3&amp;quot;,value = &amp;quot;visited&amp;quot;,showInLegend = FALSE, # hide legendnullColor = &amp;quot;#DADADA&amp;quot;,download_map_data = TRUE) %&amp;gt;%hc_mapNavigation(enabled = FALSE) %&amp;gt;%hc_legend(&amp;quot;none&amp;quot;) %&amp;gt;%hc_title(text = &amp;quot;World map&amp;quot;) # title{&#34;</description>
     </item>
     
     <item>
