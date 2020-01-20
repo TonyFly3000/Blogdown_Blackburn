@@ -16,8 +16,7 @@ https://www.statsandr.com/blog/world-map-of-visited-countries-in-r/
 
 
 
-```{r echo=FALSE,warning=FALSE ,message=FALSE}
-
+```{r warning=FALSE ,message=FALSE}
 library(highcharter)
 library(dplyr)
 library(maps)
@@ -25,10 +24,8 @@ library(maps)
 dat <- iso3166
 dat <- rename(dat, "iso-a3" = a3)
 
-
 countries_regoin_visited<- c('Australia', 'China' ,'Japan','Republic of Korea','Thailand','Vietnam','Malaysia','Singapore','Hong Kong','Taiwan')
 countries_regoin_visited
-
 
 dat= dat %>% mutate(visited=ifelse(ISOname %in% countries_regoin_visited, 1, 0))     
 
@@ -39,8 +36,7 @@ sum(dat$visited)
 # Coutry,region I have visited:
 
 
-```{r echo=FALSE,warning=FALSE ,message=FALSE}
-
+```{r warning=FALSE ,message=FALSE}
 hcmap(
   map = "custom/world-highres3", # high resolution world map
   data = dat, # name of dataset
@@ -53,7 +49,6 @@ hcmap(
   hc_mapNavigation(enabled = FALSE) %>%
   hc_legend("none") %>%
   hc_title(text = "World map") # title
-
 ```
 
 
