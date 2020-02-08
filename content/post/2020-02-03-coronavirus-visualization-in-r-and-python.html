@@ -1,0 +1,162 @@
+---
+title: Coronavirus Visualization in R and Python
+author: ''
+date: '2020-02-03'
+slug: coronavirus-visualization-in-r-and-python
+categories: []
+tags: []
+description: 'Coronavirus Visualization in R and Python'
+topics: []
+---
+
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/plotly-binding/plotly.js"></script>
+<script src="/rmarkdown-libs/typedarray/typedarray.min.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="/rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
+<link href="/rmarkdown-libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/plotly-main/plotly-latest.min.js"></script>
+
+
+<pre class="r"><code>library(reticulate)
+py_run_string(&quot;import os as os&quot;)
+py_run_string(&quot;os.environ[&#39;QT_QPA_PLATFORM_PLUGIN_PATH&#39;] = &#39;C:/Users/User/Anaconda3/Library/plugins/platforms&#39;&quot;)</code></pre>
+<div id="coronavirus-visualization-in-r" class="section level1">
+<h1>1. Coronavirus Visualization in R</h1>
+<pre class="r"><code>library(jsonlite)
+library(ggplot2)
+library(gganimate)
+library(tidyverse)
+library(plotly)</code></pre>
+<pre class="r"><code>url = &#39;https://view.inews.qq.com/g2/getOnsInfo?name=disease_h5&amp;callback=1580373566110&#39;
+data001 = readLines(url, encoding=&quot;UTF-8&quot;)
+data001 = sub(&quot;^\\d+&quot;, &quot;&quot;, data001)
+data001 = sub(&quot;^\\(&quot;, &quot;&quot;, data001)
+data001 = sub(&quot;\\)$&quot;, &quot;&quot;, data001)
+
+data002 = fromJSON(data001)
+data003= fromJSON(data002$data)</code></pre>
+<div id="linechart-with-plotly-package" class="section level2">
+<h2>linechart with plotly package</h2>
+<pre class="r"><code>trend001=data003$chinaDayList
+
+trend001$date_time=as.Date(trend001$date, &quot;%m.%d&quot;)
+trend001$confirm=as.numeric(trend001$confirm)
+trend001$suspect=as.numeric(trend001$suspect)
+trend001$dead=as.numeric(trend001$dead)
+trend001$heal=as.numeric(trend001$heal)
+trend002=trend001 %&gt;% mutate(
+         confirm_growth = confirm - lag(confirm),
+         confirm_change_Rate= confirm_growth /confirm ,
+         suspect_growth = suspect - lag(suspect),
+         suspect_change_Rate= suspect_growth /suspect ,
+         dead_growth = dead - lag(dead),
+         dead_change_Rate= dead_growth /dead ,
+         heal_growth = heal - lag(heal),
+         heal_change_Rate= heal_growth /heal 
+         ) %&gt;% filter(date_time&gt;=&#39;2020-01-15&#39;)
+
+glimpse(trend002)</code></pre>
+<pre><code>## Observations: 23
+## Variables: 16
+## $ confirm             &lt;dbl&gt; 41, 45, 62, 198, 275, 291, 440, 571, 830, 1287,...
+## $ suspect             &lt;dbl&gt; 0, 0, 0, 0, 0, 54, 37, 393, 1072, 1965, 2684, 5...
+## $ dead                &lt;dbl&gt; 2, 2, 2, 3, 4, 6, 9, 17, 25, 41, 56, 80, 106, 1...
+## $ heal                &lt;dbl&gt; 5, 8, 12, 17, 18, 25, 25, 25, 34, 38, 49, 51, 6...
+## $ deadRate            &lt;chr&gt; &quot;4.9&quot;, &quot;4.4&quot;, &quot;3.2&quot;, &quot;1.5&quot;, &quot;1.5&quot;, &quot;2.1&quot;, &quot;2.0&quot;...
+## $ healRate            &lt;chr&gt; &quot;12.2&quot;, &quot;17.8&quot;, &quot;19.4&quot;, &quot;8.6&quot;, &quot;6.5&quot;, &quot;8.6&quot;, &quot;5...
+## $ date                &lt;chr&gt; &quot;01.15&quot;, &quot;01.16&quot;, &quot;01.17&quot;, &quot;01.18&quot;, &quot;01.19&quot;, &quot;0...
+## $ date_time           &lt;date&gt; 2020-01-15, 2020-01-16, 2020-01-17, 2020-01-18...
+## $ confirm_growth      &lt;dbl&gt; 0, 4, 17, 136, 77, 16, 149, 131, 259, 457, 688,...
+## $ confirm_change_Rate &lt;dbl&gt; 0.00000000, 0.08888889, 0.27419355, 0.68686869,...
+## $ suspect_growth      &lt;dbl&gt; 0, 0, 0, 0, 0, 54, -17, 356, 679, 893, 719, 311...
+## $ suspect_change_Rate &lt;dbl&gt; NaN, NaN, NaN, NaN, NaN, 1.000000000, -0.459459...
+## $ dead_growth         &lt;dbl&gt; 1, 0, 0, 1, 1, 2, 3, 8, 8, 16, 15, 24, 26, 26, ...
+## $ dead_change_Rate    &lt;dbl&gt; 0.5000000, 0.0000000, 0.0000000, 0.3333333, 0.2...
+## $ heal_growth         &lt;dbl&gt; 5, 3, 4, 5, 1, 7, 0, 0, 9, 4, 11, 2, 9, 43, 21,...
+## $ heal_change_Rate    &lt;dbl&gt; 1.00000000, 0.37500000, 0.33333333, 0.29411765,...</code></pre>
+<pre class="r"><code>p &lt;- plot_ly(trend001, x = ~date_time, y = ~confirm, name = &#39;confirm&#39;,type = &#39;scatter&#39;, mode = &#39;lines+markers&#39;)%&gt;%add_trace(x = ~date_time, y = ~suspect, name = &#39;suspect&#39;, mode = &#39;lines+markers&#39;) %&gt;% layout(
+    title = &quot;Coronavirus Visualization&quot;,
+      xaxis = list(title = &quot;date&quot;),
+      yaxis = list(title = &quot;person&quot;)
+    )
+p</code></pre>
+<div id="htmlwidget-1" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"visdat":{"352c49475bfa":["function () ","plotlyVisDat"]},"cur_data":"352c49475bfa","attrs":{"352c49475bfa":{"x":{},"y":{},"mode":"lines+markers","name":"confirm","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"},"352c49475bfa.1":{"x":{},"y":{},"mode":"lines+markers","name":"suspect","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Coronavirus Visualization","xaxis":{"domain":[0,1],"automargin":true,"title":"date"},"yaxis":{"domain":[0,1],"automargin":true,"title":"person"},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":["2020-01-13","2020-01-14","2020-01-15","2020-01-16","2020-01-17","2020-01-18","2020-01-19","2020-01-20","2020-01-21","2020-01-22","2020-01-23","2020-01-24","2020-01-25","2020-01-26","2020-01-27","2020-01-28","2020-01-29","2020-01-30","2020-01-31","2020-02-01","2020-02-02","2020-02-03","2020-02-04","2020-02-05","2020-02-06"],"y":[41,41,41,45,62,198,275,291,440,571,830,1287,1975,2744,4515,5974,7711,9692,11791,14380,17236,20471,24363,28060,31211],"mode":"lines+markers","name":"confirm","type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["2020-01-13","2020-01-14","2020-01-15","2020-01-16","2020-01-17","2020-01-18","2020-01-19","2020-01-20","2020-01-21","2020-01-22","2020-01-23","2020-01-24","2020-01-25","2020-01-26","2020-01-27","2020-01-28","2020-01-29","2020-01-30","2020-01-31","2020-02-01","2020-02-02","2020-02-03","2020-02-04","2020-02-05","2020-02-06"],"y":[0,0,0,0,0,0,0,54,37,393,1072,1965,2684,5794,6973,9239,12167,15238,17988,19544,21558,23214,23260,24702,26359],"mode":"lines+markers","name":"suspect","type":"scatter","marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"line":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>p &lt;- plot_ly(trend002, x = ~date_time, y = ~confirm_change_Rate , name = &#39;confirm_change_Rate &#39;,type = &#39;scatter&#39;, mode = &#39;lines+markers&#39;)%&gt;%
+  add_trace(x = ~date_time, y = ~suspect_change_Rate, name = &#39;suspect_change_Rate&#39;, mode = &#39;lines+markers&#39;)%&gt;%
+  add_trace(x = ~date_time, y = ~dead_change_Rate, name = &#39;dead_change_Rate&#39;, mode = &#39;lines+markers&#39;)%&gt;% 
+    add_trace(x = ~date_time, y = ~heal_change_Rate, name = &#39;heal_change_Rate&#39;, mode = &#39;lines+markers&#39;)%&gt;% 
+  layout(
+    title = &quot;Coronavirus Visualization&quot;,
+      xaxis = list(title = &quot;date&quot;),
+      yaxis = list(title = &quot;increase rate compare with last day&quot;)
+    )
+p</code></pre>
+<div id="htmlwidget-2" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"visdat":{"352c49c43b6c":["function () ","plotlyVisDat"]},"cur_data":"352c49c43b6c","attrs":{"352c49c43b6c":{"x":{},"y":{},"mode":"lines+markers","name":"confirm_change_Rate ","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"},"352c49c43b6c.1":{"x":{},"y":{},"mode":"lines+markers","name":"suspect_change_Rate","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","inherit":true},"352c49c43b6c.2":{"x":{},"y":{},"mode":"lines+markers","name":"dead_change_Rate","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","inherit":true},"352c49c43b6c.3":{"x":{},"y":{},"mode":"lines+markers","name":"heal_change_Rate","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Coronavirus Visualization","xaxis":{"domain":[0,1],"automargin":true,"title":"date"},"yaxis":{"domain":[0,1],"automargin":true,"title":"increase rate compare with last day"},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":["2020-01-15","2020-01-16","2020-01-17","2020-01-18","2020-01-19","2020-01-20","2020-01-21","2020-01-22","2020-01-23","2020-01-24","2020-01-25","2020-01-26","2020-01-27","2020-01-28","2020-01-29","2020-01-30","2020-01-31","2020-02-01","2020-02-02","2020-02-03","2020-02-04","2020-02-05","2020-02-06"],"y":[0,0.0888888888888889,0.274193548387097,0.686868686868687,0.28,0.0549828178694158,0.338636363636364,0.229422066549912,0.312048192771084,0.355089355089355,0.348354430379747,0.280247813411079,0.392248062015504,0.244224974891195,0.225262611853197,0.204395377631036,0.178017131710627,0.180041724617524,0.165699698305871,0.158028430462606,0.159750441242868,0.131753385602281,0.100957995578482],"mode":"lines+markers","name":"confirm_change_Rate ","type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["2020-01-20","2020-01-21","2020-01-22","2020-01-23","2020-01-24","2020-01-25","2020-01-26","2020-01-27","2020-01-28","2020-01-29","2020-01-30","2020-01-31","2020-02-01","2020-02-02","2020-02-03","2020-02-04","2020-02-05","2020-02-06"],"y":[1,-0.459459459459459,0.905852417302799,0.63339552238806,0.454452926208651,0.267883755588674,0.536762167759751,0.169080739997132,0.245264639030198,0.240650941070108,0.201535634597716,0.152879697576162,0.0796152271796971,0.09342239539846,0.0713362626001551,0.00197764402407567,0.0583758400129544,0.0628627793163625],"mode":"lines+markers","name":"suspect_change_Rate","type":"scatter","marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"line":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["2020-01-15","2020-01-16","2020-01-17","2020-01-18","2020-01-19","2020-01-20","2020-01-21","2020-01-22","2020-01-23","2020-01-24","2020-01-25","2020-01-26","2020-01-27","2020-01-28","2020-01-29","2020-01-30","2020-01-31","2020-02-01","2020-02-02","2020-02-03","2020-02-04","2020-02-05","2020-02-06"],"y":[0.5,0,0,0.333333333333333,0.25,0.333333333333333,0.333333333333333,0.470588235294118,0.32,0.390243902439024,0.267857142857143,0.3,0.245283018867925,0.196969696969697,0.223529411764706,0.2018779342723,0.177606177606178,0.148026315789474,0.157894736842105,0.150588235294118,0.134419551934827,0.129432624113475,0.114599686028257],"mode":"lines+markers","name":"dead_change_Rate","type":"scatter","marker":{"color":"rgba(44,160,44,1)","line":{"color":"rgba(44,160,44,1)"}},"error_y":{"color":"rgba(44,160,44,1)"},"error_x":{"color":"rgba(44,160,44,1)"},"line":{"color":"rgba(44,160,44,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["2020-01-15","2020-01-16","2020-01-17","2020-01-18","2020-01-19","2020-01-20","2020-01-21","2020-01-22","2020-01-23","2020-01-24","2020-01-25","2020-01-26","2020-01-27","2020-01-28","2020-01-29","2020-01-30","2020-01-31","2020-02-01","2020-02-02","2020-02-03","2020-02-04","2020-02-05","2020-02-06"],"y":[1,0.375,0.333333333333333,0.294117647058824,0.0555555555555556,0.28,0,0,0.264705882352941,0.105263157894737,0.224489795918367,0.0392156862745098,0.15,0.41747572815534,0.169354838709677,0.274853801169591,0.296296296296296,0.259146341463415,0.309473684210526,0.248417721518987,0.291479820627803,0.226366001734605,0.252269779507134],"mode":"lines+markers","name":"heal_change_Rate","type":"scatter","marker":{"color":"rgba(214,39,40,1)","line":{"color":"rgba(214,39,40,1)"}},"error_y":{"color":"rgba(214,39,40,1)"},"error_x":{"color":"rgba(214,39,40,1)"},"line":{"color":"rgba(214,39,40,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="barchart-with-plotly-package" class="section level2">
+<h2>barchart with plotly package</h2>
+<pre class="r"><code>#remotes::install_github(&quot;GuangchuangYu/nCov2019&quot;)
+library(nCov2019)</code></pre>
+<pre class="r"><code>x=get_nCov2019()</code></pre>
+<pre class="r"><code>daily001=get_nCov2019()
+
+time(daily001)</code></pre>
+<pre><code>## [1] &quot;2020-02-08 00:17:08&quot;</code></pre>
+<pre class="r"><code>daily002=daily001[]</code></pre>
+<pre class="r"><code>p &lt;- plot_ly(daily002, x = ~name, y = ~confirm, type = &#39;bar&#39;,text = ~confirm, textposition = &#39;auto&#39;) %&gt;%  
+layout(
+     
+     xaxis = list(title = time(daily001),
+     categoryorder = &quot;confirm_num&quot;,
+     categoryarray = ~name)
+)
+p</code></pre>
+<div id="htmlwidget-3" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3">{"x":{"visdat":{"352c5d652d96":["function () ","plotlyVisDat"]},"cur_data":"352c5d652d96","attrs":{"352c5d652d96":{"x":{},"y":{},"text":{},"textposition":"auto","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"2020-02-08 00:17:08","categoryorder":"confirm_num","categoryarray":["湖北","广东","浙江","河南","湖南","安徽","江西","重庆","江苏","山东","四川","北京","黑龙江","上海","福建","陕西","广西","河北","云南","海南","辽宁","山西","贵州","天津","甘肃","吉林","内蒙古","宁夏","新疆","香港","青海","台湾","澳门","西藏"],"type":"category"},"yaxis":{"domain":[0,1],"automargin":true,"title":"confirm"},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"x":["湖北","广东","浙江","河南","湖南","安徽","江西","重庆","江苏","山东","四川","北京","黑龙江","上海","福建","陕西","广西","河北","云南","海南","辽宁","山西","贵州","天津","甘肃","吉林","内蒙古","宁夏","新疆","香港","青海","台湾","澳门","西藏"],"y":[22112,1034,1006,914,772,665,661,415,408,386,344,297,277,277,224,184,172,172,136,117,99,96,81,81,67,65,50,43,39,25,18,16,10,1],"text":[22112,1034,1006,914,772,665,661,415,408,386,344,297,277,277,224,184,172,172,136,117,99,96,81,81,67,65,50,43,39,25,18,16,10,1],"textposition":["auto","auto","auto","auto","auto","auto","auto","auto","auto","auto","auto","auto","auto","auto","auto","auto","auto","auto","auto","auto","auto","auto","auto","auto","auto","auto","auto","auto","auto","auto","auto","auto","auto","auto"],"type":"bar","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="coronavirus-visualization-in-python" class="section level1">
+<h1>2. Coronavirus Visualization in Python</h1>
+<div id="linechart-with-plotly-package-1" class="section level2">
+<h2>linechart with plotly package</h2>
+<pre class="python"><code>py_trend002=r.trend002
+py_daily002=r.daily002</code></pre>
+<pre class="python"><code>
+import matplotlib as mpl
+mpl.rcParams[&#39;font.sans-serif&#39;] = [&#39;SimHei&#39;]
+mpl.rcParams[&#39;font.serif&#39;] = [&#39;SimHei&#39;]
+import seaborn as sns
+sns.set_style(&quot;darkgrid&quot;,{&quot;font.sans-serif&quot;:[&#39;simhei&#39;, &#39;Arial&#39;]})
+py_daily002.head()</code></pre>
+<pre><code>##   name  confirm  suspect  dead  heal
+## 0   湖北    22112        0   618   817
+## 1   广东     1034        0     1    88
+## 2   浙江     1006        0     0   122
+## 3   河南      914        0     3    84
+## 4   湖南      772        0     0   118</code></pre>
+<pre class="r"><code>#py_install(&quot;seaborn&quot;)</code></pre>
+<pre class="python"><code>import seaborn as sns
+import matplotlib.pyplot as plt
+
+sns.lineplot(x=&quot;date_time&quot;, y=&quot;suspect&quot;,data=py_trend002)
+sns.lineplot(x=&quot;date_time&quot;, y=&quot;dead&quot;,data=py_trend002).set_title(&quot;Coronavirus&quot;)
+plt.legend(title=&#39;&#39;, loc=&#39;upper left&#39;, labels=[&#39;suspecth&#39;, &#39;dead&#39;])
+plt.tight_layout()
+plt.show()</code></pre>
+<p><img src="/post/2020-02-03-coronavirus-visualization-in-r-and-python_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<pre class="python"><code>
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+chart=sns.barplot(x=&#39;name&#39;, y=&#39;confirm&#39;, palette=&quot;rocket&quot;,data=py_daily002)
+
+chart.set_xticklabels(chart.get_xticklabels(), rotation=90)</code></pre>
+<pre><code>## [Text(0, 0, &#39;上海&#39;), Text(0, 0, &#39;云南&#39;), Text(0, 0, &#39;内蒙古&#39;), Text(0, 0, &#39;北京&#39;), Text(0, 0, &#39;台湾&#39;), Text(0, 0, &#39;吉林&#39;), Text(0, 0, &#39;四川&#39;), Text(0, 0, &#39;天津&#39;), Text(0, 0, &#39;宁夏&#39;), Text(0, 0, &#39;安徽&#39;), Text(0, 0, &#39;山东&#39;), Text(0, 0, &#39;山西&#39;), Text(0, 0, &#39;广东&#39;), Text(0, 0, &#39;广西&#39;), Text(0, 0, &#39;新疆&#39;), Text(0, 0, &#39;江苏&#39;), Text(0, 0, &#39;江西&#39;), Text(0, 0, &#39;河北&#39;), Text(0, 0, &#39;河南&#39;), Text(0, 0, &#39;浙江&#39;), Text(0, 0, &#39;海南&#39;), Text(0, 0, &#39;湖北&#39;), Text(0, 0, &#39;湖南&#39;), Text(0, 0, &#39;澳门&#39;), Text(0, 0, &#39;甘肃&#39;), Text(0, 0, &#39;福建&#39;), Text(0, 0, &#39;西藏&#39;), Text(0, 0, &#39;贵州&#39;), Text(0, 0, &#39;辽宁&#39;), Text(0, 0, &#39;重庆&#39;), Text(0, 0, &#39;陕西&#39;), Text(0, 0, &#39;青海&#39;), Text(0, 0, &#39;香港&#39;), Text(0, 0, &#39;黑龙江&#39;)]</code></pre>
+<pre class="python"><code>plt.show()</code></pre>
+<p><img src="/post/2020-02-03-coronavirus-visualization-in-r-and-python_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+</div>
+</div>

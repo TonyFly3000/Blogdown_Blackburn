@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 24 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 03 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Coronavirus Visualization in R and Python</title>
+      <link>/post/coronavirus-visualization-in-r-and-python/</link>
+      <pubDate>Mon, 03 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/coronavirus-visualization-in-r-and-python/</guid>
+      <description>library(reticulate)py_run_string(&amp;quot;import os as os&amp;quot;)py_run_string(&amp;quot;os.environ[&amp;#39;QT_QPA_PLATFORM_PLUGIN_PATH&amp;#39;] = &amp;#39;C:/Users/User/Anaconda3/Library/plugins/platforms&amp;#39;&amp;quot;)1. Coronavirus Visualization in Rlibrary(jsonlite)library(ggplot2)library(gganimate)library(tidyverse)library(plotly)url = &amp;#39;https://view.inews.qq.com/g2/getOnsInfo?name=disease_h5&amp;amp;callback=1580373566110&amp;#39;data001 = readLines(url, encoding=&amp;quot;UTF-8&amp;quot;)data001 = sub(&amp;quot;^\\d+&amp;quot;, &amp;quot;&amp;quot;, data001)data001 = sub(&amp;quot;^\\(&amp;quot;, &amp;quot;&amp;quot;, data001)data001 = sub(&amp;quot;\\)$&amp;quot;, &amp;quot;&amp;quot;, data001)data002 = fromJSON(data001)data003= fromJSON(data002$data)linechart with plotly packagetrend001=data003$chinaDayListtrend001$date_time=as.Date(trend001$date, &amp;quot;%m.%d&amp;quot;)trend001$confirm=as.numeric(trend001$confirm)trend001$suspect=as.numeric(trend001$suspect)trend001$dead=as.numeric(trend001$dead)trend001$heal=as.numeric(trend001$heal)trend002=trend001 %&amp;gt;% mutate(confirm_growth = confirm - lag(confirm),confirm_change_Rate= confirm_growth /confirm ,suspect_growth = suspect - lag(suspect),suspect_change_Rate= suspect_growth /suspect ,dead_growth = dead - lag(dead),dead_change_Rate= dead_growth /dead ,heal_growth = heal - lag(heal),heal_change_Rate= heal_growth /heal ) %&amp;gt;% filter(date_time&amp;gt;=&amp;#39;2020-01-15&amp;#39;)glimpse(trend002)## Observations: 23## Variables: 16## $ confirm &amp;lt;dbl&amp;gt; 41, 45, 62, 198, 275, 291, 440, 571, 830, 1287,.</description>
+    </item>
     
     <item>
       <title>Year 2019 and plans for 2020</title>
