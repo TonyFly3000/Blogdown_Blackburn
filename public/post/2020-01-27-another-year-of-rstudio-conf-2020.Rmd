@@ -1,0 +1,136 @@
+---
+title: Another year of rstudio conf 2020
+author: ''
+date: '2020-01-27'
+slug: another-year-of-rstudio-conf-2020
+categories: []
+tags: []
+description: 'Another year of rstudio conf 2020'
+topics: []
+---
+
+I segment the talk into following groups:Get,clean,visualize,model,present,other 
+
+[Rstudio conference 2020](https://resources.rstudio.com/rstudio-conf-2020) hosted during January 15 - 18 in Austin, TX
+
+[Rstudio conference 2021](https://www.rstudio.com/conference/) will be hosted in San Orlando, Fl January 18-21,2021
+
+
+'If you never miss a flight, you are spending too much time in the airport'
+
+
+
+# Get 
+
+
+
+## Bridging the Gap between SQL and R - Ian Cook
+
+https://resources.rstudio.com/rstudio-conf-2020/bridging-the-gap-between-sql-and-r-ian-cook
+
+translate SQL to R code with tidyquery package.
+
+
+library(tidyquery)
+library(nycflights13)
+
+query(
+" SELECT origin, dest,
+    COUNT(flight) AS num_flts,
+    round(SUM(seats)) AS num_seats,
+    round(AVG(arr_delay)) AS avg_delay
+  FROM flights f LEFT OUTER JOIN planes p
+    ON f.tailnum = p.tailnum
+  WHERE distance BETWEEN 200 AND 300
+    AND air_time IS NOT NULL
+  GROUP BY origin, dest
+  HAVING num_flts > 3000
+  ORDER BY num_seats DESC, avg_delay ASC
+  LIMIT 2;"
+)
+
+
+airports %>%
+  query("SELECT name, lat, lon ORDER BY lat DESC LIMIT 5")
+  
+show_dplyr(
+" SELECT manufacturer, 
+    COUNT(*) AS num_planes
+  FROM planes
+  WHERE engine = 'Turbo-fan'
+  GROUP BY manufacturer
+  ORDER BY num_planes DESC;"
+)  
+  
+https://github.com/ianmcook/tidyquery
+
+
+
+
+
+
+
+
+
+
+# clean
+
+
+
+
+
+# visualize
+
+
+
+
+# model
+
+## Total Tidy Tuning Techniques - Max Kuhn
+
+
+https://resources.rstudio.com/rstudio-conf-2020/total-tidy-tuning-techniques-max-kuhn
+
+
+# present
+
+
+## Styling Shiny apps with Sass and Bootstrap 4 - Joe Cheng
+
+https://resources.rstudio.com/rstudio-conf-2020/styling-shiny-apps-with-sass-and-bootstrap-4-joe-cheng
+
+
+1.change shiny display by bootstraplib package
+2.review shiny dispaly by run_with_themer()
+3.change ggplot align with shiny themes by shinyOption(plot.autocolors=TRUE)
+
+
+
+
+
+## Production-grade Shiny Apps with golem - Colin Fay & Vincent Guyader
+
+https://resources.rstudio.com/rstudio-conf-2020/production-grade-shiny-apps-with-golem-colin-fay
+
+
+
+
+# other
+
+## Open Source Software for Data Science - J.J. Allaire
+https://resources.rstudio.com/rstudio-conf-2020/rstudio-open-source-software-for-data-science-j-j-allaire
+
+
+Rstudio move to a Benefit corporaction which must account for stakeholders(shareholders.,community,employees,ect) in their decision.
+
+![](/post/another-year-of-rstudio-conf-2020/001.png){width=500px height=400px}
+
+
+## Value in Data Science Beyond Models in Production - Eduardo Ariño de la Rubia
+
+https://resources.rstudio.com/rstudio-conf-2020/value-in-data-science-beyond-models-in-production-eduardo-arino-de-la-rubia
+
+
+
+
+

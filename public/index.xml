@@ -22,6 +22,22 @@
     </item>
     
     <item>
+      <title>Another year of rstudio conf 2020</title>
+      <link>/post/another-year-of-rstudio-conf-2020/</link>
+      <pubDate>Mon, 27 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/another-year-of-rstudio-conf-2020/</guid>
+      <description>I segment the talk into following groups:Get,clean,visualize,model,present,other
+Rstudio conference 2020 hosted during January 15 - 18 in Austin, TX
+Rstudio conference 2021 will be hosted in San Orlando, Fl January 18-21,2021
+‘If you never miss a flight, you are spending too much time in the airport’
+GetBridging the Gap between SQL and R - Ian Cookhttps://resources.rstudio.com/rstudio-conf-2020/bridging-the-gap-between-sql-and-r-ian-cook
+translate SQL to R code with tidyquery package.
+library(tidyquery)library(nycflights13)
+query(&#34; SELECT origin, dest,COUNT(flight) AS num_flts,round(SUM(seats)) AS num_seats,round(AVG(arr_delay)) AS avg_delayFROM flights f LEFT OUTER JOIN planes pON f.</description>
+    </item>
+    
+    <item>
       <title>Year 2019 and plans for 2020</title>
       <link>/post/year-2019-and-plans-for-2020/</link>
       <pubDate>Tue, 24 Dec 2019 00:00:00 +0000</pubDate>
@@ -953,6 +969,16 @@ https://www.youtube.com/playlist?list=PLQY2H8rRoyvxjVx3zfw4vA4cvlKogyLNN
       <description>I segment the talk into following groups:Get,clean,visualize,model,present,other
 Rstudio conference 2018 hosted during January 15 - 18 in Austin, TX
 Get:Clean:Visualize:Model:Machine Learning with R and TensorFlow - J.J. ALLAIREReinforcement learning in Minecraft with CNTK-R – Ali-Kazim ZaidiPresent:Other:</description>
+    </item>
+    
+    <item>
+      <title>World map of visited  in R with highcharter package</title>
+      <link>/post/world-map-of-visited--in-r-with-highcharter-package/</link>
+      <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/world-map-of-visited--in-r-with-highcharter-package/</guid>
+      <description>Code from Antoine Soeteweyhttps://www.statsandr.com/blog/world-map-of-visited-countries-in-r/
+library(highcharter)library(dplyr)library(maps)dat &amp;lt;- iso3166dat &amp;lt;- rename(dat, &amp;quot;iso-a3&amp;quot; = a3)countries_regoin_visited&amp;lt;- c(&amp;#39;Australia&amp;#39;, &amp;#39;China&amp;#39; ,&amp;#39;Japan&amp;#39;,&amp;#39;Republic of Korea&amp;#39;,&amp;#39;Thailand&amp;#39;,&amp;#39;Vietnam&amp;#39;,&amp;#39;Malaysia&amp;#39;,&amp;#39;Singapore&amp;#39;,&amp;#39;Hong Kong&amp;#39;,&amp;#39;Taiwan&amp;#39;)dat= dat %&amp;gt;% mutate(visited=ifelse(ISOname %in% countries_regoin_visited, 1, 0)) Coutry,region I have visited:hcmap(map = &amp;quot;custom/world-palestine-highres&amp;quot;, # high resolution world mapdata = dat, # name of datasetjoinBy = &amp;quot;iso-a3&amp;quot;,value = &amp;quot;visited&amp;quot;,showInLegend = FALSE, # hide legendnullColor = &amp;quot;#DADADA&amp;quot;,download_map_data = TRUE) %&amp;gt;%hc_mapNavigation(enabled = FALSE) %&amp;gt;%hc_legend(&amp;quot;none&amp;quot;) %&amp;gt;%hc_title(text = &amp;quot;World map&amp;quot;) # title{&#34;</description>
     </item>
     
     <item>

@@ -1,0 +1,92 @@
+---
+title: Another year of rstudio conf 2020
+author: ''
+date: '2020-01-27'
+slug: another-year-of-rstudio-conf-2020
+categories: []
+tags: []
+description: 'Another year of rstudio conf 2020'
+topics: []
+---
+
+
+
+<p>I segment the talk into following groups:Get,clean,visualize,model,present,other</p>
+<p><a href="https://resources.rstudio.com/rstudio-conf-2020">Rstudio conference 2020</a> hosted during January 15 - 18 in Austin, TX</p>
+<p><a href="https://www.rstudio.com/conference/">Rstudio conference 2021</a> will be hosted in San Orlando, Fl January 18-21,2021</p>
+<p>‘If you never miss a flight, you are spending too much time in the airport’</p>
+<div id="get" class="section level1">
+<h1>Get</h1>
+<div id="bridging-the-gap-between-sql-and-r---ian-cook" class="section level2">
+<h2>Bridging the Gap between SQL and R - Ian Cook</h2>
+<p><a href="https://resources.rstudio.com/rstudio-conf-2020/bridging-the-gap-between-sql-and-r-ian-cook" class="uri">https://resources.rstudio.com/rstudio-conf-2020/bridging-the-gap-between-sql-and-r-ian-cook</a></p>
+<p>translate SQL to R code with tidyquery package.</p>
+<p>library(tidyquery)
+library(nycflights13)</p>
+<p>query(
+" SELECT origin, dest,
+COUNT(flight) AS num_flts,
+round(SUM(seats)) AS num_seats,
+round(AVG(arr_delay)) AS avg_delay
+FROM flights f LEFT OUTER JOIN planes p
+ON f.tailnum = p.tailnum
+WHERE distance BETWEEN 200 AND 300
+AND air_time IS NOT NULL
+GROUP BY origin, dest
+HAVING num_flts &gt; 3000
+ORDER BY num_seats DESC, avg_delay ASC
+LIMIT 2;"
+)</p>
+<p>airports %&gt;%
+query(“SELECT name, lat, lon ORDER BY lat DESC LIMIT 5”)</p>
+<p>show_dplyr(
+" SELECT manufacturer,
+COUNT(*) AS num_planes
+FROM planes
+WHERE engine = ‘Turbo-fan’
+GROUP BY manufacturer
+ORDER BY num_planes DESC;"
+)</p>
+<p><a href="https://github.com/ianmcook/tidyquery" class="uri">https://github.com/ianmcook/tidyquery</a></p>
+</div>
+</div>
+<div id="clean" class="section level1">
+<h1>clean</h1>
+</div>
+<div id="visualize" class="section level1">
+<h1>visualize</h1>
+</div>
+<div id="model" class="section level1">
+<h1>model</h1>
+<div id="total-tidy-tuning-techniques---max-kuhn" class="section level2">
+<h2>Total Tidy Tuning Techniques - Max Kuhn</h2>
+<p><a href="https://resources.rstudio.com/rstudio-conf-2020/total-tidy-tuning-techniques-max-kuhn" class="uri">https://resources.rstudio.com/rstudio-conf-2020/total-tidy-tuning-techniques-max-kuhn</a></p>
+</div>
+</div>
+<div id="present" class="section level1">
+<h1>present</h1>
+<div id="styling-shiny-apps-with-sass-and-bootstrap-4---joe-cheng" class="section level2">
+<h2>Styling Shiny apps with Sass and Bootstrap 4 - Joe Cheng</h2>
+<p><a href="https://resources.rstudio.com/rstudio-conf-2020/styling-shiny-apps-with-sass-and-bootstrap-4-joe-cheng" class="uri">https://resources.rstudio.com/rstudio-conf-2020/styling-shiny-apps-with-sass-and-bootstrap-4-joe-cheng</a></p>
+<p>1.change shiny display by bootstraplib package
+2.review shiny dispaly by run_with_themer()
+3.change ggplot align with shiny themes by shinyOption(plot.autocolors=TRUE)</p>
+</div>
+<div id="production-grade-shiny-apps-with-golem---colin-fay-vincent-guyader" class="section level2">
+<h2>Production-grade Shiny Apps with golem - Colin Fay &amp; Vincent Guyader</h2>
+<p><a href="https://resources.rstudio.com/rstudio-conf-2020/production-grade-shiny-apps-with-golem-colin-fay" class="uri">https://resources.rstudio.com/rstudio-conf-2020/production-grade-shiny-apps-with-golem-colin-fay</a></p>
+</div>
+</div>
+<div id="other" class="section level1">
+<h1>other</h1>
+<div id="open-source-software-for-data-science---j.j.-allaire" class="section level2">
+<h2>Open Source Software for Data Science - J.J. Allaire</h2>
+<p><a href="https://resources.rstudio.com/rstudio-conf-2020/rstudio-open-source-software-for-data-science-j-j-allaire" class="uri">https://resources.rstudio.com/rstudio-conf-2020/rstudio-open-source-software-for-data-science-j-j-allaire</a></p>
+<p>Rstudio move to a Benefit corporaction which must account for stakeholders(shareholders.,community,employees,ect) in their decision.</p>
+<p><img src="/post/another-year-of-rstudio-conf-2020/001.png" width="500" height="400" /></p>
+</div>
+<div id="value-in-data-science-beyond-models-in-production---eduardo-ariño-de-la-rubia" class="section level2">
+<h2>Value in Data Science Beyond Models in Production - Eduardo Ariño de la Rubia</h2>
+<p><a href="https://resources.rstudio.com/rstudio-conf-2020/value-in-data-science-beyond-models-in-production-eduardo-arino-de-la-rubia" class="uri">https://resources.rstudio.com/rstudio-conf-2020/value-in-data-science-beyond-models-in-production-eduardo-arino-de-la-rubia</a></p>
+</div>
+</div>

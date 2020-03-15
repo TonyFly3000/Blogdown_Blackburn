@@ -1,0 +1,57 @@
+---
+title: World map of visited  in R with highcharter package
+author: ''
+date: '2018-01-20'
+slug: world-map-of-visited--in-r-with-highcharter-package
+categories: []
+tags: []
+description: 'World map of visited in R with highcharter package'
+topics: []
+---
+
+
+
+Code from Antoine Soetewey
+https://www.statsandr.com/blog/world-map-of-visited-countries-in-r/
+
+
+
+```{r warning=FALSE ,message=FALSE}
+library(highcharter)
+library(dplyr)
+library(maps)
+
+dat <- iso3166
+dat <- rename(dat, "iso-a3" = a3)
+
+countries_regoin_visited<- c('Australia', 'China' ,'Japan','Republic of Korea','Thailand','Vietnam','Malaysia','Singapore','Hong Kong','Taiwan')
+
+dat= dat %>% mutate(visited=ifelse(ISOname %in% countries_regoin_visited, 1, 0))     
+
+
+```
+
+
+# Coutry,region I have visited:
+
+
+```{r warning=FALSE ,message=FALSE}
+hcmap(
+  map = "custom/world-palestine-highres", # high resolution world map
+  data = dat, # name of dataset
+  joinBy = "iso-a3",
+  value = "visited",
+  showInLegend = FALSE, # hide legend
+  nullColor = "#DADADA",
+  download_map_data = TRUE
+) %>%
+  hc_mapNavigation(enabled = FALSE) %>%
+  hc_legend("none") %>%
+  hc_title(text = "World map") # title
+
+
+
+```
+
+
+

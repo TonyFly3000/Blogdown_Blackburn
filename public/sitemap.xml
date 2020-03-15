@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>/post/another-year-of-rstudio-conf-2020/</loc>
+    <lastmod>2020-01-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/year-2019-and-plans-for-2020/</loc>
     <lastmod>2019-12-24T00:00:00+00:00</lastmod>
   </url>
@@ -400,6 +405,11 @@
   <url>
     <loc>/post/rstudio-conf-2018/</loc>
     <lastmod>2018-02-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/world-map-of-visited--in-r-with-highcharter-package/</loc>
+    <lastmod>2018-01-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
