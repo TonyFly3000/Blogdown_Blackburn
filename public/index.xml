@@ -33,8 +33,7 @@ Rstudio conference 2021 will be hosted in San Orlando, Fl January 18-21,2021
 ‘If you never miss a flight, you are spending too much time in the airport’
 GetBridging the Gap between SQL and R - Ian Cookhttps://resources.rstudio.com/rstudio-conf-2020/bridging-the-gap-between-sql-and-r-ian-cook
 translate SQL to R code with tidyquery package.
-library(tidyquery)library(nycflights13)
-query(&#34; SELECT origin, dest,COUNT(flight) AS num_flts,round(SUM(seats)) AS num_seats,round(AVG(arr_delay)) AS avg_delayFROM flights f LEFT OUTER JOIN planes pON f.</description>
+library(tidyquery)library(nycflights13)query(&amp;quot; SELECT origin, dest,COUNT(flight) AS num_flts,round(SUM(seats)) AS num_seats,round(AVG(arr_delay)) AS avg_delayFROM flights f LEFT OUTER JOIN planes pON f.</description>
     </item>
     
     <item>

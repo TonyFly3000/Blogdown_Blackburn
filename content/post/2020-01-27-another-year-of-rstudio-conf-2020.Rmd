@@ -30,7 +30,7 @@ https://resources.rstudio.com/rstudio-conf-2020/bridging-the-gap-between-sql-and
 
 translate SQL to R code with tidyquery package.
 
-
+```{R message=FALSE ,eval=FALSE}
 library(tidyquery)
 library(nycflights13)
 
@@ -61,7 +61,8 @@ show_dplyr(
   GROUP BY manufacturer
   ORDER BY num_planes DESC;"
 )  
-  
+
+```
 https://github.com/ianmcook/tidyquery
 
 
@@ -113,6 +114,19 @@ https://resources.rstudio.com/rstudio-conf-2020/styling-shiny-apps-with-sass-and
 https://resources.rstudio.com/rstudio-conf-2020/production-grade-shiny-apps-with-golem-colin-fay
 
 
+## Becoming an R blogger BY Rebecca Barter
+
+https://resources.rstudio.com/rstudio-conf-2020/rebecca-barter
+
+
+1. To lean
+2. Portfoil & exposure
+3. to practice communication skill
+4. procrastination
+
+![](/post/another-year-of-rstudio-conf-2020/002.png){width=550px height=400px}
+
+
 
 
 # other
@@ -123,7 +137,7 @@ https://resources.rstudio.com/rstudio-conf-2020/rstudio-open-source-software-for
 
 Rstudio move to a Benefit corporaction which must account for stakeholders(shareholders.,community,employees,ect) in their decision.
 
-![](/post/another-year-of-rstudio-conf-2020/001.png){width=500px height=400px}
+![](/post/another-year-of-rstudio-conf-2020/001.png){width=550px height=400px}
 
 
 ## Value in Data Science Beyond Models in Production - Eduardo Ariño de la Rubia

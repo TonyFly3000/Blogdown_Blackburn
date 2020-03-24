@@ -21,32 +21,36 @@ topics: []
 <h2>Bridging the Gap between SQL and R - Ian Cook</h2>
 <p><a href="https://resources.rstudio.com/rstudio-conf-2020/bridging-the-gap-between-sql-and-r-ian-cook" class="uri">https://resources.rstudio.com/rstudio-conf-2020/bridging-the-gap-between-sql-and-r-ian-cook</a></p>
 <p>translate SQL to R code with tidyquery package.</p>
-<p>library(tidyquery)
-library(nycflights13)</p>
-<p>query(
-" SELECT origin, dest,
-COUNT(flight) AS num_flts,
-round(SUM(seats)) AS num_seats,
-round(AVG(arr_delay)) AS avg_delay
-FROM flights f LEFT OUTER JOIN planes p
-ON f.tailnum = p.tailnum
-WHERE distance BETWEEN 200 AND 300
-AND air_time IS NOT NULL
-GROUP BY origin, dest
-HAVING num_flts &gt; 3000
-ORDER BY num_seats DESC, avg_delay ASC
-LIMIT 2;"
-)</p>
-<p>airports %&gt;%
-query(“SELECT name, lat, lon ORDER BY lat DESC LIMIT 5”)</p>
-<p>show_dplyr(
-" SELECT manufacturer,
-COUNT(*) AS num_planes
-FROM planes
-WHERE engine = ‘Turbo-fan’
-GROUP BY manufacturer
-ORDER BY num_planes DESC;"
-)</p>
+<pre class="r"><code>library(tidyquery)
+library(nycflights13)
+
+query(
+&quot; SELECT origin, dest,
+    COUNT(flight) AS num_flts,
+    round(SUM(seats)) AS num_seats,
+    round(AVG(arr_delay)) AS avg_delay
+  FROM flights f LEFT OUTER JOIN planes p
+    ON f.tailnum = p.tailnum
+  WHERE distance BETWEEN 200 AND 300
+    AND air_time IS NOT NULL
+  GROUP BY origin, dest
+  HAVING num_flts &gt; 3000
+  ORDER BY num_seats DESC, avg_delay ASC
+  LIMIT 2;&quot;
+)
+
+
+airports %&gt;%
+  query(&quot;SELECT name, lat, lon ORDER BY lat DESC LIMIT 5&quot;)
+  
+show_dplyr(
+&quot; SELECT manufacturer, 
+    COUNT(*) AS num_planes
+  FROM planes
+  WHERE engine = &#39;Turbo-fan&#39;
+  GROUP BY manufacturer
+  ORDER BY num_planes DESC;&quot;
+)  </code></pre>
 <p><a href="https://github.com/ianmcook/tidyquery" class="uri">https://github.com/ianmcook/tidyquery</a></p>
 </div>
 </div>
@@ -76,6 +80,17 @@ ORDER BY num_planes DESC;"
 <h2>Production-grade Shiny Apps with golem - Colin Fay &amp; Vincent Guyader</h2>
 <p><a href="https://resources.rstudio.com/rstudio-conf-2020/production-grade-shiny-apps-with-golem-colin-fay" class="uri">https://resources.rstudio.com/rstudio-conf-2020/production-grade-shiny-apps-with-golem-colin-fay</a></p>
 </div>
+<div id="becoming-an-r-blogger-by-rebecca-barter" class="section level2">
+<h2>Becoming an R blogger BY Rebecca Barter</h2>
+<p><a href="https://resources.rstudio.com/rstudio-conf-2020/rebecca-barter" class="uri">https://resources.rstudio.com/rstudio-conf-2020/rebecca-barter</a></p>
+<ol style="list-style-type: decimal">
+<li>To lean</li>
+<li>Portfoil &amp; exposure</li>
+<li>to practice communication skill</li>
+<li>procrastination</li>
+</ol>
+<p><img src="/post/another-year-of-rstudio-conf-2020/002.png" width="550" height="400" /></p>
+</div>
 </div>
 <div id="other" class="section level1">
 <h1>other</h1>
@@ -83,7 +98,7 @@ ORDER BY num_planes DESC;"
 <h2>Open Source Software for Data Science - J.J. Allaire</h2>
 <p><a href="https://resources.rstudio.com/rstudio-conf-2020/rstudio-open-source-software-for-data-science-j-j-allaire" class="uri">https://resources.rstudio.com/rstudio-conf-2020/rstudio-open-source-software-for-data-science-j-j-allaire</a></p>
 <p>Rstudio move to a Benefit corporaction which must account for stakeholders(shareholders.,community,employees,ect) in their decision.</p>
-<p><img src="/post/another-year-of-rstudio-conf-2020/001.png" width="500" height="400" /></p>
+<p><img src="/post/another-year-of-rstudio-conf-2020/001.png" width="550" height="400" /></p>
 </div>
 <div id="value-in-data-science-beyond-models-in-production---eduardo-ariño-de-la-rubia" class="section level2">
 <h2>Value in Data Science Beyond Models in Production - Eduardo Ariño de la Rubia</h2>
