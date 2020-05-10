@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 03 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Old times Good times</title>
+      <link>/post/old-times-good-times/</link>
+      <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/old-times-good-times/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mask on ,Virus out </title>
+      <link>/post/mask-on-virus-out/</link>
+      <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/mask-on-virus-out/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Coronavirus Visualization in R and Python</title>
@@ -31,7 +49,7 @@
 Rstudio conference 2020 hosted during January 15 - 18 in Austin, TX
 Rstudio conference 2021 will be hosted in San Orlando, Fl January 18-21,2021
 ‘If you never miss a flight, you are spending too much time in the airport’
-GetBridging the Gap between SQL and R - Ian Cookhttps://resources.rstudio.com/rstudio-conf-2020/bridging-the-gap-between-sql-and-r-ian-cook
+1 GetBridging the Gap between SQL and R - Ian Cookhttps://resources.rstudio.com/rstudio-conf-2020/bridging-the-gap-between-sql-and-r-ian-cook
 translate SQL to R code with tidyquery package.
 library(tidyquery)library(nycflights13)query(&amp;quot; SELECT origin, dest,COUNT(flight) AS num_flts,round(SUM(seats)) AS num_seats,round(AVG(arr_delay)) AS avg_delayFROM flights f LEFT OUTER JOIN planes pON f.</description>
     </item>
@@ -480,6 +498,7 @@ P0.ipynb
       <description>Tensorflow user group first event @ Wework
 活动行：https://www.huodongxing.com/event/2482903677300
 活动PPT：https://github.com/TonyFly3000/TFUG_Shenzhen
+
 微信公众号文章</description>
     </item>
     
@@ -500,6 +519,7 @@ P0.ipynb
       <guid>/post/pydata-hk-meetup-feb2019/</guid>
       <description>https://www.meetup.com/PyData-Hong-Kong/events/258897818/
 Making the Big Data ecosystem work together with Python: Apache Arrow, Spark, Flink, Beam, and Dask by Holden Karau
+@ HK polytechnic U
 Cheess toastCheess noddle</description>
     </item>
     

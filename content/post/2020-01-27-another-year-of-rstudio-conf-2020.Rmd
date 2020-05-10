@@ -20,7 +20,7 @@ I segment the talk into following groups:Get,clean,visualize,model,present,other
 
 
 
-# Get 
+# 1 Get 
 
 
 
@@ -74,18 +74,18 @@ https://github.com/ianmcook/tidyquery
 
 
 
-# clean
+# 2 clean
 
 
 
 
 
-# visualize
+# 3 visualize
 
 
 
 
-# model
+# 4 model
 
 ## Total Tidy Tuning Techniques - Max Kuhn
 
@@ -93,7 +93,7 @@ https://github.com/ianmcook/tidyquery
 https://resources.rstudio.com/rstudio-conf-2020/total-tidy-tuning-techniques-max-kuhn
 
 
-# present
+# 5 present
 
 
 ## Styling Shiny apps with Sass and Bootstrap 4 - Joe Cheng
@@ -104,8 +104,6 @@ https://resources.rstudio.com/rstudio-conf-2020/styling-shiny-apps-with-sass-and
 1.change shiny display by bootstraplib package
 2.review shiny dispaly by run_with_themer()
 3.change ggplot align with shiny themes by shinyOption(plot.autocolors=TRUE)
-
-
 
 
 

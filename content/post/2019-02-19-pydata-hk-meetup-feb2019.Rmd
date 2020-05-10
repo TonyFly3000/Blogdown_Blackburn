@@ -14,6 +14,9 @@ https://www.meetup.com/PyData-Hong-Kong/events/258897818/
 Making the Big Data ecosystem work together with Python: Apache Arrow, Spark, Flink, Beam, and Dask by Holden Karau
 
 
+@ HK polytechnic U
+
+![](/post\pydata-hk-meetup-feb2019/IMG_0975.jpeg){width=700px height=500px}
 
 ![](/post\pydata-hk-meetup-feb2019/IMG_1718.jpeg){width=700px height=500px}
 
